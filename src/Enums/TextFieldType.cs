@@ -1,6 +1,6 @@
 namespace ChatAIze.DopamineUI.Enums;
 
-public enum TextBoxType
+public enum TextFieldType
 {
     Default,
     Search,

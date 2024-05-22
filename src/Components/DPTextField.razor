@@ -1,0 +1,186 @@
+<div>
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
+        <label for="@_id" class="flex items-center px-3 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none">
+            <span class="@ActualLabelStyle">@Label</span>
+            <span class="@ActualEditIndicatorStyle">•</span>
+            <span class="@ActualEditIndicatorStyle">EDITED</span>
+        </label>
+    }
+    <div class="relative inline-flex w-full sm:w-auto">
+        <input id="@_id" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @oninput="UpdateValuePreview" />
+        @if (IsLoading)
+        {
+            <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute top-0 right-0 p-1 mt-3 mr-3 rounded-lg backdrop-blur" />
+        }
+    </div>
+</div>
+
+@code {
+    private const string LabelDefaultStyle = "dark:text-white";
+    private const string LabelDisabledStyle = "text-neutral-400 dark:text-neutral-500";
+    private const string EditIndicatorBaseStyle = "text-xs transition-all duration-300 ease-in-out select-none";
+    private const string EditIndicatorDefaultStyle = EditIndicatorBaseStyle + " text-neutral-400 dark:text-neutral-500";
+    private const string EditIndicatorInactiveStyle = EditIndicatorBaseStyle + " opacity-0";
+    private const string EditIndicatorDisabledStyle = EditIndicatorBaseStyle + " text-neutral-300 dark:text-neutral-600";
+    private const string InputBaseStyle = "mt-1 px-3 py-2 border rounded-lg shadow-sm transition-all duration-300 ease-in-out";
+    private const string InputDefaultStyle = InputBaseStyle + " bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-white";
+    private const string InputLoadingStyle = InputBaseStyle + " bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 select-none cursor-wait animate-pulse";
+    private const string InputDisabledStyle = InputBaseStyle + " bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 select-none cursor-not-allowed";
+
+    private readonly Guid _id = Guid.NewGuid();
+
+    private string _actualValue = string.Empty;
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public string? ValuePreview { get; set; }
+
+    [Parameter]
+    public TextFieldType Type { get; set; }
+
+    [Parameter]
+    public int Size { get; set; } = 25;
+
+    [Parameter]
+    public int MaxLength { get; set; } = 100;
+
+    [Parameter]
+    public bool IsLowercase { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsReadOnly { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValuePreviewChanged { get; set; }
+
+    private string ActualInputType
+    {
+        get
+        {
+            return Type switch
+            {
+                TextFieldType.Search => "search",
+                TextFieldType.URL => "url",
+                TextFieldType.Phone => "tel",
+                TextFieldType.Email => "email",
+                TextFieldType.Password => "password",
+                _ => "text",
+            };
+        }
+    }
+
+    private string ActualLabelStyle => IsDisabled || IsLoading ? LabelDisabledStyle : LabelDefaultStyle;
+
+    private string ActualEditIndicatorStyle
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return IsDisabled ? EditIndicatorDisabledStyle : EditIndicatorDefaultStyle;
+            }
+
+            return EditIndicatorInactiveStyle;
+        }
+    }
+
+    private string ActualInputStyle
+    {
+        get
+        {
+            string style;
+
+            if (IsLoading)
+            {
+                style = InputLoadingStyle;
+            }
+            else if (IsDisabled)
+            {
+                style = InputDisabledStyle;
+            }
+            else
+            {
+                style = InputDefaultStyle;
+            }
+
+            if (IsLowercase)
+            {
+                style += " lowercase";
+            }
+
+            return style;
+        }
+    }
+
+    private string ActualValue
+    {
+        get => Value ?? string.Empty;
+        set
+        {
+            if (IsLoading || IsReadOnly || IsDisabled)
+            {
+                return;
+            }
+
+            var normalizedValue = NormalizeValue(value);
+
+            Value = normalizedValue;
+            ValueChanged.InvokeAsync(normalizedValue);
+        }
+    }
+
+    private async Task UpdateValuePreview(ChangeEventArgs e)
+    {
+        if (IsLoading || IsReadOnly || IsDisabled)
+        {
+            return;
+        }
+
+        var newValue = e.Value?.ToString();
+        var normalizedValue = NormalizeValue(newValue);
+
+        ValuePreview = normalizedValue;
+        await ValuePreviewChanged.InvokeAsync(normalizedValue);
+    }
+
+    private string NormalizeValue(string? value)
+    {
+        if (value == null)
+        {
+            return string.Empty;
+        }
+
+        if (value.Length > MaxLength)
+        {
+            value = value.Substring(0, MaxLength);
+        }
+
+        if (IsLowercase)
+        {
+            value = value.ToLowerInvariant();
+        }
+
+        return value;
+    }
+}

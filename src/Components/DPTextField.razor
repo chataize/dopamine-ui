@@ -171,6 +171,8 @@
             return string.Empty;
         }
 
+        value = value.Trim();
+
         if (value.Length > MaxLength)
         {
             value = value.Substring(0, MaxLength);

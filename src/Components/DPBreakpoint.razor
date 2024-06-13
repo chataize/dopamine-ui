@@ -3,14 +3,14 @@
     if (ToClass == null)
     {
         <div class="block">
-    @ChildContent
-</div>
+            @ChildContent
+        </div>
     }
     else
     {
         <div class="block @(ToClass):hidden">
-    @ChildContent
-</div>
+            @ChildContent
+        </div>
     }
 }
 else
@@ -18,20 +18,18 @@ else
     if (ToClass == null)
     {
         <div class="hidden @(FromClass):block">
-    @ChildContent
-</div>
+            @ChildContent
+        </div>
     }
     else
     {
         <div class="hidden @(FromClass):block @(ToClass):hidden">
-    @ChildContent
-</div>
+            @ChildContent
+        </div>
     }
 }
 
 @code {
-    private int? _screenWidth = null;
-
     [Parameter]
     public ScreenSize? FromSize { get; set; }
 

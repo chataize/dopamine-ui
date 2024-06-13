@@ -1,4 +1,4 @@
-using DopamineUIPreview.Components;
+using ChatAIze.DopamineUI.Preview.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

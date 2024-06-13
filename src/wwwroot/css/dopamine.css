@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .button-base {
+        @apply flex justify-center px-3 py-2 font-semibold text-center transition-all duration-300 ease-in-out border rounded-lg shadow-sm select-none;
+    }
+
+    .button-default {
+        @apply button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+    }
+
+    .button-accent {
+        @apply text-white bg-blue-600 border-blue-700 button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
+    }
+
+    .button-destructive {
+        @apply text-white bg-red-600 border-red-700 button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
+    }
+
+    .button-loading {
+        @apply cursor-wait button-base border-neutral-100 bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 animate-pulse;
+    }
+
+    .button-disabled {
+        @apply cursor-not-allowed button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 dark:text-neutral-500 border-neutral-100;
+    }
+}

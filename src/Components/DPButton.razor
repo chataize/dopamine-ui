@@ -11,18 +11,6 @@
 </button>
 
 @code {
-    private const string BaseStyle = "flex justify-center px-3 py-2 font-semibold text-center transition-all duration-300 ease-in-out border rounded-lg shadow-sm select-none";
-
-    private const string DefaultStyle = BaseStyle + " bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95";
-
-    private const string AccentStyle = BaseStyle + " text-white bg-blue-600 border-blue-700 dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95";
-
-    private const string DestructionStyle = BaseStyle + " text-white bg-red-600 border-red-700 dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95";
-
-    private const string LoadingStyle = BaseStyle + " cursor-wait border-neutral-100 bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 animate-pulse";
-
-    private const string DisabledStyle = BaseStyle + " cursor-not-allowed bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 dark:text-neutral-500 border-neutral-100";
-
     [Parameter]
     public string? Text { get; set; } = "Button";
 
@@ -44,19 +32,19 @@
         {
             if (IsLoading)
             {
-                return LoadingStyle;
+                return "button-loading";
             }
 
             if (IsDisabled)
             {
-                return DisabledStyle;
+                return "button-loading";
             }
 
             return Style switch
             {
-                ButtonStyle.Accent => AccentStyle,
-                ButtonStyle.Destructive => DestructionStyle,
-                _ => DefaultStyle
+                ButtonStyle.Accent => "button-accent",
+                ButtonStyle.Destructive => "button-destructive",
+                _ => "button-default"
             };
         }
     }

@@ -18,6 +18,9 @@
     public ButtonStyle Style { get; set; }
 
     [Parameter]
+    public bool IsFullWidth { get; set; }
+
+    [Parameter]
     public bool IsLoading { get; set; }
 
     [Parameter]
@@ -30,22 +33,32 @@
     {
         get
         {
+            string style;
+
             if (IsLoading)
             {
-                return "button-loading";
+                style = "button-loading";
+            }
+            else if (IsDisabled)
+            {
+                style = "button-loading";
+            }
+            else
+            {
+                style = Style switch
+                {
+                    ButtonStyle.Accent => "button-accent",
+                    ButtonStyle.Destructive => "button-destructive",
+                    _ => "button-default"
+                };
             }
 
-            if (IsDisabled)
+            if (IsFullWidth)
             {
-                return "button-loading";
+                style += " w-full";
             }
 
-            return Style switch
-            {
-                ButtonStyle.Accent => "button-accent",
-                ButtonStyle.Destructive => "button-destructive",
-                _ => "button-default"
-            };
+            return style;
         }
     }
 

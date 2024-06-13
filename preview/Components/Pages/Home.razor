@@ -2,7 +2,8 @@
 
 <PageTitle>Dopamine UI Preview</PageTitle>
 
-<div class="m-4">
+<div class="m-4 space-y-4">
+    <h1 class="header">Buttons</h1>
     <div class="flex space-x-4">
         <DPButton Text="Button" />
         <DPButton Text="Disabled" IsDisabled="true" />
@@ -10,4 +11,15 @@
         <DPButton Text="Accent" Style="ButtonStyle.Accent" />
         <DPButton Text="Destructive" Style="ButtonStyle.Destructive" />
     </div>
+    <h1 class="header">Text Fields</h1>
+    <div class="flex space-x-4">
+        <DPTextField @bind-Value="Text" />
+        <DPTextField Label="Labelled" @bind-Value="Text" />
+        <DPTextField Label="Loading" IsLoading="true" @bind-Value="Text" />
+        <DPTextField Label="Disabled" IsDisabled="true" @bind-Value="Text" />
+    </div>
 </div>
+
+@code {
+    private string Text { get; set; } = "Hello, world!";
+}

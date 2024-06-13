@@ -8,7 +8,7 @@
         </label>
     }
     <div class="relative inline-flex w-full sm:w-auto">
-        <input id="@_id" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @oninput="UpdateValuePreview" />
+        <input id="@_id" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @bind-value:event="oninput" @onchange="OnChange" />
         @if (IsLoading)
         {
             <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute top-0 right-0 p-1 mt-3 mr-3 rounded-lg backdrop-blur" />
@@ -29,9 +29,6 @@
 
     [Parameter]
     public string? Value { get; set; }
-
-    [Parameter]
-    public string? ValuePreview { get; set; }
 
     [Parameter]
     public TextFieldType Type { get; set; }
@@ -59,9 +56,6 @@
 
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
-
-    [Parameter]
-    public EventCallback<string> ValuePreviewChanged { get; set; }
 
     private string ActualInputType
     {
@@ -133,24 +127,16 @@
             }
 
             var normalizedValue = NormalizeValue(value);
-
-            Value = normalizedValue;
-            ValueChanged.InvokeAsync(normalizedValue);
+            if (NormalizeValue(Value) != normalizedValue)
+            {
+                Value = value;
+                ValueChanged.InvokeAsync(normalizedValue);
+            }
+            else
+            {
+                Value = value;
+            }
         }
-    }
-
-    private async Task UpdateValuePreview(ChangeEventArgs e)
-    {
-        if (IsLoading || IsReadOnly || IsDisabled)
-        {
-            return;
-        }
-
-        var newValue = e.Value?.ToString();
-        var normalizedValue = NormalizeValue(newValue);
-
-        ValuePreview = normalizedValue;
-        await ValuePreviewChanged.InvokeAsync(normalizedValue);
     }
 
     private string NormalizeValue(string? value)
@@ -173,5 +159,14 @@
         }
 
         return value;
+    }
+
+    private void OnChange(ChangeEventArgs e)
+    {
+        var normalizedValue = NormalizeValue(e.Value?.ToString() ?? string.Empty);
+        if (Value != normalizedValue)
+        {
+            Value = normalizedValue;
+        }
     }
 }

@@ -17,17 +17,6 @@
 </div>
 
 @code {
-    private const string LabelDefaultStyle = "dark:text-white";
-    private const string LabelDisabledStyle = "text-neutral-400 dark:text-neutral-500";
-    private const string EditIndicatorBaseStyle = "text-xs transition-all duration-300 ease-in-out select-none";
-    private const string EditIndicatorDefaultStyle = EditIndicatorBaseStyle + " text-neutral-400 dark:text-neutral-500";
-    private const string EditIndicatorInactiveStyle = EditIndicatorBaseStyle + " opacity-0";
-    private const string EditIndicatorDisabledStyle = EditIndicatorBaseStyle + " text-neutral-300 dark:text-neutral-600";
-    private const string InputBaseStyle = "mt-1 px-3 py-2 border rounded-lg shadow-sm transition-all duration-300 ease-in-out";
-    private const string InputDefaultStyle = InputBaseStyle + " bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-white";
-    private const string InputLoadingStyle = InputBaseStyle + " bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 select-none cursor-wait animate-pulse";
-    private const string InputDisabledStyle = InputBaseStyle + " bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 select-none cursor-not-allowed";
-
     private readonly Guid _id = Guid.NewGuid();
 
     private string _actualValue = string.Empty;
@@ -90,7 +79,7 @@
         }
     }
 
-    private string ActualLabelStyle => IsDisabled || IsLoading ? LabelDisabledStyle : LabelDefaultStyle;
+    private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
 
     private string ActualEditIndicatorStyle
     {
@@ -98,10 +87,10 @@
         {
             if (IsEdited)
             {
-                return IsDisabled ? EditIndicatorDisabledStyle : EditIndicatorDefaultStyle;
+                return IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
             }
 
-            return EditIndicatorInactiveStyle;
+            return "edit-indicator-inactive";
         }
     }
 
@@ -113,15 +102,15 @@
 
             if (IsLoading)
             {
-                style = InputLoadingStyle;
+                style = "input-loading";
             }
             else if (IsDisabled)
             {
-                style = InputDisabledStyle;
+                style = "input-disabled";
             }
             else
             {
-                style = InputDefaultStyle;
+                style = "input-default";
             }
 
             if (IsLowercase)

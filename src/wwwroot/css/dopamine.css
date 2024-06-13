@@ -26,4 +26,44 @@
     .button-disabled {
         @apply cursor-not-allowed button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 dark:text-neutral-500 border-neutral-100;
     }
+
+    .label-default {
+        @apply dark:text-white;
+    }
+
+    .label-disabled {
+        @apply text-neutral-400 dark:text-neutral-500;
+    }
+
+    .edit-indicator-base {
+        @apply text-xs transition-all duration-300 ease-in-out select-none;
+    }
+
+    .edit-indicator-default {
+        @apply edit-indicator-base text-neutral-400 dark:text-neutral-500;
+    }
+
+    .edit-indicator-inactive {
+        @apply opacity-0 edit-indicator-base;
+    }
+
+    .edit-indicator-disabled {
+        @apply edit-indicator-base text-neutral-300 dark:text-neutral-600;
+    }
+
+    .input-base {
+        @apply px-3 py-2 mt-1 transition-all duration-300 ease-in-out border rounded-lg shadow-sm;
+    }
+
+    .input-default {
+        @apply input-base bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-white;
+    }
+
+    .input-loading {
+        @apply cursor-wait select-none input-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 animate-pulse;
+    }
+
+    .input-disabled {
+        @apply cursor-not-allowed select-none input-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500;
+    }
 }

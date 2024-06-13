@@ -1,0 +1,73 @@
+@if (FromClass == null)
+{
+    if (ToClass == null)
+    {
+        <div class="block">
+    @ChildContent
+</div>
+    }
+    else
+    {
+        <div class="block @(ToClass):hidden">
+    @ChildContent
+</div>
+    }
+}
+else
+{
+    if (ToClass == null)
+    {
+        <div class="hidden @(FromClass):block">
+    @ChildContent
+</div>
+    }
+    else
+    {
+        <div class="hidden @(FromClass):block @(ToClass):hidden">
+    @ChildContent
+</div>
+    }
+}
+
+@code {
+    private int? _screenWidth = null;
+
+    [Parameter]
+    public ScreenSize? FromSize { get; set; }
+
+    [Parameter]
+    public ScreenSize? ToSize { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private string? FromClass => ScreenSizeToClass(FromSize);
+
+    private string? ToClass => ScreenSizeToClass(NextScreenSize(ToSize));
+
+    private static string? ScreenSizeToClass(ScreenSize? screenSize)
+    {
+        return screenSize switch
+        {
+            ScreenSize.Small => "sm",
+            ScreenSize.Medium => "md",
+            ScreenSize.Large => "lg",
+            ScreenSize.ExtraLarge => "xl",
+            ScreenSize.ExtraExtraLarge => "2xl",
+            _ => null
+        };
+    }
+
+    private static ScreenSize? NextScreenSize(ScreenSize? screenSize)
+    {
+        return screenSize switch
+        {
+            ScreenSize.ExtraSmall => ScreenSize.Small,
+            ScreenSize.Small => ScreenSize.Medium,
+            ScreenSize.Medium => ScreenSize.Large,
+            ScreenSize.Large => ScreenSize.ExtraLarge,
+            ScreenSize.ExtraLarge => ScreenSize.ExtraExtraLarge,
+            _ => null
+        };
+    }
+}

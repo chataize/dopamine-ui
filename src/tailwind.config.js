@@ -5,4 +5,18 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    "hidden",
+    "sm:hidden",
+    "md:hidden",
+    "lg:hidden",
+    "xl:hidden",
+    "2xl:hidden",
+    "block",
+    "sm:block",
+    "md:block",
+    "lg:block",
+    "xl:block",
+    "2xl:block",
+  ]
 }

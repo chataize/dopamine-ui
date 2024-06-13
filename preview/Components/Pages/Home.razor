@@ -19,6 +19,19 @@
         <DPTextField Label="Loading" IsLoading="true" @bind-Value="Text" />
         <DPTextField Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </div>
+    <h1 class="header">Breakpoints</h1>
+    <div class="flex space-x-4">
+        <DPBreakpoint>All Sizes</DPBreakpoint>
+        <DPBreakpoint ToSize="ScreenSize.ExtraSmall">0-XS</DPBreakpoint>
+        <DPBreakpoint FromSize="ScreenSize.ExtraSmall" ToSize="ScreenSize.ExtraSmall">XS</DPBreakpoint>
+        <DPBreakpoint FromSize="ScreenSize.ExtraSmall" ToSize="ScreenSize.Small">XS-S</DPBreakpoint>
+        <DPBreakpoint ToSize="ScreenSize.Small">0-S</DPBreakpoint>
+        <DPBreakpoint FromSize="ScreenSize.Small" ToSize="ScreenSize.Small">S</DPBreakpoint>
+        <DPBreakpoint FromSize="ScreenSize.Small" ToSize="ScreenSize.Medium">S-M</DPBreakpoint>
+        <DPBreakpoint FromSize="ScreenSize.Medium" ToSize="ScreenSize.Large">M-L</DPBreakpoint>
+        <DPBreakpoint FromSize="ScreenSize.Large" ToSize="ScreenSize.Large">L</DPBreakpoint>
+        <DPBreakpoint FromSize="ScreenSize.Large">L-inf</DPBreakpoint>
+    </div>
 </div>
 
 @code {

@@ -1,4 +1,4 @@
-<div>
+<div class="@(IsFullWidth ? "w-full" : "")">
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="flex items-center px-3 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none">
@@ -7,7 +7,7 @@
             <span class="@ActualEditIndicatorStyle">EDITED</span>
         </label>
     }
-    <div class="relative inline-flex w-full sm:w-auto">
+    <div class="relative flex">
         <input id="@_id" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @bind-value:event="oninput" @onchange="OnChange" />
         @if (IsLoading)
         {
@@ -38,6 +38,9 @@
 
     [Parameter]
     public int MaxLength { get; set; } = 100;
+
+    [Parameter]
+    public bool IsFullWidth { get; set; }
 
     [Parameter]
     public bool IsLowercase { get; set; }
@@ -105,6 +108,11 @@
             else
             {
                 style = "input-default";
+            }
+
+            if (IsFullWidth)
+            {
+                style += " w-full";
             }
 
             if (IsLowercase)

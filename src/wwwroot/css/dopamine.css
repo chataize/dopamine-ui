@@ -52,7 +52,7 @@
     }
 
     .input-base {
-        @apply px-3 py-2 mt-1 transition-all duration-300 ease-in-out border rounded-lg shadow-sm;
+        @apply flex px-3 py-2 mt-1 transition-all duration-300 ease-in-out border rounded-lg shadow-sm;
     }
 
     .input-default {

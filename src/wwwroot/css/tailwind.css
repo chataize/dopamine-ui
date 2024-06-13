@@ -864,6 +864,7 @@ video {
 
 .input-default {
   margin-top: 0.25rem;
+  display: flex;
   border-radius: 0.5rem;
   border-width: 1px;
   padding-left: 0.75rem;
@@ -913,6 +914,7 @@ video {
 
 .input-loading {
   margin-top: 0.25rem;
+  display: flex;
   border-radius: 0.5rem;
   border-width: 1px;
   padding-left: 0.75rem;
@@ -980,6 +982,7 @@ video {
 
 .input-disabled {
   margin-top: 0.25rem;
+  display: flex;
   border-radius: 0.5rem;
   border-width: 1px;
   padding-left: 0.75rem;
@@ -1071,10 +1074,6 @@ video {
   display: flex;
 }
 
-.inline-flex {
-  display: inline-flex;
-}
-
 .hidden {
   display: none;
 }
@@ -1156,10 +1155,6 @@ video {
 
   .sm\:hidden {
     display: none;
-  }
-
-  .sm\:w-auto {
-    width: auto;
   }
 }
 

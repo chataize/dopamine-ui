@@ -3,8 +3,9 @@
 
 <PageTitle>Dopamine UI Preview</PageTitle>
 
-<div class="m-4 space-y-4">
+<div class="m-8 space-y-4">
     <h1 class="header">Buttons</h1>
+    <h2 class="subheader">Standard</h2>
     <div class="flex space-x-4">
         <DPButton Text="Button" />
         <DPButton Text="Disabled" IsDisabled="true" />
@@ -12,101 +13,139 @@
         <DPButton Text="Accent" Style="ButtonStyle.Accent" />
         <DPButton Text="Destructive" Style="ButtonStyle.Destructive" />
     </div>
-    <h1 class="header">Full-Width Buttons</h1>
+    <h2 class="subheader">Full Width</h2>
     <div class="flex space-x-4">
-        <DPButton Text="Full Width" IsFullWidth="true" />
-        <DPButton Text="Full Width 2" IsFullWidth="true" />
+        <DPButton Text="Button" IsFullWidth="true" />
+        <DPButton Text="Button" IsFullWidth="true" />
     </div>
+
+    <br />
+    <DPDivider />
+    <br />
+
     <h1 class="header">Text Fields</h1>
+    <h2 class="subheader">Labelless</h2>
+    <DPTextField @bind-Value="Text" />
+    <h2 class="subheader">Standard</h2>
     <div class="flex space-x-4">
-        <DPTextField @bind-Value="Text" />
-        <DPTextField Label="Labelled" @bind-Value="Text" />
+        <DPTextField Label="Normal" @bind-Value="Text" />
+        <DPTextField Label="Password" Type="TextFieldType.Password" @bind-Value="Text" />
         <DPTextField Label="Loading" IsLoading="true" @bind-Value="Text" />
         <DPTextField Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </div>
-    <h1 class="header">Full-Width Text Fields</h1>
+    <h2 class="subheader">Full Width</h2>
     <div class="flex space-x-4">
-        <DPTextField Label="Full Width" IsFullWidth="true" @bind-Value="Text" />
-        <DPTextField Label="Full Width 2" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
+        <DPTextField Label="Normal" IsFullWidth="true" @bind-Value="Text" />
+        <DPTextField Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
+        <DPTextField Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="Text" />
     </div>
-    <h1 class="header">Text Editors</h1>
+
+    <br />
+    <DPDivider />
+    <br />
+
+    <h1 class="header">Text Areas</h1>
+    <h2 class="subheader">Standard</h2>
     <div class="flex space-x-4">
-        <DPTextArea Label="Text Editor" @bind-Value="Text" />
+        <DPTextArea Label="Normal" @bind-Value="Text" />
         <DPTextArea Label="Loading" IsLoading="true" @bind-Value="Text" />
         <DPTextArea Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </div>
-    <h1 class="header">Full-Width Text Editors</h1>
+    <h2 class="subheader">Full Width</h2>
     <div class="flex space-x-4">
-        <DPTextArea Label="Full Width" IsFullWidth="true" @bind-Value="Text" />
-        <DPTextArea Label="Full Width 2" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
+        <DPTextArea Label="Normal" IsFullWidth="true" @bind-Value="Text" />
+        <DPTextArea Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
+        <DPTextArea Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="Text" />
     </div>
+
+    <br />
+    <DPDivider />
+    <br />
+
     <h1 class="header">Toggle Switches</h1>
-    <div class="flex space-x-4">
+    <h2 class="subheader">Labelless</h2>
+    <div class="flex">
         <DPToggleSwitch @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Toggle Switch" @bind-value="BoolValue" />
+    </div>
+    <h2 class="subheader">Automatic</h2>
+    <div class="flex space-x-4">
+        <DPToggleSwitch Label="Normal" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h1 class="header">Framed Toggle Switches</h1>
+    <h2 class="subheader">Frameless</h2>
     <div class="flex space-x-4">
-        <DPToggleSwitch Label="Toggle Switch" IsFrameVisible="true" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
-    </div>
-     <h1 class="header">Frameless Toggle Switches</h1>
-    <div class="flex space-x-4">
-        <DPToggleSwitch @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Toggle Switch" IsFrameVisible="false" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" IsFrameVisible="false" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h1 class="header">Full-Width Toggle Switches</h1>
+    <h2 class="subheader">Framed</h2>
     <div class="flex space-x-4">
-        <DPToggleSwitch Label="Toggle Switch" IsFullWidth="true" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
+    <h2 class="subheader">Full Width</h2>
+    <div class="flex space-x-4">
+        <DPToggleSwitch Label="Normal" IsFullWidth="true" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+
+    <br />
+    <DPDivider />
+    <br />
 
     <h1 class="header">Checkboxes</h1>
-    <div class="flex space-x-4">
+    <h2 class="subheader">Labelless</h2>
+    <div class="flex">
         <DPCheckBox @bind-value="BoolValue" />
-        <DPCheckBox Label="Toggle Switch" @bind-value="BoolValue" />
+    </div>
+    <h2 class="subheader">Automatic</h2>
+    <div class="flex space-x-4">
+        <DPCheckBox Label="Normal" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h1 class="header">Framed Checkboxes</h1>
+    <h2 class="subheader">Frameless</h2>
     <div class="flex space-x-4">
-        <DPCheckBox Label="Toggle Switch" IsFrameVisible="true" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
-    </div>
-     <h1 class="header">Frameless Checkboxes</h1>
-    <div class="flex space-x-4">
-        <DPCheckBox @bind-value="BoolValue" />
-        <DPCheckBox Label="Toggle Switch" IsFrameVisible="false" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" IsFrameVisible="false" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h1 class="header">Full-Width Checkboxes</h1>
+    <h2 class="subheader">Framed</h2>
     <div class="flex space-x-4">
-        <DPCheckBox Label="Toggle Switch" IsFullWidth="true" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+    <h2 class="subheader">Full Width</h2>
+    <div class="flex space-x-4">
+        <DPCheckBox Label="Normal" IsFullWidth="true" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsFullWidth="true" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
 
-    <h1 class="header">Radios</h1>
-    <div class="flex space-x-4">
+    <br />
+    <DPDivider />
+    <br />
+
+    <h1 class="header">Radio Buttons</h1>
+    <h2 class="subheader">Labelless</h2>
+    <div class="flex">
         <DPRadioButton @bind-value="BoolValue" />
-        <DPRadioButton Label="Toggle Switch" @bind-value="BoolValue" />
+    </div>
+    <h2 class="subheader">Automatic</h2>
+    <div class="flex space-x-4">
+        <DPRadioButton Label="Normal" @bind-value="BoolValue" />
         <DPRadioButton Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h1 class="header">Framed Radios</h1>
+    <h2 class="subheader">Frameless</h2>
     <div class="flex space-x-4">
-        <DPRadioButton Label="Toggle Switch" IsFrameVisible="true" @bind-value="BoolValue" />
-        <DPRadioButton Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
-    </div>
-     <h1 class="header">Frameless Radios</h1>
-    <div class="flex space-x-4">
-        <DPRadioButton @bind-value="BoolValue" />
-        <DPRadioButton Label="Toggle Switch" IsFrameVisible="false" @bind-value="BoolValue" />
+        <DPRadioButton Label="Normal" IsFrameVisible="false" @bind-value="BoolValue" />
         <DPRadioButton Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h1 class="header">Full-Width Radios</h1>
+    <h2 class="subheader">Framed</h2>
     <div class="flex space-x-4">
-        <DPRadioButton Label="Toggle Switch" IsFullWidth="true" @bind-value="BoolValue" />
-        <DPRadioButton Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPRadioButton Label="Normal" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPRadioButton Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+    <h2 class="subheader">Full Width</h2>
+    <div class="flex space-x-4">
+        <DPRadioButton Label="Normal" IsFullWidth="true" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPRadioButton Label="Disabled" IsFullWidth="true" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
 
     <h1 class="header">Breakpoints</h1>

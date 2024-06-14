@@ -18,5 +18,6 @@ module.exports = {
     "lg:block",
     "xl:block",
     "2xl:block",
+    "sm:w-auto"
   ]
 }

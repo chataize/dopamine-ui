@@ -18,7 +18,7 @@
     public ButtonStyle Style { get; set; }
 
     [Parameter]
-    public bool IsFullWidth { get; set; }
+    public bool? IsFullWidth { get; set; }
 
     [Parameter]
     public bool IsLoading { get; set; }
@@ -53,9 +53,13 @@
                 };
             }
 
-            if (IsFullWidth)
+            if (IsFullWidth == true)
             {
                 style += " w-full";
+            }
+            else if (IsFullWidth == null)
+            {
+                style += " w-full sm:w-auto";
             }
 
             return style;

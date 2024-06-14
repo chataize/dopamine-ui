@@ -1,4 +1,4 @@
-<div class="@(IsFullWidth ? "w-full" : "")">
+<div class="@(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="flex items-center px-3 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none">
@@ -43,7 +43,7 @@
     public int MaxLength { get; set; } = 100;
 
     [Parameter]
-    public bool IsFullWidth { get; set; }
+    public bool? IsFullWidth { get; set; }
 
     [Parameter]
     public bool IsLowercase { get; set; }
@@ -113,9 +113,13 @@
                 style = "input-default";
             }
 
-            if (IsFullWidth)
+            if (IsFullWidth == true)
             {
                 style += " w-full";
+            }
+            else if (IsFullWidth == null)
+            {
+                style += " w-full sm:w-auto";
             }
 
             if (IsLowercase)

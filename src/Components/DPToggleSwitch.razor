@@ -17,12 +17,32 @@
     public bool Value { get; set; }
 
     [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
     public bool IsDisabled { get; set; }
 
     [Parameter]
     public EventCallback<bool> ValueChanged { get; set; }
 
-    private string ActualLabelStyle => IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
+    private string ActualLabelStyle
+    {
+        get
+        {
+            string style = IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
+
+            if (IsFullWidth == true)
+            {
+                style += " w-full";
+            }
+            else if (IsFullWidth == null)
+            {
+                style += " w-full sm:w-auto";
+            }
+
+            return style;
+        }
+    }
 
     private string ActualSwitchStyle
     {

@@ -1,11 +1,25 @@
-<label for="@_id" class="@ActualLabelStyle">
-    <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
-    <span>@Label</span>
-    <div class="@ActualSwitchStyle">
-        <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
+@if (string.IsNullOrWhiteSpace(Label))
+{
+    <label for="@_id" class="@ActualLabelStyle">
+        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+        <div class="@ActualSwitchStyle">
+            <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
+            </div>
         </div>
-    </div>
-</label>
+    </label>
+}
+else
+{
+    <label for="@_id" class="@ActualLabelStyle">
+        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+        <span>@Label</span>
+        <div class="@ActualSwitchStyle">
+            <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
+            </div>
+        </div>
+    </label>
+}
+
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
@@ -20,6 +34,9 @@
     public bool? IsFullWidth { get; set; }
 
     [Parameter]
+    public bool? IsFrameVisible { get; set; }
+
+    [Parameter]
     public bool IsDisabled { get; set; }
 
     [Parameter]
@@ -31,13 +48,26 @@
         {
             string style = IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
 
-            if (IsFullWidth == true)
+            if (!string.IsNullOrWhiteSpace(Label))
             {
-                style += " w-full";
+
+                if (IsFullWidth == true)
+                {
+                    style += " w-full";
+                }
+                else if (IsFullWidth == null)
+                {
+                    style += " w-full sm:w-auto";
+                }
             }
-            else if (IsFullWidth == null)
+
+            if (IsFrameVisible == true)
             {
-                style += " w-full sm:w-auto";
+                style += IsDisabled ? " switch-frame-disabled" : " switch-frame-enabled";
+            }
+            else if (IsFrameVisible == null && !string.IsNullOrWhiteSpace(Label))
+            {
+                style += IsDisabled ? " -sm:switch-frame-disabled" : " -sm:switch-frame-enabled";
             }
 
             return style;
@@ -82,4 +112,6 @@
             }
         }
     }
+
+    private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
 }

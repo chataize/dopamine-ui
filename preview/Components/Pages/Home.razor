@@ -42,11 +42,25 @@
     </div>
     <h1 class="header">Toggle Switches</h1>
     <div class="flex space-x-4">
+        <DPToggleSwitch @bind-value="BoolValue" />
         <DPToggleSwitch Label="Toggle Switch" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </div>
+    <h1 class="header">Framed Toggle Switches</h1>
+    <div class="flex space-x-4">
+        <DPToggleSwitch @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Toggle Switch" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+     <h1 class="header">Frameless Toggle Switches</h1>
+    <div class="flex space-x-4">
+        <DPToggleSwitch @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Toggle Switch" IsFrameVisible="false" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
     <h1 class="header">Full-Width Toggle Switches</h1>
     <div class="flex space-x-4">
+        <DPToggleSwitch IsFullWidth="true" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Toggle Switch" IsFullWidth="true" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>

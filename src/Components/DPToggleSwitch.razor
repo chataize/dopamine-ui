@@ -2,7 +2,7 @@
 {
     <label for="@_id" class="@ActualLabelStyle">
         <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
-        <div class="@ActualSwitchStyle">
+        <div class="@ActualContainerStyle">
             <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
             </div>
         </div>
@@ -13,7 +13,7 @@ else
     <label for="@_id" class="@ActualLabelStyle">
         <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
         <span>@Label</span>
-        <div class="@ActualSwitchStyle">
+        <div class="@ActualContainerStyle">
             <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
             </div>
         </div>
@@ -74,7 +74,7 @@ else
         }
     }
 
-    private string ActualSwitchStyle
+    private string ActualContainerStyle
     {
         get
         {

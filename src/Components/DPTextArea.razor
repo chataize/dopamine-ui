@@ -8,7 +8,7 @@
         </label>
     }
     <div class="relative flex">
-        <textarea id="@_id" type="@ActualInputType" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @bind-value:event="oninput" @onchange="OnChange" />
+        <textarea id="@_id" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @bind-value:event="oninput" @onchange="OnChange" />
         @if (IsLoading)
         {
             <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute top-0 right-0 p-1 mt-3 mr-3 rounded-lg backdrop-blur" />
@@ -29,9 +29,6 @@
 
     [Parameter]
     public string? Value { get; set; }
-
-    [Parameter]
-    public TextFieldType Type { get; set; }
 
     [Parameter]
     public int Size { get; set; } = 40;
@@ -62,22 +59,6 @@
 
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
-
-    private string ActualInputType
-    {
-        get
-        {
-            return Type switch
-            {
-                TextFieldType.Search => "search",
-                TextFieldType.URL => "url",
-                TextFieldType.Phone => "tel",
-                TextFieldType.Email => "email",
-                TextFieldType.Password => "password",
-                _ => "text",
-            };
-        }
-    }
 
     private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
 

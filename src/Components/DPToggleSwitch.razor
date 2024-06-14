@@ -1,4 +1,4 @@
-<label for="@_id" class="@LabelStyle">
+<label for="@_id" class="@ActualLabelStyle">
     <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
     <span>@Label</span>
     <div class="@ActualSwitchStyle">
@@ -22,7 +22,7 @@
     [Parameter]
     public EventCallback<bool> ValueChanged { get; set; }
 
-    private string LabelStyle => IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
+    private string ActualLabelStyle => IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
 
     private string ActualSwitchStyle
     {

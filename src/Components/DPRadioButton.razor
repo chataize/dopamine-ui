@@ -1,0 +1,115 @@
+@if (string.IsNullOrWhiteSpace(Label))
+{
+    <label for="@_id" class="@ActualLabelStyle">
+        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+        <div class="@ActualContainerStyle">
+            <div class="@ActualDotStyle" />
+        </div>
+    </label>
+}
+else
+{
+    <label for="@_id" class="@ActualLabelStyle">
+        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+        <div class="@ActualContainerStyle">
+            <div class="@ActualDotStyle" />
+        </div>
+        <span>@Label</span>
+    </label>
+}
+
+
+@code {
+    private readonly string _id = Random.Shared.Next().ToString();
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public bool Value { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool? IsFrameVisible { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> ValueChanged { get; set; }
+
+    private string ActualLabelStyle
+    {
+        get
+        {
+            string style = IsDisabled ? "radio-label-disabled group" : "radio-label-enabled group";
+
+            if (!string.IsNullOrWhiteSpace(Label))
+            {
+
+                if (IsFullWidth == true)
+                {
+                    style += " w-full";
+                }
+                else if (IsFullWidth == null)
+                {
+                    style += " w-full sm:w-auto";
+                }
+            }
+
+            if (IsFrameVisible == true)
+            {
+                style += IsDisabled ? " frame-disabled" : " frame-enabled";
+            }
+            else if (IsFrameVisible == null && !string.IsNullOrWhiteSpace(Label))
+            {
+                style += IsDisabled ? " -sm:frame-disabled" : " -sm:frame-enabled";
+            }
+
+            return style;
+        }
+    }
+
+    private string ActualContainerStyle
+    {
+        get
+        {
+            if (IsDisabled)
+            {
+                return Value ? "radio-container-disabled-on group" : "radio-container-disabled-off group";
+            }
+
+            return Value ? "radio-container-on group" : "radio-container-off group";
+        }
+    }
+
+    private string ActualDotStyle
+    {
+        get
+        {
+            if (IsDisabled)
+            {
+                return Value ? "radio-dot-disabled-on" : "radio-dot-disabled-off";
+            }
+
+            return Value ? "radio-dot-on" : "radio-dot-off";
+        }
+    }
+
+    private bool ActualValue
+    {
+        get => Value;
+        set
+        {
+            if (!IsDisabled && Value != value)
+            {
+                Value = value;
+                ValueChanged.InvokeAsync(value);
+            }
+        }
+    }
+
+    private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
+}

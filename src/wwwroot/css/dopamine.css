@@ -154,4 +154,56 @@
     .checkbox-container-disabled-on {
         @apply checkbox-container-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
     }
+
+    .radio-label-base {
+        @apply flex items-center justify-start space-x-4 font-bold transition-all duration-300 ease-in-out select-none dark:text-white;
+    }
+
+    .radio-label-enabled {
+        @apply cursor-pointer radio-label-base hover:scale-105 active:scale-95;
+    }
+
+    .radio-label-disabled {
+        @apply cursor-not-allowed radio-label-base text-neutral-300 dark:text-neutral-600;
+    }
+
+    .radio-container-base {
+        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm stroke-2;
+    }
+
+    .radio-container-off {
+        @apply radio-container-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover:fill-neutral-400 dark:group-hover:stroke-neutral-400 dark:group-active:fill-neutral-300 dark:group-active:stroke-neutral-300 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 group-hover:scale-105 group-active:scale-95 stroke-neutral-200 fill-neutral-200 group-hover:stroke-neutral-500 group-hover:fill-neutral-500 group-active:stroke-neutral-600 group-active:fill-neutral-600;
+    }
+
+    .radio-container-on {
+        @apply bg-blue-600 border-blue-700 radio-container-base hover:bg-blue-700 active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-white stroke-white;
+    }
+
+    .radio-container-disabled-off {
+        @apply radio-container-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+    }
+
+    .radio-container-disabled-on {
+        @apply radio-container-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
+    }
+
+    .radio-dot-base {
+        @apply transition-all duration-300 ease-in-out border rounded-full;
+    }
+
+    .radio-dot-off {
+        @apply w-4 h-4 radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-active:border-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
+    }
+
+    .radio-dot-on {
+        @apply w-5 h-5 bg-white border-blue-700 shadow-sm radio-dot-base group-hover:border-blue-800 dark:border-blue-700 dark:group-hover:border-blue-600;
+    }
+
+    .radio-dot-disabled-off {
+        @apply w-5 h-5 radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
+    }
+
+    .radio-dot-disabled-on {
+        @apply w-5 h-5 radio-dot-base bg-neutral-300 switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+    }
 }

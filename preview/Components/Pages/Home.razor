@@ -86,6 +86,29 @@
         <DPCheckBox Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
 
+    <h1 class="header">Radios</h1>
+    <div class="flex space-x-4">
+        <DPRadioButton @bind-value="BoolValue" />
+        <DPRadioButton Label="Toggle Switch" @bind-value="BoolValue" />
+        <DPRadioButton Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+    <h1 class="header">Framed Radios</h1>
+    <div class="flex space-x-4">
+        <DPRadioButton Label="Toggle Switch" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPRadioButton Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+     <h1 class="header">Frameless Radios</h1>
+    <div class="flex space-x-4">
+        <DPRadioButton @bind-value="BoolValue" />
+        <DPRadioButton Label="Toggle Switch" IsFrameVisible="false" @bind-value="BoolValue" />
+        <DPRadioButton Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+    <h1 class="header">Full-Width Radios</h1>
+    <div class="flex space-x-4">
+        <DPRadioButton Label="Toggle Switch" IsFullWidth="true" @bind-value="BoolValue" />
+        <DPRadioButton Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+
     <h1 class="header">Breakpoints</h1>
     <div class="flex space-x-4">
         <DPBreakpoint>All Sizes</DPBreakpoint>

@@ -48,7 +48,6 @@
     </div>
     <h1 class="header">Framed Toggle Switches</h1>
     <div class="flex space-x-4">
-        <DPToggleSwitch @bind-value="BoolValue" />
         <DPToggleSwitch Label="Toggle Switch" IsFrameVisible="true" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
@@ -60,10 +59,33 @@
     </div>
     <h1 class="header">Full-Width Toggle Switches</h1>
     <div class="flex space-x-4">
-        <DPToggleSwitch IsFullWidth="true" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Toggle Switch" IsFullWidth="true" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
+
+    <h1 class="header">Checkboxes</h1>
+    <div class="flex space-x-4">
+        <DPCheckBox @bind-value="BoolValue" />
+        <DPCheckBox Label="Toggle Switch" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+    <h1 class="header">Framed Checkboxes</h1>
+    <div class="flex space-x-4">
+        <DPCheckBox Label="Toggle Switch" IsFrameVisible="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+     <h1 class="header">Frameless Checkboxes</h1>
+    <div class="flex space-x-4">
+        <DPCheckBox @bind-value="BoolValue" />
+        <DPCheckBox Label="Toggle Switch" IsFrameVisible="false" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+    <h1 class="header">Full-Width Checkboxes</h1>
+    <div class="flex space-x-4">
+        <DPCheckBox Label="Toggle Switch" IsFullWidth="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
+
     <h1 class="header">Breakpoints</h1>
     <div class="flex space-x-4">
         <DPBreakpoint>All Sizes</DPBreakpoint>

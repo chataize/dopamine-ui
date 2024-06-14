@@ -63,11 +63,11 @@ else
 
             if (IsFrameVisible == true)
             {
-                style += IsDisabled ? " switch-frame-disabled" : " switch-frame-enabled";
+                style += IsDisabled ? " frame-disabled" : " frame-enabled";
             }
             else if (IsFrameVisible == null && !string.IsNullOrWhiteSpace(Label))
             {
-                style += IsDisabled ? " -sm:switch-frame-disabled" : " -sm:switch-frame-enabled";
+                style += IsDisabled ? " -sm:frame-disabled" : " -sm:frame-enabled";
             }
 
             return style;

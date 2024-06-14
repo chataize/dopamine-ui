@@ -1,0 +1,106 @@
+@if (string.IsNullOrWhiteSpace(Label))
+{
+    <label for="@_id" class="@ActualLabelStyle">
+        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+        <div class="@ActualSwitchStyle">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
+                <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
+            </svg>
+        </div>
+    </label>
+}
+else
+{
+    <label for="@_id" class="@ActualLabelStyle">
+        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+        <div class="@ActualSwitchStyle">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
+                <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
+            </svg>
+        </div>
+        <span>@Label</span>
+    </label>
+}
+
+
+@code {
+    private readonly string _id = Random.Shared.Next().ToString();
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public bool Value { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool? IsFrameVisible { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> ValueChanged { get; set; }
+
+    private string ActualLabelStyle
+    {
+        get
+        {
+            string style = IsDisabled ? "checkbox-label-disabled group" : "checkbox-label-enabled group";
+
+            if (!string.IsNullOrWhiteSpace(Label))
+            {
+
+                if (IsFullWidth == true)
+                {
+                    style += " w-full";
+                }
+                else if (IsFullWidth == null)
+                {
+                    style += " w-full sm:w-auto";
+                }
+            }
+
+            if (IsFrameVisible == true)
+            {
+                style += IsDisabled ? " frame-disabled" : " frame-enabled";
+            }
+            else if (IsFrameVisible == null && !string.IsNullOrWhiteSpace(Label))
+            {
+                style += IsDisabled ? " -sm:frame-disabled" : " -sm:frame-enabled";
+            }
+
+            return style;
+        }
+    }
+
+    private string ActualSwitchStyle
+    {
+        get
+        {
+            if (IsDisabled)
+            {
+                return Value ? "checkbox-container-disabled-on group" : "checkbox-container-disabled-off group";
+            }
+
+            return Value ? "checkbox-container-on group" : "checkbox-container-off group";
+        }
+    }
+
+    private bool ActualValue
+    {
+        get => Value;
+        set
+        {
+            if (!IsDisabled && Value != value)
+            {
+                Value = value;
+                ValueChanged.InvokeAsync(value);
+            }
+        }
+    }
+
+    private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
+}

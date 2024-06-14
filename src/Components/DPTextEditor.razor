@@ -1,0 +1,183 @@
+<div class="@(IsFullWidth ? "w-full" : "")">
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
+        <label for="@_id" class="flex items-center px-3 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none">
+            <span class="@ActualLabelStyle">@Label</span>
+            <span class="@ActualEditIndicatorStyle">•</span>
+            <span class="@ActualEditIndicatorStyle">EDITED</span>
+        </label>
+    }
+    <div class="relative flex">
+        <textarea id="@_id" type="@ActualInputType" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @bind-value:event="oninput" @onchange="OnChange" />
+        @if (IsLoading)
+        {
+            <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute top-0 right-0 p-1 mt-3 mr-3 rounded-lg backdrop-blur" />
+        }
+    </div>
+</div>
+
+@code {
+    private readonly Guid _id = Guid.NewGuid();
+
+    private string _actualValue = string.Empty;
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public TextFieldType Type { get; set; }
+
+    [Parameter]
+    public int Size { get; set; } = 40;
+
+    [Parameter]
+    public int Lines { get; set; } = 5;
+
+    [Parameter]
+    public int MaxLength { get; set; } = 100;
+
+    [Parameter]
+    public bool IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsLowercase { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsReadOnly { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    private string ActualInputType
+    {
+        get
+        {
+            return Type switch
+            {
+                TextFieldType.Search => "search",
+                TextFieldType.URL => "url",
+                TextFieldType.Phone => "tel",
+                TextFieldType.Email => "email",
+                TextFieldType.Password => "password",
+                _ => "text",
+            };
+        }
+    }
+
+    private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
+
+    private string ActualEditIndicatorStyle
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+            }
+
+            return "edit-indicator-inactive";
+        }
+    }
+
+    private string ActualInputStyle
+    {
+        get
+        {
+            string style;
+
+            if (IsLoading)
+            {
+                style = "input-loading";
+            }
+            else if (IsDisabled)
+            {
+                style = "input-disabled";
+            }
+            else
+            {
+                style = "input-default";
+            }
+
+            if (IsFullWidth)
+            {
+                style += " w-full";
+            }
+
+            if (IsLowercase)
+            {
+                style += " lowercase";
+            }
+
+            return style;
+        }
+    }
+
+    private string ActualValue
+    {
+        get => Value ?? string.Empty;
+        set
+        {
+            if (IsLoading || IsReadOnly || IsDisabled)
+            {
+                return;
+            }
+
+            var normalizedValue = NormalizeValue(value);
+            if (NormalizeValue(Value) != normalizedValue)
+            {
+                Value = value;
+                ValueChanged.InvokeAsync(normalizedValue);
+            }
+            else
+            {
+                Value = value;
+            }
+        }
+    }
+
+    private string NormalizeValue(string? value)
+    {
+        if (value == null)
+        {
+            return string.Empty;
+        }
+
+        value = value.Trim();
+
+        if (value.Length > MaxLength)
+        {
+            value = value.Substring(0, MaxLength);
+        }
+
+        if (IsLowercase)
+        {
+            value = value.ToLowerInvariant();
+        }
+
+        return value;
+    }
+
+    private void OnChange(ChangeEventArgs e)
+    {
+        var normalizedValue = NormalizeValue(e.Value?.ToString() ?? string.Empty);
+        if (Value != normalizedValue)
+        {
+            Value = normalizedValue;
+        }
+    }
+}

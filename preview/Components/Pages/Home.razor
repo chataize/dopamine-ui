@@ -29,6 +29,17 @@
         <DPTextField Label="Full Width" IsFullWidth="true" @bind-Value="Text" />
         <DPTextField Label="Full Width 2" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
     </div>
+    <h1 class="header">Text Editors</h1>
+    <div class="flex space-x-4">
+        <DPTextEditor Label="Text Editor" @bind-Value="Text" />
+        <DPTextEditor Label="Loading" IsLoading="true" @bind-Value="Text" />
+        <DPTextEditor Label="Disabled" IsDisabled="true" @bind-Value="Text" />
+    </div>
+    <h1 class="header">Full-Width Text Editors</h1>
+    <div class="flex space-x-4">
+        <DPTextEditor Label="Full Width" IsFullWidth="true" @bind-Value="Text" />
+        <DPTextEditor Label="Full Width 2" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
+    </div>
     <h1 class="header">Breakpoints</h1>
     <div class="flex space-x-4">
         <DPBreakpoint>All Sizes</DPBreakpoint>

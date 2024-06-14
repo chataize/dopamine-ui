@@ -1,0 +1,65 @@
+<label for="@_id" class="@LabelStyle">
+    <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+    <span>@Label</span>
+    <div class="@ActualSwitchStyle">
+        <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
+        </div>
+    </div>
+</label>
+
+@code {
+    private readonly string _id = Random.Shared.Next().ToString();
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public bool Value { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> ValueChanged { get; set; }
+
+    private string LabelStyle => IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
+
+    private string ActualSwitchStyle
+    {
+        get
+        {
+            if (IsDisabled)
+            {
+                return "switch-container-disabled group";
+            }
+
+            return Value ? "switch-container-on group" : "switch-container-off group";
+        }
+    }
+
+    private string ActualDotStyle
+    {
+        get
+        {
+            if (IsDisabled)
+            {
+                return "switch-dot-disabled";
+            }
+
+            return Value ? "switch-dot-on" : "switch-dot-off";
+        }
+    }
+
+    private bool ActualValue
+    {
+        get => Value;
+        set
+        {
+            if (!IsDisabled && Value != value)
+            {
+                Value = value;
+                ValueChanged.InvokeAsync(value);
+            }
+        }
+    }
+}

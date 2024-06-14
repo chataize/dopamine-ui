@@ -40,6 +40,11 @@
         <DPTextArea Label="Full Width" IsFullWidth="true" @bind-Value="Text" />
         <DPTextArea Label="Full Width 2" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
     </div>
+    <h1>Toggle Switches</h1>
+    <div class="flex space-x-4">
+        <DPToggleSwitch Label="Toggle Switch" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
+    </div>
     <h1 class="header">Breakpoints</h1>
     <div class="flex space-x-4">
         <DPBreakpoint>All Sizes</DPBreakpoint>
@@ -57,4 +62,6 @@
 
 @code {
     private string Text { get; set; } = "Hello, world!";
+
+    private bool BoolValue { get; set; } = true;
 }

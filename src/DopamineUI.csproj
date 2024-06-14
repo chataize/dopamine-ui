@@ -1,17 +1,43 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
-    <AssemblyName>ChatAIze.DopamineUI</AssemblyName>
-    <RootNamespace>ChatAIze.DopamineUI</RootNamespace>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Version>0.1.0</Version>
+    <AssemblyName>ChatAIze.DopamineUI</AssemblyName>
+    <RootNamespace>ChatAIze.DopamineUI</RootNamespace>
+    <PackageId>ChatAIze.DopamineUI</PackageId>
+    <Product>ChatAIze</Product>
+    <Company>ChatAIze</Company>
+    <Authors>Marcel Kwiatkowski</Authors>
+    <Copyright>© ChatAIze 2024</Copyright>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://www.chataize.com</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/chataize/dopamine-ui/releases</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/chataize/dopamine-ui</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>
+      Aesthetic C# .NET Blazor component library that makes the UI seamless and entertaining to use.
+    </Description>
+    <PackageTags>
+      .net, api, area, asp, asp-net, asp-net-core, assembly, blazor, box, button, button, buttons,
+      chataize, check, check-box, checkbox, component, component-library, component-pack,
+      components, components-library, components-pack, control, controls, core, cs, csharp, css,
+      divider, dopamine, dopamine-ui, dopamineui, dotnet, field, framework, html, input, inputs,
+      interface, javascript, js, library, net, pack, packs, page, pages, radio, radio-button,
+      radiobutton, razor, separator, splitter, switch, tailwind, text, text-area, text-field,
+      textarea, textfield, toggle, toggle-switch, toggleswitch, ui, user, user-interface, ux, web,
+      web-assembly, webassembly
+    </PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference
-        Include="Microsoft.AspNetCore.Components.Web"
-        Version="8.0.3" />
+      Include="Microsoft.AspNetCore.Components.Web"
+      Version="8.0.3" />
   </ItemGroup>
 </Project>

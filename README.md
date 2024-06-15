@@ -81,6 +81,27 @@ For detailed examples, see our [preview](https://github.com/chataize/dopamine-ui
 ```cs
  <DPTextField Label="User ID" IsDisabled="true" @bind-Value="PropertyABC123" />
 ```
+### Text Area
+#### Unlabeled
+```cs
+<DPTextArea @bind-Value="Text" />
+```
+#### Standard
+```cs
+ <DPTextArea Label="Description" @bind-Value="Text" />
+```
+#### Full Width
+```cs
+ <DPTextArea Label="Description" IsFullWidth="true" @bind-Value="PropertyABC123" />
+```
+#### Loading
+```cs
+ <DPTextArea Label="Description" IsLoading="true" @bind-Value="PropertyABC123" />
+```
+#### Disabled
+```cs
+ <DPTextArea Label="Description" IsDisabled="true" @bind-Value="PropertyABC123" />
+```
 ### Toggle Switch
 #### Unlabeled
 ```cs

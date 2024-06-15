@@ -23,7 +23,7 @@ Install-Package ChatAIze.DopamineUI
 </head>
 ```
 > [!NOTE]
-> DopamineUI is built with [Tailwind CSS](https://tailwindcss.com), however, you don't have to install, set up, or use Tailwind CSS by yourself. All styles are already pre-generated and included in the NuGet package.
+> Dopamine UI is built with [Tailwind CSS](https://tailwindcss.com), however, you don't have to install, set up, or use Tailwind CSS by yourself. All styles are already pre-generated and included in the NuGet package.
 
 ## Usage
 For detailed examples, see our [preview](https://github.com/chataize/dopamine-ui/blob/main/preview/Components/Pages/Home.razor) app.

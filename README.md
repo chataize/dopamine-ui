@@ -27,6 +27,14 @@ Install-Package ChatAIze.DopamineUI
 
 ## Usage
 For detailed examples, see our [preview](https://github.com/chataize/dopamine-ui/blob/main/preview/Components/Pages/Home.razor) app.
+### Table of Contents
+- [Button](#button)
+- [Text Field](#text-field)
+- [Text Area](#text-area)
+- [Toggle Switch](#toggle-switch)
+- [Checkbox](#checkbox)
+- [Radio Button](#radio-button)
+- [Divider](#divider)
 ### Button
 #### Standard
 ```cs

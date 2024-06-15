@@ -3,10 +3,10 @@
 
 <PageTitle>Dopamine UI Preview</PageTitle>
 
-<div class="m-8 space-y-4">
+<div class="p-8 space-y-4">
     <h1 class="header">Buttons</h1>
     <h2 class="subheader">Standard</h2>
-    <div class="flex space-x-4">
+    <div class="flex -sm:flex-col -sm:space-y-4 sm:space-x-4">
         <DPButton Text="Button" />
         <DPButton Text="Disabled" IsDisabled="true" />
         <DPButton Text="Loading" IsLoading="true" />
@@ -27,14 +27,14 @@
     <h2 class="subheader">Labelless</h2>
     <DPTextField @bind-Value="Text" />
     <h2 class="subheader">Standard</h2>
-    <div class="flex space-x-4">
+    <div class="flex xl:space-x-4 -xl:flex-col -xl:space-y-4">
         <DPTextField Label="Normal" @bind-Value="Text" />
         <DPTextField Label="Password" Type="TextFieldType.Password" @bind-Value="Text" />
         <DPTextField Label="Loading" IsLoading="true" @bind-Value="Text" />
         <DPTextField Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </div>
     <h2 class="subheader">Full Width</h2>
-    <div class="flex space-x-4">
+    <div class="flex xl:space-x-4 -xl:flex-col -xl:space-y-4">
         <DPTextField Label="Normal" IsFullWidth="true" @bind-Value="Text" />
         <DPTextField Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
         <DPTextField Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="Text" />
@@ -46,13 +46,13 @@
 
     <h1 class="header">Text Areas</h1>
     <h2 class="subheader">Standard</h2>
-    <div class="flex space-x-4">
+    <div class="flex xl:space-x-4 -xl:flex-col -xl:space-y-4">
         <DPTextArea Label="Normal" @bind-Value="Text" />
         <DPTextArea Label="Loading" IsLoading="true" @bind-Value="Text" />
         <DPTextArea Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </div>
     <h2 class="subheader">Full Width</h2>
-    <div class="flex space-x-4">
+    <div class="flex xl:space-x-4 -xl:flex-col -xl:space-y-4">
         <DPTextArea Label="Normal" IsFullWidth="true" @bind-Value="Text" />
         <DPTextArea Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
         <DPTextArea Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="Text" />

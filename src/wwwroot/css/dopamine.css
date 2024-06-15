@@ -136,7 +136,7 @@
     }
 
     .checkbox-container-base {
-        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-md shadow-sm stroke-2 sm:w-6 sm:h-6;
+        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-lg shadow-sm stroke-2 sm:rounded-md sm:w-6 sm:h-6;
     }
 
     .checkbox-container-off {

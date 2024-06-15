@@ -1644,7 +1644,7 @@ video {
   width: 2rem;
   align-items: center;
   justify-content: center;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   border-width: 1px;
   stroke-width: 2;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -1659,6 +1659,7 @@ video {
   .checkbox-container-off {
     height: 1.5rem;
     width: 1.5rem;
+    border-radius: 0.375rem;
   }
 }
 
@@ -1726,7 +1727,7 @@ video {
   width: 2rem;
   align-items: center;
   justify-content: center;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   border-width: 1px;
   stroke-width: 2;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -1741,6 +1742,7 @@ video {
   .checkbox-container-on {
     height: 1.5rem;
     width: 1.5rem;
+    border-radius: 0.375rem;
   }
 }
 
@@ -1802,7 +1804,7 @@ video {
   width: 2rem;
   align-items: center;
   justify-content: center;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   border-width: 1px;
   stroke-width: 2;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -1817,6 +1819,7 @@ video {
   .checkbox-container-disabled-off {
     height: 1.5rem;
     width: 1.5rem;
+    border-radius: 0.375rem;
   }
 }
 
@@ -1846,7 +1849,7 @@ video {
   width: 2rem;
   align-items: center;
   justify-content: center;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   border-width: 1px;
   stroke-width: 2;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -1861,6 +1864,7 @@ video {
   .checkbox-container-disabled-on {
     height: 1.5rem;
     width: 1.5rem;
+    border-radius: 0.375rem;
   }
 }
 

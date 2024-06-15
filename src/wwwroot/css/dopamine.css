@@ -92,7 +92,7 @@
     }
 
     .switch-container-base {
-        @apply flex items-center h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm w-14;
+        @apply flex items-center h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm sm:h-6 w-14 sm:w-11;
     }
 
     .switch-container-off {
@@ -108,7 +108,7 @@
     }
 
     .switch-dot-base {
-        @apply w-6 h-6 transition-all duration-300 ease-in-out border rounded-full shadow-sm;
+        @apply w-6 h-6 transition-all duration-300 ease-in-out border rounded-full shadow-sm sm:w-4 sm:h-4;
     }
 
     .switch-dot-off {
@@ -136,7 +136,7 @@
     }
 
     .checkbox-container-base {
-        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-lg shadow-sm stroke-2;
+        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-md shadow-sm stroke-2 sm:w-6 sm:h-6;
     }
 
     .checkbox-container-off {
@@ -168,7 +168,7 @@
     }
 
     .radio-container-base {
-        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm stroke-2;
+        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm stroke-2 sm:w-6 sm:h-6;
     }
 
     .radio-container-off {
@@ -192,18 +192,18 @@
     }
 
     .radio-dot-off {
-        @apply w-4 h-4 radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-active:border-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
+        @apply w-4 h-4 sm:w-3 sm:h-3 radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-active:border-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
     }
 
     .radio-dot-on {
-        @apply w-5 h-5 bg-white border-blue-700 shadow-sm radio-dot-base group-hover:border-blue-800 dark:border-blue-700 dark:group-hover:border-blue-600;
+        @apply w-5 h-5 bg-white border-blue-700 shadow-sm sm:w-3 sm:h-3 radio-dot-base group-hover:border-blue-800 dark:border-blue-700 dark:group-hover:border-blue-600;
     }
 
     .radio-dot-disabled-off {
-        @apply w-5 h-5 radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
+        @apply w-5 h-5 sm:w-3 sm:h-3 radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
     }
 
     .radio-dot-disabled-on {
-        @apply w-5 h-5 radio-dot-base bg-neutral-300 switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+        @apply w-5 h-5 sm:w-3 sm:h-3 radio-dot-base bg-neutral-300 switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
     }
 }

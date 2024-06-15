@@ -3,8 +3,8 @@
     <label for="@_id" class="@ActualLabelStyle">
         <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
         <div class="@ActualContainerStyle">
-            <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
-            </div>
+            <div class="@ActualDotStyle sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
+            <div class="@ActualDotStyle -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
         </div>
     </label>
 }
@@ -14,8 +14,8 @@ else
         <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
         <span>@Label</span>
         <div class="@ActualContainerStyle">
-            <div class="@ActualDotStyle" style="transform: translateX(@(Value ? "115%" : "15%"));">
-            </div>
+            <div class="@ActualDotStyle sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
+            <div class="@ActualDotStyle -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
         </div>
     </label>
 }

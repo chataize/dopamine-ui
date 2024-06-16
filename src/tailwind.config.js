@@ -11,7 +11,7 @@ module.exports = {
       '-xl': { 'max': '1279px' },
       '-lg': { 'max': '1023px' },
       '-md': { 'max': '767px' },
-      '-sm': { 'max': '639px' },
+      '-sm': { 'max': '639px' }
     }
   },
   plugins: [],
@@ -29,5 +29,8 @@ module.exports = {
     "xl:block",
     "2xl:block",
     "sm:w-auto"
-  ]
+  ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  }
 }

@@ -196,14 +196,14 @@
     }
 
     .radio-dot-on {
-        @apply w-5 h-5 bg-white border-blue-700 shadow-sm sm:w-3 sm:h-3 radio-dot-base group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-700 dark:group-hover:border-blue-600 dark:group-active:border-blue-600;
+        @apply w-5 h-5 bg-white border-blue-700 shadow-sm sm:w-3.5 sm:h-3.5 radio-dot-base group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-700 dark:group-hover:border-blue-600 dark:group-active:border-blue-600;
     }
 
     .radio-dot-disabled-off {
-        @apply w-5 h-5 sm:w-3 sm:h-3 radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
+        @apply w-4 h-4 sm:w-3 sm:h-3 radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
     }
 
     .radio-dot-disabled-on {
-        @apply w-5 h-5 sm:w-3 sm:h-3 radio-dot-base bg-neutral-300 switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+        @apply w-4 h-4 sm:w-3 sm:h-3 radio-dot-base bg-neutral-300 switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
     }
 }

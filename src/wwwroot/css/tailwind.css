@@ -2413,8 +2413,8 @@ video {
 
 @media (min-width: 640px) {
   .radio-dot-on {
-    height: 0.75rem;
-    width: 0.75rem;
+    height: 0.875rem;
+    width: 0.875rem;
   }
 }
 
@@ -2443,8 +2443,8 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1rem;
+  width: 1rem;
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -2493,8 +2493,8 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1rem;
+  width: 1rem;
   --tw-border-opacity: 1;
   border-color: rgb(212 212 212 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;

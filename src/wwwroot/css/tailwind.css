@@ -2689,6 +2689,14 @@ video {
   }
 }
 
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 .static {
   position: static;
 }
@@ -2794,6 +2802,10 @@ video {
 
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
 }
 
 .backdrop-blur {
@@ -2955,8 +2967,40 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
+  .dark\:visible {
+    visibility: visible;
+  }
+
+  .dark\:invisible {
+    visibility: hidden;
+  }
+
+  .dark\:absolute {
+    position: absolute;
+  }
+
+  .dark\:block {
+    display: block;
+  }
+
+  .dark\:flex {
+    display: flex;
+  }
+
+  .dark\:hidden {
+    display: none;
+  }
+
   .dark\:bg-neutral-600 {
     --tw-bg-opacity: 1;
     background-color: rgb(82 82 82 / var(--tw-bg-opacity));
+  }
+
+  .dark\:opacity-0 {
+    opacity: 0;
+  }
+
+  .dark\:opacity-100 {
+    opacity: 1;
   }
 }

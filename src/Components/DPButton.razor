@@ -1,18 +1,18 @@
 <button class="@ActualStyle" disabled="@IsDisabled" @onclick="OnClickAsync">
     @if (IsLoading)
     {
-        <span class="opacity-0">@Text</span>
+        <span class="opacity-0">@ChildContent</span>
         <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="24" width="24" class="absolute" />
     }
     else
     {
-        @Text
+        @ChildContent
     }
 </button>
 
 @code {
     [Parameter]
-    public string? Text { get; set; } = "Button";
+    public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
     public ButtonStyle Style { get; set; }

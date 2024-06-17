@@ -8,23 +8,23 @@
     }
 
     .button-default {
-        @apply button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+        @apply button-base bg-neutral-100 fill-black dark:fill-white dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
     }
 
     .button-primary {
-        @apply text-blue-600 hover:text-blue-700 active:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+        @apply text-blue-600 hover:text-blue-700 active:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 fill-blue-600 hover:fill-blue-700 active:fill-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
     }
 
     .button-accent {
-        @apply text-white bg-blue-600 border-blue-700 button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
+        @apply text-white bg-blue-600 border-blue-700 fill-white button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
     }
 
     .button-danger {
-        @apply text-red-600 hover:text-red-700 active:text-red-800 dark:text-red-500 dark:hover:text-red-400 dark:active:text-red-300 button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+        @apply text-red-600 hover:text-red-700 active:text-red-800 dark:text-red-500 dark:hover:text-red-400 dark:active:text-red-300 fill-red-600 hover:fill-red-700 active:fill-red-800 dark:fill-red-500 dark:hover:fill-red-400 dark:active:fill-red-300 button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
     }
 
     .button-destructive {
-        @apply text-white bg-red-600 border-red-700 button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
+        @apply text-white bg-red-600 border-red-700 fill-white button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
     }
 
     .button-loading {
@@ -32,7 +32,7 @@
     }
 
     .button-disabled {
-        @apply cursor-not-allowed button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 dark:text-neutral-500 border-neutral-100;
+        @apply cursor-not-allowed button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
     }
 
     .label-default {

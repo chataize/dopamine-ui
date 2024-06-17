@@ -108,7 +108,7 @@
     }
 
     .switch-container-on {
-        @apply bg-green-600 border-green-700 switch-container-base hover:bg-green-700 active:bg-green-800 dark:group-hover:bg-green-500 dark:group-active:bg-green-400 group-hover:border-green-800 group-active:border-green-800 dark:border-green-500 dark:group-hover:border-green-400 dark:group-active:border-green-400 group-hover:scale-105 group-active:scale-95;
+        @apply bg-green-600 border-green-700 switch-container-base group-hover:bg-green-700 group-active:bg-green-800 dark:group-hover:bg-green-500 dark:group-active:bg-green-400 group-hover:border-green-800 group-active:border-green-800 dark:border-green-500 dark:group-hover:border-green-400 dark:group-active:border-green-400 group-hover:scale-105 group-active:scale-95;
     }
 
     .switch-container-disabled {
@@ -120,7 +120,7 @@
     }
 
     .switch-dot-off {
-        @apply bg-white switch-dot-base border-neutral-200 group-hover:border-neutral-300 group-active:border-neutral-300;
+        @apply bg-white switch-dot-base border-neutral-200 group-hover:border-neutral-300 group-active:border-white;
     }
 
     .switch-dot-on {

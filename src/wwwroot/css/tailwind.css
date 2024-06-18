@@ -2689,14 +2689,6 @@ video {
   }
 }
 
-.visible {
-  visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
 .static {
   position: static;
 }
@@ -2727,6 +2719,10 @@ video {
 
 .block {
   display: block;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .flex {
@@ -2967,20 +2963,12 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
-  .dark\:visible {
-    visibility: visible;
-  }
-
-  .dark\:invisible {
-    visibility: hidden;
-  }
-
-  .dark\:absolute {
-    position: absolute;
-  }
-
   .dark\:block {
     display: block;
+  }
+
+  .dark\:inline-block {
+    display: inline-block;
   }
 
   .dark\:flex {

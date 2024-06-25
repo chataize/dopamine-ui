@@ -1,0 +1,168 @@
+@typeparam T
+
+<div class="@(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
+    @if (!String.IsNullOrWhiteSpace(Label))
+    {
+        <label for="@_id" class="flex items-center px-3 mb-1 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none w-min">
+            <span class="@ActualLabelStyle">@Label</span>
+            <span class="@ActualEditIndicatorStyle">•</span>
+            <span class="@ActualEditIndicatorStyle">EDITED</span>
+        </label>
+    }
+    <div class="relative flex @(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
+        <button id="@_id" class="@ActualButtonStyle" @onclick="ToogleIsExpanded">
+            <span>@ValueLabel</span>
+            @if (IsLoading)
+            {
+                <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="20" width="20" class="opacity-0 dark:opacity-100" />
+                <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="absolute opacity-100 right-3 dark:opacity-0" />
+            }
+            else
+            {
+                <svg class="transition-all duration-300 ease-in-out @(ActualIsExpended ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(8.53333,8.53333)">
+                            <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
+                        </g>
+                    </g>
+                </svg>
+            }
+        </button>
+        <div class="@ActualListStyle">
+            <CascadingValue Value="@this">@ChildContent</CascadingValue>
+        </div>
+    </div>
+</div>
+
+@code {
+    private readonly Guid _id = Guid.NewGuid();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public T? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<T> ValueChanged { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsExpanded { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    public List<DPDropDownItem<T>> Items { get; set; } = [];
+
+    private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
+
+    private bool ActualIsExpended => IsExpanded && !IsDisabled && !IsLoading;
+
+    private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
+
+    private string ActualEditIndicatorStyle
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+            }
+
+            return "edit-indicator-inactive";
+        }
+    }
+
+    private string ActualButtonStyle
+    {
+        get
+        {
+            string style;
+
+            if (IsLoading)
+            {
+                style = "dropdown-loading";
+            }
+            else if (IsDisabled)
+            {
+                style = "dropdown-disabled";
+            }
+            else if (ActualIsExpended)
+            {
+                style = "dropdown-expanded";
+            }
+            else
+            {
+                style = "dropdown-collapsed";
+            }
+
+            if (IsFullWidth == true)
+            {
+                style += " w-full";
+            }
+            else if (IsFullWidth == null)
+            {
+                style += " w-full sm:w-auto";
+            }
+
+            return style;
+        }
+    }
+
+    private string ActualListStyle
+    {
+        get
+        {
+            string style = ActualIsExpended ? "dropdown-list-expanded" : "dropdown-list-collapsed";
+
+            if (IsFullWidth == true)
+            {
+                style += " w-full";
+            }
+            else if (IsFullWidth == null)
+            {
+                style += " w-full sm:w-auto";
+            }
+
+            return style;
+        }
+    }
+
+    public void Expand()
+    {
+        IsExpanded = true;
+    }
+
+    public void Collapse()
+    {
+        IsExpanded = false;
+    }
+
+    public void ToogleIsExpanded()
+    {
+        IsExpanded = !IsExpanded;
+    }
+
+    internal async Task UpdateValueAsync(T? value)
+    {
+        Value = value;
+        await ValueChanged.InvokeAsync(value);
+    }
+
+    internal void TriggerStateHasChanged()
+    {
+        StateHasChanged();
+    }
+}

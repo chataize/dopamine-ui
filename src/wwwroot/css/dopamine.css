@@ -222,4 +222,52 @@
     .radio-dot-disabled-on {
         @apply w-4 h-4 sm:w-3 sm:h-3 radio-dot-base bg-neutral-300 switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
     }
+
+    .dropdown-base {
+        @apply flex items-center justify-between px-3 py-2 space-x-3 font-semibold text-center transition-all duration-300 ease-in-out border rounded-lg shadow-sm select-none button-base;
+    }
+
+    .dropdown-default {
+        @apply dropdown-base bg-neutral-100 fill-black dark:fill-white dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300;
+    }
+
+    .dropdown-expanded {
+        @apply scale-95 dropdown-default dark:bg-neutral-700;
+    }
+
+    .dropdown-collapsed {
+        @apply dropdown-default dark:bg-neutral-800 hover:scale-105 active:scale-95;
+    }
+
+    .dropdown-loading {
+        @apply cursor-wait animate-pulse dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
+    }
+
+    .dropdown-disabled {
+        @apply cursor-not-allowed dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
+    }
+
+    .dropdown-list-base {
+        @apply absolute z-50 p-1 space-y-1 transition-all duration-300 ease-in-out border rounded-lg shadow select-none backdrop-blur-xl dark:border-neutral-700 border-neutral-200;
+    }
+
+    .dropdown-list-expanded {
+        @apply scale-100 translate-y-12 opacity-100 dropdown-list-base blur-none;
+    }
+
+    .dropdown-list-collapsed {
+        @apply scale-0 -translate-y-12 opacity-0 dropdown-list-base blur-xl;
+    }
+
+    .dropdown-item-base {
+        @apply flex w-full px-3 py-1 font-semibold transition-all duration-300 ease-in-out rounded-md select-none hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
+    }
+
+    .dropdown-item-default {
+        @apply hover:shadow-sm dropdown-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600;
+    }
+
+    .dropdown-item-selected {
+        @apply text-white bg-blue-600 dropdown-item-base hover:bg-blue-700 active:bg-blue-800;
+    }
 }

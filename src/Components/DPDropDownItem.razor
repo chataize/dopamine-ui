@@ -1,0 +1,38 @@
+@typeparam T
+
+<button class="@ActualStyle" @onclick="OnClickAsync">@ChildContent</button>
+
+@code {
+    [CascadingParameter]
+    public DPDropDown<T>? DropDown { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public T? Value { get; set; }
+
+    private string ActualStyle => Value != null && DropDown != null && Value.Equals(DropDown.Value) ? "dropdown-item-selected" : "dropdown-item-default";
+
+    protected override void OnInitialized()
+    {
+        if (DropDown != null)
+        {
+            DropDown.Items.Add(this);
+
+            if (Value != null && Value.Equals(DropDown.Value))
+            {
+                DropDown.TriggerStateHasChanged();
+            }
+        }
+    }
+
+    private async Task OnClickAsync()
+    {
+        if (DropDown != null)
+        {
+            await DropDown.UpdateValueAsync(Value);
+            DropDown.Collapse();
+        }
+    }
+}

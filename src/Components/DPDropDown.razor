@@ -3,7 +3,7 @@
 <div class="@(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
-        <label for="@_id" class="flex items-center px-3 mb-1 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none w-min">
+        <label for="@_id" class="label-base">
             <span class="@ActualLabelStyle">@Label</span>
             <span class="@ActualEditIndicatorStyle">•</span>
             <span class="@ActualEditIndicatorStyle">EDITED</span>

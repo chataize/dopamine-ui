@@ -43,6 +43,10 @@
         @apply border shadow-sm cursor-not-allowed button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
     }
 
+    .label-base {
+        @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none w-min;
+    }
+
     .label-default {
         @apply dark:text-white;
     }

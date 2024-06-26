@@ -212,7 +212,7 @@
     }
 
     .radio-dot-off {
-        @apply w-4 h-4 sm:w-3 sm:h-3 radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-active:border-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-active:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
+        @apply w-4 h-4 sm:w-3 sm:h-3 radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-active:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
     }
 
     .radio-dot-on {
@@ -232,15 +232,15 @@
     }
 
     .dropdown-default {
-        @apply dropdown-base bg-neutral-100 fill-black dark:fill-white dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300;
+        @apply dropdown-base fill-black dark:fill-white text-black dark:text-white
     }
 
     .dropdown-expanded {
-        @apply scale-95 dropdown-default dark:bg-neutral-700;
+        @apply scale-95 dropdown-default bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
     }
 
     .dropdown-collapsed {
-        @apply dropdown-default dark:bg-neutral-800 hover:scale-105 active:scale-95;
+        @apply dropdown-default dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
     }
 
     .dropdown-loading {

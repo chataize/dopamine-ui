@@ -1229,7 +1229,6 @@ video {
 }
 
 .input-default {
-  margin-top: 0.25rem;
   display: flex;
   border-radius: 0.5rem;
   border-width: 1px;
@@ -1279,7 +1278,6 @@ video {
 }
 
 .input-loading {
-  margin-top: 0.25rem;
   display: flex;
   border-radius: 0.5rem;
   border-width: 1px;
@@ -1347,7 +1345,6 @@ video {
 }
 
 .input-disabled {
-  margin-top: 0.25rem;
   display: flex;
   border-radius: 0.5rem;
   border-width: 1px;
@@ -3393,20 +3390,12 @@ video {
   right: 0px;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .right-3 {
   right: 0.75rem;
 }
 
-.right-1 {
-  right: 0.25rem;
-}
-
-.right-5 {
-  right: 1.25rem;
+.top-0 {
+  top: 0px;
 }
 
 .mb-1 {

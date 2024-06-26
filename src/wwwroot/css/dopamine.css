@@ -264,7 +264,7 @@
     }
 
     .dropdown-item-base {
-        @apply flex w-full px-3 py-1 font-semibold transition-all duration-300 ease-in-out rounded-md select-none hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
+        @apply flex w-full px-3 py-2 font-semibold transition-all duration-300 ease-in-out rounded-md select-none sm:py-1 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
     }
 
     .dropdown-item-default {

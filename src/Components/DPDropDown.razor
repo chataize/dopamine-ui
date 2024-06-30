@@ -157,8 +157,11 @@
 
     internal async Task UpdateValueAsync(T? value)
     {
-        Value = value;
-        await ValueChanged.InvokeAsync(value);
+        if (!IsLoading && !IsDisabled)
+        {
+            Value = value;
+            await ValueChanged.InvokeAsync(value);
+        }
     }
 
     internal void TriggerStateHasChanged()

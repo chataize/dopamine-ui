@@ -29,7 +29,7 @@
 
     private async Task OnClickAsync()
     {
-        if (DropDown != null)
+        if (DropDown != null && !DropDown.IsLoading && !DropDown.IsDisabled)
         {
             await DropDown.UpdateValueAsync(Value);
             DropDown.Collapse();

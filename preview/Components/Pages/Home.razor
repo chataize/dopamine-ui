@@ -165,7 +165,7 @@
         <DPToggleSwitch Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
     <h2 class="subheader">Full Width</h2>
-    <div class="flex space-x-4">
+    <div class="space-y-4">
         <DPToggleSwitch Label="Normal" IsFullWidth="true" IsFrameVisible="true" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
@@ -195,7 +195,7 @@
         <DPCheckBox Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
     <h2 class="subheader">Full Width</h2>
-    <div class="flex space-x-4">
+    <div class="space-y-4">
         <DPCheckBox Label="Normal" IsFullWidth="true" IsFrameVisible="true" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsFullWidth="true" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
@@ -222,7 +222,7 @@
         </DPRadioGroup>
     </div>
     <h2 class="subheader">Frameless</h2>
-    <div class="flex space-x-4">
+    <div class="sm:flex sm:space-x-4 -sm:space-y-4">
         <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsFrameVisible="false" />
             <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsFrameVisible="false" />
@@ -230,7 +230,7 @@
         </DPRadioGroup>
     </div>
     <h2 class="subheader">Framed</h2>
-    <div class="flex space-x-4">
+    <div class="sm:flex sm:space-x-4 -sm:space-y-4">
         <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
             <DPRadioButton Label="Value 1" IsFrameVisible="true" Value="SampleEnum.Value1" />
             <DPRadioButton Label="Value 2" IsFrameVisible="true" Value="SampleEnum.Value2" />
@@ -238,7 +238,7 @@
         </DPRadioGroup>
     </div>
     <h2 class="subheader">Full Width</h2>
-    <div class="flex space-x-4">
+    <div class="space-y-4">
         <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsFullWidth="true" />
             <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsFullWidth="true" />

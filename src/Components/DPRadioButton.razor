@@ -1,6 +1,6 @@
 @typeparam T
 
-<div class="w-fit">
+<div class="@(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-fit" : "")">
     @if (string.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="@ActualLabelStyle">

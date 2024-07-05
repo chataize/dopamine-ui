@@ -1,50 +1,59 @@
-@if (string.IsNullOrWhiteSpace(Label))
-{
-    <label for="@_id" class="@ActualLabelStyle">
-        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
-        <div class="@ActualContainerStyle">
-            <div class="@ActualDotStyle" />
-        </div>
-    </label>
-}
-else
-{
-    <label for="@_id" class="@ActualLabelStyle">
-        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
-        <div class="@ActualContainerStyle">
-            <div class="@ActualDotStyle" />
-        </div>
-        <span>@Label</span>
-    </label>
-}
+@typeparam T
 
+<div class="w-fit">
+    @if (string.IsNullOrWhiteSpace(Label))
+    {
+        <label for="@_id" class="@ActualLabelStyle">
+            <input id="@_id" type="checkbox" disabled="@ActualIsDisabled" hidden value="@IsSelected" @onchange="OnChangeAsync" />
+            <div class="@ActualContainerStyle">
+                <div class="@ActualDotStyle" />
+            </div>
+        </label>
+    }
+    else
+    {
+        <label for="@_id" class="@ActualLabelStyle">
+            <input id="@_id" type="checkbox" disabled="@ActualIsDisabled" hidden value="@IsSelected" @onchange="OnChangeAsync" />
+            <div class="@ActualContainerStyle">
+                <div class="@ActualDotStyle" />
+            </div>
+            <span>@Label</span>
+        </label>
+    }
+</div>
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
+
+    [CascadingParameter]
+    public DPRadioGroup<T>? RadioGroup { get; set; }
 
     [Parameter]
     public string? Label { get; set; }
 
     [Parameter]
-    public bool Value { get; set; }
-
-    [Parameter]
-    public bool? IsFullWidth { get; set; }
+    public T? Value { get; set; }
 
     [Parameter]
     public bool? IsFrameVisible { get; set; }
 
     [Parameter]
-    public bool IsDisabled { get; set; }
+    public bool? IsFullWidth { get; set; }
 
     [Parameter]
-    public EventCallback<bool> ValueChanged { get; set; }
+    public bool IsDisabled { get; set; }
+
+    private bool IsSelected => RadioGroup != null && EqualityComparer<T>.Default.Equals(Value, RadioGroup.Value);
+
+    private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
+
+    private bool ActualIsDisabled => IsDisabled || RadioGroup?.IsDisabled == true;
 
     private string ActualLabelStyle
     {
         get
         {
-            string style = IsDisabled ? "radio-label-disabled group" : "radio-label-enabled group";
+            string style = ActualIsDisabled ? "radio-label-disabled group" : "radio-label-enabled group";
 
             if (!string.IsNullOrWhiteSpace(Label))
             {
@@ -61,11 +70,11 @@ else
 
             if (IsFrameVisible == true)
             {
-                style += IsDisabled ? " frame-disabled" : " frame-enabled";
+                style += ActualIsDisabled ? " frame-disabled" : " frame-enabled";
             }
             else if (IsFrameVisible == null && !string.IsNullOrWhiteSpace(Label))
             {
-                style += IsDisabled ? " -sm:frame-disabled" : " -sm:frame-enabled";
+                style += ActualIsDisabled ? " -sm:frame-disabled" : " -sm:frame-enabled";
             }
 
             return style;
@@ -76,12 +85,12 @@ else
     {
         get
         {
-            if (IsDisabled)
+            if (ActualIsDisabled)
             {
-                return Value ? "radio-container-disabled-on group" : "radio-container-disabled-off group";
+                return IsSelected ? "radio-container-disabled-on group" : "radio-container-disabled-off group";
             }
 
-            return Value ? "radio-container-on group" : "radio-container-off group";
+            return IsSelected ? "radio-container-on group" : "radio-container-off group";
         }
     }
 
@@ -89,27 +98,20 @@ else
     {
         get
         {
-            if (IsDisabled)
+            if (ActualIsDisabled)
             {
-                return Value ? "radio-dot-disabled-on" : "radio-dot-disabled-off";
+                return IsSelected ? "radio-dot-disabled-on" : "radio-dot-disabled-off";
             }
 
-            return Value ? "radio-dot-on" : "radio-dot-off";
+            return IsSelected ? "radio-dot-on" : "radio-dot-off";
         }
     }
 
-    private bool ActualValue
+    private async Task OnChangeAsync()
     {
-        get => Value;
-        set
+        if (RadioGroup != null && !ActualIsDisabled)
         {
-            if (!IsDisabled && Value != value)
-            {
-                Value = value;
-                ValueChanged.InvokeAsync(value);
-            }
+            await RadioGroup.UpdateValueAsync(Value);
         }
     }
-
-    private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
 }

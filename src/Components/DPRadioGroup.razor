@@ -1,0 +1,23 @@
+@typeparam T
+
+<CascadingValue Value="this">@ChildContent</CascadingValue>
+
+@code {
+    [Parameter]
+    public T? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<T> ValueChanged { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    internal async Task UpdateValueAsync(T? value)
+    {
+        Value = value;
+        await ValueChanged.InvokeAsync(value);
+    }
+}

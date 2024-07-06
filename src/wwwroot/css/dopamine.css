@@ -274,4 +274,64 @@
     .dropdown-item-selected {
         @apply text-white bg-blue-600 dropdown-item-base hover:bg-blue-700 active:bg-blue-800;
     }
+
+    .dropdown-calendar-base {
+        @apply absolute z-50 p-3 space-y-3 transition-all duration-300 ease-in-out border rounded-lg backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+    }
+
+    .dropdown-calendar-expanded {
+        @apply translate-y-2 opacity-100 dropdown-calendar-base;
+    }
+
+    .dropdown-calendar-collapsed {
+        @apply scale-0 -translate-y-24 opacity-0 dropdown-calendar-base blur-xl;
+    }
+
+    .calendar-grid {
+        @apply grid grid-cols-7 grid-rows-3 font-semibold text-center sm:text-xs;
+    }
+
+    .calendar-weekday {
+        @apply cursor-default text-neutral-600 dark:text-neutral-400;
+    }
+
+    .month-btn-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
+
+    .month-btn-enabled {
+        @apply month-btn-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-600 hover:scale-105 active:scale-95;
+    }
+
+    .month-btn-disabled {
+        @apply cursor-not-allowed month-btn-base fill-neutral-400 dark:fill-neutral-600;
+    }
+
+    .day-base {
+        @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-md sm:rounded-sm;
+    }
+
+    .day-selected-enabled {
+        @apply text-white bg-blue-600 cursor-pointer day-base hover:bg-blue-700 active:bg-blue-800 hover:scale-105 active:scale-95;
+    }
+
+    .day-selected-disabled {
+        @apply text-white bg-blue-600 cursor-not-allowed day-base hover:bg-blue-700 active:bg-blue-800;
+    }
+
+    .day-today-enabled {
+        @apply text-blue-600 cursor-pointer day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-black dark:active:bg-white active:bg-black dark:active:text-black active:text-white hover:text-white dark:text-blue-500 hover:scale-105 active:scale-95;
+    }
+
+    .day-today-disabled {
+        @apply text-blue-600 cursor-not-allowed dark:active:text-black dark:text-blue-500 day-base;
+    }
+
+    .day-other-enabled {
+        @apply cursor-pointer day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-black dark:active:bg-white active:bg-black dark:active:text-black active:text-white hover:text-white hover:scale-105 active:scale-95;
+    }
+
+    .day-other-disabled {
+        @apply cursor-not-allowed day-base text-neutral-400 dark:text-neutral-500;
+    }
 }

@@ -291,6 +291,32 @@
         <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
     </DPDropDown>
+
+    <br />
+    <DPDivider />
+    <br />
+
+    <h1 class="header">Date Picker</h1>
+    <h2 class="subheader">Unlabeled</h2>
+    <div class="sm:flex sm:space-x-4 -sm:space-y-4">
+        <DPDatePicker From="@_from" To="@_to" @bind-Value="DateValue" />
+        <DPDatePicker From="@_from" To="@_to" IsLoading="true" @bind-Value="DateValue" />
+        <DPDatePicker From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
+    </div>
+    <h2 class="subheader">Standard</h2>
+    <div class="lg:flex lg:space-x-4 -lg:space-y-4">
+        <DPDatePicker Label="Date" From="@_from" To="@_to" @bind-Value="DateValue" />
+        <DPDatePicker Label="Date" From="@_from" To="@_to" IsEdited="true" @bind-Value="DateValue" />
+        <DPDatePicker Label="Date" From="@_from" To="@_to" IsLoading="true" @bind-Value="DateValue" />
+        <DPDatePicker Label="Date" From="@_from" To="@_to" IsEdited="true" IsLoading="true" @bind-Value="DateValue" />
+        <DPDatePicker Label="Date" From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
+        <DPDatePicker Label="Date" From="@_from" To="@_to" IsEdited="true" IsDisabled="true" @bind-Value="DateValue" />
+    </div>
+    <h2 class="subheader">Full Width</h2>
+    <DPDatePicker Label="Date" From="@_from" To="@_to" IsFullWidth="true" @bind-Value="DateValue" />
+    <DPDatePicker Label="Date" From="@_from" To="@_to" IsFullWidth="true" IsLoading="true" @bind-Value="DateValue" />
+    <DPDatePicker Label="Date" From="@_from" To="@_to" IsFullWidth="true" IsDisabled="true" @bind-Value="DateValue" />
+
     <br />
     <DPDivider />
     <br />
@@ -311,9 +337,15 @@
 </div>
 
 @code {
+    private readonly DateTimeOffset _from = DateTimeOffset.UtcNow.AddMonths(-3);
+
+    private readonly DateTimeOffset _to = DateTimeOffset.UtcNow.AddMonths(3);
+
     private string Text { get; set; } = "Hello, world!";
 
     private bool BoolValue { get; set; } = true;
 
     private SampleEnum EnumValue { get; set; } = SampleEnum.Value1;
+
+    private DateTimeOffset DateValue { get; set; } = DateTimeOffset.UtcNow;
 }

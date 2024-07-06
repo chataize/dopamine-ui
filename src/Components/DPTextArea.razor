@@ -69,7 +69,7 @@
         {
             if (IsEdited)
             {
-                return IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+                return IsLoading || IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
             }
 
             return "edit-indicator-inactive";

@@ -257,6 +257,12 @@
         if (!IsDisabled && !IsLoading)
         {
             _isExpanded = !_isExpanded;
+
+            if (_isExpanded)
+            {
+                _browsedYear = Value?.Year ?? DateTimeOffset.UtcNow.Year;
+                _browsedMonth = Value?.Month ?? DateTimeOffset.UtcNow.Month;
+            }
         }
     }
 

@@ -1,0 +1,365 @@
+<div class="relative select-none @ActualWidth">
+    @if (!String.IsNullOrWhiteSpace(Label))
+    {
+        <label for="@_id" class="label-base">
+            <span class="@ActualLabelStyle">@Label</span>
+            <span class="@ActualEditIndicatorStyle">●</span>
+        </label>
+    }
+    <button id="@_id" class="@ActualDropdownButtonStyle @ActualWidth" @onclick="ToggleIsExpanded">
+        <span>@Value.ToString(IsShowingSeconds ? "HH:mm:ss" : "HH:mm")</span>
+        @if (IsLoading)
+        {
+            <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="20" width="20" class="hidden dark:inline" />
+            <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
+        }
+        else
+        {
+            <svg class="transition-all duration-300 ease-in-out @(_isExpanded ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <g transform="scale(8.53333,8.53333)">
+                        <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
+                    </g>
+                </g>
+            </svg>
+        }
+    </button>
+    <div class="@ActualSelectorStyle">
+        <div class="grid text-center @(IsShowingSeconds ? "grid-cols-5 w-40" : "grid-cols-3 w-24")">
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="AddHour">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(3.55556,3.55556)">
+                            <path d="M57.605,51.082c-1.04,0 -2.079,-0.403 -2.863,-1.207l-18.764,-19.23l-18.72,19.187c-1.544,1.582 -4.076,1.612 -5.657,0.069c-1.581,-1.542 -1.611,-4.075 -0.069,-5.656l21.584,-22.121c1.713,-1.713 4.179,-1.586 5.727,0l21.627,22.164c1.542,1.581 1.512,4.114 -0.069,5.656c-0.78,0.76 -1.788,1.138 -2.796,1.138z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <span />
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="AddMinute">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(3.55556,3.55556)">
+                            <path d="M57.605,51.082c-1.04,0 -2.079,-0.403 -2.863,-1.207l-18.764,-19.23l-18.72,19.187c-1.544,1.582 -4.076,1.612 -5.657,0.069c-1.581,-1.542 -1.611,-4.075 -0.069,-5.656l21.584,-22.121c1.713,-1.713 4.179,-1.586 5.727,0l21.627,22.164c1.542,1.581 1.512,4.114 -0.069,5.656c-0.78,0.76 -1.788,1.138 -2.796,1.138z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            @if (IsShowingSeconds)
+            {
+                <span />
+                <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="AddSecond">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                        <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                            <g transform="scale(3.55556,3.55556)">
+                                <path d="M57.605,51.082c-1.04,0 -2.079,-0.403 -2.863,-1.207l-18.764,-19.23l-18.72,19.187c-1.544,1.582 -4.076,1.612 -5.657,0.069c-1.581,-1.542 -1.611,-4.075 -0.069,-5.656l21.584,-22.121c1.713,-1.713 4.179,-1.586 5.727,0l21.627,22.164c1.542,1.581 1.512,4.114 -0.069,5.656c-0.78,0.76 -1.788,1.138 -2.796,1.138z"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            }
+            <div class="relative">
+                <input class="absolute top-0 left-0 text-2xl font-bold text-center bg-transparent transition-all ease-out duration-500 @(_isHourAlternated ? "blur-sm opacity-0 scale-50" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
+                <input class="absolute top-0 left-0 text-2xl font-bold text-center bg-transparent transition-all ease-out duration-500 @(!_isHourAlternated ? "blur-sm opacity-0 scale-50" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
+            </div>
+
+            <span class="font-mono text-2xl">:</span>
+            <div class="relative">
+                <input class="absolute top-0 left-0 text-2xl font-bold text-center bg-transparent transition-all ease-out duration-500 @(_isMinuteAlternated ? "blur-sm opacity-0 scale-50" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
+                <input class="absolute top-0 left-0 text-2xl font-bold text-center bg-transparent transition-all ease-out duration-500 @(!_isMinuteAlternated ? "blur-sm opacity-0 scale-50" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
+            </div>
+            @if (IsShowingSeconds)
+            {
+                <span class="font-mono text-2xl">:</span>
+                <div class="relative">
+                    <input class="absolute top-0 left-0 text-2xl font-bold text-center bg-transparent transition-all ease-out duration-500 @(_isSecondAlternated ? "blur-sm opacity-0 scale-50" : "")" type="text" size="2" maxlength="2" @bind="Second" />
+                    <input class="absolute top-0 left-0 text-2xl font-bold text-center bg-transparent transition-all ease-out duration-500 @(!_isSecondAlternated ? "blur-sm opacity-0 scale-50" : "")" type="text" size="2" maxlength="2" @bind="Second" />
+                </div>
+            }
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="SubtractHour">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(3.55556,3.55556)">
+                            <path d="M35.98,50.002c-1.046,0 -2.093,-0.395 -2.863,-1.185l-19.522,-20.008c-1.542,-1.581 -1.512,-4.114 0.069,-5.656c1.582,-1.542 4.113,-1.512 5.657,0.069l16.659,17.074l16.698,-17.113c1.544,-1.582 4.076,-1.612 5.657,-0.069c1.581,1.543 1.611,4.075 0.069,5.656l-19.56,20.047c-0.771,0.79 -1.818,1.185 -2.864,1.185z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <span />
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="SubtractMinute">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(3.55556,3.55556)">
+                            <path d="M35.98,50.002c-1.046,0 -2.093,-0.395 -2.863,-1.185l-19.522,-20.008c-1.542,-1.581 -1.512,-4.114 0.069,-5.656c1.582,-1.542 4.113,-1.512 5.657,0.069l16.659,17.074l16.698,-17.113c1.544,-1.582 4.076,-1.612 5.657,-0.069c1.581,1.543 1.611,4.075 0.069,5.656l-19.56,20.047c-0.771,0.79 -1.818,1.185 -2.864,1.185z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            @if (IsShowingSeconds)
+            {
+                <span />
+                <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="SubtractSecond">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                        <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                            <g transform="scale(3.55556,3.55556)">
+                                <path d="M35.98,50.002c-1.046,0 -2.093,-0.395 -2.863,-1.185l-19.522,-20.008c-1.542,-1.581 -1.512,-4.114 0.069,-5.656c1.582,-1.542 4.113,-1.512 5.657,0.069l16.659,17.074l16.698,-17.113c1.544,-1.582 4.076,-1.612 5.657,-0.069c1.581,1.543 1.611,4.075 0.069,5.656l-19.56,20.047c-0.771,0.79 -1.818,1.185 -2.864,1.185z"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private readonly Guid _id = Guid.NewGuid();
+
+    private bool _isExpanded;
+
+    private bool _isHourAlternated;
+
+    private bool _isMinuteAlternated;
+
+    private bool _isSecondAlternated;
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public DateTimeOffset Value { get; set; } = DateTimeOffset.UtcNow;
+
+    [Parameter]
+    public EventCallback<DateTimeOffset> ValueChanged { get; set; }
+
+    [Parameter]
+    public bool IsShowingSeconds { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    private string Hour
+    {
+        get => Value.ToString("HH");
+        set
+        {
+            if (int.TryParse(value, out var hour) && hour is >= 0 and <= 23)
+            {
+                Value = Value.AddHours(hour - Value.Hour);
+            }
+        }
+    }
+
+    private string Minute
+    {
+        get => Value.ToString("mm");
+        set
+        {
+            if (int.TryParse(value, out var minute) && minute is >= 0 and <= 59)
+            {
+                Value = Value.AddMinutes(minute - Value.Minute);
+            }
+        }
+    }
+
+    private string Second
+    {
+        get => Value.ToString("ss");
+        set
+        {
+            if (int.TryParse(value, out var second) && second is >= 0 and <= 59)
+            {
+                Value = Value.AddSeconds(second - Value.Second);
+            }
+        }
+    }
+
+    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
+
+    private bool ActualIsExpanded => _isExpanded && !IsLoading && !IsDisabled;
+
+    private string ActualLabelStyle => IsLoading || IsDisabled ? "label-disabled" : "label-default";
+
+    private string ActualEditIndicatorStyle
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return IsLoading || IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+            }
+
+            return "edit-indicator-inactive";
+        }
+    }
+
+    private string ActualDropdownButtonStyle
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dropdown-loading";
+            }
+            else if (IsDisabled)
+            {
+                return "dropdown-disabled";
+            }
+            else if (ActualIsExpanded)
+            {
+                return "dropdown-expanded";
+            }
+            else
+            {
+                return "dropdown-collapsed";
+            }
+        }
+    }
+
+    private string ActualSelectorStyle
+    {
+        get
+        {
+            string style = ActualIsExpanded ? "dropdown-clock-expanded" : "dropdown-clock-collapsed";
+
+            if (IsFullWidth == true)
+            {
+                style += " w-full";
+            }
+            else if (IsFullWidth == null)
+            {
+                style += " w-full sm:w-auto";
+            }
+
+            return style;
+        }
+    }
+
+    private void ToggleIsExpanded()
+    {
+        if (!IsLoading && !IsDisabled)
+        {
+            _isExpanded = !_isExpanded;
+        }
+    }
+
+    private async Task AddHour()
+    {
+        AnimateHour();
+
+        if (Value.Hour == 23)
+        {
+            Value = Value.AddHours(-23);
+        }
+        else
+        {
+            Value = Value.AddHours(1);
+        }
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private async Task AddMinute()
+    {
+        AnimateMinute();
+
+        if (Value.Minute == 59)
+        {
+            Value = Value.AddMinutes(-59);
+        }
+        else
+        {
+            Value = Value.AddMinutes(1);
+        }
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private async Task AddSecond()
+    {
+        AnimateSecond();
+
+        if (Value.Second == 59)
+        {
+            Value = Value.AddSeconds(-59);
+        }
+        else
+        {
+            Value = Value.AddSeconds(1);
+        }
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private async Task SubtractHour()
+    {
+        AnimateHour();
+
+        if (Value.Hour == 0)
+        {
+            Value = Value.AddHours(23);
+        }
+        else
+        {
+            Value = Value.AddHours(-1);
+        }
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private async Task SubtractMinute()
+    {
+        AnimateMinute();
+
+        if (Value.Minute == 0)
+        {
+            Value = Value.AddMinutes(59);
+        }
+        else
+        {
+            Value = Value.AddMinutes(-1);
+        }
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private async Task SubtractSecond()
+    {
+        AnimateSecond();
+
+        if (Value.Second == 0)
+        {
+            Value = Value.AddSeconds(59);
+        }
+        else
+        {
+            Value = Value.AddSeconds(-1);
+        }
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private void AnimateHour()
+    {
+        _isHourAlternated = !_isHourAlternated;
+    }
+
+    private void AnimateMinute()
+    {
+        _isMinuteAlternated = !_isMinuteAlternated;
+    }
+
+    private void AnimateSecond()
+    {
+        _isSecondAlternated = !_isSecondAlternated;
+    }
+}

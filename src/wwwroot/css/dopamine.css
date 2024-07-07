@@ -316,7 +316,7 @@
     }
 
     .day-selected-disabled {
-        @apply text-white bg-blue-600 cursor-not-allowed day-base hover:bg-blue-700 active:bg-blue-800;
+        @apply text-white bg-blue-600 cursor-not-allowed day-base;
     }
 
     .day-today-enabled {

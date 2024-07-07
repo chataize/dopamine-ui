@@ -1,6 +1,6 @@
 @typeparam T
 
-<div class="@(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
+<div class="@ActualWidth">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="label-base">
@@ -9,7 +9,7 @@
             <span class="@ActualEditIndicatorStyle">EDITED</span>
         </label>
     }
-    <div class="relative flex @(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
+    <div class="relative flex @ActualWidth">
         <button id="@_id" class="@ActualButtonStyle" @onclick="ToogleIsExpanded">
             <span>@ValueLabel</span>
             @if (IsLoading)
@@ -67,6 +67,8 @@
     public List<DPDropDownItem<T>> Items { get; set; } = [];
 
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
+
+    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
 
     private bool ActualIsExpended => IsExpanded && !IsDisabled && !IsLoading;
 

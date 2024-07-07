@@ -1,4 +1,4 @@
-<div class="@(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
+<div class="@ActualWidth">
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="label-base">
@@ -7,7 +7,7 @@
             <span class="@ActualEditIndicatorStyle">EDITED</span>
         </label>
     }
-    <div class="relative inline-block @(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "")">
+    <div class="relative inline-block @ActualWidth">
         <textarea id="@_id" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @bind-value:event="oninput" @onchange="OnChange" />
         @if (IsLoading)
         {
@@ -60,6 +60,8 @@
 
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
+
+    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
 
     private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
 

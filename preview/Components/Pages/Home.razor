@@ -207,7 +207,7 @@
     <h1 class="header">Radio Buttons</h1>
     <h2 class="subheader">Unlabeled</h2>
     <div class="flex space-x-4">
-        <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
+        <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Value="SampleEnum.Value1" />
             <DPRadioButton Value="SampleEnum.Value2" />
             <DPRadioButton IsDisabled="true" Value="SampleEnum.Value3" />
@@ -215,7 +215,7 @@
     </div>
     <h2 class="subheader">Automatic</h2>
     <div class="space-y-4">
-        <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
+        <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" />
             <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" />
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" />
@@ -223,7 +223,7 @@
     </div>
      <h2 class="subheader">Disabled Group</h2>
     <div class="space-y-4">
-        <DPRadioGroup IsDisabled="true" @bind-Value="EnumValue" T="SampleEnum">
+        <DPRadioGroup IsDisabled="true" @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" />
             <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" />
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" />
@@ -231,7 +231,7 @@
     </div>
     <h2 class="subheader">Frameless</h2>
     <div class="sm:flex sm:space-x-4 -sm:space-y-4">
-        <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
+        <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsFrameVisible="false" />
             <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsFrameVisible="false" />
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" IsFrameVisible="false" />
@@ -239,7 +239,7 @@
     </div>
     <h2 class="subheader">Framed</h2>
     <div class="sm:flex sm:space-x-4 -sm:space-y-4">
-        <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
+        <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" IsFrameVisible="true" Value="SampleEnum.Value1" />
             <DPRadioButton Label="Value 2" IsFrameVisible="true" Value="SampleEnum.Value2" />
             <DPRadioButton Label="Disabled" IsFrameVisible="true" IsDisabled="true" Value="SampleEnum.Value3" />
@@ -247,7 +247,7 @@
     </div>
     <h2 class="subheader">Full Width</h2>
     <div class="space-y-4">
-        <DPRadioGroup @bind-Value="EnumValue" T="SampleEnum">
+        <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsFullWidth="true" />
             <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsFullWidth="true" />
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" IsFullWidth="true" />

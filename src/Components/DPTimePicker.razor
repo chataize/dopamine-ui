@@ -26,7 +26,7 @@
     </button>
     <div class="@ActualClockStyle">
         <div class="grid text-center @(IsShowingSeconds ? "grid-cols-5 w-40" : "grid-cols-3 w-24")">
-            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="AddHour">
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95" @onclick="AddHour">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -36,7 +36,7 @@
                 </svg>
             </button>
             <span />
-            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="AddMinute">
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95" @onclick="AddMinute">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -48,7 +48,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="AddSecond">
+                <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95" @onclick="AddSecond">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -76,7 +76,7 @@
                     <input class="absolute top-0 left-0 text-2xl font-bold text-center bg-transparent transition-all ease-out duration-500 @(!_isSecondAlternated ? "blur-sm opacity-0 scale-50" : "")" type="text" size="2" maxlength="2" @bind="Second" />
                 </div>
             }
-            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="SubtractHour">
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95" @onclick="SubtractHour">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -86,7 +86,7 @@
                 </svg>
             </button>
             <span />
-            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="SubtractMinute">
+            <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95" @onclick="SubtractMinute">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -98,7 +98,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75" @onclick="SubtractSecond">
+                <button class="flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95" @onclick="SubtractSecond">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">

@@ -215,6 +215,15 @@
 
     private string ActualNextMonthButtonStyle => IsNextMonthInRage ? "month-btn-enabled" : "month-btn-disabled";
 
+    protected override void OnInitialized()
+    {
+        if (Value != null)
+        {
+            _browsedYear = Value.Value.Year;
+            _browsedMonth = Value.Value.Month;
+        }
+    }
+
     private string GetDayStyle(int day)
     {
         var value = new DateTimeOffset(_browsedYear, _browsedMonth, day, 0, 0, 0, TimeSpan.Zero);

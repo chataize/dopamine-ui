@@ -44,7 +44,7 @@
     }
 
     .label-base {
-        @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none w-min;
+        @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none;
     }
 
     .label-default {
@@ -64,7 +64,7 @@
     }
 
     .edit-indicator-inactive {
-        @apply opacity-0 edit-indicator-base;
+        @apply w-0 opacity-0 edit-indicator-base;
     }
 
     .edit-indicator-disabled {

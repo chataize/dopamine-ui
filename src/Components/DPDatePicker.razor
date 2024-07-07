@@ -7,7 +7,7 @@
             <span class="@ActualEditIndicatorStyle">EDITED</span>
         </label>
     }
-    <button class="@ActualDropdownButtonStyle @ActualWidth" @onclick="Toggle">
+    <button id="@_id" class="@ActualDropdownButtonStyle @ActualWidth" @onclick="Toggle">
         <span>@SelectionDisplay</span>
         @if (IsLoading)
         {

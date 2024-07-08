@@ -313,7 +313,7 @@
 
     private async Task SelectAsync(int day)
     {
-        var value = new DateTimeOffset(_browsedYear, _browsedMonth, day, 0, 0, 0, TimeSpan.Zero);
+        var value = new DateTimeOffset(_browsedYear, _browsedMonth, day, Value?.Hour ?? 0, Value?.Minute ?? 0, Value?.Second ?? 0, TimeSpan.Zero);
         if (value < From || value > To)
         {
             return;

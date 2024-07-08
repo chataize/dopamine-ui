@@ -1,6 +1,6 @@
 @typeparam T
 
-<div class="@(IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-fit" : "")">
+<div class="@ActualWidth">
     @if (string.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="@ActualLabelStyle">
@@ -44,6 +44,8 @@
     public bool IsDisabled { get; set; }
 
     private bool IsSelected => RadioGroup != null && EqualityComparer<T>.Default.Equals(Value, RadioGroup.Value);
+
+    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-fit" : "";
 
     private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
 

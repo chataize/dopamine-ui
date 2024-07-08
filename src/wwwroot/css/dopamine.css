@@ -346,4 +346,28 @@
     .dropdown-clock-collapsed {
         @apply scale-0 -translate-y-24 opacity-0 dropdown-clock-base blur-xl;
     }
+
+    .clock-button {
+        @apply flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95;
+    }
+
+    .clock-grid-base {
+        @apply grid text-center;
+    }
+
+    .clock-grid-seconds {
+        @apply w-40 grid-cols-5 clock-grid-base;
+    }
+
+    .clock-grid-noseconds {
+        @apply w-24 grid-cols-3 clock-grid-base;
+    }
+
+    .clock-digit {
+        @apply absolute top-0 left-0 text-2xl font-bold text-center transition-all duration-500 ease-out bg-transparent;
+    }
+
+    .clock-digit-animation {
+        @apply scale-50 opacity-0 blur-sm;
+    }
 }

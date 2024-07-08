@@ -149,9 +149,9 @@
         }
     }
 
-    private bool ActualIsExpanded => _isExpanded && !IsDisabled && !IsLoading;
-
     private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
+
+    private bool ActualIsExpanded => _isExpanded && !IsDisabled && !IsLoading;
 
     private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
 

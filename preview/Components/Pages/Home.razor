@@ -1,4 +1,4 @@
-@page "/"
+﻿@page "/"
 @rendermode InteractiveServer
 
 <PageTitle>Dopamine UI Preview</PageTitle>
@@ -350,6 +350,23 @@
     <DPTimePicker Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="DateValue" />
     <DPTimePicker Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="DateValue" />
 
+    <br />
+    <DPDivider />
+    <br />
+
+    <h1 class="header">Stepper</h1>
+    <h2 class="subheader">Unlabeled</h2>
+    <DPStepper @bind-Value="IntValue" />
+    <h2 class="subheader">Standard</h2>
+    <div class="flex space-x-4">
+        <DPStepper Label="Normal" @bind-Value="IntValue" />
+        <DPStepper Label="Loading" IsLoading="true" @bind-Value="IntValue" />
+        <DPStepper Label="Disabled" IsDisabled="true" @bind-Value="IntValue" />
+    </div>
+    <h2 class="subheader">Full Width</h2>
+    <DPStepper Label="Normal" IsFullWidth="true" @bind-Value="IntValue" />
+    <DPStepper Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="IntValue" />
+    <DPStepper Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
 
     <br />
     <DPDivider />
@@ -378,6 +395,8 @@
     private string Text { get; set; } = "Hello, world!";
 
     private bool BoolValue { get; set; } = true;
+
+    private int IntValue { get; set; } = 0;
 
     private SampleEnum EnumValue { get; set; } = SampleEnum.Value1;
 

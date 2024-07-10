@@ -1,0 +1,61 @@
+<button class="@ActualStyle @ActualWidth" disabled="@(IsLoading || IsDisabled)" @onclick="OnClickAsync">
+    @if (IsLoading)
+    {
+        <span class="opacity-0">@ChildContent</span>
+        <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="24" width="24" class="absolute opacity-100 dark:opacity-0" />
+        <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="24" width="24" class="absolute opacity-0 dark:opacity-100" />
+    }
+    else
+    {
+        @ChildContent
+    }
+</button>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool Value { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> ValueChanged { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-fit" : "";
+
+    private string ActualStyle
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "button-loading";
+            }
+
+            if (IsDisabled)
+            {
+                return "button-disabled";
+            }
+
+            return Value ? "button-toggled" : "button-default";
+        }
+    }
+
+    private async Task OnClickAsync()
+    {
+        if (!IsLoading && !IsDisabled)
+        {
+            Value = !Value;
+            await ValueChanged.InvokeAsync(Value);
+        }
+    }
+}

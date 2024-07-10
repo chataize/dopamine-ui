@@ -1,4 +1,4 @@
-<button class="@ActualStyle" disabled="@IsDisabled" @onclick="OnClickAsync">
+<button class="@ActualStyle" disabled="@(IsLoading || IsDisabled)" @onclick="OnClickAsync">
     @if (IsLoading)
     {
         <span class="opacity-0">@ChildContent</span>

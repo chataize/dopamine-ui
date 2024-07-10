@@ -30,8 +30,6 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
-    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-fit" : "";
-
     private string ActualStyle
     {
         get
@@ -49,6 +47,8 @@
             return Value ? "button-toggled" : "button-default";
         }
     }
+
+    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-fit" : "";
 
     private async Task OnClickAsync()
     {

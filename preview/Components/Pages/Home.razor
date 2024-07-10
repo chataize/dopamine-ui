@@ -144,6 +144,22 @@
     <DPDivider />
     <br />
 
+    <h1 class="header">Toggle Buttons</h1>
+    <h2 class="subheader">Standard</h2>
+    <div class="flex space-x-4">
+        <DPToggleButton @bind-Value="BoolValue">Normal</DPToggleButton>
+        <DPToggleButton IsLoading="true" @bind-Value="BoolValue">Loading</DPToggleButton>
+        <DPToggleButton IsDisabled="true" @bind-Value="BoolValue">Disabled</DPToggleButton>
+    </div>
+    <h2 class="subheader">Full Width</h2>
+    <DPToggleButton IsFullWidth="true" @bind-Value="BoolValue">Normal</DPToggleButton>
+    <DPToggleButton IsFullWidth="true" IsLoading="true" @bind-Value="BoolValue">Loading</DPToggleButton>
+    <DPToggleButton IsFullWidth="true" IsDisabled="true" @bind-Value="BoolValue">Disabled</DPToggleButton>
+
+    <br />
+    <DPDivider />
+    <br />
+
     <h1 class="header">Toggle Switches</h1>
     <h2 class="subheader">Unlabeled</h2>
     <div class="flex">

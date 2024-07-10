@@ -367,7 +367,7 @@
         @apply absolute top-0 left-0 text-2xl font-bold text-center transition-all duration-500 ease-out bg-transparent;
     }
 
-    .clock-digit-animation {
+    .digit-animation {
         @apply scale-50 opacity-0 blur-sm;
     }
 }

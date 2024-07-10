@@ -59,21 +59,21 @@
                 </button>
             }
             <div class="relative">
-                <input class="clock-digit @(_isHourAlternated ? "clock-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
-                <input class="clock-digit @(!_isHourAlternated ? "clock-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
+                <input class="clock-digit @(_isHourAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
+                <input class="clock-digit @(!_isHourAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
             </div>
 
             <span class="font-mono text-2xl">:</span>
             <div class="relative">
-                <input class="clock-digit @(_isMinuteAlternated ? "clock-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
-                <input class="clock-digit @(!_isMinuteAlternated ? "clock-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
+                <input class="clock-digit @(_isMinuteAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
+                <input class="clock-digit @(!_isMinuteAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
             </div>
             @if (IsShowingSeconds)
             {
                 <span class="font-mono text-2xl">:</span>
                 <div class="relative">
-                    <input class="clock-digit @(_isSecondAlternated ? "clock-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
-                    <input class="clock-digit @(!_isSecondAlternated ? "clock-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
+                    <input class="clock-digit @(_isSecondAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
+                    <input class="clock-digit @(!_isSecondAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
                 </div>
             }
             <button class="clock-button" @onclick="SubtractHour">

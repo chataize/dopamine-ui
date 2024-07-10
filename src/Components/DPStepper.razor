@@ -1,0 +1,181 @@
+<div class="select-none @ActualWidth">
+    @if (!String.IsNullOrWhiteSpace(Label))
+    {
+        <label for="@_id" class="label-base">
+            <span class="@ActualLabelStyle">@Label</span>
+            <span class="@ActualEditIndicatorStyle">●</span>
+        </label>
+    }
+    <div id="@_id" class="@ActualStyle @ActualWidth">
+        <div class="relative flex items-center w-fit">
+            <input class="stepper-digit @(_isValueAlternated ? "digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
+            <input class="stepper-digit absolute @(!_isValueAlternated ? "digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
+        </div>
+        <div class="relative flex items-center space-x-2">
+            <button @onclick="DecrementAsync" class="@ActualDecrementButtonStyle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(3.55556,3.55556)">
+                            <path d="M55,40h-38c-2.209,0 -4,-1.791 -4,-4c0,-2.209 1.791,-4 4,-4h38c2.209,0 4,1.791 4,4c0,2.209 -1.791,4 -4,4z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <button @onclick="IncrementAsync" class="@ActualIncrementButtonStyle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(3.55556,3.55556)">
+                            <path d="M36,13c-2.209,0 -4,1.791 -4,4v15h-15c-2.209,0 -4,1.791 -4,4c0,2.209 1.791,4 4,4h15v15c0,2.209 1.791,4 4,4c2.209,0 4,-1.791 4,-4v-15h15c2.209,0 4,-1.791 4,-4c0,-2.209 -1.791,-4 -4,-4h-15v-15c0,-2.209 -1.791,-4 -4,-4z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            @if (IsLoading)
+            {
+                <div class="absolute right-0 flex items-center w-fit">
+                    <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
+                    <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="20" width="20" class="hidden dark:inline" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private readonly Guid _id = Guid.NewGuid();
+
+    private bool _isValueAlternated;
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public int Value { get; set; }
+
+    [Parameter]
+    public EventCallback<int> ValueChanged { get; set; }
+
+    [Parameter]
+    public int MinValue { get; set; }
+
+    [Parameter]
+    public int MaxValue { get; set; } = 9999999;
+
+    [Parameter]
+    public int Step { get; set; } = 1;
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    private string ActualValue
+    {
+        get => Value.ToString().Trim();
+        set
+        {
+            if (IsLoading || IsDisabled)
+            {
+                return;
+            }
+
+            if (int.TryParse(value, out var result))
+            {
+                if (result < MinValue)
+                {
+                    result = MinValue;
+                }
+
+                if (result > MaxValue)
+                {
+                    result = MaxValue;
+                }
+
+                Value = result;
+                ValueChanged.InvokeAsync(Value);
+            }
+        }
+    }
+
+    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
+
+    private int ActualInputSize => Math.Max(6, MaxValueLength);
+
+    private int MaxValueLength => MaxValue.ToString().Length;
+
+    bool CanIncrement => !IsLoading && !IsDisabled && Value + Step <= MaxValue;
+
+    bool CanDecrement => !IsLoading && !IsDisabled && Value - Step >= MinValue;
+
+    private string ActualLabelStyle => IsLoading || IsDisabled ? "label-disabled" : "label-default";
+
+    private string ActualEditIndicatorStyle
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return IsLoading || IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+            }
+
+            return "edit-indicator-inactive";
+        }
+    }
+
+    private string ActualStyle
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "stepper-loading";
+            }
+
+            if (IsDisabled)
+            {
+                return "stepper-disabled";
+            }
+
+            return "stepper-enabled";
+        }
+    }
+
+    private string ActualIncrementButtonStyle => IsLoading ? "stepper-btn-loading" : CanIncrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
+
+    private string ActualDecrementButtonStyle => IsLoading ? "stepper-btn-loading" : CanDecrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
+
+    private async Task IncrementAsync()
+    {
+        if (CanIncrement)
+        {
+            AnimateValue();
+
+            Value += Step;
+            await ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    private async Task DecrementAsync()
+    {
+        if (CanDecrement)
+        {
+            AnimateValue();
+
+            Value -= Step;
+            await ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    private void AnimateValue()
+    {
+        _isValueAlternated = !_isValueAlternated;
+    }
+}

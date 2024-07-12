@@ -1,0 +1,30 @@
+<div class="@ScreenSizeClass:flex @ScreenSizeClass:space-x-4 -@ScreenSizeClass:space-y-4">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public ScreenSize RequiredSize { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private string ScreenSizeClass
+    {
+        get
+        {
+            return RequiredSize switch
+            {
+                ScreenSize.Small => "sm",
+                ScreenSize.Medium => "md",
+                ScreenSize.Large => "lg",
+                ScreenSize.ExtraLarge => "xl",
+                ScreenSize.ExtraExtraLarge => "2xl",
+                _ => "sm"
+            };
+        }
+    }
+}

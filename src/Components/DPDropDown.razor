@@ -71,7 +71,7 @@
 
     private bool ActualIsExpended => _isExpanded && !IsLoading && !IsDisabled;
 
-    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label-default";
+    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -79,7 +79,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator-default";
+                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -105,11 +105,11 @@
                 return "dp-dropdown-expanded";
             }
 
-            return "dp-dropdown-collapsed";
+            return "dp-dropdown";
         }
     }
 
-    private string ListClass => ActualIsExpended ? "dp-dropdown-list-expanded" : "dp-dropdown-list-collapsed";
+    private string ListClass => ActualIsExpended ? "dp-menu" : "dp-menu-collapsed";
 
     private string WidthClass
     {

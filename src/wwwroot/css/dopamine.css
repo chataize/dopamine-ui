@@ -3,11 +3,23 @@
 @tailwind utilities;
 
 @layer components {
+    .dp-border-base {
+        @apply px-3 py-2 border rounded-lg shadow-sm dark:bg-neutral-800 dark:border-neutral-700;
+    }
+
+    .dp-border {
+        @apply dp-border-base hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:border-neutral-200 dark:hover:border-neutral-600 dark:active:border-neutral-600;
+    }
+
+    .dp-border-disabled {
+        @apply dp-border-base border-neutral-50 dark:border-neutral-800;
+    }
+
     .dp-button-base {
         @apply flex justify-center px-3 py-2 font-semibold text-center transition-all duration-300 ease-in-out rounded-lg select-none;
     }
 
-    .dp-button-default {
+    .dp-button {
         @apply border shadow-sm dp-button-base bg-neutral-100 fill-black dark:fill-white dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
     }
 
@@ -51,7 +63,7 @@
         @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none;
     }
 
-    .dp-label-default {
+    .dp-label {
         @apply dark:text-white;
     }
 
@@ -63,7 +75,7 @@
         @apply text-xs transition-all duration-300 ease-in-out select-none;
     }
 
-    .dp-edit-indicator-default {
+    .dp-edit-indicator {
         @apply dp-edit-indicator-base text-neutral-400 dark:text-neutral-500;
     }
 
@@ -75,56 +87,44 @@
         @apply dp-edit-indicator-base text-neutral-300 dark:text-neutral-600;
     }
 
-    .dp-input-base {
+    .dp-textfield-base {
         @apply flex px-3 py-2 transition-all duration-300 ease-in-out border rounded-lg shadow-sm;
     }
 
-    .dp-input-default {
-        @apply dp-input-base bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-white;
+    .dp-textfield {
+        @apply dp-textfield-base bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-white;
     }
 
-    .dp-input-loading {
-        @apply cursor-wait select-none dp-input-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 animate-pulse;
+    .dp-textfield-loading {
+        @apply cursor-wait select-none dp-textfield-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 animate-pulse;
     }
 
-    .dp-input-disabled {
-        @apply cursor-not-allowed select-none dp-input-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500;
+    .dp-textfield-disabled {
+        @apply cursor-not-allowed select-none dp-textfield-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500;
     }
 
-    .dp-frame-base {
-        @apply px-3 py-2 border rounded-lg shadow-sm dark:bg-neutral-800 dark:border-neutral-700;
-    }
-
-    .dp-frame-enabled {
-        @apply dp-frame-base hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:border-neutral-200 dark:hover:border-neutral-600 dark:active:border-neutral-600;
-    }
-
-    .dp-frame-disabled {
-        @apply dp-frame-base border-neutral-50 dark:border-neutral-800;
-    }
-
-    .dp-switch-label-base {
+    .dp-switch-base {
         @apply flex items-center justify-between space-x-4 font-semibold transition-all duration-300 ease-in-out select-none sm:space-x-12 dark:text-white;
     }
 
-    .dp-switch-label-enabled {
-        @apply cursor-pointer dp-switch-label-base hover:scale-105 active:scale-95;
+    .dp-switch {
+        @apply cursor-pointer dp-switch-base hover:scale-105 active:scale-95;
     }
 
-    .dp-switch-label-disabled {
-        @apply cursor-not-allowed dp-switch-label-base text-neutral-300 dark:text-neutral-600;
+    .dp-switch-disabled {
+        @apply cursor-not-allowed dp-switch-base text-neutral-300 dark:text-neutral-600;
     }
 
     .dp-switch-pill-base {
         @apply flex items-center h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm sm:h-6 w-14 sm:w-11;
     }
 
-    .dp-switch-pill-off {
-        @apply dp-switch-pill-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95;
-    }
-
     .dp-switch-pill-on {
         @apply bg-green-600 border-green-700 dp-switch-pill-base group-hover:bg-green-700 group-active:bg-green-800 dark:group-hover:bg-green-500 dark:group-active:bg-green-400 group-hover:border-green-800 group-active:border-green-800 dark:border-green-500 dark:group-hover:border-green-400 dark:group-active:border-green-400 group-hover:scale-105 group-active:scale-95;
+    }
+
+    .dp-switch-pill-off {
+        @apply dp-switch-pill-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95;
     }
 
     .dp-switch-pill-disabled {
@@ -135,116 +135,112 @@
         @apply w-6 h-6 transition-all duration-300 ease-in-out border rounded-full shadow-sm sm:w-4 sm:h-4;
     }
 
-    .dp-switch-dot-off {
-        @apply bg-white dp-switch-dot-base border-neutral-200 group-hover:border-neutral-300 group-active:border-white;
-    }
-
     .dp-switch-dot-on {
         @apply bg-white border-green-700 dp-switch-dot-base group-hover:border-green-800 group-active:border-green-800 dark:border-green-700 dark:group-hover:border-green-600 dark:group-active:border-green-600;
+    }
+
+    .dp-switch-dot-off {
+        @apply bg-white dp-switch-dot-base border-neutral-200 group-hover:border-neutral-300 group-active:border-white;
     }
 
     .dp-switch-dot-disabled {
         @apply bg-white dp-switch-dot-base dark:bg-neutral-600 border-neutral-100 dark:border-neutral-700;
     }
 
-    .dp-checkbox-label-base {
+    .dp-checkbox-base {
         @apply flex items-center justify-start space-x-4 font-semibold transition-all duration-300 ease-in-out select-none dark:text-white;
     }
 
-    .dp-checkbox-label-enabled {
-        @apply cursor-pointer dp-checkbox-label-base hover:scale-105 active:scale-95;
+    .dp-checkbox {
+        @apply cursor-pointer dp-checkbox-base hover:scale-105 active:scale-95;
     }
 
-    .dp-checkbox-label-disabled {
-        @apply cursor-not-allowed dp-checkbox-label-base text-neutral-300 dark:text-neutral-600;
+    .dp-checkbox-disabled {
+        @apply cursor-not-allowed dp-checkbox-base text-neutral-300 dark:text-neutral-600;
     }
 
-    .dp-checkbox-container-base {
+    .dp-checkbox-square-base {
         @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-lg shadow-sm stroke-2 sm:rounded-md sm:w-6 sm:h-6;
     }
 
-    .dp-checkbox-container-off {
-        @apply dp-checkbox-container-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover:fill-neutral-400 dark:group-hover:stroke-neutral-400 dark:group-active:fill-neutral-300 dark:group-active:stroke-neutral-300 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95 stroke-neutral-200 fill-neutral-200 group-hover:stroke-neutral-500 group-hover:fill-neutral-500 group-active:stroke-neutral-600 group-active:fill-neutral-600;
+    .dp-checkbox-square-on {
+        @apply bg-blue-600 border-blue-700 dp-checkbox-square-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-white stroke-white;
     }
 
-    .dp-checkbox-container-on {
-        @apply bg-blue-600 border-blue-700 dp-checkbox-container-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-white stroke-white;
+    .dp-checkbox-square-on-disabled {
+        @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
     }
 
-    .dp-checkbox-container-disabled-off {
-        @apply dp-checkbox-container-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+    .dp-checkbox-square-off {
+        @apply dp-checkbox-square-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover:fill-neutral-400 dark:group-hover:stroke-neutral-400 dark:group-active:fill-neutral-300 dark:group-active:stroke-neutral-300 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95 stroke-neutral-200 fill-neutral-200 group-hover:stroke-neutral-500 group-hover:fill-neutral-500 group-active:stroke-neutral-600 group-active:fill-neutral-600;
     }
 
-    .dp-checkbox-container-disabled-on {
-        @apply dp-checkbox-container-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
+    .dp-checkbox-square-off-disabled {
+        @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
     }
 
-    .dp-radio-label-base {
+    .dp-radio-base {
         @apply flex items-center justify-start space-x-4 font-semibold transition-all duration-300 ease-in-out select-none dark:text-white;
     }
 
-    .dp-radio-label-enabled {
-        @apply cursor-pointer dp-radio-label-base hover:scale-105 active:scale-95;
+    .dp-radio {
+        @apply cursor-pointer dp-radio-base hover:scale-105 active:scale-95;
     }
 
-    .dp-radio-label-disabled {
-        @apply cursor-not-allowed dp-radio-label-base text-neutral-300 dark:text-neutral-600;
+    .dp-radio-disabled {
+        @apply cursor-not-allowed dp-radio-base text-neutral-300 dark:text-neutral-600;
     }
 
-    .dp-radio-container-base {
+    .dp-radio-circle-base {
         @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm stroke-2 sm:w-6 sm:h-6;
     }
 
-    .dp-radio-container-off {
-        @apply dp-radio-container-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover:fill-neutral-400 dark:group-hover:stroke-neutral-400 dark:group-active:fill-neutral-300 dark:group-active:stroke-neutral-300 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95 stroke-neutral-200 fill-neutral-200 group-hover:stroke-neutral-500 group-hover:fill-neutral-500 group-active:stroke-neutral-600 group-active:fill-neutral-600;
+    .dp-radio-circle-on {
+        @apply bg-blue-600 border-blue-700 dp-radio-circle-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-white stroke-white;
     }
 
-    .dp-radio-container-on {
-        @apply bg-blue-600 border-blue-700 dp-radio-container-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-white stroke-white;
+    .dp-radio-circle-on-disabled {
+        @apply dp-radio-circle-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
     }
 
-    .dp-radio-container-disabled-off {
-        @apply dp-radio-container-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+    .dp-radio-circle-off {
+        @apply dp-radio-circle-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover:fill-neutral-400 dark:group-hover:stroke-neutral-400 dark:group-active:fill-neutral-300 dark:group-active:stroke-neutral-300 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95 stroke-neutral-200 fill-neutral-200 group-hover:stroke-neutral-500 group-hover:fill-neutral-500 group-active:stroke-neutral-600 group-active:fill-neutral-600;
     }
 
-    .dp-radio-container-disabled-on {
-        @apply dp-radio-container-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
+    .dp-radio-circle-off-disabled {
+        @apply dp-radio-circle-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
     }
 
     .dp-radio-dot-base {
         @apply transition-all duration-300 ease-in-out border rounded-full;
     }
 
-    .dp-radio-dot-off {
-        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-active:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
-    }
-
     .dp-radio-dot-on {
         @apply w-5 h-5 bg-white border-blue-700 shadow-sm sm:w-3.5 sm:h-3.5 dp-radio-dot-base group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-700 dark:group-hover:border-blue-600 dark:group-active:border-blue-600;
     }
 
-    .dp-radio-dot-disabled-off {
-        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
+    .dp-radio-dot-on-disabled {
+        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-300 dp-switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
     }
 
-    .dp-radio-dot-disabled-on {
-        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-300 dp-switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+    .dp-radio-dot-off {
+        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-active:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
+    }
+
+    .dp-radio-dot-off-disabled {
+        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
     }
 
     .dp-dropdown-base {
         @apply flex items-center justify-between px-3 py-2 space-x-3 font-semibold text-center transition-all duration-300 ease-in-out border rounded-lg shadow-sm select-none dp-button-base;
     }
 
-    .dp-dropdown-default {
-        @apply dp-dropdown-base fill-black dark:fill-white text-black dark:text-white
+    .dp-dropdown {
+        @apply text-black dp-dropdown-base fill-black dark:fill-white dark:text-white dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
     }
 
     .dp-dropdown-expanded {
-        @apply scale-95 dp-dropdown-default bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
-    }
-
-    .dp-dropdown-collapsed {
-        @apply dp-dropdown-default dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
+        @apply text-black scale-95 dp-dropdown-base fill-black dark:fill-white dark:text-white bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
     }
 
     .dp-dropdown-loading {
@@ -255,23 +251,23 @@
         @apply cursor-not-allowed dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
     }
 
-    .dp-dropdown-list-base {
+    .dp-menu-base {
         @apply absolute z-50 p-1 space-y-1 transition-all duration-300 ease-in-out border rounded-lg shadow select-none backdrop-blur-xl dark:border-neutral-700 border-neutral-200;
     }
 
-    .dp-dropdown-list-expanded {
-        @apply scale-100 translate-y-12 opacity-100 dp-dropdown-list-base blur-none;
+    .dp-menu {
+        @apply scale-100 translate-y-12 opacity-100 dp-menu-base blur-none;
     }
 
-    .dp-dropdown-list-collapsed {
-        @apply scale-0 -translate-y-12 opacity-0 dp-dropdown-list-base blur-xl;
+    .dp-menu-collapsed {
+        @apply scale-0 -translate-y-12 opacity-0 dp-menu-base blur-xl;
     }
 
     .dp-dropdown-item-base {
         @apply flex w-full px-3 py-2 font-semibold transition-all duration-300 ease-in-out rounded-md select-none sm:py-1 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
     }
 
-    .dp-dropdown-item-default {
+    .dp-dropdown-item {
         @apply hover:shadow-sm dp-dropdown-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600;
     }
 
@@ -279,79 +275,79 @@
         @apply text-white bg-blue-600 dp-dropdown-item-base hover:bg-blue-700 active:bg-blue-800;
     }
 
-    .dp-dropdown-calendar-base {
+    .dp-calendar-base {
         @apply absolute z-50 p-3 space-y-3 transition-all duration-300 ease-in-out border rounded-lg backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
     }
 
-    .dp-dropdown-calendar-expanded {
-        @apply translate-y-2 opacity-100 dp-dropdown-calendar-base;
+    .dp-calendar {
+        @apply translate-y-2 opacity-100 dp-calendar-base;
     }
 
-    .dp-dropdown-calendar-collapsed {
-        @apply scale-0 -translate-y-24 opacity-0 dp-dropdown-calendar-base blur-xl;
+    .dp-calendar-collapsed {
+        @apply scale-0 -translate-y-24 opacity-0 dp-calendar-base blur-xl;
     }
 
     .dp-calendar-grid {
         @apply grid grid-cols-7 grid-rows-3 font-semibold text-center sm:text-xs;
     }
 
+    .dp-calendar-arrow-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
+
+    .dp-calendar-arrow {
+        @apply dp-calendar-arrow-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-600 hover:scale-105 active:scale-95;
+    }
+
+    .dp-calendar-arrow-disabled {
+        @apply cursor-not-allowed dp-calendar-arrow-base fill-neutral-400 dark:fill-neutral-600;
+    }
+
     .dp-calendar-weekday {
         @apply cursor-default text-neutral-600 dark:text-neutral-400;
     }
 
-    .dp-month-btn-base {
-        @apply transition-all duration-300 ease-in-out;
-    }
-
-    .dp-month-btn-enabled {
-        @apply dp-month-btn-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-600 hover:scale-105 active:scale-95;
-    }
-
-    .dp-month-btn-disabled {
-        @apply cursor-not-allowed dp-month-btn-base fill-neutral-400 dark:fill-neutral-600;
-    }
-
-    .dp-day-base {
+    .dp-calendar-day-base {
         @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-md sm:rounded-sm;
     }
 
-    .dp-day-selected-enabled {
-        @apply text-white bg-blue-600 cursor-pointer dp-day-base hover:bg-blue-700 active:bg-blue-800 hover:scale-105 active:scale-95;
+    .dp-calendar-day {
+        @apply cursor-pointer dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-black dark:active:bg-white active:bg-black dark:active:text-black active:text-white hover:text-white hover:scale-105 active:scale-95;
     }
 
-    .dp-day-selected-disabled {
-        @apply text-white bg-blue-600 cursor-not-allowed dp-day-base;
+    .dp-calendar-day-disabled {
+        @apply cursor-not-allowed dp-calendar-day-base text-neutral-400 dark:text-neutral-500;
     }
 
-    .dp-day-today-enabled {
-        @apply text-blue-600 cursor-pointer dp-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-black dark:active:bg-white active:bg-black dark:active:text-black active:text-white hover:text-white dark:text-blue-500 hover:scale-105 active:scale-95;
+    .dp-calendar-day-selected {
+        @apply text-white bg-blue-600 cursor-pointer dp-calendar-day-base hover:bg-blue-700 active:bg-blue-800 hover:scale-105 active:scale-95;
     }
 
-    .dp-day-today-disabled {
-        @apply text-blue-600 cursor-not-allowed dark:active:text-black dark:text-blue-500 dp-day-base;
+    .dp-calendar-day-selected-disabled {
+        @apply text-white bg-blue-600 cursor-not-allowed dp-calendar-day-base;
     }
 
-    .dp-day-other-enabled {
-        @apply cursor-pointer dp-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-black dark:active:bg-white active:bg-black dark:active:text-black active:text-white hover:text-white hover:scale-105 active:scale-95;
+    .dp-calendar-day-now {
+        @apply text-blue-600 cursor-pointer dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-black dark:active:bg-white active:bg-black dark:active:text-black active:text-white hover:text-white dark:text-blue-500 hover:scale-105 active:scale-95;
     }
 
-    .dp-day-other-disabled {
-        @apply cursor-not-allowed dp-day-base text-neutral-400 dark:text-neutral-500;
+    .dp-calendar-day-now-disabled {
+        @apply text-blue-600 cursor-not-allowed dark:active:text-black dark:text-blue-500 dp-calendar-day-base;
     }
 
-    .dp-dropdown-clock-base {
+    .dp-clock-base {
         @apply absolute z-50 flex justify-center px-4 py-2.5 space-y-3 transition-all duration-300 ease-in-out border rounded-lg backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
     }
 
-    .dp-dropdown-clock-expanded {
-        @apply translate-y-2 opacity-100 dp-dropdown-clock-base;
+    .dp-clock {
+        @apply translate-y-2 opacity-100 dp-clock-base;
     }
 
-    .dp-dropdown-clock-collapsed {
-        @apply scale-0 -translate-y-24 opacity-0 dp-dropdown-clock-base blur-xl;
+    .dp-clock-collapsed {
+        @apply scale-0 -translate-y-24 opacity-0 dp-clock-base blur-xl;
     }
 
-    .dp-clock-button {
+    .dp-clock-arrow {
         @apply flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-105 active:scale-95;
     }
 
@@ -359,55 +355,55 @@
         @apply grid text-center;
     }
 
+    .dp-clock-grid {
+        @apply w-24 grid-cols-3 dp-clock-grid-base;
+    }
+
     .dp-clock-grid-seconds {
         @apply w-40 grid-cols-5 dp-clock-grid-base;
     }
 
-    .dp-clock-grid-noseconds {
-        @apply w-24 grid-cols-3 dp-clock-grid-base;
-    }
-
-    .dp-clock-digit {
+    .dp-clock-number {
         @apply absolute top-0 left-0 text-2xl font-bold text-center transition-all duration-500 ease-out bg-transparent;
-    }
-
-    .dp-digit-animation {
-        @apply scale-50 opacity-0 blur-sm;
-    }
-
-    .dp-stepper-digit {
-        @apply font-bold transition-all duration-500 ease-out bg-transparent;
     }
 
     .dp-stepper-base {
         @apply flex justify-between px-3 py-2 space-x-4 font-semibold border rounded-lg shadow-sm;
     }
 
-    .dp-stepper-enabled {
+    .dp-stepper {
         @apply dp-stepper-base bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
-    }
-
-    .dp-stepper-disabled {
-        @apply cursor-not-allowed dp-stepper-base bg-neutral-50 border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
     }
 
     .dp-stepper-loading {
         @apply cursor-wait dp-stepper-base bg-neutral-50 text-neutral-400 fill-neutral-400 border-neutral-100 animate-pulse dark:bg-neutral-800 dark:border-neutral-800;
     }
 
-    .dp-stepper-btn-base {
+    .dp-stepper-disabled {
+        @apply cursor-not-allowed dp-stepper-base bg-neutral-50 border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
+    }
+
+    .dp-stepper-number {
+        @apply font-bold transition-all duration-500 ease-out bg-transparent;
+    }
+
+    .dp-stepper-button-base {
         @apply p-1 transition-all duration-300 ease-in-out rounded-full;
     }
 
-    .dp-stepper-btn-enabled {
-        @apply dp-stepper-btn-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-95 hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:hover:fill-blue-500 dark:active:fill-blue-400;
+    .dp-stepper-button {
+        @apply dp-stepper-button-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-95 hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:hover:fill-blue-500 dark:active:fill-blue-400;
     }
 
-    .dp-stepper-btn-disabled {
-        @apply cursor-not-allowed dp-stepper-btn-base fill-neutral-400 dark:fill-neutral-500;
+    .dp-stepper-button-loading {
+        @apply opacity-0 dp-stepper-button-base;
     }
 
-    .dp-stepper-btn-loading {
-        @apply opacity-0 dp-stepper-btn-base;
+    .dp-stepper-button-disabled {
+        @apply cursor-not-allowed dp-stepper-button-base fill-neutral-400 dark:fill-neutral-500;
+    }
+
+    .dp-number-animation {
+        @apply scale-50 opacity-0 blur-sm;
     }
 }

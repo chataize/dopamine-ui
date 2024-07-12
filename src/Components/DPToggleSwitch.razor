@@ -51,7 +51,7 @@
         }
     }
 
-    private string LabelClass => IsDisabled ? "dp-switch-label-disabled group" : "dp-switch-label-enabled group";
+    private string LabelClass => IsDisabled ? "dp-switch-disabled group" : "dp-switch group";
 
     private string BorderClass
     {
@@ -59,7 +59,7 @@
         {
             if (IsBorderless == false)
             {
-                return IsDisabled ? "dp-frame-disabled" : "dp-frame-enabled";
+                return IsDisabled ? "dp-border-disabled" : "dp-border";
             }
 
             if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
@@ -67,7 +67,7 @@
                 return string.Empty;
             }
 
-            return IsDisabled ? "-sm:dp-frame-disabled" : "-sm:dp-frame-enabled";
+            return IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
         }
     }
 

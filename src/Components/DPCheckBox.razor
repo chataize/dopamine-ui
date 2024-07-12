@@ -55,7 +55,7 @@
         }
     }
 
-    private string LabelClass => IsDisabled ? "dp-checkbox-label-disabled group" : "dp-checkbox-label-enabled group";
+    private string LabelClass => IsDisabled ? "dp-checkbox-disabled group" : "dp-checkbox group";
 
     private string BorderClass
     {
@@ -63,7 +63,7 @@
         {
             if (IsBorderless == false)
             {
-                return IsDisabled ? "dp-frame-disabled" : "dp-frame-enabled";
+                return IsDisabled ? "dp-border-disabled" : "dp-border";
             }
 
             if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
@@ -71,7 +71,7 @@
                 return string.Empty;
             }
 
-            return IsDisabled ? "-sm:dp-frame-disabled" : "-sm:dp-frame-enabled";
+            return IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
         }
     }
 
@@ -81,10 +81,10 @@
         {
             if (IsDisabled)
             {
-                return Value ? "dp-checkbox-container-disabled-on group" : "dp-checkbox-container-disabled-off group";
+                return Value ? "dp-checkbox-square-on-disabled group" : "dp-checkbox-square-off-disabled group";
             }
 
-            return Value ? "dp-checkbox-container-on group" : "dp-checkbox-container-off group";
+            return Value ? "dp-checkbox-square-on group" : "dp-checkbox-square-off group";
         }
     }
 

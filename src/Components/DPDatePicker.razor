@@ -154,7 +154,7 @@
 
     private bool ActualIsExpanded => _isExpanded && !IsLoading && !IsDisabled;
 
-    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label-default";
+    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -162,7 +162,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator-default";
+                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -188,15 +188,15 @@
                 return "dp-dropdown-expanded";
             }
 
-            return "dp-dropdown-collapsed";
+            return "dp-dropdown";
         }
     }
 
-    private string CalendarClass => ActualIsExpanded ? "dp-dropdown-calendar-expanded" : "dp-dropdown-calendar-collapsed";
+    private string CalendarClass => ActualIsExpanded ? "dp-calendar" : "dp-calendar-collapsed";
 
-    private string NextMonthButtonClass => IsNextMonthInRage ? "dp-month-btn-enabled" : "dp-month-btn-disabled";
+    private string NextMonthButtonClass => IsNextMonthInRage ? "dp-calendar-arrow" : "dp-calendar-arrow-disabled";
 
-    private string PreviousMonthButtonClass => IsPreviousMonthInRange ? "dp-month-btn-enabled" : "dp-month-btn-disabled";
+    private string PreviousMonthButtonClass => IsPreviousMonthInRange ? "dp-calendar-arrow" : "dp-calendar-arrow-disabled";
 
     private string WidthClass
     {
@@ -229,15 +229,15 @@
 
         if (IsDaySelected(day))
         {
-            return isOutOfRange ? "dp-day-selected-disabled" : "dp-day-selected-enabled";
+            return isOutOfRange ? "dp-calendar-day-selected-disabled" : "dp-calendar-day-selected";
         }
 
         if (IsDayToday(day))
         {
-            return isOutOfRange ? "dp-day-today-disabled" : "dp-day-today-enabled";
+            return isOutOfRange ? "dp-calendar-day-now-disabled" : "dp-calendar-day-now";
         }
 
-        return isOutOfRange ? "dp-day-other-disabled" : "dp-day-other-enabled";
+        return isOutOfRange ? "dp-calendar-day-other-disabled" : "dp-calendar-day";
     }
 
     private bool IsDaySelected(int day)

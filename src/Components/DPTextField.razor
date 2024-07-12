@@ -103,7 +103,7 @@
         }
     }
 
-    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label-default";
+    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -111,7 +111,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator-default";
+                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -124,15 +124,15 @@
         {
             if (IsLoading)
             {
-                return "dp-input-loading";
+                return "dp-textfield-loading";
             }
 
             if (IsDisabled)
             {
-                return "dp-input-disabled";
+                return "dp-textfield-disabled";
             }
 
-            return "dp-input-default";
+            return "dp-textfield";
         }
     }
 

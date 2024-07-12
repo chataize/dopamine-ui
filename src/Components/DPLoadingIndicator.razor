@@ -1,0 +1,32 @@
+@if (IsLoading)
+{
+    <div class="relative">
+    <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="@ActualSize" width="@ActualSize" class="block dark:hidden" />
+    <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="@ActualSize" width="@ActualSize" class="hidden dark:block" />
+</div>
+}
+
+@code {
+    [Parameter]
+    public LoadingIndicatorSize Size { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; } = true;
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private int ActualSize
+    {
+        get
+        {
+            return Size switch
+            {
+                LoadingIndicatorSize.Small => 24,
+                LoadingIndicatorSize.Medium => 32,
+                LoadingIndicatorSize.Large => 48,
+                _ => 24
+            };
+        }
+    }
+}

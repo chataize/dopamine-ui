@@ -4258,6 +4258,14 @@ video {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
@@ -4614,6 +4622,14 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
+  .dark\:block {
+    display: block;
+  }
+
+  .dark\:inline-block {
+    display: inline-block;
+  }
+
   .dark\:inline {
     display: inline;
   }

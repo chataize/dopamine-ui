@@ -103,7 +103,7 @@
         {
             if (IsFullWidth == true)
             {
-                return "w-full";
+                return "w-full min-w-fit";
             }
 
             if (IsFullWidth == false || string.IsNullOrWhiteSpace(Label))
@@ -111,7 +111,7 @@
                 return "w-fit";
             }
 
-            return "w-full sm:w-fit";
+            return "w-full sm:w-fit min-w-fit";
         }
     }
 }

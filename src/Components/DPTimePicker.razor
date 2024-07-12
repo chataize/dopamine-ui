@@ -1,12 +1,12 @@
-<div class="relative select-none @ActualWidth">
+<div class="relative select-none @WidthClass">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="label-base">
-            <span class="@ActualLabelStyle">@Label</span>
-            <span class="@ActualEditIndicatorStyle">●</span>
+            <span class="@LabelClass">@Label</span>
+            <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <button id="@_id" class="@ActualDropdownButtonStyle @ActualWidth" @onclick="ToggleIsExpanded">
+    <button id="@_id" class="@DropdownClass @WidthClass" @onclick="ToggleIsExpanded">
         <span>@Value.ToString(IsShowingSeconds ? "HH:mm:ss" : "HH:mm")</span>
         @if (IsLoading)
         {
@@ -24,9 +24,9 @@
             </svg>
         }
     </button>
-    <div class="@ActualClockStyle">
+    <div class="@ClockClass">
         <div class="@(IsShowingSeconds ? "clock-grid-seconds" : "clock-grid-noseconds")">
-            <button class="clock-button" @onclick="AddHour">
+            <button class="clock-button" @onclick="AddHourAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -36,7 +36,7 @@
                 </svg>
             </button>
             <span />
-            <button class="clock-button" @onclick="AddMinute">
+            <button class="clock-button" @onclick="AddMinuteAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -48,7 +48,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="clock-button" @onclick="AddSecond">
+                <button class="clock-button" @onclick="AddSecondAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -76,7 +76,7 @@
                     <input class="clock-digit @(!_isSecondAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
                 </div>
             }
-            <button class="clock-button" @onclick="SubtractHour">
+            <button class="clock-button" @onclick="SubtractHourAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -86,7 +86,7 @@
                 </svg>
             </button>
             <span />
-            <button class="clock-button" @onclick="SubtractMinute">
+            <button class="clock-button" @onclick="SubtractMinuteAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -98,7 +98,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="clock-button" @onclick="SubtractSecond">
+                <button class="clock-button" @onclick="SubtractSecondAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -113,7 +113,7 @@
 </div>
 
 @code {
-    private readonly Guid _id = Guid.NewGuid();
+    private readonly string _id = Random.Shared.Next().ToString();
 
     private bool _isExpanded;
 
@@ -183,13 +183,11 @@
         }
     }
 
-    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
-
     private bool ActualIsExpanded => _isExpanded && !IsLoading && !IsDisabled;
 
-    private string ActualLabelStyle => IsLoading || IsDisabled ? "label-disabled" : "label-default";
+    private string LabelClass => IsLoading || IsDisabled ? "label-disabled" : "label-default";
 
-    private string ActualEditIndicatorStyle
+    private string EditIndicatorClass
     {
         get
         {
@@ -202,7 +200,7 @@
         }
     }
 
-    private string ActualDropdownButtonStyle
+    private string DropdownClass
     {
         get
         {
@@ -210,50 +208,48 @@
             {
                 return "dropdown-loading";
             }
-            else if (IsDisabled)
+
+            if (IsDisabled)
             {
                 return "dropdown-disabled";
             }
-            else if (ActualIsExpanded)
+
+            if (ActualIsExpanded)
             {
                 return "dropdown-expanded";
             }
-            else
-            {
-                return "dropdown-collapsed";
-            }
+
+            return "dropdown-collapsed";
         }
     }
 
-    private string ActualClockStyle
+    private string ClockClass => ActualIsExpanded ? "dropdown-clock-expanded" : "dropdown-clock-collapsed";
+
+    private string WidthClass
     {
         get
         {
-            string style = ActualIsExpanded ? "dropdown-clock-expanded" : "dropdown-clock-collapsed";
-
             if (IsFullWidth == true)
             {
-                style += " w-full";
+                return "w-full";
             }
-            else if (IsFullWidth == null)
+
+            if (IsFullWidth == false)
             {
-                style += " w-full sm:w-auto";
+                return "w-fit";
             }
 
-            return style;
+            return "w-full sm:w-fit";
         }
     }
 
-    private void ToggleIsExpanded()
+    private async Task AddHourAsync()
     {
-        if (!IsLoading && !IsDisabled)
+        if (IsLoading || IsDisabled)
         {
-            _isExpanded = !_isExpanded;
+            return;
         }
-    }
 
-    private async Task AddHour()
-    {
         AnimateHour();
 
         if (Value.Hour == 23)
@@ -265,11 +261,19 @@
             Value = Value.AddHours(1);
         }
 
-        await ValueChanged.InvokeAsync(Value);
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
     }
 
-    private async Task AddMinute()
+    private async Task AddMinuteAsync()
     {
+        if (IsLoading || IsDisabled)
+        {
+            return;
+        }
+
         AnimateMinute();
 
         if (Value.Minute == 59)
@@ -281,11 +285,19 @@
             Value = Value.AddMinutes(1);
         }
 
-        await ValueChanged.InvokeAsync(Value);
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
     }
 
-    private async Task AddSecond()
+    private async Task AddSecondAsync()
     {
+        if (IsLoading || IsDisabled)
+        {
+            return;
+        }
+
         AnimateSecond();
 
         if (Value.Second == 59)
@@ -297,11 +309,19 @@
             Value = Value.AddSeconds(1);
         }
 
-        await ValueChanged.InvokeAsync(Value);
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
     }
 
-    private async Task SubtractHour()
+    private async Task SubtractHourAsync()
     {
+        if (IsLoading || IsDisabled)
+        {
+            return;
+        }
+
         AnimateHour();
 
         if (Value.Hour == 0)
@@ -313,11 +333,19 @@
             Value = Value.AddHours(-1);
         }
 
-        await ValueChanged.InvokeAsync(Value);
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
     }
 
-    private async Task SubtractMinute()
+    private async Task SubtractMinuteAsync()
     {
+        if (IsLoading || IsDisabled)
+        {
+            return;
+        }
+
         AnimateMinute();
 
         if (Value.Minute == 0)
@@ -329,11 +357,19 @@
             Value = Value.AddMinutes(-1);
         }
 
-        await ValueChanged.InvokeAsync(Value);
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
     }
 
-    private async Task SubtractSecond()
+    private async Task SubtractSecondAsync()
     {
+        if (IsLoading || IsDisabled)
+        {
+            return;
+        }
+
         AnimateSecond();
 
         if (Value.Second == 0)
@@ -345,7 +381,18 @@
             Value = Value.AddSeconds(-1);
         }
 
-        await ValueChanged.InvokeAsync(Value);
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    private void ToggleIsExpanded()
+    {
+        if (!IsLoading && !IsDisabled)
+        {
+            _isExpanded = !_isExpanded;
+        }
     }
 
     private void AnimateHour()

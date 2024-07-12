@@ -1,4 +1,4 @@
-<button class="@ActualStyle @ActualWidth" disabled="@(IsLoading || IsDisabled)" @onclick="OnClickAsync">
+<button class="@ButtonClass @WidthClass" disabled="@(IsLoading || IsDisabled)" @onclick="OnClickAsync">
     @if (IsLoading)
     {
         <span class="opacity-0">@ChildContent</span>
@@ -13,13 +13,13 @@
 
 @code {
     [Parameter]
-    public RenderFragment? ChildContent { get; set; }
-
-    [Parameter]
     public bool Value { get; set; }
 
     [Parameter]
     public EventCallback<bool> ValueChanged { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
     public bool? IsFullWidth { get; set; }
@@ -30,7 +30,7 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
-    private string ActualStyle
+    private string ButtonClass
     {
         get
         {
@@ -48,14 +48,34 @@
         }
     }
 
-    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-fit" : "";
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit";
+        }
+    }
 
     private async Task OnClickAsync()
     {
         if (!IsLoading && !IsDisabled)
         {
             Value = !Value;
-            await ValueChanged.InvokeAsync(Value);
+
+            if (ValueChanged.HasDelegate)
+            {
+                await ValueChanged.InvokeAsync(Value);
+            }
         }
     }
 }

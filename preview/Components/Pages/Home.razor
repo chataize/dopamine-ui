@@ -170,20 +170,20 @@
         <DPToggleSwitch Label="Normal" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h2 class="subheader">Frameless</h2>
+    <h2 class="subheader">Borderless</h2>
     <div class="flex space-x-4">
-        <DPToggleSwitch Label="Normal" IsFrameVisible="false" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" IsBorderless="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h2 class="subheader">Framed</h2>
+    <h2 class="subheader">Bordered</h2>
     <div class="flex space-x-4">
-        <DPToggleSwitch Label="Normal" IsFrameVisible="true" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" IsBorderless="false" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </div>
     <h2 class="subheader">Full Width</h2>
     <div class="space-y-4">
-        <DPToggleSwitch Label="Normal" IsFullWidth="true" IsFrameVisible="true" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </div>
 
     <br />
@@ -200,20 +200,20 @@
         <DPCheckBox Label="Normal" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h2 class="subheader">Frameless</h2>
+    <h2 class="subheader">Borderless</h2>
     <div class="flex space-x-4">
-        <DPCheckBox Label="Normal" IsFrameVisible="false" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsFrameVisible="false" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" IsBorderless="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
     </div>
-    <h2 class="subheader">Framed</h2>
+    <h2 class="subheader">Bordered</h2>
     <div class="flex space-x-4">
-        <DPCheckBox Label="Normal" IsFrameVisible="true" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" IsBorderless="false" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </div>
     <h2 class="subheader">Full Width</h2>
     <div class="space-y-4">
-        <DPCheckBox Label="Normal" IsFullWidth="true" IsFrameVisible="true" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsFullWidth="true" IsFrameVisible="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </div>
 
     <br />
@@ -245,20 +245,20 @@
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </div>
-    <h2 class="subheader">Frameless</h2>
+    <h2 class="subheader">Borderless</h2>
     <div class="sm:flex sm:space-x-4 -sm:space-y-4">
         <DPRadioGroup @bind-Value="EnumValue">
-            <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsFrameVisible="false" />
-            <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsFrameVisible="false" />
-            <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" IsFrameVisible="false" />
+            <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsBorderless="true" />
+            <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsBorderless="true" />
+            <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="true" />
         </DPRadioGroup>
     </div>
-    <h2 class="subheader">Framed</h2>
+    <h2 class="subheader">Bordered</h2>
     <div class="sm:flex sm:space-x-4 -sm:space-y-4">
         <DPRadioGroup @bind-Value="EnumValue">
-            <DPRadioButton Label="Value 1" IsFrameVisible="true" Value="SampleEnum.Value1" />
-            <DPRadioButton Label="Value 2" IsFrameVisible="true" Value="SampleEnum.Value2" />
-            <DPRadioButton Label="Disabled" IsFrameVisible="true" IsDisabled="true" Value="SampleEnum.Value3" />
+            <DPRadioButton Label="Value 1" IsBorderless="false" Value="SampleEnum.Value1" />
+            <DPRadioButton Label="Value 2" IsBorderless="false" Value="SampleEnum.Value2" />
+            <DPRadioButton Label="Disabled" IsBorderless="false" IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </div>
     <h2 class="subheader">Full Width</h2>

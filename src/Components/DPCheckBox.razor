@@ -1,33 +1,18 @@
-@if (string.IsNullOrWhiteSpace(Label))
-{
-    <label for="@_id" class="@ActualLabelStyle">
-        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
-        <div class="@ActualContainerStyle">
-             <svg class="sm:hidden" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
-                <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
-            </svg>
-            <svg class="-sm:hidden" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
-                <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
-            </svg>
-        </div>
-    </label>
-}
-else
-{
-    <label for="@_id" class="@ActualLabelStyle">
-        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
-        <div class="@ActualContainerStyle">
-             <svg class="sm:hidden" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
-                <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
-            </svg>
-            <svg class="-sm:hidden" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
-                <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
-            </svg>
-        </div>
+<label for="@_id" class="@LabelClass @BorderClass @WidthClass">
+    <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="InternalValue" />
+    <div class="@SquareClass">
+        <svg class="sm:hidden" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
+            <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
+        </svg>
+        <svg class="-sm:hidden" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
+            <path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"></path>
+        </svg>
+    </div>
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
         <span>@Label</span>
-    </label>
-}
-
+    }
+</label>
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
@@ -39,50 +24,55 @@ else
     public bool Value { get; set; }
 
     [Parameter]
-    public bool? IsFullWidth { get; set; }
+    public EventCallback<bool> ValueChanged { get; set; }
 
     [Parameter]
-    public bool? IsFrameVisible { get; set; }
+    public bool? IsBorderless { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
 
-    [Parameter]
-    public EventCallback<bool> ValueChanged { get; set; }
-
-    private string ActualLabelStyle
+    private bool InternalValue
     {
-        get
+        get => Value;
+        set
         {
-            string style = IsDisabled ? "checkbox-label-disabled group" : "checkbox-label-enabled group";
-
-            if (!string.IsNullOrWhiteSpace(Label))
+            if (!IsDisabled && Value != value)
             {
+                Value = value;
 
-                if (IsFullWidth == true)
+                if (ValueChanged.HasDelegate)
                 {
-                    style += " w-full";
-                }
-                else if (IsFullWidth == null)
-                {
-                    style += " w-full sm:w-auto";
+                    ValueChanged.InvokeAsync(value);
                 }
             }
-
-            if (IsFrameVisible == true)
-            {
-                style += IsDisabled ? " frame-disabled" : " frame-enabled";
-            }
-            else if (IsFrameVisible == null && !string.IsNullOrWhiteSpace(Label))
-            {
-                style += IsDisabled ? " -sm:frame-disabled" : " -sm:frame-enabled";
-            }
-
-            return style;
         }
     }
 
-    private string ActualContainerStyle
+    private string LabelClass => IsDisabled ? "checkbox-label-disabled group" : "checkbox-label-enabled group";
+
+    private string BorderClass
+    {
+        get
+        {
+            if (IsBorderless == false)
+            {
+                return IsDisabled ? "frame-disabled" : "frame-enabled";
+            }
+
+            if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
+            {
+                return string.Empty;
+            }
+
+            return IsDisabled ? "-sm:frame-disabled" : "-sm:frame-enabled";
+        }
+    }
+
+    private string SquareClass
     {
         get
         {
@@ -95,18 +85,21 @@ else
         }
     }
 
-    private bool ActualValue
+    private string WidthClass
     {
-        get => Value;
-        set
+        get
         {
-            if (!IsDisabled && Value != value)
+            if (IsFullWidth == true)
             {
-                Value = value;
-                ValueChanged.InvokeAsync(value);
+                return "w-full";
             }
+
+            if (IsFullWidth == false || string.IsNullOrWhiteSpace(Label))
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit";
         }
     }
-
-    private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
 }

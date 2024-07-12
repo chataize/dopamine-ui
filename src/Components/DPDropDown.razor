@@ -1,15 +1,15 @@
 @typeparam T
 
-<div class="@ActualWidth">
+<div>
     @if (!String.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="label-base">
-            <span class="@ActualLabelStyle">@Label</span>
-            <span class="@ActualEditIndicatorStyle">●</span>
+            <span class="@LabelClass">@Label</span>
+            <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <div class="relative flex @ActualWidth">
-        <button id="@_id" class="@ActualButtonStyle" @onclick="ToogleIsExpanded">
+    <div class="relative flex">
+        <button id="@_id" class="@ButtonClass @WidthClass" @onclick="ToogleIsExpanded">
             <span>@ValueLabel</span>
             @if (IsLoading)
             {
@@ -27,17 +27,16 @@
                 </svg>
             }
         </button>
-        <div class="@ActualListStyle">
+        <div class="@ListClass @WidthClass">
             <CascadingValue Value="@this">@ChildContent</CascadingValue>
         </div>
     </div>
 </div>
 
 @code {
-    private readonly Guid _id = Guid.NewGuid();
+    private readonly string _id = Random.Shared.Next().ToString();
 
-    [Parameter]
-    public RenderFragment? ChildContent { get; set; }
+    private bool _isExpanded { get; set; }
 
     [Parameter]
     public string? Label { get; set; }
@@ -49,10 +48,10 @@
     public EventCallback<T> ValueChanged { get; set; }
 
     [Parameter]
-    public bool? IsFullWidth { get; set; }
+    public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public bool IsExpanded { get; set; }
+    public bool? IsFullWidth { get; set; }
 
     [Parameter]
     public bool IsEdited { get; set; }
@@ -63,17 +62,15 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
-    public List<DPDropDownItem<T>> Items { get; set; } = [];
+    internal List<DPDropDownItem<T>> Items { get; set; } = [];
 
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
 
-    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
+    private bool ActualIsExpended => _isExpanded && !IsLoading && !IsDisabled;
 
-    private bool ActualIsExpended => IsExpanded && !IsDisabled && !IsLoading;
+    private string LabelClass => IsLoading || IsDisabled ? "label-disabled" : "label-default";
 
-    private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
-
-    private string ActualEditIndicatorStyle
+    private string EditIndicatorClass
     {
         get
         {
@@ -86,87 +83,73 @@
         }
     }
 
-    private string ActualButtonStyle
+    private string ButtonClass
     {
         get
         {
-            string style;
-
             if (IsLoading)
             {
-                style = "dropdown-loading";
-            }
-            else if (IsDisabled)
-            {
-                style = "dropdown-disabled";
-            }
-            else if (ActualIsExpended)
-            {
-                style = "dropdown-expanded";
-            }
-            else
-            {
-                style = "dropdown-collapsed";
+                return "dropdown-loading";
             }
 
-            if (IsFullWidth == true)
+            if (IsDisabled)
             {
-                style += " w-full";
-            }
-            else if (IsFullWidth == null)
-            {
-                style += " w-full sm:w-auto";
+                return "dropdown-disabled";
             }
 
-            return style;
+            if (ActualIsExpended)
+            {
+                return "dropdown-expanded";
+            }
+
+            return "dropdown-collapsed";
         }
     }
 
-    private string ActualListStyle
+    private string ListClass => ActualIsExpended ? "dropdown-list-expanded" : "dropdown-list-collapsed";
+
+    private string WidthClass
     {
         get
         {
-            string style = ActualIsExpended ? "dropdown-list-expanded" : "dropdown-list-collapsed";
-
             if (IsFullWidth == true)
             {
-                style += " w-full";
+                return "w-full";
             }
-            else if (IsFullWidth == null)
+
+            if (IsFullWidth == false)
             {
-                style += " w-full sm:w-auto";
+                return "w-fit";
             }
 
-            return style;
+            return "w-full sm:w-fit";
         }
-    }
-
-    public void Expand()
-    {
-        IsExpanded = true;
-    }
-
-    public void Collapse()
-    {
-        IsExpanded = false;
-    }
-
-    public void ToogleIsExpanded()
-    {
-        IsExpanded = !IsExpanded;
     }
 
     internal async Task UpdateValueAsync(T? value)
     {
         if (!IsLoading && !IsDisabled)
         {
+            _isExpanded = false;
             Value = value;
-            await ValueChanged.InvokeAsync(value);
+
+            if (ValueChanged.HasDelegate)
+            {
+                await ValueChanged.InvokeAsync(value);
+            }
         }
     }
 
     internal void TriggerStateHasChanged()
     {
         StateHasChanged();
+    }
+
+    private void ToogleIsExpanded()
+    {
+        if (!IsLoading && !IsDisabled)
+        {
+            _isExpanded = !_isExpanded;
+        }
     }
 }

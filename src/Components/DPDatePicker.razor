@@ -1,13 +1,13 @@
-<div class="relative select-none @ActualWidth">
+<div class="relative select-none @WidthClass">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="label-base">
-            <span class="@ActualLabelStyle">@Label</span>
-            <span class="@ActualEditIndicatorStyle">●</span>
+            <span class="@LabelClass">@Label</span>
+            <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <button id="@_id" class="@ActualDropdownButtonStyle @ActualWidth" @onclick="Toggle">
-        <span>@SelectionDisplay</span>
+    <button id="@_id" class="@DropdownButtonClass @WidthClass" @onclick="ToggleIsExpanded">
+        <span>@FormattedValue</span>
         @if (IsLoading)
         {
             <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
@@ -24,9 +24,9 @@
             </svg>
         }
     </button>
-    <div class="@ActualCalendarStyle">
+    <div class="@CalendarClass">
         <div class="flex items-center justify-between space-x-4 font-semibold">
-            <button class="@ActualPreviousMonthButtonStyle" @onclick="PreviousMonth">
+            <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -35,9 +35,9 @@
                     </g>
                 </svg>
             </button>
-            <span class="w-6 cursor-default">@MonthDisplay</span>
-            <span class="cursor-default">@YearDisplay</span>
-            <button class="@ActualNextMonthButtonStyle" @onclick="NextMonth">
+            <span class="w-6 cursor-default">@FormattedMonth</span>
+            <span class="cursor-default">@FormattedYear</span>
+            <button class="@NextMonthButtonClass" @onclick="ShowNextMonth">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -62,14 +62,14 @@
             @for (int i = 1; i <= DaysInMonth; i++)
             {
                 int day = i;
-                <button class="@GetDayStyle(day)" @onclick="() => SelectAsync(day)">@i</button>
+                <button class="@GetDayClass(day)" @onclick="() => SelectDayAsync(day)">@i</button>
             }
         </div>
     </div>
 </div>
 
 @code {
-    private readonly Guid _id = Guid.NewGuid();
+    private readonly string _id = Random.Shared.Next().ToString();
 
     private int _browsedYear = DateTimeOffset.UtcNow.Year;
 
@@ -81,7 +81,7 @@
     public string? Label { get; set; }
 
     [Parameter]
-    public DateTimeOffset? Value { get; set; }
+    public DateTimeOffset Value { get; set; } = DateTimeOffset.UtcNow;
 
     [Parameter]
     public EventCallback<DateTimeOffset> ValueChanged { get; set; }
@@ -104,33 +104,15 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
-    private string SelectionDisplay => Value?.ToString("d MMM yyyy") ?? "Select a Date";
+    private string FormattedValue => Value.ToString("d MMM yyyy");
 
-    private string MonthDisplay => new DateTime(_browsedYear, _browsedMonth, 1).ToString("MMM");
+    private string FormattedMonth => new DateTime(_browsedYear, _browsedMonth, 1).ToString("MMM");
 
-    private string YearDisplay => new DateTime(_browsedYear, _browsedMonth, 1).ToString("yyyy");
+    private string FormattedYear => new DateTime(_browsedYear, _browsedMonth, 1).ToString("yyyy");
 
     private int DayOffset => ((int)new DateTime(_browsedYear, _browsedMonth, 1).DayOfWeek + 6) % 7;
 
     private int DaysInMonth => DateTime.DaysInMonth(_browsedYear, _browsedMonth);
-
-    private bool IsPreviousMonthInRange
-    {
-        get
-        {
-            var previousYear = _browsedYear;
-            var previousMonth = _browsedMonth - 1;
-
-            if (previousMonth == 0)
-            {
-                --previousYear;
-                previousMonth = 12;
-            }
-
-            var lastDayOfPreviousMonth = new DateTime(previousYear, previousMonth, DateTime.DaysInMonth(previousYear, previousMonth));
-            return lastDayOfPreviousMonth >= From;
-        }
-    }
 
     private bool IsNextMonthInRage
     {
@@ -141,7 +123,7 @@
 
             if (nextMonth == 13)
             {
-                ++nextYear;
+                nextYear++;
                 nextMonth = 1;
             }
 
@@ -149,13 +131,29 @@
         }
     }
 
-    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
+    private bool IsPreviousMonthInRange
+    {
+        get
+        {
+            var previousYear = _browsedYear;
+            var previousMonth = _browsedMonth - 1;
 
-    private bool ActualIsExpanded => _isExpanded && !IsDisabled && !IsLoading;
+            if (previousMonth == 0)
+            {
+                previousYear--;
+                previousMonth = 12;
+            }
 
-    private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
+            var lastDayOfPreviousMonth = new DateTime(previousYear, previousMonth, DateTime.DaysInMonth(previousYear, previousMonth));
+            return lastDayOfPreviousMonth >= From;
+        }
+    }
 
-    private string ActualEditIndicatorStyle
+    private bool ActualIsExpanded => _isExpanded && !IsLoading && !IsDisabled;
+
+    private string LabelClass => IsLoading || IsDisabled ? "label-disabled" : "label-default";
+
+    private string EditIndicatorClass
     {
         get
         {
@@ -168,7 +166,7 @@
         }
     }
 
-    private string ActualDropdownButtonStyle
+    private string DropdownButtonClass
     {
         get
         {
@@ -176,119 +174,95 @@
             {
                 return "dropdown-loading";
             }
-            else if (IsDisabled)
+
+            if (IsDisabled)
             {
                 return "dropdown-disabled";
             }
-            else if (ActualIsExpanded)
+
+            if (ActualIsExpanded)
             {
                 return "dropdown-expanded";
             }
-            else
-            {
-                return "dropdown-collapsed";
-            }
+
+            return "dropdown-collapsed";
         }
     }
 
-    private string ActualCalendarStyle
+    private string CalendarClass => ActualIsExpanded ? "dropdown-calendar-expanded" : "dropdown-calendar-collapsed";
+
+    private string NextMonthButtonClass => IsNextMonthInRage ? "month-btn-enabled" : "month-btn-disabled";
+
+    private string PreviousMonthButtonClass => IsPreviousMonthInRange ? "month-btn-enabled" : "month-btn-disabled";
+
+    private string WidthClass
     {
         get
         {
-            string style = ActualIsExpanded ? "dropdown-calendar-expanded" : "dropdown-calendar-collapsed";
-
             if (IsFullWidth == true)
             {
-                style += " w-full";
-            }
-            else if (IsFullWidth == null)
-            {
-                style += " w-full sm:w-auto";
+                return "w-full";
             }
 
-            return style;
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit";
         }
     }
-
-    private string ActualPreviousMonthButtonStyle => IsPreviousMonthInRange ? "month-btn-enabled" : "month-btn-disabled";
-
-    private string ActualNextMonthButtonStyle => IsNextMonthInRage ? "month-btn-enabled" : "month-btn-disabled";
 
     protected override void OnInitialized()
     {
-        if (Value != null)
-        {
-            _browsedYear = Value.Value.Year;
-            _browsedMonth = Value.Value.Month;
-        }
+        _browsedYear = Value.Year;
+        _browsedMonth = Value.Month;
     }
 
-    private string GetDayStyle(int day)
+    private string GetDayClass(int day)
     {
-        var value = new DateTimeOffset(_browsedYear, _browsedMonth, day, 0, 0, 0, TimeSpan.Zero);
-        var outOfRange = value < From || value > To;
+        var valueAtDay = new DateTimeOffset(_browsedYear, _browsedMonth, day, 0, 0, 0, TimeSpan.Zero);
+        var isOutOfRange = valueAtDay < From || valueAtDay > To;
 
-        if (IsSelected(day))
+        if (IsDaySelected(day))
         {
-            return outOfRange ? "day-selected-disabled" : "day-selected-enabled";
+            return isOutOfRange ? "day-selected-disabled" : "day-selected-enabled";
         }
 
-        if (IsToday(day))
+        if (IsDayToday(day))
         {
-            return outOfRange ? "day-today-disabled" : "day-today-enabled";
+            return isOutOfRange ? "day-today-disabled" : "day-today-enabled";
         }
 
-        return outOfRange ? "day-other-disabled" : "day-other-enabled";
+        return isOutOfRange ? "day-other-disabled" : "day-other-enabled";
     }
 
-    private bool IsSelected(int day)
+    private bool IsDaySelected(int day)
     {
-        return _browsedMonth == Value?.Month && _browsedYear == Value?.Year && day == Value?.Day;
+        return _browsedYear == Value.Year && _browsedMonth == Value.Month && day == Value.Day;
     }
 
-    private bool IsToday(int day)
+    private bool IsDayToday(int day)
     {
-        return _browsedMonth == DateTimeOffset.UtcNow.Month && _browsedYear == DateTimeOffset.UtcNow.Year && day == DateTimeOffset.UtcNow.Day;
+        var now = DateTimeOffset.UtcNow;
+        return _browsedYear == now.Year && _browsedMonth == now.Month && day == now.Day;
     }
 
-    private void Toggle()
+    private void ToggleIsExpanded()
     {
-        if (!IsDisabled && !IsLoading)
+        if (!IsLoading && !IsDisabled)
         {
             _isExpanded = !_isExpanded;
 
             if (_isExpanded)
             {
-                _browsedYear = Value?.Year ?? DateTimeOffset.UtcNow.Year;
-                _browsedMonth = Value?.Month ?? DateTimeOffset.UtcNow.Month;
+                _browsedYear = Value.Year;
+                _browsedMonth = Value.Month;
             }
         }
     }
 
-    private void PreviousMonth()
-    {
-        if (!IsPreviousMonthInRange)
-        {
-            return;
-        }
-
-        if (_browsedMonth == 1)
-        {
-            if (_browsedYear == 1)
-            {
-                return;
-            }
-
-            _browsedYear--;
-            _browsedMonth = 12;
-        }
-        else
-        {
-            _browsedMonth--;
-        }
-    }
-
-    private void NextMonth()
+    private void ShowNextMonth()
     {
         if (!IsNextMonthInRage)
         {
@@ -311,17 +285,43 @@
         }
     }
 
-    private async Task SelectAsync(int day)
+    private void ShowPreviousMonth()
     {
-        var value = new DateTimeOffset(_browsedYear, _browsedMonth, day, Value?.Hour ?? 0, Value?.Minute ?? 0, Value?.Second ?? 0, TimeSpan.Zero);
-        if (value < From || value > To)
+        if (!IsPreviousMonthInRange)
         {
             return;
         }
 
+        if (_browsedMonth == 1)
+        {
+            if (_browsedYear == 1)
+            {
+                return;
+            }
+
+            _browsedYear--;
+            _browsedMonth = 12;
+        }
+        else
+        {
+            _browsedMonth--;
+        }
+    }
+
+    private async Task SelectDayAsync(int day)
+    {
+        var valueAtSelection = new DateTimeOffset(_browsedYear, _browsedMonth, day, Value.Hour, Value.Minute, Value.Second, TimeSpan.Zero);
+        if (valueAtSelection < From || valueAtSelection > To)
+        {
+            return;
+        }
+
+        Value = valueAtSelection;
         _isExpanded = false;
 
-        Value = value;
-        await ValueChanged.InvokeAsync(Value.Value);
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
     }
 }

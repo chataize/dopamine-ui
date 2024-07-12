@@ -1,4 +1,4 @@
-<button class="@ActualStyle" disabled="@(IsLoading || IsDisabled)" @onclick="OnClickAsync">
+<button class="@ButtonClass @WidthClass" disabled="@(IsLoading || IsDisabled)" @onclick="OnClickAsync">
     @if (IsLoading)
     {
         <span class="opacity-0">@ChildContent</span>
@@ -30,44 +30,48 @@
     [Parameter]
     public EventCallback Clicked { get; set; }
 
-    private string ActualStyle
+    private string ButtonClass
     {
         get
         {
-            string style;
-
             if (IsLoading)
             {
-                style = "button-loading";
-            }
-            else if (IsDisabled)
-            {
-                style = "button-disabled";
-            }
-            else
-            {
-                style = Style switch
-                {
-                    ButtonStyle.Borderless => "button-borderless",
-                    ButtonStyle.Light => "button-light",
-                    ButtonStyle.Primary => "button-primary",
-                    ButtonStyle.Accent => "button-accent",
-                    ButtonStyle.Danger => "button-danger",
-                    ButtonStyle.Destructive => "button-destructive",
-                    _ => "button-default"
-                };
+                return "button-loading";
             }
 
+            if (IsDisabled)
+            {
+                return "button-disabled";
+            }
+
+            return Style switch
+            {
+                ButtonStyle.Borderless => "button-borderless",
+                ButtonStyle.Light => "button-light",
+                ButtonStyle.Primary => "button-primary",
+                ButtonStyle.Accent => "button-accent",
+                ButtonStyle.Danger => "button-danger",
+                ButtonStyle.Destructive => "button-destructive",
+                _ => "button-default"
+            };
+        }
+    }
+
+    private string WidthClass
+    {
+        get
+        {
             if (IsFullWidth == true)
             {
-                style += " w-full";
-            }
-            else if (IsFullWidth == null)
-            {
-                style += " w-full sm:w-auto";
+                return "w-full";
             }
 
-            return style;
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit";
         }
     }
 

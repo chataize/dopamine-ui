@@ -115,20 +115,20 @@
         @apply cursor-not-allowed switch-label-base text-neutral-300 dark:text-neutral-600;
     }
 
-    .switch-container-base {
+    .switch-pill-base {
         @apply flex items-center h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm sm:h-6 w-14 sm:w-11;
     }
 
-    .switch-container-off {
-        @apply switch-container-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95;
+    .switch-pill-off {
+        @apply switch-pill-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95;
     }
 
-    .switch-container-on {
-        @apply bg-green-600 border-green-700 switch-container-base group-hover:bg-green-700 group-active:bg-green-800 dark:group-hover:bg-green-500 dark:group-active:bg-green-400 group-hover:border-green-800 group-active:border-green-800 dark:border-green-500 dark:group-hover:border-green-400 dark:group-active:border-green-400 group-hover:scale-105 group-active:scale-95;
+    .switch-pill-on {
+        @apply bg-green-600 border-green-700 switch-pill-base group-hover:bg-green-700 group-active:bg-green-800 dark:group-hover:bg-green-500 dark:group-active:bg-green-400 group-hover:border-green-800 group-active:border-green-800 dark:border-green-500 dark:group-hover:border-green-400 dark:group-active:border-green-400 group-hover:scale-105 group-active:scale-95;
     }
 
-    .switch-container-disabled {
-        @apply switch-container-base bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+    .switch-pill-disabled {
+        @apply switch-pill-base bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
     }
 
     .switch-dot-base {

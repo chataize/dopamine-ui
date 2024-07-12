@@ -1,18 +1,18 @@
-<div class="select-none @ActualWidth">
+<div class="select-none @WidthClass">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="label-base">
             <span class="@ActualLabelStyle">@Label</span>
-            <span class="@ActualEditIndicatorStyle">●</span>
+            <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <div id="@_id" class="@ActualStyle @ActualWidth">
+    <div id="@_id" class="@BorderClass @WidthClass">
         <div class="relative flex items-center w-fit">
             <input class="stepper-digit @(_isValueAlternated ? "digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
             <input class="stepper-digit absolute @(!_isValueAlternated ? "digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
         </div>
         <div class="relative flex items-center space-x-2">
-            <button @onclick="DecrementAsync" class="@ActualDecrementButtonStyle">
+            <button @onclick="DecrementAsync" class="@DecrementButtonClass">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -21,7 +21,7 @@
                     </g>
                 </svg>
             </button>
-            <button @onclick="IncrementAsync" class="@ActualIncrementButtonStyle">
+            <button @onclick="IncrementAsync" class="@IncrementButtonClass">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -43,7 +43,7 @@
 
 
 @code {
-    private readonly Guid _id = Guid.NewGuid();
+    private readonly string _id = Random.Shared.Next().ToString();
 
     private bool _isValueAlternated;
 
@@ -60,7 +60,7 @@
     public int MinValue { get; set; }
 
     [Parameter]
-    public int MaxValue { get; set; } = 9999999;
+    public int MaxValue { get; set; } = 1000000000;
 
     [Parameter]
     public int Step { get; set; } = 1;
@@ -82,42 +82,29 @@
         get => Value.ToString().Trim();
         set
         {
-            if (IsLoading || IsDisabled)
+            if (!IsLoading && !IsDisabled && int.TryParse(value, out var result))
             {
-                return;
-            }
+                Value = Math.Clamp(result, MinValue, MaxValue);
 
-            if (int.TryParse(value, out var result))
-            {
-                if (result < MinValue)
+                if (ValueChanged.HasDelegate)
                 {
-                    result = MinValue;
+                    ValueChanged.InvokeAsync(Value);
                 }
-
-                if (result > MaxValue)
-                {
-                    result = MaxValue;
-                }
-
-                Value = result;
-                ValueChanged.InvokeAsync(Value);
             }
         }
     }
-
-    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
 
     private int ActualInputSize => Math.Max(6, MaxValueLength);
 
     private int MaxValueLength => MaxValue.ToString().Length;
 
-    bool CanIncrement => !IsLoading && !IsDisabled && Value + Step <= MaxValue;
+    private bool CanIncrement => !IsLoading && !IsDisabled && Value + Step <= MaxValue;
 
-    bool CanDecrement => !IsLoading && !IsDisabled && Value - Step >= MinValue;
+    private bool CanDecrement => !IsLoading && !IsDisabled && Value - Step >= MinValue;
 
     private string ActualLabelStyle => IsLoading || IsDisabled ? "label-disabled" : "label-default";
 
-    private string ActualEditIndicatorStyle
+    private string EditIndicatorClass
     {
         get
         {
@@ -130,7 +117,7 @@
         }
     }
 
-    private string ActualStyle
+    private string BorderClass
     {
         get
         {
@@ -148,9 +135,27 @@
         }
     }
 
-    private string ActualIncrementButtonStyle => IsLoading ? "stepper-btn-loading" : CanIncrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
+    private string IncrementButtonClass => IsLoading ? "stepper-btn-loading" : CanIncrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
 
-    private string ActualDecrementButtonStyle => IsLoading ? "stepper-btn-loading" : CanDecrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
+    private string DecrementButtonClass => IsLoading ? "stepper-btn-loading" : CanDecrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit";
+        }
+    }
 
     private async Task IncrementAsync()
     {
@@ -159,7 +164,11 @@
             AnimateValue();
 
             Value += Step;
-            await ValueChanged.InvokeAsync(Value);
+
+            if (ValueChanged.HasDelegate)
+            {
+                await ValueChanged.InvokeAsync(Value);
+            }
         }
     }
 
@@ -170,7 +179,11 @@
             AnimateValue();
 
             Value -= Step;
-            await ValueChanged.InvokeAsync(Value);
+
+            if (ValueChanged.HasDelegate)
+            {
+                await ValueChanged.InvokeAsync(Value);
+            }
         }
     }
 

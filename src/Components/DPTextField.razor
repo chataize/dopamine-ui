@@ -1,13 +1,13 @@
-<div class="@ActualWidth">
+<div>
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="label-base">
-            <span class="@ActualLabelStyle">@Label</span>
-            <span class="@ActualEditIndicatorStyle">●</span>
+            <span class="@LabelClass">@Label</span>
+            <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <div class="relative inline-block @ActualWidth">
-        <input id="@_id" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" class="@ActualInputStyle" @bind-value="ActualValue" @bind-value:event="oninput" @onchange="OnChange" />
+    <div class="relative">
+        <input id="@_id" class="@InputClass @WidthClass @CaseClass" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
         @if (IsLoading)
         {
             <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute p-1 rounded-lg right-2 top-2 backdrop-blur dark:hidden" />
@@ -17,9 +17,10 @@
 </div>
 
 @code {
-    private readonly Guid _id = Guid.NewGuid();
+    private readonly string _id = Random.Shared.Next().ToString();
 
-    private string _actualValue = string.Empty;
+    [Parameter]
+    public TextFieldType Type { get; set; }
 
     [Parameter]
     public string? Label { get; set; }
@@ -31,7 +32,7 @@
     public string? Value { get; set; }
 
     [Parameter]
-    public TextFieldType Type { get; set; }
+    public EventCallback<string> ValueChanged { get; set; }
 
     [Parameter]
     public int Size { get; set; } = 25;
@@ -46,20 +47,43 @@
     public bool IsLowercase { get; set; }
 
     [Parameter]
+    public bool IsReadOnly { get; set; }
+
+    [Parameter]
     public bool IsEdited { get; set; }
 
     [Parameter]
     public bool IsLoading { get; set; }
 
     [Parameter]
-    public bool IsReadOnly { get; set; }
-
-    [Parameter]
     public bool IsDisabled { get; set; }
 
-    [Parameter]
-    public EventCallback<string> ValueChanged { get; set; }
+    private string InternalValue
+    {
+        get => Value ?? string.Empty;
+        set
+        {
+            if (IsReadOnly || IsLoading || IsDisabled)
+            {
+                return;
+            }
 
+            var normalizedValue = NormalizeValue(value);
+            if (NormalizeValue(Value) != normalizedValue)
+            {
+                Value = value;
+
+                if (ValueChanged.HasDelegate)
+                {
+                    ValueChanged.InvokeAsync(normalizedValue);
+                }
+            }
+            else
+            {
+                Value = value;
+            }
+        }
+    }
     private string ActualInputType
     {
         get
@@ -76,11 +100,9 @@
         }
     }
 
-    private string ActualWidth => IsFullWidth == true ? "w-full" : IsFullWidth == null ? "w-full sm:w-auto" : "";
+    private string LabelClass => IsLoading || IsDisabled ? "label-disabled" : "label-default";
 
-    private string ActualLabelStyle => IsDisabled || IsLoading ? "label-disabled" : "label-default";
-
-    private string ActualEditIndicatorStyle
+    private string EditIndicatorClass
     {
         get
         {
@@ -93,62 +115,54 @@
         }
     }
 
-    private string ActualInputStyle
+    private string InputClass
     {
         get
         {
-            string style;
-
             if (IsLoading)
             {
-                style = "input-loading";
-            }
-            else if (IsDisabled)
-            {
-                style = "input-disabled";
-            }
-            else
-            {
-                style = "input-default";
+                return "input-loading";
             }
 
-            if (IsFullWidth == true)
+            if (IsDisabled)
             {
-                style += " w-full";
-            }
-            else if (IsFullWidth == null)
-            {
-                style += " w-full sm:w-auto";
+                return "input-disabled";
             }
 
-            if (IsLowercase)
-            {
-                style += " lowercase";
-            }
-
-            return style;
+            return "input-default";
         }
     }
 
-    private string ActualValue
+    private string CaseClass => IsLowercase ? "lowercase" : string.Empty;
+
+    private string WidthClass
     {
-        get => Value ?? string.Empty;
-        set
+        get
         {
-            if (IsLoading || IsReadOnly || IsDisabled)
+            if (IsFullWidth == true)
             {
-                return;
+                return "w-full";
             }
 
-            var normalizedValue = NormalizeValue(value);
-            if (NormalizeValue(Value) != normalizedValue)
+            if (IsFullWidth == false)
             {
-                Value = value;
-                ValueChanged.InvokeAsync(normalizedValue);
+                return "w-fit";
             }
-            else
+
+            return "w-full sm:w-fit";
+        }
+    }
+
+    private async Task OnChangeAsync(ChangeEventArgs e)
+    {
+        var normalizedValue = NormalizeValue(e.Value?.ToString() ?? string.Empty);
+        if (Value != normalizedValue)
+        {
+            Value = normalizedValue;
+
+            if (ValueChanged.HasDelegate)
             {
-                Value = value;
+                await ValueChanged.InvokeAsync(normalizedValue);
             }
         }
     }
@@ -173,14 +187,5 @@
         }
 
         return value;
-    }
-
-    private void OnChange(ChangeEventArgs e)
-    {
-        var normalizedValue = NormalizeValue(e.Value?.ToString() ?? string.Empty);
-        if (Value != normalizedValue)
-        {
-            Value = normalizedValue;
-        }
     }
 }

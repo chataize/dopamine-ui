@@ -1,25 +1,14 @@
-@if (string.IsNullOrWhiteSpace(Label))
-{
-    <label for="@_id" class="@ActualLabelStyle">
-        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
-        <div class="@ActualContainerStyle">
-            <div class="@ActualDotStyle sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
-            <div class="@ActualDotStyle -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
-        </div>
-    </label>
-}
-else
-{
-    <label for="@_id" class="@ActualLabelStyle">
-        <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="ActualValue" />
+<label for="@_id" class="@LabelClass @BorderClass @WidthClass">
+    <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="InternalValue" />
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
         <span>@Label</span>
-        <div class="@ActualContainerStyle">
-            <div class="@ActualDotStyle sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
-            <div class="@ActualDotStyle -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
-        </div>
-    </label>
-}
-
+    }
+    <div class="group @PillClass">
+        <div class="@DotClass sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
+        <div class="@DotClass -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
+    </div>
+</label>
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
@@ -31,63 +20,68 @@ else
     public bool Value { get; set; }
 
     [Parameter]
-    public bool? IsFullWidth { get; set; }
+    public EventCallback<bool> ValueChanged { get; set; }
 
     [Parameter]
-    public bool? IsFrameVisible { get; set; }
+    public bool? IsBorderless { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
 
-    [Parameter]
-    public EventCallback<bool> ValueChanged { get; set; }
-
-    private string ActualLabelStyle
+    private bool InternalValue
     {
-        get
+        get => Value;
+        set
         {
-            string style = IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
-
-            if (!string.IsNullOrWhiteSpace(Label))
+            if (!IsDisabled && Value != value)
             {
+                Value = value;
 
-                if (IsFullWidth == true)
+                if (ValueChanged.HasDelegate)
                 {
-                    style += " w-full";
-                }
-                else if (IsFullWidth == null)
-                {
-                    style += " w-full sm:w-auto";
+                    ValueChanged.InvokeAsync(value);
                 }
             }
-
-            if (IsFrameVisible == true)
-            {
-                style += IsDisabled ? " frame-disabled" : " frame-enabled";
-            }
-            else if (IsFrameVisible == null && !string.IsNullOrWhiteSpace(Label))
-            {
-                style += IsDisabled ? " -sm:frame-disabled" : " -sm:frame-enabled";
-            }
-
-            return style;
         }
     }
 
-    private string ActualContainerStyle
+    private string LabelClass => IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
+
+    private string BorderClass
+    {
+        get
+        {
+            if (IsBorderless == false)
+            {
+                return IsDisabled ? "frame-disabled" : "frame-enabled";
+            }
+
+            if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
+            {
+                return string.Empty;
+            }
+
+            return IsDisabled ? "-sm:frame-disabled" : "-sm:frame-enabled";
+        }
+    }
+
+    private string PillClass
     {
         get
         {
             if (IsDisabled)
             {
-                return "switch-container-disabled group";
+                return "switch-pill-disabled";
             }
 
-            return Value ? "switch-container-on group" : "switch-container-off group";
+            return Value ? "switch-pill-on" : "switch-pill-off";
         }
     }
 
-    private string ActualDotStyle
+    private string DotClass
     {
         get
         {
@@ -100,18 +94,21 @@ else
         }
     }
 
-    private bool ActualValue
+    private string WidthClass
     {
-        get => Value;
-        set
+        get
         {
-            if (!IsDisabled && Value != value)
+            if (IsFullWidth == true)
             {
-                Value = value;
-                ValueChanged.InvokeAsync(value);
+                return "w-full";
             }
+
+            if (IsFullWidth == false || string.IsNullOrWhiteSpace(Label))
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit";
         }
     }
-
-    private bool? ActualIsFrameVisible => IsFrameVisible ?? string.IsNullOrWhiteSpace(Label) ? false : null;
 }

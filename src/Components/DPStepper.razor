@@ -77,6 +77,9 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    [Parameter]
+    public object? Tag { get; set; }
+
     private string ActualValue
     {
         get => Value.ToString().Trim();

@@ -12,6 +12,9 @@
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    [Parameter]
+    public object? Tag { get; set; }
+
     private string ItemClass => Value != null && DropDown != null && Value.Equals(DropDown.Value) ? "dropdown-item-selected" : "dropdown-item-default";
 
     protected override void OnInitialized()

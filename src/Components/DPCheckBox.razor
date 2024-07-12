@@ -35,6 +35,9 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    [Parameter]
+    public object? Tag { get; set; }
+
     private bool InternalValue
     {
         get => Value;

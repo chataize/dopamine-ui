@@ -147,6 +147,9 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    [Parameter]
+    public object? Tag { get; set; }
+
     private string Hour
     {
         get => Value.ToString("HH");

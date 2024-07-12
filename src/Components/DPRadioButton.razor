@@ -32,6 +32,9 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    [Parameter]
+    public object? Tag { get; set; }
+
     private bool IsSelected => RadioGroup != null && EqualityComparer<T>.Default.Equals(Value, RadioGroup.Value);
 
     private bool ActualIsDisabled => IsDisabled || RadioGroup?.IsDisabled == true;

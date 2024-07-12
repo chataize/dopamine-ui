@@ -2,30 +2,22 @@
 {
     if (ToClass == null)
     {
-        <div class="block">
-            @ChildContent
-        </div>
+        <div class="block">@ChildContent</div>
     }
     else
     {
-        <div class="block @(ToClass):hidden">
-            @ChildContent
-        </div>
+        <div class="block @(ToClass):hidden">@ChildContent</div>
     }
 }
 else
 {
     if (ToClass == null)
     {
-        <div class="hidden @(FromClass):block">
-            @ChildContent
-        </div>
+        <div class="hidden @(FromClass):block">@ChildContent</div>
     }
     else
     {
-        <div class="hidden @(FromClass):block @(ToClass):hidden">
-            @ChildContent
-        </div>
+        <div class="hidden @(FromClass):block @(ToClass):hidden">@ChildContent</div>
     }
 }
 
@@ -38,6 +30,9 @@ else
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
 
     private string? FromClass => ScreenSizeToClass(FromSize);
 

@@ -62,6 +62,9 @@
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    [Parameter]
+    public object? Tag { get; set; }
+
     internal List<DPDropDownItem<T>> Items { get; set; } = [];
 
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;

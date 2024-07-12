@@ -1,4 +1,4 @@
-<div class="relative select-none @WidthClass">
+<div class="relative select-none">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="dp-label-base">
@@ -24,7 +24,7 @@
             </svg>
         }
     </button>
-    <div class="@CalendarClass">
+    <div class="@CalendarClass @WidthClass">
         <div class="flex items-center justify-between space-x-4 font-semibold">
             <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">

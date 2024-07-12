@@ -3572,7 +3572,7 @@ video {
   }
 
   .dp-calendar-arrow:active {
-    fill: #2563eb;
+    fill: #60a5fa;
   }
 }
 
@@ -3967,6 +3967,16 @@ video {
 @media (prefers-color-scheme: dark) {
   .dp-clock-arrow {
     fill: #fff;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dp-clock-arrow:hover {
+      fill: #3b82f6;
+    }
+  }
+
+  .dp-clock-arrow:active {
+    fill: #60a5fa;
   }
 }
 

@@ -51,7 +51,7 @@
         }
     }
 
-    private string LabelClass => IsDisabled ? "switch-label-disabled group" : "switch-label-enabled group";
+    private string LabelClass => IsDisabled ? "dp-switch-label-disabled group" : "dp-switch-label-enabled group";
 
     private string BorderClass
     {
@@ -59,7 +59,7 @@
         {
             if (IsBorderless == false)
             {
-                return IsDisabled ? "frame-disabled" : "frame-enabled";
+                return IsDisabled ? "dp-frame-disabled" : "dp-frame-enabled";
             }
 
             if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
@@ -67,7 +67,7 @@
                 return string.Empty;
             }
 
-            return IsDisabled ? "-sm:frame-disabled" : "-sm:frame-enabled";
+            return IsDisabled ? "-sm:dp-frame-disabled" : "-sm:dp-frame-enabled";
         }
     }
 
@@ -77,10 +77,10 @@
         {
             if (IsDisabled)
             {
-                return "switch-pill-disabled";
+                return "dp-switch-pill-disabled";
             }
 
-            return Value ? "switch-pill-on" : "switch-pill-off";
+            return Value ? "dp-switch-pill-on" : "dp-switch-pill-off";
         }
     }
 
@@ -90,10 +90,10 @@
         {
             if (IsDisabled)
             {
-                return "switch-dot-disabled";
+                return "dp-switch-dot-disabled";
             }
 
-            return Value ? "switch-dot-on" : "switch-dot-off";
+            return Value ? "dp-switch-dot-on" : "dp-switch-dot-off";
         }
     }
 

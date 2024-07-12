@@ -39,23 +39,23 @@
         {
             if (IsLoading)
             {
-                return "button-loading";
+                return "dp-button-loading";
             }
 
             if (IsDisabled)
             {
-                return "button-disabled";
+                return "dp-button-disabled";
             }
 
             return Style switch
             {
-                ButtonStyle.Borderless => "button-borderless",
-                ButtonStyle.Light => "button-light",
-                ButtonStyle.Primary => "button-primary",
-                ButtonStyle.Accent => "button-accent",
-                ButtonStyle.Danger => "button-danger",
-                ButtonStyle.Destructive => "button-destructive",
-                _ => "button-default"
+                ButtonStyle.Borderless => "dp-button-borderless",
+                ButtonStyle.Light => "dp-button-light",
+                ButtonStyle.Primary => "dp-button-primary",
+                ButtonStyle.Accent => "dp-button-accent",
+                ButtonStyle.Danger => "dp-button-danger",
+                ButtonStyle.Destructive => "dp-button-destructive",
+                _ => "dp-button-default"
             };
         }
     }

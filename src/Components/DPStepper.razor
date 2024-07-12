@@ -1,15 +1,15 @@
 <div class="select-none @WidthClass">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
-        <label for="@_id" class="label-base">
+        <label for="@_id" class="dp-label-base">
             <span class="@ActualLabelStyle">@Label</span>
             <span class="@EditIndicatorClass">●</span>
         </label>
     }
     <div id="@_id" class="@BorderClass @WidthClass">
         <div class="relative flex items-center w-fit">
-            <input class="stepper-digit @(_isValueAlternated ? "digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
-            <input class="stepper-digit absolute @(!_isValueAlternated ? "digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
+            <input class="dp-stepper-digit @(_isValueAlternated ? "dp-digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
+            <input class="dp-stepper-digit absolute @(!_isValueAlternated ? "dp-digit-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
         </div>
         <div class="relative flex items-center space-x-2">
             <button @onclick="DecrementAsync" class="@DecrementButtonClass">
@@ -105,7 +105,7 @@
 
     private bool CanDecrement => !IsLoading && !IsDisabled && Value - Step >= MinValue;
 
-    private string ActualLabelStyle => IsLoading || IsDisabled ? "label-disabled" : "label-default";
+    private string ActualLabelStyle => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label-default";
 
     private string EditIndicatorClass
     {
@@ -113,10 +113,10 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator-default";
             }
 
-            return "edit-indicator-inactive";
+            return "dp-edit-indicator-inactive";
         }
     }
 
@@ -126,21 +126,21 @@
         {
             if (IsLoading)
             {
-                return "stepper-loading";
+                return "dp-stepper-loading";
             }
 
             if (IsDisabled)
             {
-                return "stepper-disabled";
+                return "dp-stepper-disabled";
             }
 
-            return "stepper-enabled";
+            return "dp-stepper-enabled";
         }
     }
 
-    private string IncrementButtonClass => IsLoading ? "stepper-btn-loading" : CanIncrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
+    private string IncrementButtonClass => IsLoading ? "dp-stepper-btn-loading" : CanIncrement ? "dp-stepper-btn-enabled" : "dp-stepper-btn-disabled";
 
-    private string DecrementButtonClass => IsLoading ? "stepper-btn-loading" : CanDecrement ? "stepper-btn-enabled" : "stepper-btn-disabled";
+    private string DecrementButtonClass => IsLoading ? "dp-stepper-btn-loading" : CanDecrement ? "dp-stepper-btn-enabled" : "dp-stepper-btn-disabled";
 
     private string WidthClass
     {

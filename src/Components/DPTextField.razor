@@ -1,7 +1,7 @@
 <div>
     @if (!string.IsNullOrWhiteSpace(Label))
     {
-        <label for="@_id" class="label-base">
+        <label for="@_id" class="dp-label-base">
             <span class="@LabelClass">@Label</span>
             <span class="@EditIndicatorClass">●</span>
         </label>
@@ -103,7 +103,7 @@
         }
     }
 
-    private string LabelClass => IsLoading || IsDisabled ? "label-disabled" : "label-default";
+    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label-default";
 
     private string EditIndicatorClass
     {
@@ -111,10 +111,10 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator-default";
             }
 
-            return "edit-indicator-inactive";
+            return "dp-edit-indicator-inactive";
         }
     }
 
@@ -124,15 +124,15 @@
         {
             if (IsLoading)
             {
-                return "input-loading";
+                return "dp-input-loading";
             }
 
             if (IsDisabled)
             {
-                return "input-disabled";
+                return "dp-input-disabled";
             }
 
-            return "input-default";
+            return "dp-input-default";
         }
     }
 

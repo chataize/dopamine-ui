@@ -15,7 +15,7 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private string ItemClass => Value != null && DropDown != null && Value.Equals(DropDown.Value) ? "dropdown-item-selected" : "dropdown-item-default";
+    private string ItemClass => Value != null && DropDown != null && Value.Equals(DropDown.Value) ? "dp-dropdown-item-selected" : "dp-dropdown-item-default";
 
     protected override void OnInitialized()
     {

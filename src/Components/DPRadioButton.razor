@@ -39,7 +39,7 @@
 
     private bool ActualIsDisabled => IsDisabled || RadioGroup?.IsDisabled == true;
 
-    private string LabelClass => ActualIsDisabled ? "radio-label-disabled" : "radio-label-enabled";
+    private string LabelClass => ActualIsDisabled ? "dp-radio-label-disabled" : "dp-radio-label-enabled";
 
     private string BorderClass
     {
@@ -47,7 +47,7 @@
         {
             if (IsBorderless == false)
             {
-                return IsDisabled ? "frame-disabled" : "frame-enabled";
+                return IsDisabled ? "dp-frame-disabled" : "dp-frame-enabled";
             }
 
             if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
@@ -55,7 +55,7 @@
                 return string.Empty;
             }
 
-            return IsDisabled ? "-sm:frame-disabled" : "-sm:frame-enabled";
+            return IsDisabled ? "-sm:dp-frame-disabled" : "-sm:dp-frame-enabled";
         }
     }
 
@@ -65,10 +65,10 @@
         {
             if (ActualIsDisabled)
             {
-                return IsSelected ? "radio-container-disabled-on" : "radio-container-disabled-off";
+                return IsSelected ? "dp-radio-container-disabled-on" : "dp-radio-container-disabled-off";
             }
 
-            return IsSelected ? "radio-container-on" : "radio-container-off";
+            return IsSelected ? "dp-radio-container-on" : "dp-radio-container-off";
         }
     }
 
@@ -78,10 +78,10 @@
         {
             if (ActualIsDisabled)
             {
-                return IsSelected ? "radio-dot-disabled-on" : "radio-dot-disabled-off";
+                return IsSelected ? "dp-radio-dot-disabled-on" : "dp-radio-dot-disabled-off";
             }
 
-            return IsSelected ? "radio-dot-on" : "radio-dot-off";
+            return IsSelected ? "dp-radio-dot-on" : "dp-radio-dot-off";
         }
     }
 

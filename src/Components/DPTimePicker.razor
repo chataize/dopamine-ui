@@ -1,7 +1,7 @@
 <div class="relative select-none @WidthClass">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
-        <label for="@_id" class="label-base">
+        <label for="@_id" class="dp-label-base">
             <span class="@LabelClass">@Label</span>
             <span class="@EditIndicatorClass">●</span>
         </label>
@@ -25,8 +25,8 @@
         }
     </button>
     <div class="@ClockClass">
-        <div class="@(IsShowingSeconds ? "clock-grid-seconds" : "clock-grid-noseconds")">
-            <button class="clock-button" @onclick="AddHourAsync">
+        <div class="@(IsShowingSeconds ? "dp-clock-grid-seconds" : "dp-clock-grid-noseconds")">
+            <button class="dp-clock-button" @onclick="AddHourAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -36,7 +36,7 @@
                 </svg>
             </button>
             <span />
-            <button class="clock-button" @onclick="AddMinuteAsync">
+            <button class="dp-clock-button" @onclick="AddMinuteAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -48,7 +48,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="clock-button" @onclick="AddSecondAsync">
+                <button class="dp-clock-button" @onclick="AddSecondAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -59,24 +59,24 @@
                 </button>
             }
             <div class="relative">
-                <input class="clock-digit @(_isHourAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
-                <input class="clock-digit @(!_isHourAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
+                <input class="dp-clock-digit @(_isHourAlternated ? "dp-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
+                <input class="dp-clock-digit @(!_isHourAlternated ? "dp-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Hour" />
             </div>
 
             <span class="font-mono text-2xl">:</span>
             <div class="relative">
-                <input class="clock-digit @(_isMinuteAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
-                <input class="clock-digit @(!_isMinuteAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
+                <input class="dp-clock-digit @(_isMinuteAlternated ? "dp-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
+                <input class="dp-clock-digit @(!_isMinuteAlternated ? "dp-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Minute" />
             </div>
             @if (IsShowingSeconds)
             {
                 <span class="font-mono text-2xl">:</span>
                 <div class="relative">
-                    <input class="clock-digit @(_isSecondAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
-                    <input class="clock-digit @(!_isSecondAlternated ? "digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
+                    <input class="dp-clock-digit @(_isSecondAlternated ? "dp-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
+                    <input class="dp-clock-digit @(!_isSecondAlternated ? "dp-digit-animation" : "")" type="text" size="2" maxlength="2" @bind="Second" />
                 </div>
             }
-            <button class="clock-button" @onclick="SubtractHourAsync">
+            <button class="dp-clock-button" @onclick="SubtractHourAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -86,7 +86,7 @@
                 </svg>
             </button>
             <span />
-            <button class="clock-button" @onclick="SubtractMinuteAsync">
+            <button class="dp-clock-button" @onclick="SubtractMinuteAsync">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -98,7 +98,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="clock-button" @onclick="SubtractSecondAsync">
+                <button class="dp-clock-button" @onclick="SubtractSecondAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -188,7 +188,7 @@
 
     private bool ActualIsExpanded => _isExpanded && !IsLoading && !IsDisabled;
 
-    private string LabelClass => IsLoading || IsDisabled ? "label-disabled" : "label-default";
+    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label-default";
 
     private string EditIndicatorClass
     {
@@ -196,10 +196,10 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "edit-indicator-disabled" : "edit-indicator-default";
+                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator-default";
             }
 
-            return "edit-indicator-inactive";
+            return "dp-edit-indicator-inactive";
         }
     }
 
@@ -209,24 +209,24 @@
         {
             if (IsLoading)
             {
-                return "dropdown-loading";
+                return "dp-dropdown-loading";
             }
 
             if (IsDisabled)
             {
-                return "dropdown-disabled";
+                return "dp-dropdown-disabled";
             }
 
             if (ActualIsExpanded)
             {
-                return "dropdown-expanded";
+                return "dp-dropdown-expanded";
             }
 
-            return "dropdown-collapsed";
+            return "dp-dropdown-collapsed";
         }
     }
 
-    private string ClockClass => ActualIsExpanded ? "dropdown-clock-expanded" : "dropdown-clock-collapsed";
+    private string ClockClass => ActualIsExpanded ? "dp-dropdown-clock-expanded" : "dp-dropdown-clock-collapsed";
 
     private string WidthClass
     {

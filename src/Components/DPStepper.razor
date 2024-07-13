@@ -11,8 +11,8 @@
             <input class="dp-stepper-number @(IsLoading || IsDisabled ? "select-none" : "") @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
             <input class="dp-stepper-number absolute @(IsLoading || IsDisabled ? "select-none" : "") @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
         </div>
-        <div class="relative flex items-center pr-2 space-x-3 sm:space-x-1">
-            <div class="group dp-stepper-button-hitbox" @onclick="DecrementAsync">
+        <div class="relative flex items-center">
+            <div class="pl-2 pr-1 group dp-stepper-button-hitbox" @onclick="DecrementAsync">
                 <button class="@DecrementButtonClass">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -23,7 +23,7 @@
                     </svg>
                 </button>
             </div>
-            <div class="group dp-stepper-button-hitbox" @onclick="IncrementAsync">
+            <div class="pl-1 pr-2 group dp-stepper-button-hitbox" @onclick="IncrementAsync">
                 <button class="@IncrementButtonClass">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">

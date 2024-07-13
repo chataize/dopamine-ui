@@ -554,18 +554,6 @@ video {
   --tw-contain-style:  ;
 }
 
-.header {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-}
-
-.subheader {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-}
-
 .static {
   position: static;
 }

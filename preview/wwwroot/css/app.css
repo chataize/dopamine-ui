@@ -11,13 +11,3 @@
         @apply dark:bg-neutral-900 dark:text-white;
     }
 }
-
-@layer components {
-    .header {
-        @apply text-3xl font-bold;
-    }
-
-    .subheader {
-        @apply text-xl font-semibold;
-    }
-}

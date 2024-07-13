@@ -1,11 +1,11 @@
-@page "/"
+﻿@page "/"
 @rendermode InteractiveServer
 
 <PageTitle>Dopamine UI Preview</PageTitle>
 
 <div class="p-8 space-y-4">
-    <h1 class="header">Buttons</h1>
-    <h2 class="subheader">Standard</h2>
+    <DPHeader>Buttons</DPHeader>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView RequiredSize="@ScreenSize.Large">
         <DPButton>Button</DPButton>
         <DPButton Style="ButtonStyle.Borderless">Button</DPButton>
@@ -95,7 +95,7 @@
             </div>
         </DPButton>
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPButton IsFullWidth="true">Button</DPButton>
         <DPButton IsFullWidth="true">Button</DPButton>
@@ -105,17 +105,17 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Text Fields</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Text Fields</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPTextField @bind-Value="Text" />
-    <h2 class="subheader">Standard</h2>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
         <DPTextField Label="Normal" @bind-Value="Text" />
         <DPTextField Label="Password" Type="TextFieldType.Password" @bind-Value="Text" />
         <DPTextField Label="Loading" IsLoading="true" @bind-Value="Text" />
         <DPTextField Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPTextField Label="Normal" IsFullWidth="true" @bind-Value="Text" />
         <DPTextField Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
@@ -126,14 +126,14 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Text Areas</h1>
-    <h2 class="subheader">Standard</h2>
+    <DPHeader>Text Areas</DPHeader>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
         <DPTextArea Label="Normal" @bind-Value="Text" />
         <DPTextArea Label="Loading" IsLoading="true" @bind-Value="Text" />
         <DPTextArea Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPTextArea Label="Normal" IsFullWidth="true" @bind-Value="Text" />
         <DPTextArea Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
@@ -144,14 +144,14 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Toggle Buttons</h1>
-    <h2 class="subheader">Standard</h2>
+    <DPHeader>Toggle Buttons</DPHeader>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
         <DPToggleButton @bind-Value="BoolValue">Normal</DPToggleButton>
         <DPToggleButton IsLoading="true" @bind-Value="BoolValue">Loading</DPToggleButton>
         <DPToggleButton IsDisabled="true" @bind-Value="BoolValue">Disabled</DPToggleButton>
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPToggleButton IsFullWidth="true" @bind-Value="BoolValue">Normal</DPToggleButton>
     <DPToggleButton IsFullWidth="true" IsLoading="true" @bind-Value="BoolValue">Loading</DPToggleButton>
     <DPToggleButton IsFullWidth="true" IsDisabled="true" @bind-Value="BoolValue">Disabled</DPToggleButton>
@@ -160,25 +160,25 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Toggle Switches</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Toggle Switches</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPToggleSwitch @bind-value="BoolValue" />
-    <h2 class="subheader">Automatic</h2>
+    <DPSubheader>Automatic</DPSubheader>
     <DPAdaptiveView>
         <DPToggleSwitch Label="Normal" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Borderless</h2>
+    <DPSubheader>Borderless</DPSubheader>
     <DPAdaptiveView>
         <DPToggleSwitch Label="Normal" IsBorderless="true" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Bordered</h2>
+    <DPSubheader>Bordered</DPSubheader>
     <DPAdaptiveView>
         <DPToggleSwitch Label="Normal" IsBorderless="false" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPToggleSwitch Label="Normal" IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
         <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
@@ -188,25 +188,25 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Checkboxes</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Checkboxes</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPCheckBox @bind-value="BoolValue" />
-    <h2 class="subheader">Automatic</h2>
+    <DPSubheader>Automatic</DPSubheader>
     <DPAdaptiveView>
         <DPCheckBox Label="Normal" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Borderless</h2>
+    <DPSubheader>Borderless</DPSubheader>
     <DPAdaptiveView>
         <DPCheckBox Label="Normal" IsBorderless="true" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Bordered</h2>
+    <DPSubheader>Bordered</DPSubheader>
     <DPAdaptiveView>
         <DPCheckBox Label="Normal" IsBorderless="false" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPCheckBox Label="Normal" IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
         <DPCheckBox Label="Disabled" IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
@@ -216,8 +216,8 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Radio Buttons</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Radio Buttons</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Value="SampleEnum.Value1" />
@@ -225,7 +225,7 @@
             <DPRadioButton IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </DPAdaptiveView>
-    <h2 class="subheader">Automatic</h2>
+    <DPSubheader>Automatic</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" />
@@ -233,7 +233,7 @@
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </DPAdaptiveView>
-    <h2 class="subheader">Disabled Group</h2>
+    <DPSubheader>Disabled Group</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup IsDisabled="true" @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" />
@@ -241,7 +241,7 @@
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </DPAdaptiveView>
-    <h2 class="subheader">Borderless</h2>
+    <DPSubheader>Borderless</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsBorderless="true" />
@@ -249,7 +249,7 @@
             <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="true" />
         </DPRadioGroup>
     </DPAdaptiveView>
-    <h2 class="subheader">Bordered</h2>
+    <DPSubheader>Bordered</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" IsBorderless="false" Value="SampleEnum.Value1" />
@@ -257,7 +257,7 @@
             <DPRadioButton Label="Disabled" IsBorderless="false" IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsBorderless="false" IsFullWidth="true" />
@@ -270,14 +270,14 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Drop Down</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Drop Down</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPDropDown @bind-Value="EnumValue">
         <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
     </DPDropDown>
-    <h2 class="subheader">Standard</h2>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
         <DPDropDown @bind-Value="EnumValue" Label="@EnumValue.ToString()">
             <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
@@ -295,7 +295,7 @@
             <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
         </DPDropDown>
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPDropDown @bind-Value="EnumValue" Label="@EnumValue.ToString()" IsFullWidth="true">
         <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
@@ -316,14 +316,14 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Date Picker</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Date Picker</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPAdaptiveView>
         <DPDatePicker From="@_from" To="@_to" @bind-Value="DateValue" />
         <DPDatePicker From="@_from" To="@_to" IsLoading="true" @bind-Value="DateValue" />
         <DPDatePicker From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Standard</h2>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
         <DPDatePicker Label="Normal" From="@_from" To="@_to" @bind-Value="DateValue" />
         <DPDatePicker Label="Normal" From="@_from" To="@_to" IsEdited="true" @bind-Value="DateValue" />
@@ -332,7 +332,7 @@
         <DPDatePicker Label="Disabled" From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
         <DPDatePicker Label="Disabled" From="@_from" To="@_to" IsEdited="true" IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPDatePicker Label="Normal" From="@_from" To="@_to" IsFullWidth="true" @bind-Value="DateValue" />
         <DPDatePicker Label="Loading" From="@_from" To="@_to" IsFullWidth="true" IsLoading="true" @bind-Value="DateValue" />
@@ -343,22 +343,22 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Time Picker</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Time Picker</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPAdaptiveView>
         <DPTimePicker @bind-Value="DateValue" />
         <DPTimePicker IsShowingSeconds="true" @bind-Value="DateValue" />
         <DPTimePicker IsLoading="true" @bind-Value="DateValue" />
         <DPTimePicker IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Standard</h2>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
         <DPTimePicker Label="Normal" @bind-Value="DateValue" />
         <DPTimePicker Label="Normal" IsShowingSeconds="true" IsEdited="@BoolValue" @bind-Value="DateValue" />
         <DPTimePicker Label="Loading" IsLoading="true" @bind-Value="DateValue" />
         <DPTimePicker Label="Disabled" IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPTimePicker Label="Normal" IsFullWidth="true" @bind-Value="DateValue" />
         <DPTimePicker Label="Normal" IsShowingSeconds="true" IsFullWidth="true" IsEdited="@BoolValue" @bind-Value="DateValue" />
@@ -370,16 +370,16 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Stepper</h1>
-    <h2 class="subheader">Unlabeled</h2>
+    <DPHeader>Stepper</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
     <DPStepper @bind-Value="IntValue" />
-    <h2 class="subheader">Standard</h2>
+    <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
         <DPStepper Label="Normal" @bind-Value="IntValue" />
         <DPStepper Label="Loading" IsLoading="true" @bind-Value="IntValue" />
         <DPStepper Label="Disabled" IsDisabled="true" @bind-Value="IntValue" />
     </DPAdaptiveView>
-    <h2 class="subheader">Full Width</h2>
+    <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPStepper Label="Normal" IsFullWidth="true" @bind-Value="IntValue" />
         <DPStepper Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="IntValue" />
@@ -390,20 +390,28 @@
     <DPDivider />
     <br />
 
-    <h1 class="header">Loading Indicator</h1>
-    <h2 class="subheader">Small</h2>
-
+    <DPHeader>Loading Indicator</DPHeader>
+    <DPSubheader>Small</DPSubheader>
     <DPLoadingIndicator />
-    <h2 class="subheader">Medium</h2>
+    <DPSubheader>Medium</DPSubheader>
     <DPLoadingIndicator Size="@LoadingIndicatorSize.Medium" />
-    <h2 class="subheader">Large</h2>
+    <DPSubheader>Large</DPSubheader>
     <DPLoadingIndicator Size="@LoadingIndicatorSize.Large" />
 
     <br />
     <DPDivider />
     <br />
 
-    <h1 class="header">Breakpoints</h1>
+    <DPHeader>Spoiler</DPHeader>
+    <DPSubheader>Standard</DPSubheader>
+    <DPSpoiler Label="Spoiler">
+        <p>Hidden content</p>
+    </DPSpoiler>
+    <br />
+    <DPDivider />
+    <br />
+
+    <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>
         <DPBreakpoint ToSize="ScreenSize.ExtraSmall">0-XS</DPBreakpoint>

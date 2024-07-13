@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer components {
+    .dp-header {
+        @apply text-3xl font-bold text-black dark:text-white;
+    }
+
+    .dp-subheader {
+        @apply text-xl font-semibold text-black dark:text-white;
+    }
+
     .dp-border-base {
         @apply px-3 py-2 border rounded-lg shadow-sm dark:bg-neutral-800 dark:border-neutral-700;
     }

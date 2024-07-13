@@ -1,0 +1,9 @@
+<h1 class="dp-header">@ChildContent</h1>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+}

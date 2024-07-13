@@ -8,8 +8,8 @@
     }
     <div id="@_id" class="@BorderClass @WidthClass">
         <div class="relative flex items-center py-2 pl-3 w-fit">
-            <input class="dp-stepper-number @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
-            <input class="dp-stepper-number absolute @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
+            <input class="dp-stepper-number @(IsLoading || IsDisabled ? "select-none" : "") @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
+            <input class="dp-stepper-number absolute @(IsLoading || IsDisabled ? "select-none" : "") @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
         </div>
         <div class="relative flex items-center pr-2 space-x-3 sm:space-x-1">
             <div class="group dp-stepper-button-hitbox" @onclick="DecrementAsync">

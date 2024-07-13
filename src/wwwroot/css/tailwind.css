@@ -4073,6 +4073,9 @@ video {
 .dp-stepper-loading {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   cursor: wait;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -4110,6 +4113,9 @@ video {
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   cursor: not-allowed;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;

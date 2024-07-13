@@ -376,11 +376,11 @@
     }
 
     .dp-stepper-loading {
-        @apply cursor-wait dp-stepper-base bg-neutral-50 text-neutral-400 fill-neutral-400 border-neutral-100 animate-pulse dark:bg-neutral-800 dark:border-neutral-800;
+        @apply cursor-wait select-none dp-stepper-base bg-neutral-50 text-neutral-400 fill-neutral-400 border-neutral-100 animate-pulse dark:bg-neutral-800 dark:border-neutral-800;
     }
 
     .dp-stepper-disabled {
-        @apply cursor-not-allowed dp-stepper-base bg-neutral-50 border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
+        @apply cursor-not-allowed select-none dp-stepper-base bg-neutral-50 border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
     }
 
     .dp-stepper-number {

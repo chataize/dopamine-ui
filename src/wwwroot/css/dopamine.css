@@ -296,7 +296,7 @@
     }
 
     .dp-calendar-arrow {
-        @apply dp-calendar-arrow-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-105 active:scale-95;
+        @apply dp-calendar-arrow-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
     }
 
     .dp-calendar-arrow-disabled {
@@ -348,7 +348,7 @@
     }
 
     .dp-clock-arrow {
-        @apply flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-105 active:scale-95;
+        @apply flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
     }
 
     .dp-clock-grid-base {
@@ -392,7 +392,7 @@
     }
 
     .dp-stepper-button {
-        @apply dp-stepper-button-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-95 hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:hover:fill-blue-500 dark:active:fill-blue-400;
+        @apply dp-stepper-button-base fill-black dark:fill-white hover:fill-blue-600 active:fill-blue-700 hover:scale-125 active:scale-75 hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:hover:fill-blue-500 dark:active:fill-blue-400;
     }
 
     .dp-stepper-button-loading {

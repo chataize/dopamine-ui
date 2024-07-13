@@ -11,7 +11,7 @@
             <input class="dp-stepper-number @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
             <input class="dp-stepper-number absolute @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || IsDisabled)" @bind="ActualValue" />
         </div>
-        <div class="relative flex items-center pr-2 space-x-1">
+        <div class="relative flex items-center pr-2 space-x-3 sm:space-x-1">
             <div class="group dp-stepper-button-hitbox" @onclick="DecrementAsync">
                 <button class="@DecrementButtonClass">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">

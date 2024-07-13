@@ -76,7 +76,7 @@
     }
 
     .dp-edit-indicator {
-        @apply dp-edit-indicator-base text-neutral-400 dark:text-neutral-500;
+        @apply text-blue-600 dp-edit-indicator-base dark:text-blue-500;
     }
 
     .dp-edit-indicator-inactive {

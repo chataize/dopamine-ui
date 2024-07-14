@@ -415,6 +415,70 @@
         @apply cursor-not-allowed dp-stepper-button-base fill-neutral-400 dark:fill-neutral-500;
     }
 
+    .dp-spoiler-base {
+        @apply flex flex-col w-full transition-all duration-300 ease-in-out border rounded-lg shadow-sm;
+    }
+
+    .dp-spoiler {
+        @apply dp-spoiler-base border-neutral-200 active:border-2 hover:border-blue-600 active:border-blue-700 dark:hover:border-blue-500 dark:active:border-blue-400 hover:border-2 hover:scale-105 sm:hover:scale-[1.01] dark:border-neutral-700;
+    }
+
+    .dp-spoiler-expanded {
+        @apply border-2 border-blue-500 dark:border-blue-600 dp-spoiler-base hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 sm:hover:scale-[1.01];
+    }
+
+    .dp-spoiler-loading {
+        @apply cursor-wait dp-spoiler-base border-neutral-100 animate-pulse dark:border-neutral-700;
+    }
+
+    .dp-spoiler-disabled {
+        @apply cursor-not-allowed dp-spoiler-base border-neutral-100 dark:border-neutral-700;
+    }
+
+    .dp-spoiler-label-base {
+        @apply flex items-center justify-between w-full px-3 py-2 font-semibold transition-all duration-300 ease-in-out cursor-pointer select-none;
+    }
+
+    .dp-spoiler-label {
+        @apply text-black group-hover:text-blue-600 group-active:text-blue-700 dark:group-hover:text-blue-500 dark:group-active:text-blue-400 dp-spoiler-label-base dark:text-white;
+    }
+
+    .dp-spoiler-label-expanded {
+        @apply text-blue-500 group-hover:text-blue-600 group-active:text-blue-700 dp-spoiler-label-base dark:text-blue-600 dark:group-hover:text-blue-500 dark:group-active:text-blue-400;
+    }
+
+    .dp-spoiler-label-loading {
+        @apply cursor-wait text-neutral-300 dp-spoiler-label-base dark:text-neutral-600;
+    }
+
+    .dp-spoiler-label-disabled {
+        @apply cursor-not-allowed text-neutral-300 dp-spoiler-label-base dark:text-neutral-600;
+    }
+
+    .dp-spoiler-button-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
+
+    .dp-spoiler-button {
+        @apply fill-black dp-spoiler-button-base group-hover:fill-blue-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400 group-active:fill-blue-700 dark:fill-white;
+    }
+
+    .dp-spoiler-button-expanded {
+        @apply -rotate-180 dp-spoiler-button-base group-hover:fill-blue-600 fill-blue-500 dark:fill-blue-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400 group-active:fill-blue-700;
+    }
+
+    .dp-spoiler-button-loading {
+        @apply hidden;
+    }
+
+    .dp-spoiler-button-disabled {
+        @apply dp-spoiler-button-base fill-neutral-300 dark:fill-neutral-600;
+    }
+
+    .dp-spoiler-content {
+        @apply px-3 pb-2 space-y-4 text-left;
+    }
+
     .dp-number-animation {
         @apply scale-50 opacity-0 blur-sm;
     }

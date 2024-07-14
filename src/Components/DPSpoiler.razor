@@ -1,0 +1,143 @@
+<div class="group @SpoilerClass @ActiveScaleTransitionClass">
+    <label for="@_id" class="@LabelClass" @onmouseenter="SetLabelHovered" @onmouseleave="SetLabelNotHovered">
+        <span>@Label</span>
+        <button id="@_id" disabled="@(IsLoading || IsDisabled)" @onclick="ToggleIsExpanded">
+            @if (IsLoading)
+            {
+                <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
+                <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="20" width="20" class="hidden dark:inline" />
+            }
+            else
+            {
+                <svg class="@ButtonClass" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(8.53333,8.53333)">
+                            <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
+                        </g>
+                    </g>
+                </svg>
+            }
+        </button>
+    </label>
+    @if (ActualIsExpanded)
+    {
+        <div class="dp-spoiler-content">
+            @ChildContent
+        </div>
+    }
+</div>
+
+@code {
+    private readonly int _id = Random.Shared.Next();
+
+    private bool _isLabelHovered;
+
+    private bool _isExpanded;
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private bool ActualIsExpanded => _isExpanded && !IsLoading && !IsDisabled;
+
+    private string SpoilerClass
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dp-spoiler-loading";
+            }
+
+            if (IsDisabled)
+            {
+                return "dp-spoiler-disabled";
+            }
+
+            if (ActualIsExpanded)
+            {
+                return "dp-spoiler-expanded";
+            }
+
+            return "dp-spoiler";
+        }
+    }
+
+    private string LabelClass
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dp-spoiler-label-loading";
+            }
+
+            if (IsDisabled)
+            {
+                return "dp-spoiler-label-disabled";
+            }
+
+            if (ActualIsExpanded)
+            {
+                return "dp-spoiler-label-expanded";
+            }
+
+            return "dp-spoiler-label";
+        }
+
+    }
+
+    private string ButtonClass
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dp-spoiler-button-loading";
+            }
+
+            if (IsDisabled)
+            {
+                return "dp-spoiler-button-disabled";
+            }
+
+            if (ActualIsExpanded)
+            {
+                return "dp-spoiler-button-expanded";
+            }
+
+            return "dp-spoiler-button";
+        }
+    }
+
+    private string ActiveScaleTransitionClass => _isLabelHovered && !IsLoading && !IsDisabled ? "active:scale-95 sm:active:scale-[0.99]" : string.Empty;
+
+    private void SetLabelHovered()
+    {
+        _isLabelHovered = true;
+    }
+
+    private void SetLabelNotHovered()
+    {
+        _isLabelHovered = false;
+    }
+
+    private void ToggleIsExpanded()
+    {
+        if (!IsLoading && !IsDisabled)
+        {
+            _isExpanded = !_isExpanded;
+        }
+    }
+}

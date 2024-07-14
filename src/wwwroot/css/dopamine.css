@@ -482,4 +482,20 @@
     .dp-number-animation {
         @apply scale-50 opacity-0 blur-sm;
     }
+
+    .dp-progressbar {
+        @apply bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700;
+    }
+
+    .dp-progressbar-fill-base {
+        @apply h-2.5 rounded-full transition-all ease-in-out duration-300;
+    }
+
+    .dp-progressbar-fill {
+        @apply bg-blue-600 dp-progressbar-fill-base dark:bg-blue-500;
+    }
+
+    .dp-progressbar-fill-disabled {
+        @apply dp-progressbar-fill-base bg-neutral-400 dark:bg-neutral-500;
+    }
 }

@@ -1,0 +1,73 @@
+<div>
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
+        <label class="dp-label-base">
+            <span class="@LabelClass">@Label</span>
+            @if (IsShowingValue)
+            {
+                <span class="@LabelClass"> — </span>
+                <span class="@LabelClass">@Value</span>
+                <span class="@LabelClass"> of </span>
+                <span class="@LabelClass">@MaxValue</span>
+            }
+            @if (IsShowingPercentage)
+            {
+                <span class="@LabelClass"> — </span>
+                <span class="@LabelClass">@Math.Round(ActualValue, 2)%</span>
+            }
+        </label>
+    }
+    <div class="dp-progressbar @WidthClass">
+        <div class="@FillClass" style="width: @Math.Clamp(ActualValue,0.0,100.0)%"></div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public double Value { get; set; } = 0.5;
+
+    [Parameter]
+    public double MaxValue { get; set; } = 100.0;
+
+    [Parameter]
+    public bool IsShowingValue { get; set; }
+
+    [Parameter]
+    public bool IsShowingPercentage { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private double ActualValue => MaxValue == 0.0 ? 0.0 : (Value / MaxValue) * 100.0;
+
+    private string LabelClass => IsDisabled ? "dp-label-disabled" : "dp-label";
+
+    private string FillClass => IsDisabled ? "dp-progressbar-fill-disabled" : "dp-progressbar-fill";
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-64";
+            }
+
+            return "w-full sm:w-64";
+        }
+    }
+}

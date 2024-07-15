@@ -1,0 +1,19 @@
+<p class="@TextClass">@ChildContent</p>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private string TextClass => Context.IsDisabled ? "dp-paragraph-disabled" : "dp-paragraph";
+}

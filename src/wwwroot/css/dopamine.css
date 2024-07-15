@@ -35,6 +35,18 @@
         @apply dp-subheader-base dp-text-color-disabled;
     }
 
+    .dp-paragraph-base {
+        @apply transition-all duration-300 ease-in-out;
+    }
+
+    .dp-paragraph {
+        @apply dp-paragraph-base dp-text-color;
+    }
+
+    .dp-paragraph-disabled {
+        @apply dp-paragraph-base dp-text-color-disabled;
+    }
+
     .dp-border-base {
         @apply px-3 py-2 border rounded-lg shadow-sm dark:bg-neutral-800 dark:border-neutral-700;
     }

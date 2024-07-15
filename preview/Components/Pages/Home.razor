@@ -447,6 +447,30 @@
     <DPDivider />
     <br />
 
+    <DPHeader>Card</DPHeader>
+    <DPSubheader>Standard</DPSubheader>
+    <DPCard IsBottomPaddingExtended="true">
+        <p class="w-64">@PlaceholderText</p>
+        <DPButton>Hello World</DPButton>
+    </DPCard>
+    <DPSubheader>Full Width</DPSubheader>
+    <DPCard IsTopPaddingExtended="true" IsFullWidth="true">
+        <DPButton>Hello World</DPButton>
+        <p>@PlaceholderText</p>
+    </DPCard>
+    <DPSubheader>Loading</DPSubheader>
+    <DPCard IsTopPaddingExtended="true" IsLoading="@BoolValue">
+        <DPButton>Hello World</DPButton>
+        <p>@PlaceholderText</p>
+    </DPCard>
+    <DPSubheader>Disabled</DPSubheader>
+    <DPCard IsTopPaddingExtended="true" IsDisabled="true">
+        <DPButton>Hello World</DPButton>
+        <p>@PlaceholderText</p>
+    </DPCard>
+
+    <DPToggleSwitch Label="Loading" @bind-value="BoolValue" />
+
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>

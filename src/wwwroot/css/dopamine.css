@@ -508,7 +508,7 @@
     }
 
     .dp-card-loading {
-        @apply cursor-wait select-none dp-card-base animate-pulse border-neutral-100 dark:border-neutral-700;
+        @apply cursor-wait select-none dp-card-base animate-pulse border-neutral-100 dark:border-neutral-700 backdrop-blur-xl;
     }
 
     .dp-card-disabled {
@@ -520,14 +520,38 @@
     }
 
     .dp-card-loading-indicator {
-        @apply z-30 rounded-lg dp-card-loading-indicator-base backdrop-blur-xl;
+        @apply rounded-lg dp-card-loading-indicator-base;
     }
 
     .dp-card-loading-indicator-hidden {
-        @apply z-10 scale-0 opacity-0 dp-card-loading-indicator-base;
+        @apply scale-0 opacity-0 pointer-events-none dp-card-loading-indicator-base;
+    }
+
+    .dp-card-loading-indicator-background-base {
+        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full transition-all duration-300 ease-in-out;
+    }
+
+    .dp-card-loading-indicator-background {
+        @apply dp-card-loading-indicator-background-base backdrop-blur-xl;
+    }
+
+    .dp-card-loading-indicator-background-hidden {
+        @apply opacity-0 pointer-events-none dp-card-loading-indicator-background-base;
+    }
+
+    .dp-card-label-base {
+        @apply font-semibold;
+    }
+
+    .dp-card-label {
+        @apply text-black dp-card-label-base dark:text-white;
+    }
+
+    .dp-card-label-disabled {
+        @apply text-neutral-400 dark:text-neutral-500 dp-card-label-base;
     }
 
     .dp-card-content {
-        @apply z-20 space-y-4 transition-all duration-300 ease-in-out;
+        @apply space-y-4 transition-all duration-300 ease-in-out;
     }
 }

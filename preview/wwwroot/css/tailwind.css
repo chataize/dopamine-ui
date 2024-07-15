@@ -562,10 +562,6 @@ video {
   display: flex;
 }
 
-.w-10 {
-  width: 2.5rem;
-}
-
 .w-64 {
   width: 16rem;
 }

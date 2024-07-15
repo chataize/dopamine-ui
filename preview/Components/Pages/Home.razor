@@ -449,24 +449,24 @@
 
     <DPHeader>Card</DPHeader>
     <DPSubheader>Standard</DPSubheader>
-    <DPCard IsBottomPaddingExtended="true">
+    <DPCard Label="Card 1" IsBottomPaddingExtended="true">
         <p class="w-64">@PlaceholderText</p>
-        <DPButton>Hello World</DPButton>
+        <DPButton>Button</DPButton>
     </DPCard>
     <DPSubheader>Full Width</DPSubheader>
-    <DPCard IsTopPaddingExtended="true" IsFullWidth="true">
-        <DPButton>Hello World</DPButton>
+    <DPCard IsBottomPaddingExtended="true" IsFullWidth="true">
         <p>@PlaceholderText</p>
+        <DPButton>Button</DPButton>
     </DPCard>
     <DPSubheader>Loading</DPSubheader>
-    <DPCard IsTopPaddingExtended="true" IsLoading="@BoolValue">
-        <DPButton>Hello World</DPButton>
+    <DPCard IsBottomPaddingExtended="true" IsLoading="@BoolValue">
         <p>@PlaceholderText</p>
+        <DPButton>Button</DPButton>
     </DPCard>
     <DPSubheader>Disabled</DPSubheader>
-    <DPCard IsTopPaddingExtended="true" IsDisabled="true">
-        <DPButton>Hello World</DPButton>
+    <DPCard Label="Card 4" IsBottomPaddingExtended="true" IsDisabled="true">
         <p>@PlaceholderText</p>
+        <DPButton>Button</DPButton>
     </DPCard>
 
     <DPToggleSwitch Label="Loading" @bind-value="BoolValue" />

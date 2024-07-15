@@ -1,15 +1,24 @@
 <div class="@CardClass @WidthClass @PaddingClass">
     <div class="dp-card-content">
+        @if (!string.IsNullOrWhiteSpace(Label))
+        {
+            <label class="@LabelClass">@Label</label>
+        }
         <CascadingValue Value="Context">@ChildContent</CascadingValue>
     </div>
-    <div class="@LoadingIndicatorClass">
-        <DPLoadingIndicator Size="@LoadingIndicatorSize.Medium" />
+    <div class="@LoadingIndicatorBackgroundClass">
+        <div class="@LoadingIndicatorClass">
+            <DPLoadingIndicator Size="@LoadingIndicatorSize.Medium" />
+        </div>
     </div>
 </div>
 
 @code {
     [CascadingParameter]
     public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Label { get; set; }
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
@@ -52,7 +61,11 @@
         }
     }
 
+    private string LoadingIndicatorBackgroundClass => IsLoading ? "dp-card-loading-indicator-background" : "dp-card-loading-indicator-background-hidden";
+
     private string LoadingIndicatorClass => IsLoading ? "dp-card-loading-indicator" : "dp-card-loading-indicator-hidden";
+
+    private string LabelClass => IsLoading || Context.IsDisabled ? "dp-card-label-disabled" : "dp-card-label";
 
     private string WidthClass
     {

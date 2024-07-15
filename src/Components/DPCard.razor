@@ -1,0 +1,76 @@
+<div class="@CardClass @WidthClass @PaddingClass">
+    <div class="dp-card-content">
+        <CascadingValue Value="Context">@ChildContent</CascadingValue>
+    </div>
+    <div class="@LoadingIndicatorClass">
+        <DPLoadingIndicator Size="@LoadingIndicatorSize.Medium" />
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsTopPaddingExtended { get; set; }
+
+    [Parameter]
+    public bool IsBottomPaddingExtended { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
+
+    private string CardClass
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dp-card-loading";
+            }
+
+            if (IsDisabled)
+            {
+                return "dp-card-disabled";
+            }
+
+            return "dp-card";
+        }
+    }
+
+    private string LoadingIndicatorClass => IsLoading ? "dp-card-loading-indicator" : "dp-card-loading-indicator-hidden";
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit min-w-fit";
+        }
+    }
+
+    private string PaddingClass => $"{(IsTopPaddingExtended ? "pt-3" : "pt-2")} {(IsBottomPaddingExtended ? "pb-3" : "pb-2")}";
+}

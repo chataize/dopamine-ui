@@ -1,4 +1,4 @@
-<button class="@ButtonClass @WidthClass" disabled="@(IsLoading || IsDisabled)" @onclick="OnClickAsync">
+<button class="@ButtonClass @WidthClass" disabled="@(IsLoading || Context.IsDisabled)" @onclick="OnClickAsync">
     @if (IsLoading)
     {
         <span class="opacity-0">@ChildContent</span>
@@ -12,6 +12,9 @@
 </button>
 
 @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
@@ -33,6 +36,8 @@
     [Parameter]
     public object? Tag { get; set; }
 
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
     private string ButtonClass
     {
         get
@@ -42,7 +47,7 @@
                 return "dp-button-loading";
             }
 
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
                 return "dp-button-disabled";
             }
@@ -80,7 +85,7 @@
 
     private async Task OnClickAsync()
     {
-        if (!IsLoading && !IsDisabled && Clicked.HasDelegate)
+        if (!IsLoading && !Context.IsDisabled && Clicked.HasDelegate)
         {
             await Clicked.InvokeAsync();
         }

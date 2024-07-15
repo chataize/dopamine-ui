@@ -23,6 +23,9 @@
 </div>
 
 @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     [Parameter]
     public string? Label { get; set; }
 
@@ -47,11 +50,13 @@
     [Parameter]
     public object? Tag { get; set; }
 
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
     private double ActualValue => MaxValue == 0.0 ? 0.0 : (Value / MaxValue) * 100.0;
 
-    private string LabelClass => IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
-    private string FillClass => IsDisabled ? "dp-progressbar-fill-disabled" : "dp-progressbar-fill";
+    private string FillClass => Context.IsDisabled ? "dp-progressbar-fill-disabled" : "dp-progressbar-fill";
 
     private string WidthClass
     {

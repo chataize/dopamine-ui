@@ -9,7 +9,7 @@
         </label>
     }
     <div class="relative flex">
-        <button id="@_id" class="@ButtonClass @WidthClass" @onclick="ToogleIsExpanded">
+        <button id="@_id" class="@ButtonClass @WidthClass" disabled="@(IsLoading || Context.IsDisabled)" @onclick="ToogleIsExpanded">
             <span>@ValueLabel</span>
             @if (IsLoading)
             {
@@ -37,6 +37,9 @@
     private readonly string _id = Random.Shared.Next().ToString();
 
     private bool _isExpanded { get; set; }
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
 
     [Parameter]
     public string? Label { get; set; }
@@ -67,11 +70,13 @@
 
     internal List<DPDropDownItem<T>> Items { get; set; } = [];
 
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
 
-    private bool ActualIsExpended => _isExpanded && !IsLoading && !IsDisabled;
+    private bool ActualIsExpended => _isExpanded && !IsLoading && !Context.IsDisabled;
 
-    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string LabelClass => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -79,7 +84,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+                return IsLoading || Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -95,7 +100,7 @@
                 return "dp-dropdown-loading";
             }
 
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
                 return "dp-dropdown-disabled";
             }
@@ -131,7 +136,7 @@
 
     internal async Task UpdateValueAsync(T? value)
     {
-        if (!IsLoading && !IsDisabled)
+        if (!IsLoading && !Context.IsDisabled)
         {
             _isExpanded = false;
             Value = value;
@@ -150,7 +155,7 @@
 
     private void ToogleIsExpanded()
     {
-        if (!IsLoading && !IsDisabled)
+        if (!IsLoading && !Context.IsDisabled)
         {
             _isExpanded = !_isExpanded;
         }

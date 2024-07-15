@@ -3,6 +3,9 @@
 <CascadingValue Value="this">@ChildContent</CascadingValue>
 
 @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     [Parameter]
     public T? Value { get; set; }
 
@@ -17,6 +20,8 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
     internal async Task UpdateValueAsync(T? value)
     {

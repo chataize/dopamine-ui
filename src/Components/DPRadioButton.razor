@@ -47,7 +47,7 @@
         {
             if (IsBorderless == false)
             {
-                return IsDisabled ? "dp-border-disabled" : "dp-border";
+                return ActualIsDisabled ? "dp-border-disabled" : "dp-border";
             }
 
             if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
@@ -55,7 +55,7 @@
                 return string.Empty;
             }
 
-            return IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
+            return ActualIsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
         }
     }
 

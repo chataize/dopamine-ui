@@ -1,5 +1,5 @@
 <label for="@_id" class="@LabelClass @BorderClass @WidthClass">
-    <input id="@_id" type="checkbox" disabled="@IsDisabled" hidden @bind="InternalValue" />
+    <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" />
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <span>@Label</span>
@@ -12,6 +12,9 @@
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
 
     [Parameter]
     public string? Label { get; set; }
@@ -34,12 +37,14 @@
     [Parameter]
     public object? Tag { get; set; }
 
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
     private bool InternalValue
     {
         get => Value;
         set
         {
-            if (!IsDisabled && Value != value)
+            if (!Context.IsDisabled && Value != value)
             {
                 Value = value;
 
@@ -51,7 +56,7 @@
         }
     }
 
-    private string LabelClass => IsDisabled ? "dp-switch-disabled group" : "dp-switch group";
+    private string LabelClass => Context.IsDisabled ? "dp-switch-disabled group" : "dp-switch group";
 
     private string BorderClass
     {
@@ -59,7 +64,7 @@
         {
             if (IsBorderless == false)
             {
-                return IsDisabled ? "dp-border-disabled" : "dp-border";
+                return Context.IsDisabled ? "dp-border-disabled" : "dp-border";
             }
 
             if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
@@ -67,7 +72,7 @@
                 return string.Empty;
             }
 
-            return IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
+            return Context.IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
         }
     }
 
@@ -75,7 +80,7 @@
     {
         get
         {
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
                 return "dp-switch-pill-disabled";
             }
@@ -88,7 +93,7 @@
     {
         get
         {
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
                 return "dp-switch-dot-disabled";
             }

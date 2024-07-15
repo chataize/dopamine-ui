@@ -6,7 +6,7 @@
             <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <button id="@_id" class="@DropdownButtonClass @WidthClass" @onclick="ToggleIsExpanded">
+    <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@(IsLoading || Context.IsDisabled)" @onclick="ToggleIsExpanded">
         <span>@FormattedValue</span>
         @if (IsLoading)
         {
@@ -26,7 +26,7 @@
     </button>
     <div class="@CalendarClass @WidthClass">
         <div class="flex items-center justify-between space-x-4 font-semibold">
-            <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth">
+            <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth" disabled="@(!ActualIsExpanded)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -37,7 +37,7 @@
             </button>
             <span class="w-6 cursor-default">@FormattedMonth</span>
             <span class="cursor-default">@FormattedYear</span>
-            <button class="@NextMonthButtonClass" @onclick="ShowNextMonth">
+            <button class="@NextMonthButtonClass" @onclick="ShowNextMonth" disabled="@(!ActualIsExpanded)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -62,7 +62,7 @@
             @for (int i = 1; i <= DaysInMonth; i++)
             {
                 int day = i;
-                <button class="@GetDayClass(day)" @onclick="() => SelectDayAsync(day)">@i</button>
+                <button class="@GetDayClass(day)" disabled="@(!ActualIsExpanded)" @onclick="() => SelectDayAsync(day)">@i</button>
             }
         </div>
     </div>
@@ -76,6 +76,9 @@
     private int _browsedMonth = DateTimeOffset.UtcNow.Month;
 
     private bool _isExpanded = false;
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
 
     [Parameter]
     public string? Label { get; set; }
@@ -106,6 +109,8 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
     private string FormattedValue => Value.ToString("d MMM yyyy");
 
@@ -152,9 +157,9 @@
         }
     }
 
-    private bool ActualIsExpanded => _isExpanded && !IsLoading && !IsDisabled;
+    private bool ActualIsExpanded => _isExpanded && !IsLoading && !Context.IsDisabled;
 
-    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string LabelClass => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -162,7 +167,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+                return IsLoading || Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -178,7 +183,7 @@
                 return "dp-dropdown-loading";
             }
 
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
                 return "dp-dropdown-disabled";
             }
@@ -253,7 +258,7 @@
 
     private void ToggleIsExpanded()
     {
-        if (!IsLoading && !IsDisabled)
+        if (!IsLoading && !Context.IsDisabled)
         {
             _isExpanded = !_isExpanded;
 
@@ -267,7 +272,7 @@
 
     private void ShowNextMonth()
     {
-        if (!IsNextMonthInRage)
+        if (!ActualIsExpanded || !IsNextMonthInRage)
         {
             return;
         }
@@ -290,7 +295,7 @@
 
     private void ShowPreviousMonth()
     {
-        if (!IsPreviousMonthInRange)
+        if (!ActualIsExpanded || !IsPreviousMonthInRange)
         {
             return;
         }
@@ -313,6 +318,11 @@
 
     private async Task SelectDayAsync(int day)
     {
+        if (!ActualIsExpanded)
+        {
+            return;
+        }
+
         var valueAtSelection = new DateTimeOffset(_browsedYear, _browsedMonth, day, Value.Hour, Value.Minute, Value.Second, TimeSpan.Zero);
         if (valueAtSelection < From || valueAtSelection > To)
         {

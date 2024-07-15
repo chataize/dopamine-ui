@@ -7,7 +7,7 @@
         </label>
     }
     <div class="relative">
-        <input id="@_id" class="@InputClass @WidthClass @CaseClass" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || IsDisabled)" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
+        <input id="@_id" class="@InputClass @WidthClass @CaseClass" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@(IsLoading || Context.IsDisabled)" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
         @if (IsLoading)
         {
             <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute p-1 rounded-lg right-2 top-2 backdrop-blur dark:hidden" />
@@ -18,6 +18,9 @@
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
 
     [Parameter]
     public TextFieldType Type { get; set; }
@@ -61,12 +64,14 @@
     [Parameter]
     public object? Tag { get; set; }
 
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
     private string InternalValue
     {
         get => Value ?? string.Empty;
         set
         {
-            if (IsReadOnly || IsLoading || IsDisabled)
+            if (IsReadOnly || IsLoading || Context.IsDisabled)
             {
                 return;
             }
@@ -103,7 +108,7 @@
         }
     }
 
-    private string LabelClass => IsLoading || IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string LabelClass => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -111,7 +116,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+                return IsLoading || Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -127,7 +132,7 @@
                 return "dp-textfield-loading";
             }
 
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
                 return "dp-textfield-disabled";
             }

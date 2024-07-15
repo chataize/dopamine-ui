@@ -3,12 +3,36 @@
 @tailwind utilities;
 
 @layer components {
+    .dp-text-color {
+        @apply text-black dark:text-white;
+    }
+
+    .dp-text-color-disabled {
+        @apply text-neutral-400 dark:text-neutral-500;
+    }
+
+    .dp-header-base {
+        @apply text-3xl font-bold transition-all duration-300 ease-in-out;
+    }
+
     .dp-header {
-        @apply text-3xl font-bold text-black dark:text-white;
+        @apply dp-header-base dp-text-color;
+    }
+
+    .dp-header-disabled {
+        @apply dp-header-base dp-text-color-disabled;
+    }
+
+    .dp-subheader-base {
+        @apply text-xl font-semibold transition-all duration-300 ease-in-out;
     }
 
     .dp-subheader {
-        @apply text-xl font-semibold text-black dark:text-white;
+        @apply dp-subheader-base dp-text-color;
+    }
+
+    .dp-subheader-disabled {
+        @apply dp-subheader-base dp-text-color-disabled;
     }
 
     .dp-border-base {

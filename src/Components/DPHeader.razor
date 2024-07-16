@@ -1,4 +1,6 @@
-<h1 class="@TextClass">@ChildContent</h1>
+<h1 class="@TextClass">
+    <CascadingValue Value="Context">@ChildContent</CascadingValue>
+</h1>
 
 @code {
     [CascadingParameter]

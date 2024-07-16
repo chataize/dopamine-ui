@@ -1,6 +1,9 @@
 @typeparam T
 
-<CascadingValue Value="this">@ChildContent</CascadingValue>
+<CascadingValue Value="Context">
+    <CascadingValue Value="this">
+        @ChildContent</CascadingValue>
+</CascadingValue>
 
 @code {
     [CascadingParameter]

@@ -1,13 +1,15 @@
 <button class="@ButtonClass @WidthClass" disabled="@(IsLoading || Context.IsDisabled)" @onclick="OnClickAsync">
     @if (IsLoading)
     {
-        <span class="opacity-0">@ChildContent</span>
+        <span class="opacity-0">
+            <CascadingValue Value="Context">@ChildContent</CascadingValue>
+        </span>
         <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="24" width="24" class="absolute opacity-100 dark:opacity-0" />
         <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="24" width="24" class="absolute opacity-0 dark:opacity-100" />
     }
     else
     {
-        @ChildContent
+        <CascadingValue Value="Context">@ChildContent</CascadingValue>
     }
 </button>
 

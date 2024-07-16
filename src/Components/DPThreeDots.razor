@@ -8,7 +8,11 @@
             </g>
         </svg>
     </button>
-    <DPMenu @bind-IsExpanded="_isExpanded" IsDisabled="IsDisabled">@ChildContent</DPMenu>
+    <CascadingValue Value="Context">
+        <DPMenu @bind-IsExpanded="_isExpanded" IsDisabled="@Context.IsDisabled">
+            @ChildContent
+        </DPMenu>
+    </CascadingValue>
 </div>
 
 @code {

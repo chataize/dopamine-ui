@@ -1,6 +1,8 @@
 @typeparam T
 
-<button class="@ItemClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">@ChildContent</button>
+<button class="@ItemClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">
+    <CascadingValue Value="Context">@ChildContent</CascadingValue>
+</button>
 
 @code {
     [CascadingParameter]

@@ -6,7 +6,7 @@
             <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@(IsLoading || Context.IsDisabled)" @onclick="ToggleIsExpanded">
+    <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToggleIsExpanded">
         <span>@FormattedValue</span>
         @if (IsLoading)
         {
@@ -110,7 +110,7 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
     private string FormattedValue => Value.ToString("d MMM yyyy");
 
@@ -157,9 +157,9 @@
         }
     }
 
-    private bool ActualIsExpanded => _isExpanded && !IsLoading && !Context.IsDisabled;
+    private bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
 
-    private string LabelClass => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -167,7 +167,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -258,7 +258,7 @@
 
     private void ToggleIsExpanded()
     {
-        if (!IsLoading && !Context.IsDisabled)
+        if (!Context.IsDisabled)
         {
             _isExpanded = !_isExpanded;
 

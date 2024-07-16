@@ -8,12 +8,12 @@
     }
     <div id="@_id" class="@BorderClass @WidthClass">
         <div class="relative flex items-center py-2 pl-3 w-fit">
-            <input class="dp-stepper-number @(IsLoading || Context.IsDisabled ? "select-none" : "") @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || Context.IsDisabled)" @bind="ActualValue" />
-            <input class="dp-stepper-number absolute @(IsLoading || Context.IsDisabled ? "select-none" : "") @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@(IsLoading || Context.IsDisabled)" @bind="ActualValue" />
+            <input class="dp-stepper-number @(Context.IsDisabled ? "select-none" : "") @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" />
+            <input class="dp-stepper-number absolute @(Context.IsDisabled ? "select-none" : "") @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" />
         </div>
         <div class="relative flex items-center">
             <div class="pl-2 pr-1 group dp-stepper-button-hitbox" @onclick="DecrementAsync">
-                <button class="@DecrementButtonClass" disabled="@(IsLoading || Context.IsDisabled)">
+                <button class="@DecrementButtonClass" disabled="@Context.IsDisabled">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -24,7 +24,7 @@
                 </button>
             </div>
             <div class="pl-1 pr-2 group dp-stepper-button-hitbox" @onclick="IncrementAsync">
-                <button class="@IncrementButtonClass" disabled="@(IsLoading || Context.IsDisabled)">
+                <button class="@IncrementButtonClass" disabled="@Context.IsDisabled">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -87,14 +87,14 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
     private string ActualValue
     {
         get => Value.ToString().Trim();
         set
         {
-            if (!IsLoading && !Context.IsDisabled && int.TryParse(value, out var result))
+            if (!Context.IsDisabled && int.TryParse(value, out var result))
             {
                 Value = Math.Clamp(result, MinValue, MaxValue);
 
@@ -110,11 +110,11 @@
 
     private int MaxValueLength => MaxValue.ToString().Length;
 
-    private bool CanIncrement => !IsLoading && !Context.IsDisabled && Value + Step <= MaxValue;
+    private bool CanIncrement => !Context.IsDisabled && Value + Step <= MaxValue;
 
-    private bool CanDecrement => !IsLoading && !Context.IsDisabled && Value - Step >= MinValue;
+    private bool CanDecrement => !Context.IsDisabled && Value - Step >= MinValue;
 
-    private string ActualLabelStyle => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string ActualLabelStyle => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -122,7 +122,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";

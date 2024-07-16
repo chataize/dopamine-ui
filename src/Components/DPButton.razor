@@ -1,4 +1,4 @@
-<button class="@ButtonClass @WidthClass" disabled="@(IsLoading || Context.IsDisabled)" @onclick="OnClickAsync">
+<button class="@ButtonClass @WidthClass" disabled="@(Context.IsDisabled)" @onclick="OnClickAsync">
     @if (IsLoading)
     {
         <span class="opacity-0">
@@ -38,7 +38,7 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
     private string ButtonClass
     {
@@ -87,7 +87,7 @@
 
     private async Task OnClickAsync()
     {
-        if (!IsLoading && !Context.IsDisabled && Clicked.HasDelegate)
+        if (!Context.IsDisabled && Clicked.HasDelegate)
         {
             await Clicked.InvokeAsync();
         }

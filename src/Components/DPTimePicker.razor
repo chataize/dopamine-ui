@@ -6,7 +6,7 @@
             <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <button id="@_id" class="@DropdownClass @WidthClass" @onclick="ToggleIsExpanded" disabled="@(IsLoading || Context.IsDisabled)">
+    <button id="@_id" class="@DropdownClass @WidthClass" @onclick="ToggleIsExpanded" disabled="@Context.IsDisabled">
         <span>@Value.ToString(IsShowingSeconds ? "HH:mm:ss" : "HH:mm")</span>
         @if (IsLoading)
         {
@@ -26,7 +26,7 @@
     </button>
     <div class="@ClockClass @WidthClass">
         <div class="@(IsShowingSeconds ? "dp-clock-grid-seconds" : "dp-clock-grid")">
-            <button class="dp-clock-arrow" @onclick="AddHourAsync" disabled="@(IsLoading || Context.IsDisabled)">
+            <button class="dp-clock-arrow" @onclick="AddHourAsync" disabled="@Context.IsDisabled">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -153,7 +153,7 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
     private string Hour
     {
@@ -191,9 +191,9 @@
         }
     }
 
-    private bool ActualIsExpanded => _isExpanded && !IsLoading && !Context.IsDisabled;
+    private bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
 
-    private string LabelClass => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -201,7 +201,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -397,7 +397,7 @@
 
     private void ToggleIsExpanded()
     {
-        if (!IsLoading && !Context.IsDisabled)
+        if (!Context.IsDisabled)
         {
             _isExpanded = !_isExpanded;
         }

@@ -1,7 +1,7 @@
 <div class="group @SpoilerClass @ActiveScaleTransitionClass">
     <label for="@_id" class="@LabelClass" @onmouseenter="SetLabelHovered" @onmouseleave="SetLabelNotHovered">
         <span>@Label</span>
-        <button id="@_id" disabled="@(IsLoading || Context.IsDisabled)" @onclick="ToggleIsExpanded">
+        <button id="@_id" disabled="@Context.IsDisabled" @onclick="ToggleIsExpanded">
             @if (IsLoading)
             {
                 <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
@@ -52,9 +52,9 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
-    private bool ActualIsExpanded => _isExpanded && !IsLoading && !Context.IsDisabled;
+    private bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
 
     private string SpoilerClass
     {
@@ -126,7 +126,7 @@
         }
     }
 
-    private string ActiveScaleTransitionClass => _isLabelHovered && !IsLoading && !Context.IsDisabled ? "active:scale-95 sm:active:scale-[0.99]" : string.Empty;
+    private string ActiveScaleTransitionClass => _isLabelHovered && !Context.IsDisabled ? "active:scale-95 sm:active:scale-[0.99]" : string.Empty;
 
     private void SetLabelHovered()
     {
@@ -140,7 +140,7 @@
 
     private void ToggleIsExpanded()
     {
-        if (!IsLoading && !Context.IsDisabled)
+        if (!Context.IsDisabled)
         {
             _isExpanded = !_isExpanded;
         }

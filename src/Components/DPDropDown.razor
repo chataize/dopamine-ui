@@ -9,7 +9,7 @@
         </label>
     }
     <div class="relative flex">
-        <button id="@_id" class="@ButtonClass @WidthClass" disabled="@(IsLoading || Context.IsDisabled)" @onclick="ToogleIsExpanded">
+        <button id="@_id" class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToogleIsExpanded">
             <span>@ValueLabel</span>
             @if (IsLoading)
             {
@@ -72,13 +72,13 @@
 
     internal List<DPDropDownItem<T>> Items { get; set; } = [];
 
-    internal bool ActualIsExpended => _isExpanded && !IsLoading && !Context.IsDisabled;
+    internal bool ActualIsExpended => _isExpanded && !Context.IsDisabled;
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
 
-    private string LabelClass => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string EditIndicatorClass
     {
@@ -86,7 +86,7 @@
         {
             if (IsEdited)
             {
-                return IsLoading || Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
             }
 
             return "dp-edit-indicator-inactive";
@@ -138,7 +138,7 @@
 
     internal async Task UpdateValueAsync(T? value)
     {
-        if (!IsLoading && !Context.IsDisabled)
+        if (!Context.IsDisabled)
         {
             _isExpanded = false;
             Value = value;
@@ -157,7 +157,7 @@
 
     private void ToogleIsExpanded()
     {
-        if (!IsLoading && !Context.IsDisabled)
+        if (!Context.IsDisabled)
         {
             _isExpanded = !_isExpanded;
         }

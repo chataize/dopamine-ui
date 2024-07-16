@@ -3837,6 +3837,39 @@ video {
   }
 }
 
+.dp-calendar-day-disabled {
+  border-radius: 0.375rem;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .dp-calendar-day-disabled {
+    border-radius: 0.125rem;
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+  }
+}
+
+.dp-calendar-day-disabled {
+  cursor: not-allowed;
+  --tw-text-opacity: 1;
+  color: rgb(163 163 163 / var(--tw-text-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dp-calendar-day-disabled {
+    --tw-text-opacity: 1;
+    color: rgb(115 115 115 / var(--tw-text-opacity));
+  }
+}
+
 .dp-calendar-day-selected {
   border-radius: 0.375rem;
   padding-left: 0.125rem;

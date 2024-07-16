@@ -568,6 +568,13 @@
         </DPTab>
     </DPTabView>
 
+    <DPHeader>Color Picker</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
+    <DPColorPicker @bind-Value="ColorValue" />
+    <DPSubheader>Standard</DPSubheader>
+    <DPColorPicker Label="Normal" @bind-Value="ColorValue" />
+    <DPColorPicker Label="Disabled" IsDisabled="true" @bind-Value="ColorValue" />
+
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>
@@ -595,6 +602,8 @@
     private bool BoolValue { get; set; } = true;
 
     private int IntValue { get; set; } = 0;
+
+    private DPColor ColorValue { get; set; } = DPColor.Red;
 
     private SampleEnum EnumValue { get; set; } = SampleEnum.Value1;
 

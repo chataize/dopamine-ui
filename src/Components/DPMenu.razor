@@ -1,6 +1,6 @@
 <div class="relative">
     <div class="@ListClass @WidthClass">
-        <CascadingValue Value="Context">@ChildContent</CascadingValue>
+        <CascadingValue Value="ChildContext">@ChildContent</CascadingValue>
     </div>
 </div>
 
@@ -27,6 +27,8 @@
     public object? Tag { get; set; }
 
     private UIContext Context => ParentContext with { Menu = this, IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsExpanded };
 
     private bool ActualIsExpended => IsExpanded && !Context.IsDisabled;
 

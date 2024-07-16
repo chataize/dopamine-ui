@@ -28,7 +28,7 @@
             }
         </button>
         <div class="@ListClass @WidthClass">
-            <CascadingValue Value="Context">
+            <CascadingValue Value="ChildContext">
                 <CascadingValue Value="this">@ChildContent</CascadingValue>
             </CascadingValue>
         </div>
@@ -75,6 +75,8 @@
     internal bool ActualIsExpended => _isExpanded && !Context.IsDisabled;
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
+
+    private UIContext ChildContext => Context with { IsDisabled = ParentContext.IsDisabled || !_isExpanded };
 
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
 

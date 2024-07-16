@@ -311,24 +311,24 @@
         @apply scale-0 opacity-0 dp-menu-base blur-xl;
     }
 
-    .dp-dropdown-item-base {
+    .dp-menu-item-base {
         @apply flex w-full px-3 py-2 font-semibold rounded-md select-none dp-transitions sm:py-1;
     }
 
-    .dp-dropdown-item {
-        @apply hover:shadow-sm dp-dropdown-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
+    .dp-menu-item {
+        @apply hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
     }
 
-    .dp-dropdown-item-selected {
-        @apply text-white bg-blue-600 dp-dropdown-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
+    .dp-menu-item-selected {
+        @apply text-white bg-blue-600 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
     }
 
-    .dp-dropdown-item-selected-disabled {
-        @apply text-black cursor-not-allowed dark:text-white bg-neutral-400 dark:bg-neutral-500 dp-dropdown-item-base;
+    .dp-menu-item-selected-disabled {
+        @apply text-black cursor-not-allowed dark:text-white bg-neutral-400 dark:bg-neutral-500 dp-menu-item-base;
     }
 
-    .dp-dropdown-item-disabled {
-        @apply cursor-not-allowed dp-dropdown-item-base text-neutral-400 dark:text-neutral-500;
+    .dp-menu-item-disabled {
+        @apply cursor-not-allowed dp-menu-item-base text-neutral-400 dark:text-neutral-500;
     }
 
     .dp-calendar-base {

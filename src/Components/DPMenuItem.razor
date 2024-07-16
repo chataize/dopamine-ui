@@ -18,7 +18,7 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.Menu?.IsExpanded == false || ParentContext.IsDisabled || IsDisabled };
 
-    private string ItemClass => Context.IsDisabled ? "dp-dropdown-item-disabled" : "dp-dropdown-item";
+    private string ItemClass => Context.IsDisabled ? "dp-menu-item-disabled" : "dp-menu-item";
 
     private async Task OnClickAsync()
     {

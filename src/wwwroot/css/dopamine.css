@@ -576,7 +576,7 @@
     }
 
     .dp-card-loading-indicator-background-base {
-        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full dp-transitions;
+        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full rounded-lg dp-transitions;
     }
 
     .dp-card-loading-indicator-background {

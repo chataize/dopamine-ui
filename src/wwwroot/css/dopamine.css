@@ -654,4 +654,32 @@
     .dp-inline-picker-item-disabled {
         @apply border-transparent cursor-not-allowed dp-inline-picker-item-base text-neutral-400 dark:text-neutral-500 fill-neutral-400 dark:fill-neutral-500;
     }
+
+    .dp-color-picker-row {
+        @apply flex space-x-4 -sm:hidden;
+    }
+
+    .dp-color-picker-row-compact {
+        @apply flex justify-between space-x-4 sm:hidden;
+    }
+
+    .dp-color-picker-color-base {
+        @apply w-10 h-10 border-4 rounded-full shadow-sm dp-transitions sm:w-8 sm:h-8;
+    }
+
+    .dp-color-picker-color {
+        @apply dp-color-picker-color-base border-neutral-100 hover:border-neutral-200 active:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600 dark:active:border-neutral-500 hover:scale-125 active:scale-75;
+    }
+
+    .dp-color-picker-color-selected {
+        @apply dp-color-picker-color-base border-neutral-100 outline dark:border-neutral-700;
+    }
+
+    .dp-color-picker-color-selected-disabled {
+        @apply dp-color-picker-color-base border-neutral-50 outline dark:border-neutral-800;
+    }
+
+    .dp-color-picker-color-disabled {
+        @apply cursor-not-allowed dp-color-picker-color-base border-neutral-50 dark:border-neutral-800;
+    }
 }

@@ -1,0 +1,124 @@
+<div>
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
+        <label class="dp-label-base">
+            <span class="@LabelClass">@Label</span>
+            <span class="@EditIndicatorClass">●</span>
+        </label>
+    }
+</div>
+<div class="dp-color-picker-row">
+    <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
+    <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
+    <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
+    <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
+    <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
+    <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
+    <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
+    <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
+    <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
+    <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
+</div>
+<div class="dp-color-picker-row-compact">
+    <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
+    <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
+    <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
+    <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
+    <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
+</div>
+<div class="dp-color-picker-row-compact">
+    <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
+    <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
+    <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
+    <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
+    <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
+</div>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public DPColor? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<DPColor> ValueChanged { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+
+    private string EditIndicatorClass
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+            }
+
+            return "dp-edit-indicator-inactive";
+        }
+    }
+
+    private static string GetColorName(DPColor color)
+    {
+        return color switch
+        {
+            DPColor.Red => "red",
+            DPColor.Orange => "orange",
+            DPColor.Yellow => "yellow",
+            DPColor.Green => "green",
+            DPColor.Lime => "lime",
+            DPColor.Cyan => "cyan",
+            DPColor.Blue => "blue",
+            DPColor.Violet => "violet",
+            DPColor.Purple => "purple",
+            DPColor.Pink => "pink",
+            _ => throw new ArgumentOutOfRangeException(nameof(color), color, "Invalid color.")
+        };
+    }
+
+    private string GetColorClass(DPColor color)
+    {
+        var colorName = GetColorName(color);
+
+        if (Value == color)
+        {
+            if (Context.IsDisabled)
+            {
+                return $"dp-color-picker-color-selected-disabled bg-{colorName}-200 outline-{colorName}-200 dark:bg-{colorName}-900 dark:outline-{colorName}-900";
+            }
+
+            return $"dp-color-picker-color-selected bg-{colorName}-500 outline-{colorName}-500";
+        }
+
+        if (Context.IsDisabled)
+        {
+            return $"dp-color-picker-color-disabled bg-{colorName}-200 dark:bg-{colorName}-900";
+        }
+
+        return $"dp-color-picker-color bg-{colorName}-500";
+    }
+
+    private async Task SelectColorAsync(DPColor color)
+    {
+        if (!Context.IsDisabled && Value != color)
+        {
+            Value = color;
+            await ValueChanged.InvokeAsync(color);
+        }
+    }
+}

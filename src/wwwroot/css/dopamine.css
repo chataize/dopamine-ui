@@ -636,7 +636,7 @@
     }
 
     .dp-inline-picker-item-selected {
-        @apply bg-white shadow-sm border-neutral-200 dp-inline-picker-item-base dark:bg-neutral-600 dark:border-neutral-500 fill-black dark:fill-white;
+        @apply text-white bg-blue-600 border-blue-700 shadow-sm dark:border-blue-500 dp-inline-picker-item-base fill-white;
     }
 
     .dp-inline-picker-item-selected-disabled {

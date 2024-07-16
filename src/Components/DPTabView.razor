@@ -1,0 +1,71 @@
+<CascadingValue Value="Context">
+    <div class="space-y-4">
+        <DPInlinePicker IsFullWidth="@IsFullWidth" @bind-Value="_selectedTab">
+            @foreach (var tab in Tabs)
+            {
+                <DPPickerItem Value="@tab">
+                    @tab.Label
+                </DPPickerItem>
+            }
+        </DPInlinePicker>
+        <div>
+            @if (_selectedTab != null)
+            {
+                @(_selectedTab.ChildContent)
+            }
+        </div>
+        @ChildContent
+    </div>
+</CascadingValue>
+
+@code {
+    private DPTab? _selectedTab = null;
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    internal List<DPTab> Tabs { get; set; } = new();
+
+    private UIContext Context => ParentContext with { TabView = this, IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit min-w-fit";
+        }
+    }
+
+    internal void AddTab(DPTab tab)
+    {
+        Tabs.Add(tab);
+
+        if (_selectedTab == null)
+        {
+            _selectedTab = tab;
+            StateHasChanged();
+        }
+    }
+}

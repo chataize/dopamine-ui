@@ -614,4 +614,36 @@
     .dp-three-dots-disabled {
         @apply cursor-not-allowed dp-three-dots-base fill-neutral-400 dark:fill-neutral-500;
     }
+
+    .dp-inline-picker-base {
+        @apply flex p-1 border rounded-lg shadow-sm select-none dp-transitions;
+    }
+
+    .dp-inline-picker {
+        @apply dp-inline-picker-base bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+    }
+
+    .dp-inline-picker-disabled {
+        @apply dp-inline-picker-base bg-neutral-50 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
+    }
+
+    .dp-inline-picker-item-base {
+        @apply px-2 py-1 font-semibold border rounded-lg select-none dp-transitions;
+    }
+
+    .dp-inline-picker-item {
+        @apply text-black border-transparent dp-inline-picker-item-base dark:text-white fill-black dark:fill-white hover:bg-neutral-200 hover:shadow-sm active:shadow-sm hover:scale-105 active:scale-95 hover:border-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:hover:border-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
+    }
+
+    .dp-inline-picker-item-selected {
+        @apply bg-white shadow-sm border-neutral-200 dp-inline-picker-item-base dark:bg-neutral-600 dark:border-neutral-500 fill-black dark:fill-white;
+    }
+
+    .dp-inline-picker-item-selected-disabled {
+        @apply bg-white shadow-sm cursor-not-allowed dp-inline-picker-item-base border-neutral-100 text-neutral-400 dark:text-neutral-500 dark:bg-neutral-700 dark:border-neutral-700 fill-neutral-400 dark:fill-neutral-500;
+    }
+
+    .dp-inline-picker-item-disabled {
+        @apply border-transparent cursor-not-allowed dp-inline-picker-item-base text-neutral-400 dark:text-neutral-500 fill-neutral-400 dark:fill-neutral-500;
+    }
 }

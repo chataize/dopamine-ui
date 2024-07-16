@@ -1,0 +1,99 @@
+@typeparam T
+
+<div>
+    @if (!String.IsNullOrWhiteSpace(Label))
+    {
+        <label class="dp-label-base">
+            <span class="@LabelClass">@Label</span>
+            <span class="@EditIndicatorClass">●</span>
+        </label>
+    }
+    <div class="@PickerClass @WidthClass">
+        <CascadingValue Value="Context">
+            <CascadingValue Value="this">
+                @ChildContent
+            </CascadingValue>
+        </CascadingValue>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public T? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<T?> ValueChanged { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+
+    private string EditIndicatorClass
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+            }
+
+            return "dp-edit-indicator-inactive";
+        }
+    }
+
+    private string PickerClass => Context.IsDisabled ? "dp-inline-picker-disabled" : "dp-inline-picker";
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit justify-stretch space-x-1 sm:space-x-3";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit space-x-1";
+            }
+
+            return "w-full sm:w-fit min-w-fit space-x-1";
+        }
+    }
+
+    internal async Task SelectAsync(T? value)
+    {
+        if (!EqualityComparer<T>.Default.Equals(Value, value))
+        {
+            Value = value;
+
+            if (ValueChanged.HasDelegate)
+            {
+                await ValueChanged.InvokeAsync(value);
+            }
+
+            StateHasChanged();
+        }
+    }
+}

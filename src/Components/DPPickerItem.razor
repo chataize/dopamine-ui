@@ -1,0 +1,76 @@
+@typeparam T
+
+<button class="@ItemClass @WidthClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">
+    <CascadingValue Value="Context">@ChildContent</CascadingValue>
+</button>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [CascadingParameter]
+    public DPInlinePicker<T>? Picker { get; set; }
+
+    [Parameter]
+    public T? Value { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private string ItemClass
+    {
+        get
+        {
+            if (Picker != null && EqualityComparer<T>.Default.Equals(Picker.Value, Value))
+            {
+                if (Context.IsDisabled)
+                {
+                    return "dp-inline-picker-item-selected-disabled";
+                }
+
+                return "dp-inline-picker-item-selected";
+            }
+
+            if (Context.IsDisabled)
+            {
+                return "dp-inline-picker-item-disabled";
+            }
+
+            return "dp-inline-picker-item";
+        }
+    }
+
+    private string WidthClass
+    {
+        get
+        {
+            if (Picker?.IsFullWidth == true)
+            {
+                return "w-full min-w-fit justify-stretch";
+            }
+
+            if (Picker?.IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit min-w-fit";
+        }
+    }
+
+    private async Task OnClickAsync()
+    {
+        if (Picker != null && !Context.IsDisabled)
+        {
+            await Picker.SelectAsync(Value);
+        }
+    }
+}

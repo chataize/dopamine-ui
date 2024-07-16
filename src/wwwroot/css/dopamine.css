@@ -598,4 +598,16 @@
     .dp-card-content {
         @apply space-y-4 dp-transitions;
     }
+
+    .dp-three-dots-base {
+        @apply p-1 text-xl rounded-full dp-transitions;
+    }
+
+    .dp-three-dots {
+        @apply dp-three-dots-base hover:scale-125 active:scale-75 fill-black dark:fill-white hover:fill-blue-500 active:fill-blue-600 dark:active:fill-blue-400 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+    }
+
+    .dp-three-dots-disabled {
+        @apply cursor-not-allowed dp-three-dots-base fill-neutral-400 dark:fill-neutral-500;
+    }
 }

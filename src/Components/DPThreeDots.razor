@@ -1,0 +1,42 @@
+<div>
+    <button class="@ButtonClass" @onclick="ToggleIsExpanded">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+            <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <g transform="scale(8.53333,8.53333)">
+                    <path d="M15,4c-1.65685,0 -3,1.34315 -3,3c0,1.65685 1.34315,3 3,3c1.65685,0 3,-1.34315 3,-3c0,-1.65685 -1.34315,-3 -3,-3zM15,12c-1.65685,0 -3,1.34315 -3,3c0,1.65685 1.34315,3 3,3c1.65685,0 3,-1.34315 3,-3c0,-1.65685 -1.34315,-3 -3,-3zM15,20c-1.65685,0 -3,1.34315 -3,3c0,1.65685 1.34315,3 3,3c1.65685,0 3,-1.34315 3,-3c0,-1.65685 -1.34315,-3 -3,-3z"></path>
+                </g>
+            </g>
+        </svg>
+    </button>
+    <DPMenu @bind-IsExpanded="_isExpanded" IsDisabled="IsDisabled">@ChildContent</DPMenu>
+</div>
+
+@code {
+    private bool _isExpanded;
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
+
+    private string ButtonClass => Context.IsDisabled ? "dp-three-dots-disabled" : "dp-three-dots";
+
+    private void ToggleIsExpanded()
+    {
+        if (!Context.IsDisabled)
+        {
+            _isExpanded = !_isExpanded;
+        }
+    }
+}

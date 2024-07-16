@@ -467,10 +467,11 @@
 
     </DPCard>
     <DPSubheader>Disabled</DPSubheader>
-    <DPCard Label="Card 4" IsBottomPaddingExtended="true" IsDisabled="true">
+    <DPCard Label="Card 4" IsBottomPaddingExtended="true" IsDisabled="@BoolValue">
         <DPHeader>Card 4</DPHeader>
         <DPParagraph>@PlaceholderText</DPParagraph>
         <DPButton>Button</DPButton>
+        <p>abc</p>
 
     </DPCard>
     <DPToggleSwitch Label="Loading" @bind-value="BoolValue" />

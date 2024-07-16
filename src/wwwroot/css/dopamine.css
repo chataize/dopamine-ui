@@ -316,19 +316,19 @@
     }
 
     .dp-menu-item {
-        @apply hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
+        @apply text-black hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-black dark:text-white dark:fill-white;
     }
 
     .dp-menu-item-selected {
-        @apply text-white bg-blue-600 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
+        @apply text-white bg-blue-600 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-white;
     }
 
     .dp-menu-item-selected-disabled {
-        @apply text-black cursor-not-allowed dark:text-white bg-neutral-400 dark:bg-neutral-500 dp-menu-item-base;
+        @apply text-black cursor-not-allowed dark:text-white bg-neutral-400 dark:bg-neutral-500 dp-menu-item-base fill-black dark:fill-white;
     }
 
     .dp-menu-item-disabled {
-        @apply cursor-not-allowed dp-menu-item-base text-neutral-400 dark:text-neutral-500;
+        @apply cursor-not-allowed dp-menu-item-base text-neutral-400 dark:text-neutral-500 fill-neutral-400 dark:fill-neutral-500;
     }
 
     .dp-calendar-base {
@@ -599,8 +599,16 @@
         @apply text-neutral-400 dark:text-neutral-500 dp-card-label-base;
     }
 
-    .dp-card-content {
+    .dp-card-content-base {
         @apply space-y-4 dp-transitions;
+    }
+
+    .dp-card-content {
+        @apply text-black dp-card-content-base fill-black dark:fill-white dark:text-white;
+    }
+
+    .dp-card-content-disabled {
+        @apply text-neutral-400 dark:text-neutral-500 dp-card-content-base fill-neutral-400 dark:fill-neutral-500;
     }
 
     .dp-three-dots-base {

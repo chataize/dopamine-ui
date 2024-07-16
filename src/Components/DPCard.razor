@@ -1,5 +1,5 @@
 <div class="@CardClass @WidthClass @PaddingClass">
-    <div class="dp-card-content">
+    <div class="@ContentClass">
         @if (!string.IsNullOrWhiteSpace(Label))
         {
             <label class="@LabelClass">@Label</label>
@@ -66,6 +66,8 @@
     private string LoadingIndicatorClass => IsLoading ? "dp-card-loading-indicator" : "dp-card-loading-indicator-hidden";
 
     private string LabelClass => Context.IsDisabled ? "dp-card-label-disabled" : "dp-card-label";
+
+    private string ContentClass => Context.IsDisabled ? "dp-card-content-disabled" : "dp-card-content";
 
     private string WidthClass
     {

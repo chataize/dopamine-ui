@@ -323,6 +323,10 @@
         @apply text-white bg-blue-600 dp-dropdown-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
     }
 
+    .dp-dropdown-item-selected-disabled {
+        @apply text-black cursor-not-allowed dark:text-white bg-neutral-400 dark:bg-neutral-500 dp-dropdown-item-base;
+    }
+
     .dp-dropdown-item-disabled {
         @apply cursor-not-allowed dp-dropdown-item-base text-neutral-400 dark:text-neutral-500;
     }

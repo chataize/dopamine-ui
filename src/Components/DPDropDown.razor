@@ -28,7 +28,9 @@
             }
         </button>
         <div class="@ListClass @WidthClass">
-            <CascadingValue Value="@this">@ChildContent</CascadingValue>
+            <CascadingValue Value="@Context">
+                <CascadingValue Value="@this">@ChildContent</CascadingValue>
+            </CascadingValue>
         </div>
     </div>
 </div>
@@ -70,11 +72,11 @@
 
     internal List<DPDropDownItem<T>> Items { get; set; } = [];
 
+    internal bool ActualIsExpended => _isExpanded && !IsLoading && !Context.IsDisabled;
+
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
-
-    private bool ActualIsExpended => _isExpanded && !IsLoading && !Context.IsDisabled;
 
     private string LabelClass => IsLoading || Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 

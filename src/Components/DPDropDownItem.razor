@@ -1,8 +1,11 @@
 @typeparam T
 
-<button class="@ItemClass" @onclick="OnClickAsync">@ChildContent</button>
+<button class="@ItemClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">@ChildContent</button>
 
 @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     [CascadingParameter]
     public DPDropDown<T>? DropDown { get; set; }
 
@@ -13,9 +16,35 @@
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
     public object? Tag { get; set; }
 
-    private string ItemClass => Value != null && DropDown != null && Value.Equals(DropDown.Value) ? "dp-dropdown-item-selected" : "dp-dropdown-item";
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || DropDown?.ActualIsExpended == false || IsDisabled };
+
+    private string ItemClass
+    {
+        get
+        {
+            if (Value != null && DropDown != null && Value.Equals(DropDown.Value))
+            {
+                if (Context.IsDisabled)
+                {
+                    return "dp-dropdown-item-selected-disabled";
+                }
+
+                return "dp-dropdown-item-selected";
+            }
+
+            if (Context.IsDisabled)
+            {
+                return "dp-dropdown-item-disabled";
+            }
+
+            return "dp-dropdown-item";
+        }
+    }
 
     protected override void OnInitialized()
     {
@@ -32,7 +61,7 @@
 
     private async Task OnClickAsync()
     {
-        if (DropDown != null && !DropDown.IsLoading && !DropDown.IsDisabled)
+        if (DropDown != null && !Context.IsDisabled)
         {
             await DropDown.UpdateValueAsync(Value);
         }

@@ -474,6 +474,15 @@
 
     <DPToggleSwitch Label="Loading" @bind-value="BoolValue" />
 
+    <DPHeader>Menu</DPHeader>
+    <DPSubheader>Standard</DPSubheader>
+    <DPToggleButton @bind-Value="BoolValue">Menu</DPToggleButton>
+    <DPMenu @bind-IsExpanded="@BoolValue">
+        <DPMenuItem>Item 1</DPMenuItem>
+        <DPMenuItem IsDisabled="true">Item 2</DPMenuItem>
+        <DPMenuItem>Item 3</DPMenuItem>
+    </DPMenu>
+
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>

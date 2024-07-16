@@ -1,0 +1,38 @@
+<button class="@ItemClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">@ChildContent</button>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback Clicked { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.Menu?.IsExpanded == false || ParentContext.IsDisabled || IsDisabled };
+
+    private string ItemClass => Context.IsDisabled ? "dp-dropdown-item-disabled" : "dp-dropdown-item";
+
+    private async Task OnClickAsync()
+    {
+        if (!Context.IsDisabled)
+        {
+            if (Context.Menu != null)
+            {
+                await Context.Menu.CollapseAsync();
+            }
+
+            if (Clicked.HasDelegate)
+            {
+                await Clicked.InvokeAsync();
+            }
+        }
+    }
+}

@@ -6,5 +6,7 @@ public enum SampleEnum
 
     Value2,
 
-    Value3
+    Value3,
+
+    Value4
 }

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    .dp-transitions {
+        @apply transition-all duration-300 ease-in-out;
+    }
+
     .dp-text-color {
         @apply text-black dark:text-white;
     }
@@ -12,7 +16,7 @@
     }
 
     .dp-header-base {
-        @apply text-3xl font-bold transition-all duration-300 ease-in-out;
+        @apply text-3xl font-bold dp-transitions;
     }
 
     .dp-header {
@@ -24,7 +28,7 @@
     }
 
     .dp-subheader-base {
-        @apply text-xl font-semibold transition-all duration-300 ease-in-out;
+        @apply text-xl font-semibold dp-transitions;
     }
 
     .dp-subheader {
@@ -36,7 +40,7 @@
     }
 
     .dp-paragraph-base {
-        @apply transition-all duration-300 ease-in-out;
+        @apply dp-transitions;
     }
 
     .dp-paragraph {
@@ -60,7 +64,7 @@
     }
 
     .dp-button-base {
-        @apply flex justify-center px-3 py-2 font-semibold text-center transition-all duration-300 ease-in-out rounded-lg select-none;
+        @apply flex justify-center px-3 py-2 font-semibold text-center rounded-lg select-none dp-transitions;
     }
 
     .dp-button {
@@ -104,7 +108,7 @@
     }
 
     .dp-label-base {
-        @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold transition-all duration-300 ease-in-out select-none;
+        @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold select-none dp-transitions;
     }
 
     .dp-label {
@@ -116,7 +120,7 @@
     }
 
     .dp-edit-indicator-base {
-        @apply text-xs transition-all duration-300 ease-in-out select-none;
+        @apply text-xs select-none dp-transitions;
     }
 
     .dp-edit-indicator {
@@ -132,7 +136,7 @@
     }
 
     .dp-textfield-base {
-        @apply flex px-3 py-2 transition-all duration-300 ease-in-out border rounded-lg shadow-sm;
+        @apply flex px-3 py-2 border rounded-lg shadow-sm dp-transitions;
     }
 
     .dp-textfield {
@@ -148,7 +152,7 @@
     }
 
     .dp-switch-base {
-        @apply flex items-center justify-between space-x-4 font-semibold transition-all duration-300 ease-in-out select-none sm:space-x-12 dark:text-white;
+        @apply flex items-center justify-between space-x-4 font-semibold select-none dp-transitions sm:space-x-12 dark:text-white;
     }
 
     .dp-switch {
@@ -160,7 +164,7 @@
     }
 
     .dp-switch-pill-base {
-        @apply flex items-center h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm sm:h-6 w-14 sm:w-11;
+        @apply flex items-center h-8 border rounded-full shadow-sm dp-transitions sm:h-6 w-14 sm:w-11;
     }
 
     .dp-switch-pill-on {
@@ -176,7 +180,7 @@
     }
 
     .dp-switch-dot-base {
-        @apply w-6 h-6 transition-all duration-300 ease-in-out border rounded-full shadow-sm sm:w-4 sm:h-4;
+        @apply w-6 h-6 border rounded-full shadow-sm dp-transitions sm:w-4 sm:h-4;
     }
 
     .dp-switch-dot-on {
@@ -192,7 +196,7 @@
     }
 
     .dp-checkbox-base {
-        @apply flex items-center justify-start space-x-4 font-semibold transition-all duration-300 ease-in-out select-none dark:text-white;
+        @apply flex items-center justify-start space-x-4 font-semibold select-none dp-transitions dark:text-white;
     }
 
     .dp-checkbox {
@@ -204,7 +208,7 @@
     }
 
     .dp-checkbox-square-base {
-        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-lg shadow-sm stroke-2 sm:rounded-md sm:w-6 sm:h-6;
+        @apply flex items-center justify-center w-8 h-8 border rounded-lg shadow-sm stroke-2 dp-transitions sm:rounded-md sm:w-6 sm:h-6;
     }
 
     .dp-checkbox-square-on {
@@ -224,7 +228,7 @@
     }
 
     .dp-radio-base {
-        @apply flex items-center justify-start space-x-4 font-semibold transition-all duration-300 ease-in-out select-none dark:text-white;
+        @apply flex items-center justify-start space-x-4 font-semibold select-none dp-transitions dark:text-white;
     }
 
     .dp-radio {
@@ -236,7 +240,7 @@
     }
 
     .dp-radio-circle-base {
-        @apply flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out border rounded-full shadow-sm stroke-2 sm:w-6 sm:h-6;
+        @apply flex items-center justify-center w-8 h-8 border rounded-full shadow-sm stroke-2 dp-transitions sm:w-6 sm:h-6;
     }
 
     .dp-radio-circle-on {
@@ -256,7 +260,7 @@
     }
 
     .dp-radio-dot-base {
-        @apply transition-all duration-300 ease-in-out border rounded-full;
+        @apply border rounded-full dp-transitions;
     }
 
     .dp-radio-dot-on {
@@ -276,7 +280,7 @@
     }
 
     .dp-dropdown-base {
-        @apply flex items-center justify-between px-3 py-2 space-x-3 font-semibold text-center transition-all duration-300 ease-in-out border rounded-lg shadow-sm select-none dp-button-base;
+        @apply flex items-center justify-between px-3 py-2 space-x-3 font-semibold text-center border rounded-lg shadow-sm select-none dp-transitions dp-button-base;
     }
 
     .dp-dropdown {
@@ -296,7 +300,7 @@
     }
 
     .dp-menu-base {
-        @apply absolute z-50 p-1 space-y-1 transition-all duration-300 ease-in-out border rounded-lg shadow select-none backdrop-blur-xl dark:border-neutral-700 border-neutral-200;
+        @apply absolute z-50 p-1 space-y-1 border rounded-lg shadow select-none dp-transitions backdrop-blur-xl dark:border-neutral-700 border-neutral-200;
     }
 
     .dp-menu {
@@ -308,7 +312,7 @@
     }
 
     .dp-dropdown-item-base {
-        @apply flex w-full px-3 py-2 font-semibold transition-all duration-300 ease-in-out rounded-md select-none sm:py-1 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
+        @apply flex w-full px-3 py-2 font-semibold rounded-md select-none dp-transitions sm:py-1 hover:backdrop-blur-2xl hover:scale-105 active:scale-95;
     }
 
     .dp-dropdown-item {
@@ -320,7 +324,7 @@
     }
 
     .dp-calendar-base {
-        @apply absolute z-50 p-3 space-y-3 transition-all duration-300 ease-in-out border rounded-lg backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+        @apply absolute z-50 p-3 space-y-3 border rounded-lg dp-transitions backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
     }
 
     .dp-calendar {
@@ -336,7 +340,7 @@
     }
 
     .dp-calendar-arrow-base {
-        @apply transition-all duration-300 ease-in-out;
+        @apply dp-transitions;
     }
 
     .dp-calendar-arrow {
@@ -380,7 +384,7 @@
     }
 
     .dp-clock-base {
-        @apply absolute z-50 flex justify-center px-4 py-2.5 space-y-3 transition-all duration-300 ease-in-out border rounded-lg backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+        @apply absolute z-50 flex justify-center px-4 py-2.5 space-y-3 dp-transitions border rounded-lg backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
     }
 
     .dp-clock {
@@ -392,7 +396,7 @@
     }
 
     .dp-clock-arrow {
-        @apply flex justify-center transition-all duration-300 ease-in-out dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
+        @apply flex justify-center dp-transitions dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
     }
 
     .dp-clock-grid-base {
@@ -436,7 +440,7 @@
     }
 
     .dp-stepper-button-base {
-        @apply p-1 transition-all duration-300 ease-in-out rounded-full h-fit;
+        @apply p-1 rounded-full dp-transitions h-fit;
     }
 
     .dp-stepper-button {
@@ -452,7 +456,7 @@
     }
 
     .dp-spoiler-base {
-        @apply flex flex-col w-full transition-all duration-300 ease-in-out border rounded-lg shadow-sm;
+        @apply flex flex-col w-full border rounded-lg shadow-sm dp-transitions;
     }
 
     .dp-spoiler {
@@ -472,7 +476,7 @@
     }
 
     .dp-spoiler-label-base {
-        @apply flex items-center justify-between w-full px-3 py-2 font-semibold transition-all duration-300 ease-in-out cursor-pointer select-none;
+        @apply flex items-center justify-between w-full px-3 py-2 font-semibold cursor-pointer select-none dp-transitions;
     }
 
     .dp-spoiler-label {
@@ -492,7 +496,7 @@
     }
 
     .dp-spoiler-button-base {
-        @apply transition-all duration-300 ease-in-out;
+        @apply dp-transitions;
     }
 
     .dp-spoiler-button {
@@ -524,7 +528,7 @@
     }
 
     .dp-progressbar-fill-base {
-        @apply h-2.5 rounded-full transition-all ease-in-out duration-300;
+        @apply h-2.5 rounded-full dp-transitions;
     }
 
     .dp-progressbar-fill {
@@ -540,7 +544,7 @@
     }
 
     .dp-card {
-        @apply transition-all duration-300 ease-in-out dp-card-base border-neutral-200 dark:border-neutral-700;
+        @apply dp-transitions dp-card-base border-neutral-200 dark:border-neutral-700;
     }
 
     .dp-card-loading {
@@ -552,7 +556,7 @@
     }
 
     .dp-card-loading-indicator-base {
-        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full transition-all duration-300 ease-in-out;
+        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full dp-transitions;
     }
 
     .dp-card-loading-indicator {
@@ -564,7 +568,7 @@
     }
 
     .dp-card-loading-indicator-background-base {
-        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full transition-all duration-300 ease-in-out;
+        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full dp-transitions;
     }
 
     .dp-card-loading-indicator-background {
@@ -588,6 +592,6 @@
     }
 
     .dp-card-content {
-        @apply space-y-4 transition-all duration-300 ease-in-out;
+        @apply space-y-4 dp-transitions;
     }
 }

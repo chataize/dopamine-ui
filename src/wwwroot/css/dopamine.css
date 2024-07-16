@@ -588,7 +588,7 @@
     }
 
     .dp-card-label-base {
-        @apply font-semibold;
+        @apply font-semibold dp-transitions;
     }
 
     .dp-card-label {

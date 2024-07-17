@@ -1,0 +1,79 @@
+@typeparam T
+
+<table class="table-auto">
+    <thead>
+        @if (!string.IsNullOrWhiteSpace(Column1))
+        {
+            <th>@Column1</th>
+        }
+        @if (!string.IsNullOrWhiteSpace(Column2))
+        {
+            <th>@Column2</th>
+        }
+        @if (!string.IsNullOrWhiteSpace(Column3))
+        {
+            <th>@Column3</th>
+        }
+        @if (!string.IsNullOrWhiteSpace(Column4))
+        {
+            <th>@Column4</th>
+        }
+        @if (!string.IsNullOrWhiteSpace(Column5))
+        {
+            <th>@Column5</th>
+        }
+    </thead>
+    <tbody>
+        @if (Data != null)
+        {
+            @foreach (var row in Data)
+            {
+                <tr>
+                    @if (row is I1ColumnRepresentable representable1)
+                    {
+                        <td>@representable1.Column1</td>
+                    }
+                    @if (row is I2ColumnRepresentable representable2)
+                    {
+                        <td>@representable2.Column2</td>
+                    }
+                    @if (row is I3ColumnRepresentable representable3)
+                    {
+                        <td>@representable3.Column3</td>
+                    }
+                    @if (row is I4ColumnRepresentable representable4)
+                    {
+                        <td>@representable4.Column4</td>
+                    }
+                    @if (row is I5ColumnRepresentable representable5)
+                    {
+                        <td>@representable5.Column5</td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string? Column1 { get; set; }
+
+    [Parameter]
+    public string? Column2 { get; set; }
+
+    [Parameter]
+    public string? Column3 { get; set; }
+
+    [Parameter]
+    public string? Column4 { get; set; }
+
+    [Parameter]
+    public string? Column5 { get; set; }
+
+    [Parameter]
+    public IEnumerable<T>? Data { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+}

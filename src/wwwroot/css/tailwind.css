@@ -5798,6 +5798,10 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .hidden {
   display: none;
 }
@@ -5826,6 +5830,10 @@ video {
 .min-w-fit {
   min-width: -moz-fit-content;
   min-width: fit-content;
+}
+
+.table-auto {
+  table-layout: auto;
 }
 
 .-translate-y-12 {

@@ -651,6 +651,9 @@
     <DPSubheader>Full Width</DPSubheader>
     <DPSlider Label="Normal" IsFullWidth="true" @bind-Value="IntValue" />
     <DPSlider Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
+    <DPSubheader>Decimal</DPSubheader>
+    <DPDecimalSlider Label="Normal" Step="0.5" IsShowingValue="true" @bind-Value="DoubleValue" />
+    <DPDecimalSlider Label="Disabled" Step="0.5" IsShowingPercentage="true" IsDisabled="true" @bind-Value="DoubleValue" />
 
     <br />
     <DPDivider />
@@ -688,7 +691,9 @@
 
     private bool BoolValue { get; set; } = true;
 
-    private int IntValue { get; set; } = 0;
+    private int IntValue { get; set; }
+
+    private double DoubleValue { get; set; }
 
     private DPColor ColorValue { get; set; } = DPColor.Red;
 

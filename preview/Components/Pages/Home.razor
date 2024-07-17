@@ -659,6 +659,14 @@
     <DPDivider />
     <br />
 
+    <DPHeader>Save Prompt</DPHeader>
+    <DPToggleSwitch Label="Show Save Prompt" @bind-Value="IsSavePromptShown" />
+    <DPSavePrompt IsShown="@IsSavePromptShown" IsSavePending="@IsSavePending" SaveClicked="SimulateSaveAsync" />
+
+    <br />
+    <DPDivider />
+    <br />
+
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>
@@ -687,9 +695,13 @@
 
     private bool IsDialogShown { get; set; }
 
+    private bool IsSavePromptShown { get; set; }
+
     private string Text { get; set; } = "Hello, world!";
 
     private bool BoolValue { get; set; } = true;
+
+    private bool IsSavePending { get; set; }
 
     private int IntValue { get; set; }
 
@@ -717,5 +729,13 @@
         IsLoadingScreenShown = true;
         await Task.Delay(3000);
         IsLoadingScreenShown = false;
+    }
+
+    private async Task SimulateSaveAsync()
+    {
+        IsSavePending = true;
+        await Task.Delay(3000);
+        IsSavePending = false;
+        IsSavePromptShown = false;
     }
 }

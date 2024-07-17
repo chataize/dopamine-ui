@@ -7,42 +7,44 @@
 
 <table class="table-auto">
     <thead>
-        @if (Column1 != null)
-        {
-            <th>@Column1</th>
-        }
-        else if (Column2 != null || Column3 != null || Column4 != null || Column5 != null)
-        {
-            <th>@string.Empty</th>
-        }
-        @if (Column2 != null)
-        {
-            <th>@Column2</th>
-        }
-        else if (Column3 != null || Column4 != null || Column5 != null)
-        {
-            <th>@string.Empty</th>
-        }
-        @if (Column3 != null)
-        {
-            <th>@Column3</th>
-        }
-        else if (Column4 != null || Column5 != null)
-        {
-            <th>@string.Empty</th>
-        }
-        @if (Column4 != null)
-        {
-            <th>@Column4</th>
-        }
-        else if (Column5 != null)
-        {
-            <th>@string.Empty</th>
-        }
-        @if (Column5 != null)
-        {
-            <th>@Column5</th>
-        }
+        <tr>
+            @if (Column1 != null)
+            {
+                <th>@Column1</th>
+            }
+            else if (Column2 != null || Column3 != null || Column4 != null || Column5 != null)
+            {
+                <th>@string.Empty</th>
+            }
+            @if (Column2 != null)
+            {
+                <th>@Column2</th>
+            }
+            else if (Column3 != null || Column4 != null || Column5 != null)
+            {
+                <th>@string.Empty</th>
+            }
+            @if (Column3 != null)
+            {
+                <th>@Column3</th>
+            }
+            else if (Column4 != null || Column5 != null)
+            {
+                <th>@string.Empty</th>
+            }
+            @if (Column4 != null)
+            {
+                <th>@Column4</th>
+            }
+            else if (Column5 != null)
+            {
+                <th>@string.Empty</th>
+            }
+            @if (Column5 != null)
+            {
+                <th>@Column5</th>
+            }
+        </tr>
     </thead>
     <tbody>
         @foreach (var row in Data)

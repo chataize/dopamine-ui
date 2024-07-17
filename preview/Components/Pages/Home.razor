@@ -581,6 +581,10 @@
     </DPOverlay>
     <DPToggleSwitch Label="Show Overlay" @bind-Value="IsOverlayShown" />
 
+    <DPHeader>Loading Screen</DPHeader>
+    <DPLoadingScreen IsShown="@IsLoadingScreenShown" />
+    <DPButton Clicked="ShowLoadingScreenAsync">Show Loading Screen</DPButton>
+
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>
@@ -605,6 +609,8 @@
 
     private bool IsOverlayShown { get; set; }
 
+    private bool IsLoadingScreenShown { get; set; }
+
     private string Text { get; set; } = "Hello, world!";
 
     private bool BoolValue { get; set; } = true;
@@ -616,4 +622,11 @@
     private SampleEnum EnumValue { get; set; } = SampleEnum.Value1;
 
     private DateTimeOffset DateValue { get; set; } = DateTimeOffset.UtcNow;
+
+    private async Task ShowLoadingScreenAsync()
+    {
+        IsLoadingScreenShown = true;
+        await Task.Delay(3000);
+        IsLoadingScreenShown = false;
+    }
 }

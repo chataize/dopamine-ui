@@ -30,9 +30,9 @@
 
     private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsExpanded };
 
-    private bool ActualIsExpended => IsExpanded && !Context.IsDisabled;
+    private bool ActualIsExpanded => IsExpanded && !Context.IsDisabled;
 
-    private string ListClass => ActualIsExpended ? "dp-menu" : "dp-menu-collapsed";
+    private string ListClass => ActualIsExpanded ? "dp-menu" : "dp-menu-collapsed";
 
     private string WidthClass
     {

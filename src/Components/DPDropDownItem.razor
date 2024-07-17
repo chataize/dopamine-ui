@@ -23,7 +23,7 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || DropDown?.ActualIsExpended == false || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || DropDown?.ActualIsExpanded == false || IsDisabled };
 
     private string ItemClass
     {

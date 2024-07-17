@@ -1,0 +1,11 @@
+<DPOverlay IsShown="@IsShown">
+    <DPLoadingIndicator Size="@LoadingIndicatorSize.Large" />
+</DPOverlay>
+
+@code {
+    [Parameter]
+    public bool IsShown { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+}

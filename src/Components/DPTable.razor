@@ -1,56 +1,74 @@
 @typeparam T
 
+@if (Data == null)
+{
+    return;
+}
+
 <table class="table-auto">
     <thead>
-        @if (!string.IsNullOrWhiteSpace(Column1))
+        @if (Column1 != null)
         {
             <th>@Column1</th>
         }
-        @if (!string.IsNullOrWhiteSpace(Column2))
+        else if (Column2 != null || Column3 != null || Column4 != null || Column5 != null)
+        {
+            <th>@string.Empty</th>
+        }
+        @if (Column2 != null)
         {
             <th>@Column2</th>
         }
-        @if (!string.IsNullOrWhiteSpace(Column3))
+        else if (Column3 != null || Column4 != null || Column5 != null)
+        {
+            <th>@string.Empty</th>
+        }
+        @if (Column3 != null)
         {
             <th>@Column3</th>
         }
-        @if (!string.IsNullOrWhiteSpace(Column4))
+        else if (Column4 != null || Column5 != null)
+        {
+            <th>@string.Empty</th>
+        }
+        @if (Column4 != null)
         {
             <th>@Column4</th>
         }
-        @if (!string.IsNullOrWhiteSpace(Column5))
+        else if (Column5 != null)
+        {
+            <th>@string.Empty</th>
+        }
+        @if (Column5 != null)
         {
             <th>@Column5</th>
         }
     </thead>
     <tbody>
-        @if (Data != null)
+        @foreach (var row in Data)
         {
-            @foreach (var row in Data)
-            {
-                <tr>
-                    @if (row is I1ColumnRepresentable representable1)
-                    {
-                        <td>@representable1.Column1</td>
-                    }
-                    @if (row is I2ColumnRepresentable representable2)
-                    {
-                        <td>@representable2.Column2</td>
-                    }
-                    @if (row is I3ColumnRepresentable representable3)
-                    {
-                        <td>@representable3.Column3</td>
-                    }
-                    @if (row is I4ColumnRepresentable representable4)
-                    {
-                        <td>@representable4.Column4</td>
-                    }
-                    @if (row is I5ColumnRepresentable representable5)
-                    {
-                        <td>@representable5.Column5</td>
-                    }
-                </tr>
-            }
+            <tr>
+                @if (row is I1ColumnRepresentable representable1)
+                {
+                    <td>@representable1.Column1</td>
+                }
+                @if (row is I2ColumnRepresentable representable2)
+                {
+                    <td>@representable2.Column2</td>
+                }
+                @if (row is I3ColumnRepresentable representable3)
+                {
+                    <td>@representable3.Column3</td>
+                }
+                @if (row is I4ColumnRepresentable representable4)
+                {
+                    <td>@representable4.Column4</td>
+                }
+                @if (row is I5ColumnRepresentable representable5)
+                {
+                    <td>@representable5.Column5</td>
+                }
+            </tr>
         }
     </tbody>
 </table>

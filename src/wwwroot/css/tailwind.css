@@ -5763,28 +5763,75 @@ video {
 }
 
 .dp-table {
-  border-collapse: collapse;
   --tw-border-spacing-x: 0.75rem;
   --tw-border-spacing-y: 0.75rem;
   border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
   border-radius: 0.75rem;
-  border-width: 1px;
 }
 
-.dp-table-item {
+.dp-table-container {
+  position: relative;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dp-table-container {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+}
+
+.dp-table-item {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dp-table-item {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+}
+
+.dp-table-item {
+  border-top-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 229 229 / var(--tw-border-opacity));
 }
 
 @media (prefers-color-scheme: dark) {
   .dp-table-item {
     --tw-border-opacity: 1;
     border-color: rgb(64 64 64 / var(--tw-border-opacity));
+  }
+}
+
+.dp-table-fist-item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dp-table-fist-item {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 }
 
@@ -5853,21 +5900,9 @@ video {
   width: 100%;
 }
 
-.w-16 {
-  width: 4rem;
-}
-
-.w-8 {
-  width: 2rem;
-}
-
 .min-w-fit {
   min-width: -moz-fit-content;
   min-width: fit-content;
-}
-
-.table-fixed {
-  table-layout: fixed;
 }
 
 .-translate-y-12 {
@@ -5906,10 +5941,6 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-}
-
-.flex-col {
-  flex-direction: column;
 }
 
 .items-center {
@@ -6355,10 +6386,6 @@ video {
   .sm\:w-fit {
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .sm\:table-auto {
-    table-layout: auto;
   }
 
   .sm\:space-x-3 > :not([hidden]) ~ :not([hidden]) {

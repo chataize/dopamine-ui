@@ -4,45 +4,46 @@
 {
     return;
 }
-<div class="flex @WidthClass">
+
+<div class="dp-table-container @WidthClass">
     <table class="dp-table @WidthClass">
         <thead>
             <tr>
                 @if (Column1 != null)
                 {
-                    <th class="dp-table-item">@Column1</th>
+                    <th class="dp-table-fist-item">@Column1</th>
                 }
                 else if (Column2 != null || Column3 != null || Column4 != null || Column5 != null)
                 {
-                    <th class="dp-table-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">@string.Empty</th>
                 }
                 @if (Column2 != null)
                 {
-                    <th class="dp-table-item">@Column2</th>
+                    <th class="dp-table-fist-item">@Column2</th>
                 }
                 else if (Column3 != null || Column4 != null || Column5 != null)
                 {
-                    <th class="dp-table-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">@string.Empty</th>
                 }
                 @if (Column3 != null)
                 {
-                    <th class="dp-table-item">@Column3</th>
+                    <th class="dp-table-fist-item">@Column3</th>
                 }
                 else if (Column4 != null || Column5 != null)
                 {
-                    <th class="dp-table-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">@string.Empty</th>
                 }
                 @if (Column4 != null)
                 {
-                    <th class="dp-table-item">@Column4</th>
+                    <th class="dp-table-fist-item">@Column4</th>
                 }
                 else if (Column5 != null)
                 {
-                    <th class="dp-table-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">@string.Empty</th>
                 }
                 @if (Column5 != null)
                 {
-                    <th class="dp-table-item">@Column5</th>
+                    <th class="dp-table-fist-item">@Column5</th>
                 }
             </tr>
         </thead>

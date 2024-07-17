@@ -712,10 +712,22 @@
     }
 
     .dp-table {
-        @apply border border-collapse rounded-xl border-spacing-3;
+        @apply rounded-xl border-spacing-3;
+    }
+
+    .dp-table-container {
+        @apply relative border bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700 rounded-xl;
+    }
+
+    .dp-table-item-base {
+        @apply px-2 py-1 text-center text-black dark:text-white;
     }
 
     .dp-table-item {
-        @apply px-2 py-1 border border-neutral-200 dark:border-neutral-700;
+        @apply border-t dp-table-item-base border-neutral-200 dark:border-neutral-700;
+    }
+
+    .dp-table-fist-item {
+        @apply dp-table-item-base;
     }
 }

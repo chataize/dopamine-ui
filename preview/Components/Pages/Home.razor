@@ -642,6 +642,20 @@
     <DPDivider />
     <br />
 
+    <DPHeader>Slider</DPHeader>
+    <DPSubheader>Unlabeled</DPSubheader>
+    <DPSlider @bind-Value="IntValue" />
+    <DPSubheader>Standard</DPSubheader>
+    <DPSlider Label="Normal" IsShowingValue="true" @bind-Value="IntValue" />
+    <DPSlider Label="Disabled" IsShowingPercentage="true" IsDisabled="true" @bind-Value="IntValue" />
+    <DPSubheader>Full Width</DPSubheader>
+    <DPSlider Label="Normal" IsFullWidth="true" @bind-Value="IntValue" />
+    <DPSlider Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
+
+    <br />
+    <DPDivider />
+    <br />
+
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>

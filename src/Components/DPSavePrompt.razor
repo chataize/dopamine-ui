@@ -29,6 +29,9 @@
     [Parameter]
     public EventCallback ResetClicked { get; set; }
 
+    [Parameter]
+    public object? Tag { get; set; }
+
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || !IsShown || IsDisabled };
 
     private string ContainerClass => Context.IsDisabled ? "dp-save-prompt-container-hidden" : "dp-save-prompt-container";

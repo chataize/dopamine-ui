@@ -4,76 +4,77 @@
 {
     return;
 }
-
-<table class="table-auto">
-    <thead>
-        <tr>
-            @if (Column1 != null)
-            {
-                <th>@Column1</th>
-            }
-            else if (Column2 != null || Column3 != null || Column4 != null || Column5 != null)
-            {
-                <th>@string.Empty</th>
-            }
-            @if (Column2 != null)
-            {
-                <th>@Column2</th>
-            }
-            else if (Column3 != null || Column4 != null || Column5 != null)
-            {
-                <th>@string.Empty</th>
-            }
-            @if (Column3 != null)
-            {
-                <th>@Column3</th>
-            }
-            else if (Column4 != null || Column5 != null)
-            {
-                <th>@string.Empty</th>
-            }
-            @if (Column4 != null)
-            {
-                <th>@Column4</th>
-            }
-            else if (Column5 != null)
-            {
-                <th>@string.Empty</th>
-            }
-            @if (Column5 != null)
-            {
-                <th>@Column5</th>
-            }
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var row in Data)
-        {
+<div class="flex @WidthClass">
+    <table class="dp-table @WidthClass">
+        <thead>
             <tr>
-                @if (row is I1ColumnRepresentable representable1)
+                @if (Column1 != null)
                 {
-                    <td>@representable1.Column1</td>
+                    <th class="dp-table-item">@Column1</th>
                 }
-                @if (row is I2ColumnRepresentable representable2)
+                else if (Column2 != null || Column3 != null || Column4 != null || Column5 != null)
                 {
-                    <td>@representable2.Column2</td>
+                    <th class="dp-table-item">@string.Empty</th>
                 }
-                @if (row is I3ColumnRepresentable representable3)
+                @if (Column2 != null)
                 {
-                    <td>@representable3.Column3</td>
+                    <th class="dp-table-item">@Column2</th>
                 }
-                @if (row is I4ColumnRepresentable representable4)
+                else if (Column3 != null || Column4 != null || Column5 != null)
                 {
-                    <td>@representable4.Column4</td>
+                    <th class="dp-table-item">@string.Empty</th>
                 }
-                @if (row is I5ColumnRepresentable representable5)
+                @if (Column3 != null)
                 {
-                    <td>@representable5.Column5</td>
+                    <th class="dp-table-item">@Column3</th>
+                }
+                else if (Column4 != null || Column5 != null)
+                {
+                    <th class="dp-table-item">@string.Empty</th>
+                }
+                @if (Column4 != null)
+                {
+                    <th class="dp-table-item">@Column4</th>
+                }
+                else if (Column5 != null)
+                {
+                    <th class="dp-table-item">@string.Empty</th>
+                }
+                @if (Column5 != null)
+                {
+                    <th class="dp-table-item">@Column5</th>
                 }
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var row in Data)
+            {
+                <tr>
+                    @if (row is I1ColumnRepresentable representable1)
+                    {
+                        <td class="dp-table-item">@representable1.Column1</td>
+                    }
+                    @if (row is I2ColumnRepresentable representable2)
+                    {
+                        <td class="dp-table-item">@representable2.Column2</td>
+                    }
+                    @if (row is I3ColumnRepresentable representable3)
+                    {
+                        <td class="dp-table-item">@representable3.Column3</td>
+                    }
+                    @if (row is I4ColumnRepresentable representable4)
+                    {
+                        <td class="dp-table-item">@representable4.Column4</td>
+                    }
+                    @if (row is I5ColumnRepresentable representable5)
+                    {
+                        <td class="dp-table-item">@representable5.Column5</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 @code {
     [Parameter]
@@ -93,6 +94,27 @@
 
     [Parameter]
     public IEnumerable<T>? Data { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit min-w-fit";
+        }
+    }
 
     [Parameter]
     public object? Tag { get; set; }

@@ -710,4 +710,12 @@
     .dp-dialog {
         @apply p-6 space-y-6 bg-white border shadow rounded-xl border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
     }
+
+    .dp-table {
+        @apply border border-collapse rounded-xl border-spacing-3;
+    }
+
+    .dp-table-item {
+        @apply px-2 py-1 border border-neutral-200 dark:border-neutral-700;
+    }
 }

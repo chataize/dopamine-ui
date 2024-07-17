@@ -464,7 +464,6 @@
     <DPCard IsBottomPaddingExtended="true" IsLoading="@BoolValue">
         <DPParagraph>@PlaceholderText</DPParagraph>
         <DPButton>Button</DPButton>
-
     </DPCard>
     <DPSubheader>Disabled</DPSubheader>
     <DPCard Label="Card 4" IsBottomPaddingExtended="true" IsDisabled="@BoolValue">
@@ -472,9 +471,12 @@
         <DPParagraph>@PlaceholderText</DPParagraph>
         <DPButton>Button</DPButton>
         <p>abc</p>
-
     </DPCard>
     <DPToggleSwitch Label="Loading" @bind-value="BoolValue" />
+
+    <br />
+    <DPDivider />
+    <br />
 
     <DPHeader>Menu</DPHeader>
     <DPSubheader>Standard</DPSubheader>
@@ -494,6 +496,10 @@
         <DPMenuItem IsDisabled="true">Item 2</DPMenuItem>
         <DPMenuItem>Item 3</DPMenuItem>
     </DPThreeDots>
+
+    <br />
+    <DPDivider />
+    <br />
 
     <DPHeader>Inline Picker</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
@@ -529,6 +535,10 @@
         <DPPickerItem Value="SampleEnum.Value3">Value 3</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value4" IsDisabled="true">Value 4</DPPickerItem>
     </DPInlinePicker>
+
+    <br />
+    <DPDivider />
+    <br />
 
     <DPHeader>Tab View</DPHeader>
     <DPSubheader>Standard</DPSubheader>
@@ -568,6 +578,10 @@
         </DPTab>
     </DPTabView>
 
+    <br />
+    <DPDivider />
+    <br />
+
     <DPHeader>Color Picker</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
     <DPColorPicker @bind-Value="ColorValue" />
@@ -575,15 +589,50 @@
     <DPColorPicker Label="Normal" @bind-Value="ColorValue" />
     <DPColorPicker Label="Disabled" IsDisabled="true" @bind-Value="ColorValue" />
 
+    <br />
+    <DPDivider />
+    <br />
+
     <DPHeader>Overlay</DPHeader>
     <DPOverlay IsShown="@IsOverlayShown">
         <DPToggleSwitch Label="Show Overlay" @bind-Value="IsOverlayShown" />
     </DPOverlay>
     <DPToggleSwitch Label="Show Overlay" @bind-Value="IsOverlayShown" />
 
+    <br />
+    <DPDivider />
+    <br />
+
     <DPHeader>Loading Screen</DPHeader>
     <DPLoadingScreen IsShown="@IsLoadingScreenShown" />
     <DPButton Clicked="ShowLoadingScreenAsync">Show Loading Screen</DPButton>
+
+    <br />
+    <DPDivider />
+    <br />
+
+    <DPHeader>Dialog</DPHeader>
+    <DPDialog IsShown="@IsDialogShown" IsDisabled="@BoolValue">
+        <div class="space-y-8">
+            <div class="space-y-4">
+                <DPHeader>Delete Account</DPHeader>
+                <DPParagraph>
+                    Are you sure you want to delete your account?
+                    <br />
+                    This is permanent and cannot be undone.
+                </DPParagraph>
+            </div>
+            <DPAdaptiveView>
+                <DPButton Style="ButtonStyle.Destructive">Delete Account</DPButton>
+                <DPButton Clicked="() => IsDialogShown = false">Cancel</DPButton>
+            </DPAdaptiveView>
+        </div>
+    </DPDialog>
+    <DPToggleSwitch Label="Show Dialog" @bind-Value="IsDialogShown" />
+
+    <br />
+    <DPDivider />
+    <br />
 
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
@@ -610,6 +659,8 @@
     private bool IsOverlayShown { get; set; }
 
     private bool IsLoadingScreenShown { get; set; }
+
+    private bool IsDialogShown { get; set; }
 
     private string Text { get; set; } = "Hello, world!";
 

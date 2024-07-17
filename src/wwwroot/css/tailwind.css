@@ -5843,6 +5843,9 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   height: 0.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -5919,6 +5922,9 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   height: 0.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;

@@ -675,7 +675,7 @@ video {
 }
 
 .dp-border {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -730,7 +730,7 @@ video {
 }
 
 .dp-border-disabled {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -771,7 +771,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -844,7 +844,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -933,7 +933,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -998,7 +998,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -1067,7 +1067,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -1154,7 +1154,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -1222,7 +1222,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -1309,7 +1309,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -1377,7 +1377,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -1423,7 +1423,7 @@ video {
      -moz-user-select: none;
           user-select: none;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -1559,7 +1559,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1608,7 +1608,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1675,7 +1675,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -3048,7 +3048,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -3070,7 +3070,7 @@ video {
 }
 
 .dp-dropdown {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -3139,7 +3139,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -3161,7 +3161,7 @@ video {
 }
 
 .dp-dropdown-expanded {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -3201,7 +3201,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -3223,7 +3223,7 @@ video {
 }
 
 .dp-dropdown-loading {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -3271,7 +3271,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.5rem;
@@ -3293,7 +3293,7 @@ video {
 }
 
 .dp-dropdown-disabled {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -3344,7 +3344,7 @@ video {
 }
 
 .dp-menu {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
@@ -3391,7 +3391,7 @@ video {
 }
 
 .dp-menu-collapsed {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
@@ -3644,7 +3644,7 @@ video {
 }
 
 .dp-calendar {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
@@ -3682,7 +3682,7 @@ video {
 }
 
 .dp-calendar-collapsed {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
@@ -4087,7 +4087,7 @@ video {
 }
 
 .dp-clock {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
@@ -4130,7 +4130,7 @@ video {
 }
 
 .dp-clock-collapsed {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
@@ -4241,7 +4241,7 @@ video {
 }
 
 .dp-stepper {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   font-weight: 600;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -4274,7 +4274,7 @@ video {
 }
 
 .dp-stepper-loading {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   font-weight: 600;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -4324,7 +4324,7 @@ video {
 }
 
 .dp-stepper-disabled {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   font-weight: 600;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -4455,7 +4455,7 @@ video {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -4517,7 +4517,7 @@ video {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -4577,7 +4577,7 @@ video {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -4611,7 +4611,7 @@ video {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -4950,7 +4950,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -4970,7 +4970,7 @@ video {
 
 .dp-card-loading {
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -5007,7 +5007,7 @@ video {
 
 .dp-card-disabled {
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -5042,7 +5042,7 @@ video {
   width: 100%;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 }
 
 .dp-card-loading-indicator-hidden {
@@ -5078,7 +5078,7 @@ video {
   width: 100%;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   --tw-backdrop-blur: blur(24px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -5097,7 +5097,7 @@ video {
   width: 100%;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   pointer-events: none;
   opacity: 0;
 }
@@ -5262,7 +5262,7 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding: 0.25rem;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -5291,7 +5291,7 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding: 0.25rem;
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -5319,7 +5319,7 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -5391,7 +5391,7 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -5424,7 +5424,7 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -5463,7 +5463,7 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -6191,7 +6191,7 @@ video {
 
 @media (max-width: 639px) {
   .-sm\:dp-border {
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     border-width: 1px;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -6246,7 +6246,7 @@ video {
   }
 
   .-sm\:dp-border-disabled {
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     border-width: 1px;
     padding-left: 0.75rem;
     padding-right: 0.75rem;

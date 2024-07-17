@@ -1,0 +1,53 @@
+<div class="@ContainerClass">
+    <div class="@PromptClass">
+        <div class="-sm:hidden">
+            <DPParagraph><b>Warning</b> — You have unsaved changes!</DPParagraph>
+        </div>
+        <div class="flex items-center space-x-4 -sm:justify-between -sm:w-full">
+            <DPButton Style="@ButtonStyle.Borderless" Clicked="OnResetClicked">Reset</DPButton>
+            <DPButton Style="@ButtonStyle.Accent" IsLoading="@IsSavePending" Clicked="OnSaveClicked">Save Changes</DPButton>
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public bool IsShown { get; set; }
+
+    [Parameter]
+    public bool IsSavePending { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback SaveClicked { get; set; }
+
+    [Parameter]
+    public EventCallback ResetClicked { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || !IsShown || IsDisabled };
+
+    private string ContainerClass => Context.IsDisabled ? "dp-save-prompt-container-hidden" : "dp-save-prompt-container";
+
+    private string PromptClass => Context.IsDisabled ? "dp-save-prompt-hidden" : "dp-save-prompt";
+
+    private async Task OnSaveClicked()
+    {
+        if (!Context.IsDisabled && !IsSavePending && SaveClicked.HasDelegate)
+        {
+            await SaveClicked.InvokeAsync();
+        }
+    }
+
+    private async Task OnResetClicked()
+    {
+        if (!Context.IsDisabled && ResetClicked.HasDelegate)
+        {
+            await ResetClicked.InvokeAsync();
+        }
+    }
+}

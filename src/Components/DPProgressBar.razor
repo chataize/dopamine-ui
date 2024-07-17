@@ -64,7 +64,7 @@
         {
             if (IsFullWidth == true)
             {
-                return "w-full";
+                return "w-full min-w-fit";
             }
 
             if (IsFullWidth == false)
@@ -72,7 +72,7 @@
                 return "w-64";
             }
 
-            return "w-full sm:w-64";
+            return "w-full sm:w-64 min-w-fit";
         }
     }
 }

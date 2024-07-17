@@ -575,6 +575,12 @@
     <DPColorPicker Label="Normal" @bind-Value="ColorValue" />
     <DPColorPicker Label="Disabled" IsDisabled="true" @bind-Value="ColorValue" />
 
+    <DPHeader>Overlay</DPHeader>
+    <DPOverlay IsShown="@IsOverlayShown">
+        <DPToggleSwitch Label="Show Overlay" @bind-Value="IsOverlayShown" />
+    </DPOverlay>
+    <DPToggleSwitch Label="Show Overlay" @bind-Value="IsOverlayShown" />
+
     <DPHeader>Breakpoints</DPHeader>
     <DPAdaptiveView>
         <DPBreakpoint>All Sizes</DPBreakpoint>
@@ -596,6 +602,8 @@
     private readonly DateTimeOffset _from = DateTimeOffset.UtcNow.AddMonths(-3);
 
     private readonly DateTimeOffset _to = DateTimeOffset.UtcNow.AddMonths(3);
+
+    private bool IsOverlayShown { get; set; }
 
     private string Text { get; set; } = "Hello, world!";
 

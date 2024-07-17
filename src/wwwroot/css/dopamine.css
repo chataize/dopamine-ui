@@ -732,11 +732,11 @@
     }
 
     .dp-slider-base {
-        @apply h-2 rounded-lg appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-sm [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full;
+        @apply h-2 rounded-lg appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-sm [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full dp-transitions;
     }
 
     .dp-slider {
-        @apply dp-slider-base bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-500;
+        @apply dp-slider-base bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-500 hover:[&::-webkit-slider-thumb]:bg-blue-600 dark:hover:[&::-webkit-slider-thumb]:bg-blue-400 active:[&::-webkit-slider-thumb]:bg-blue-700 dark:active:[&::-webkit-slider-thumb]:bg-blue-300 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:duration-300 hover:[&::-webkit-slider-thumb]:scale-125 active:[&::-webkit-slider-thumb]:scale-75 [&::-webkit-slider-thumb]:cursor-pointer;
     }
 
     .dp-slider-disabled {

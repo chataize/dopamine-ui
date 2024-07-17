@@ -1,0 +1,30 @@
+<div class="@OverlayClass">
+    <div class="@ContentClass">
+        <CascadingValue Value="ChildContext">@ChildContent</CascadingValue>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsShown { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsShown };
+
+    private string OverlayClass => IsShown ? "dp-overlay" : "dp-overlay-hidden";
+
+    private string ContentClass => IsShown ? "dp-overlay-content" : "dp-overlay-content-hidden";
+}

@@ -682,4 +682,28 @@
     .dp-color-picker-color-disabled {
         @apply cursor-not-allowed dp-color-picker-color-base border-neutral-50 dark:border-neutral-800;
     }
+
+    .dp-overaly-base {
+        @apply fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center w-full h-full dp-transitions;
+    }
+
+    .dp-overlay {
+        @apply cursor-default dp-overaly-base backdrop-blur-md;
+    }
+
+    .dp-overlay-hidden {
+        @apply opacity-0 pointer-events-none dp-overaly-base;
+    }
+
+    .dp-overlay-content-base {
+        @apply dp-transitions;
+    }
+
+    .dp-overlay-content {
+        @apply dp-overlay-content-base;
+    }
+
+    .dp-overlay-content-hidden {
+        @apply scale-0 opacity-0 pointer-events-none dp-overlay-content-base;
+    }
 }

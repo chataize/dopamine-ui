@@ -1,0 +1,120 @@
+<div>
+    @if (!string.IsNullOrWhiteSpace(Label))
+    {
+        <label class="dp-label-base">
+            <span class="@LabelClass">@Label</span>
+            @if (IsShowingValue)
+            {
+                <span class="@LabelClass"> — </span>
+                <span class="@LabelClass">@Value</span>
+                <span class="@LabelClass"> of </span>
+                <span class="@LabelClass">@MaxValue</span>
+            }
+            @if (IsShowingPercentage)
+            {
+                <span class="@LabelClass"> — </span>
+                <span class="@LabelClass">@Math.Round(Percentage, 2)%</span>
+            }
+        </label>
+    }
+    <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:after="InvokeValueChangedAsync">
+</div>
+
+@code {
+    private readonly string _id = Random.Shared.Next().ToString();
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public int Value { get; set; }
+
+    [Parameter]
+    public EventCallback<int> ValueChanged { get; set; }
+
+    [Parameter]
+    public int MinValue { get; set; }
+
+    [Parameter]
+    public int MaxValue { get; set; } = 100;
+
+    [Parameter]
+    public int Step { get; set; } = 1;
+
+    [Parameter]
+    public bool IsShowingValue { get; set; }
+
+    [Parameter]
+    public bool IsShowingPercentage { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private double Percentage => MaxValue == 0 ? 0 : (Value / (double)MaxValue) * 100.0;
+
+    private int InternalValue
+    {
+        get => Value;
+        set
+        {
+            if (!Context.IsDisabled)
+            {
+                Value = value;
+            }
+        }
+    }
+
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+
+    private string EditIndicatorClass
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+            }
+
+            return "dp-edit-indicator-inactive";
+        }
+    }
+
+    private string SliderClass => Context.IsDisabled ? "dp-slider-disabled" : "dp-slider";
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-64";
+            }
+
+            return "w-full sm:w-64 min-w-fit";
+        }
+    }
+
+    private async Task InvokeValueChangedAsync()
+    {
+        if (!Context.IsDisabled && ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+        }
+    }
+}

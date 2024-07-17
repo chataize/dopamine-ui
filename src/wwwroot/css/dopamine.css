@@ -312,7 +312,7 @@
     }
 
     .dp-menu-item-base {
-        @apply flex w-full px-3 py-2 font-semibold rounded-md select-none dp-transitions sm:py-1;
+        @apply flex w-full px-3 py-2 font-semibold rounded-lg select-none dp-transitions sm:py-1;
     }
 
     .dp-menu-item {
@@ -364,7 +364,7 @@
     }
 
     .dp-calendar-day-base {
-        @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-md sm:rounded-sm;
+        @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-lg sm:rounded-sm;
     }
 
     .dp-calendar-day {

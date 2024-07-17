@@ -732,7 +732,7 @@
     }
 
     .dp-slider-base {
-        @apply h-2 rounded-lg appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-sm [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full ;
+        @apply h-2 rounded-lg appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-sm [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full;
     }
 
     .dp-slider {
@@ -740,6 +740,6 @@
     }
 
     .dp-slider-disabled {
-        @apply cursor-not-allowed dp-slider-base bg-neutral-100 dark:bg-neutral-800 [&::-webkit-slider-thumb]:bg-neutral-500;
+        @apply cursor-not-allowed dp-slider-base bg-neutral-100 dark:bg-neutral-800 [&::-webkit-slider-thumb]:bg-neutral-400 dark:[&::-webkit-slider-thumb]:bg-neutral-500;
     }
 }

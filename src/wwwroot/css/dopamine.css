@@ -706,4 +706,8 @@
     .dp-overlay-content-hidden {
         @apply scale-0 opacity-0 pointer-events-none dp-overlay-content-base;
     }
+
+    .dp-dialog {
+        @apply p-6 space-y-6 bg-white border shadow rounded-xl border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+    }
 }

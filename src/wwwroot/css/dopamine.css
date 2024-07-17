@@ -636,7 +636,7 @@
     }
 
     .dp-inline-picker-item-base {
-        @apply px-2 py-1 font-semibold border select-none rounded-xl dp-transitions;
+        @apply px-2 py-1 font-semibold border rounded-lg select-none dp-transitions;
     }
 
     .dp-inline-picker-item {

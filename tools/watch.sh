@@ -1,0 +1,2 @@
+cd ../preview
+dotnet watch

@@ -64,7 +64,7 @@
     }
 
     .dp-button-base {
-        @apply flex justify-center px-3 py-2 font-semibold text-center select-none rounded-xl dp-transitions;
+        @apply relative flex justify-center px-3 py-2 font-semibold text-center select-none rounded-xl dp-transitions;
     }
 
     .dp-button {

@@ -779,4 +779,23 @@
         @apply text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 dp-navigation-link-base;
     }
 
+    .dp-navigation-view {
+        @apply fixed flex w-screen h-screen;
+    }
+
+    .dp-navigation-menu {
+        @apply border-r min-w-fit border-neutral-200 dark:border-neutral-700;
+    }
+
+    .dp-navigation-menu-logo {
+        @apply p-6 border-b border-neutral-200 dark:border-neutral-700;
+    }
+
+    .dp-navigation-menu-links {
+        @apply p-4 space-y-2 dp-transitions;
+    }
+
+    .dp-navigation-content {
+        @apply overflow-scroll;
+    }
 }

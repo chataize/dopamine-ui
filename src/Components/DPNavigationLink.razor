@@ -1,0 +1,62 @@
+@inject NavigationManager NavigationManager
+
+<button class="@LinkClass" @onclick="NavigateToPath">
+    <CascadingValue Value="Context">
+        @ChildContent
+    </CascadingValue>
+</button>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Path { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private bool IsSelected
+    {
+        get
+        {
+            if (Path == "/")
+            {
+                return ActivePath == "/";
+            }
+
+            return ActivePath.StartsWith(Path ?? string.Empty, StringComparison.OrdinalIgnoreCase);
+        }
+    }
+
+    private string ActivePath => "/" + NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+
+    private string LinkClass
+    {
+        get
+        {
+            if (IsSelected)
+            {
+                return "dp-navigation-link-selected";
+            }
+
+            return IsDisabled ? "dp-navigation-link-disabled" : "dp-navigation-link";
+        }
+    }
+
+    private void NavigateToPath()
+    {
+        if (!Context.IsDisabled && !string.IsNullOrWhiteSpace(Path))
+        {
+            NavigationManager.NavigateTo(Path);
+        }
+    }
+}

@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="css/tailwind.css" />
     <link rel="stylesheet" href="_content/ChatAIze.DopamineUI/css/tailwind.css">
 
-    <HeadOutlet />
+    <HeadOutlet @rendermode="@RenderMode.InteractiveServer" />
 </head>
 
 <body>
-    <Routes />
+    <Routes @rendermode="@RenderMode.InteractiveServer" />
     <script src="_framework/blazor.web.js"></script>
 </body>
 

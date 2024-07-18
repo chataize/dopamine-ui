@@ -2,22 +2,22 @@
 {
     if (ToClass == null)
     {
-        <div class="block">@ChildContent</div>
+        <div class="relative block">@ChildContent</div>
     }
     else
     {
-        <div class="block @(ToClass):hidden">@ChildContent</div>
+        <div class="relative block @(ToClass):hidden">@ChildContent</div>
     }
 }
 else
 {
     if (ToClass == null)
     {
-        <div class="hidden @(FromClass):block">@ChildContent</div>
+        <div class="relative hidden @(FromClass):block">@ChildContent</div>
     }
     else
     {
-        <div class="hidden @(FromClass):block @(ToClass):hidden">@ChildContent</div>
+        <div class="relative hidden @(FromClass):block @(ToClass):hidden">@ChildContent</div>
     }
 }
 

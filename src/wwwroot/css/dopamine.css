@@ -16,7 +16,7 @@
     }
 
     .dp-header-base {
-        @apply text-3xl font-bold dp-transitions;
+        @apply relative text-3xl font-bold dp-transitions;
     }
 
     .dp-header {
@@ -28,7 +28,7 @@
     }
 
     .dp-subheader-base {
-        @apply text-xl font-semibold dp-transitions;
+        @apply relative text-xl font-semibold dp-transitions;
     }
 
     .dp-subheader {
@@ -604,7 +604,7 @@
     }
 
     .dp-card-content {
-        @apply text-black dp-card-content-base fill-black dark:fill-white dark:text-white;
+        @apply relative text-black dp-card-content-base fill-black dark:fill-white dark:text-white;
     }
 
     .dp-card-content-disabled {
@@ -612,7 +612,7 @@
     }
 
     .dp-three-dots-base {
-        @apply p-1 text-xl rounded-full dp-transitions;
+        @apply relative p-1 text-xl rounded-full dp-transitions;
     }
 
     .dp-three-dots {
@@ -708,7 +708,7 @@
     }
 
     .dp-dialog {
-        @apply p-6 space-y-6 bg-white border shadow rounded-xl border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+        @apply relative p-6 space-y-6 bg-white border shadow rounded-xl border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
     }
 
     .dp-table {
@@ -788,14 +788,14 @@
     }
 
     .dp-navigation-menu-logo {
-        @apply p-6 border-b border-neutral-200 dark:border-neutral-700;
+        @apply relative p-6 border-b border-neutral-200 dark:border-neutral-700;
     }
 
     .dp-navigation-menu-links {
-        @apply p-4 space-y-2 dp-transitions;
+        @apply relative p-4 space-y-2 dp-transitions;
     }
 
     .dp-navigation-content {
-        @apply p-6 space-y-4 overflow-scroll;
+        @apply relative p-6 space-y-4 overflow-scroll;
     }
 }

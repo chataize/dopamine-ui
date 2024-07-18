@@ -1,7 +1,7 @@
 <button class="@ButtonClass @WidthClass" disabled="@(Context.IsDisabled)" @onclick="OnClickAsync">
     @if (IsLoading)
     {
-        <span class="opacity-0">
+        <span class="relative opacity-0">
             <CascadingValue Value="Context">@ChildContent</CascadingValue>
         </span>
         <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="24" width="24" class="absolute opacity-100 dark:opacity-0" />

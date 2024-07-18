@@ -570,6 +570,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 700;
@@ -591,6 +592,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 700;
@@ -612,6 +614,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
@@ -633,6 +636,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
@@ -5161,6 +5165,7 @@ video {
 }
 
 .dp-card-content {
+  position: relative;
   fill: #000;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -5204,6 +5209,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   border-radius: 9999px;
   padding: 0.25rem;
   font-size: 1.25rem;
@@ -5254,6 +5260,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   border-radius: 9999px;
   padding: 0.25rem;
   font-size: 1.25rem;
@@ -5746,6 +5753,10 @@ video {
   --tw-scale-y: 0;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   opacity: 0;
+}
+
+.dp-dialog {
+  position: relative;
 }
 
 .dp-dialog > :not([hidden]) ~ :not([hidden]) {
@@ -6358,6 +6369,7 @@ video {
 }
 
 .dp-navigation-menu-logo {
+  position: relative;
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 229 229 / var(--tw-border-opacity));
@@ -6375,6 +6387,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .dp-navigation-menu-links > :not([hidden]) ~ :not([hidden]) {
@@ -6385,6 +6398,10 @@ video {
 
 .dp-navigation-menu-links {
   padding: 1rem;
+}
+
+.dp-navigation-content {
+  position: relative;
 }
 
 .dp-navigation-content > :not([hidden]) ~ :not([hidden]) {

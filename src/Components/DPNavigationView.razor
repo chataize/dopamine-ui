@@ -3,9 +3,9 @@
         <div class="dp-navigation-menu-logo">
             <CascadingValue Value="Context">@Logo</CascadingValue>
         </div>
-        <div class="dp-navigation-menu-links">
+        <nav class="dp-navigation-menu-links">
             <CascadingValue Value="Context">@Links</CascadingValue>
-        </div>
+        </nav>
     </div>
     <div class="absolute z-30 flex flex-col w-full sm:hidden transition-all ease-in-out duration-300 rounded-b-xl @(_isExpanded ? "backdrop-blur-2xl shadow" : "pointer-events-none")">
         <div class="z-30 flex items-center justify-between w-full px-3 py-2 transition-all ease-in-out duration-300 pointer-events-auto  @(_isExpanded ? "" :"backdrop-blur-xl shadow")">
@@ -40,9 +40,9 @@
 
             </button>
         </div>
-        <div class="flex flex-col w-full p-3 z-30 transition-all ease-in-out duration-300 @(_isExpanded ? "" : "opacity-0 -translate-y-12 pointer-events-none")">
+        <nav class="flex flex-col w-full p-3 z-30 transition-all ease-in-out duration-300 @(_isExpanded ? "" : "opacity-0 -translate-y-12 pointer-events-none")">
             <CascadingValue Value="Context">@Links</CascadingValue>
-        </div>
+        </nav>
     </div>
     <div class="dp-navigation-content">
         <CascadingValue Value="Context">@Content</CascadingValue>

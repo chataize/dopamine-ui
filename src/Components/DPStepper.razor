@@ -8,8 +8,8 @@
     }
     <div id="@_id" class="@BorderClass @WidthClass">
         <div class="relative flex items-center py-2 pl-3 w-fit">
-            <input class="dp-stepper-number @(Context.IsDisabled ? "select-none" : "") @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" />
-            <input class="dp-stepper-number absolute @(Context.IsDisabled ? "select-none" : "") @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" />
+            <input class="dp-stepper-number @(Context.IsDisabled ? "select-none" : "") @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
+            <input class="dp-stepper-number absolute @(Context.IsDisabled ? "select-none" : "") @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
         </div>
         <div class="relative flex items-center">
             <div class="pl-2 pr-1 group dp-stepper-button-hitbox" @onclick="DecrementAsync">
@@ -174,13 +174,8 @@
         if (CanIncrement)
         {
             AnimateValue();
-
             Value += Step;
-
-            if (ValueChanged.HasDelegate)
-            {
-                await ValueChanged.InvokeAsync(Value);
-            }
+            await InvokeValueChangedAsync();
         }
     }
 
@@ -189,13 +184,16 @@
         if (CanDecrement)
         {
             AnimateValue();
-
             Value -= Step;
+            await InvokeValueChangedAsync();
+        }
+    }
 
-            if (ValueChanged.HasDelegate)
-            {
-                await ValueChanged.InvokeAsync(Value);
-            }
+    private async Task InvokeValueChangedAsync()
+    {
+        if (!Context.IsDisabled && ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
         }
     }
 

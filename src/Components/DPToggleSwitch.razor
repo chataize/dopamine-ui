@@ -1,5 +1,5 @@
 <label for="@_id" class="@LabelClass @BorderClass @WidthClass">
-    <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" />
+    <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" @bind:after="InvokeValueChangedAsync" />
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <span>@Label</span>
@@ -47,11 +47,6 @@
             if (!Context.IsDisabled && Value != value)
             {
                 Value = value;
-
-                if (ValueChanged.HasDelegate)
-                {
-                    ValueChanged.InvokeAsync(value);
-                }
             }
         }
     }
@@ -117,6 +112,14 @@
             }
 
             return "w-full sm:w-fit min-w-fit";
+        }
+    }
+
+    private async Task InvokeValueChangedAsync()
+    {
+        if (!Context.IsDisabled && ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(Value);
         }
     }
 }

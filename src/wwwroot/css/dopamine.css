@@ -8,7 +8,7 @@
     }
 
     .dp-text-color {
-        @apply text-neutral-800 dark:text-white;
+        @apply text-neutral-800 dark:text-neutral-100;
     }
 
     .dp-text-color-disabled {
@@ -68,7 +68,7 @@
     }
 
     .dp-button {
-        @apply border shadow-sm dp-button-base text-neutral-800 bg-neutral-100 fill-neutral-800 dark:fill-white dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+        @apply border shadow-sm dp-button-base text-neutral-800 bg-neutral-100 fill-neutral-800 dark:fill-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
     }
 
     .dp-button-toggled {
@@ -76,11 +76,11 @@
     }
 
     .dp-button-borderless {
-        @apply dp-button-base text-neutral-800 fill-neutral-800 dark:fill-white dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+        @apply dp-button-base text-neutral-800 fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
     }
 
     .dp-button-light {
-        @apply border shadow-sm text-neutral-800 dp-button-base fill-neutral-800 dark:fill-white dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-white hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+        @apply border shadow-sm text-neutral-800 dp-button-base fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
     }
 
     .dp-button-primary {
@@ -88,7 +88,7 @@
     }
 
     .dp-button-accent {
-        @apply text-white bg-blue-600 border border-blue-700 shadow-sm fill-white dp-button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
+        @apply bg-blue-600 border border-blue-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
     }
 
     .dp-button-danger {
@@ -96,7 +96,7 @@
     }
 
     .dp-button-destructive {
-        @apply text-white bg-red-600 border border-red-700 shadow-sm fill-white dp-button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
+        @apply bg-red-600 border border-red-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
     }
 
     .dp-button-loading {
@@ -112,7 +112,7 @@
     }
 
     .dp-label {
-        @apply text-neutral-800 dark:text-white;
+        @apply text-neutral-800 dark:text-neutral-100;
     }
 
     .dp-label-disabled {
@@ -140,7 +140,7 @@
     }
 
     .dp-textfield {
-        @apply dp-textfield-base text-neutral-800 bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-white;
+        @apply dp-textfield-base text-neutral-800 bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-neutral-100;
     }
 
     .dp-textfield-loading {
@@ -156,7 +156,7 @@
     }
 
     .dp-switch {
-        @apply cursor-pointer dp-switch-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-white;
+        @apply cursor-pointer dp-switch-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-neutral-100;
     }
 
     .dp-switch-disabled {
@@ -200,7 +200,7 @@
     }
 
     .dp-checkbox {
-        @apply cursor-pointer dp-checkbox-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-white;
+        @apply cursor-pointer dp-checkbox-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-neutral-100;
     }
 
     .dp-checkbox-disabled {
@@ -212,7 +212,7 @@
     }
 
     .dp-checkbox-square-on {
-        @apply bg-blue-600 border-blue-700 dp-checkbox-square-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-white stroke-white;
+        @apply bg-blue-600 border-blue-700 dp-checkbox-square-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-neutral-100 stroke-white;
     }
 
     .dp-checkbox-square-on-disabled {
@@ -232,7 +232,7 @@
     }
 
     .dp-radio {
-        @apply cursor-pointer dp-radio-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-white;
+        @apply cursor-pointer dp-radio-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-neutral-100;
     }
 
     .dp-radio-disabled {
@@ -244,7 +244,7 @@
     }
 
     .dp-radio-circle-on {
-        @apply bg-blue-600 border-blue-700 dp-radio-circle-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-white stroke-white;
+        @apply bg-blue-600 border-blue-700 dp-radio-circle-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-neutral-100 stroke-white;
     }
 
     .dp-radio-circle-on-disabled {
@@ -284,11 +284,11 @@
     }
 
     .dp-dropdown {
-        @apply text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-white dark:text-white dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
+        @apply text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
     }
 
     .dp-dropdown-expanded {
-        @apply scale-95 text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-white dark:text-white bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+        @apply scale-95 text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
     }
 
     .dp-dropdown-loading {
@@ -316,15 +316,15 @@
     }
 
     .dp-menu-item {
-        @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-neutral-800 dark:text-white dark:fill-white;
+        @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100;
     }
 
     .dp-menu-item-selected {
-        @apply text-white bg-blue-600 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-white;
+        @apply bg-blue-600 text-neutral-100 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-neutral-100;
     }
 
     .dp-menu-item-selected-disabled {
-        @apply cursor-not-allowed text-neutral-800 dark:text-white bg-neutral-400 dark:bg-neutral-500 dp-menu-item-base fill-neutral-800 dark:fill-white;
+        @apply cursor-not-allowed text-neutral-800 dark:text-neutral-100 bg-neutral-400 dark:bg-neutral-500 dp-menu-item-base fill-neutral-800 dark:fill-neutral-100;
     }
 
     .dp-menu-item-disabled {
@@ -352,7 +352,7 @@
     }
 
     .dp-calendar-arrow {
-        @apply dp-calendar-arrow-base fill-neutral-800 dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
+        @apply dp-calendar-arrow-base fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
     }
 
     .dp-calendar-arrow-disabled {
@@ -368,7 +368,7 @@
     }
 
     .dp-calendar-day {
-        @apply cursor-pointer text-neutral-800 dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-white hover:text-white hover:scale-105 active:scale-95;
+        @apply cursor-pointer text-neutral-800 dark:text-neutral-100 dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-neutral-100 hover:text-neutral-100 hover:scale-105 active:scale-95;
     }
 
     .dp-calendar-day-disabled {
@@ -376,15 +376,15 @@
     }
 
     .dp-calendar-day-selected {
-        @apply text-white bg-blue-600 cursor-pointer dp-calendar-day-base hover:bg-blue-700 active:bg-blue-800 hover:scale-105 active:scale-95;
+        @apply bg-blue-600 cursor-pointer text-neutral-100 dp-calendar-day-base hover:bg-blue-700 active:bg-blue-800 hover:scale-105 active:scale-95;
     }
 
     .dp-calendar-day-selected-disabled {
-        @apply text-white bg-blue-600 cursor-not-allowed dp-calendar-day-base;
+        @apply bg-blue-600 cursor-not-allowed text-neutral-100 dp-calendar-day-base;
     }
 
     .dp-calendar-day-now {
-        @apply text-blue-600 cursor-pointer dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-white hover:text-white dark:text-blue-500 hover:scale-105 active:scale-95;
+        @apply text-blue-600 cursor-pointer dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-neutral-100 hover:text-neutral-100 dark:text-blue-500 hover:scale-105 active:scale-95;
     }
 
     .dp-calendar-day-now-disabled {
@@ -404,7 +404,7 @@
     }
 
     .dp-clock-arrow {
-        @apply flex justify-center dp-transitions fill-neutral-800 dark:fill-white hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
+        @apply flex justify-center dp-transitions fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
     }
 
     .dp-clock-grid-base {
@@ -420,7 +420,7 @@
     }
 
     .dp-clock-number {
-        @apply absolute top-0 left-0 text-2xl font-bold text-center transition-all duration-500 ease-out bg-transparent text-neutral-800 dark:text-white;
+        @apply absolute top-0 left-0 text-2xl font-bold text-center transition-all duration-500 ease-out bg-transparent text-neutral-800 dark:text-neutral-100;
     }
 
     .dp-stepper-base {
@@ -472,7 +472,7 @@
     }
 
     .dp-stepper-button {
-        @apply dp-stepper-button-base fill-neutral-800 dark:fill-white group-hover:fill-blue-600 group-active:fill-blue-700 group-hover:scale-125 group-active:scale-75 group-hover:bg-neutral-200 group-active:bg-neutral-300 dark:group-hover:bg-neutral-700 dark:group-active:bg-neutral-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400;
+        @apply dp-stepper-button-base fill-neutral-800 dark:fill-neutral-100 group-hover:fill-blue-600 group-active:fill-blue-700 group-hover:scale-125 group-active:scale-75 group-hover:bg-neutral-200 group-active:bg-neutral-300 dark:group-hover:bg-neutral-700 dark:group-active:bg-neutral-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400;
     }
 
     .dp-stepper-button-loading {
@@ -512,7 +512,7 @@
     }
 
     .dp-spoiler-label {
-        @apply text-neutral-800 group-hover:text-blue-600 group-active:text-blue-700 dark:group-hover:text-blue-500 dark:group-active:text-blue-400 dp-spoiler-label-base dark:text-white;
+        @apply text-neutral-800 group-hover:text-blue-600 group-active:text-blue-700 dark:group-hover:text-blue-500 dark:group-active:text-blue-400 dp-spoiler-label-base dark:text-neutral-100;
     }
 
     .dp-spoiler-label-expanded {
@@ -532,7 +532,7 @@
     }
 
     .dp-spoiler-button {
-        @apply fill-neutral-800 dp-spoiler-button-base group-hover:fill-blue-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400 group-active:fill-blue-700 dark:fill-white;
+        @apply fill-neutral-800 dp-spoiler-button-base group-hover:fill-blue-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400 group-active:fill-blue-700 dark:fill-neutral-100;
     }
 
     .dp-spoiler-button-expanded {
@@ -616,7 +616,7 @@
     }
 
     .dp-card-label {
-        @apply text-neutral-800 dp-card-label-base dark:text-white;
+        @apply text-neutral-800 dp-card-label-base dark:text-neutral-100;
     }
 
     .dp-card-label-disabled {
@@ -628,7 +628,7 @@
     }
 
     .dp-card-content {
-        @apply relative text-neutral-800 dp-card-content-base fill-neutral-800 dark:fill-white dark:text-white;
+        @apply relative text-neutral-800 dp-card-content-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100;
     }
 
     .dp-card-content-disabled {
@@ -640,7 +640,7 @@
     }
 
     .dp-three-dots {
-        @apply dp-three-dots-base hover:scale-125 active:scale-75 fill-neutral-800 dark:fill-white hover:fill-blue-500 active:fill-blue-600 dark:active:fill-blue-400 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+        @apply dp-three-dots-base hover:scale-125 active:scale-75 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-500 active:fill-blue-600 dark:active:fill-blue-400 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
     }
 
     .dp-three-dots-disabled {
@@ -664,11 +664,11 @@
     }
 
     .dp-inline-picker-item {
-        @apply border-transparent text-neutral-800 dp-inline-picker-item-base dark:text-white fill-neutral-800 dark:fill-white hover:bg-neutral-200 hover:shadow-sm active:shadow-sm hover:scale-105 active:scale-95 hover:border-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:hover:border-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
+        @apply border-transparent text-neutral-800 dp-inline-picker-item-base dark:text-neutral-100 fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-200 hover:shadow-sm active:shadow-sm hover:scale-105 active:scale-95 hover:border-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:hover:border-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
     }
 
     .dp-inline-picker-item-selected {
-        @apply text-white bg-blue-600 border-blue-700 shadow-sm dark:border-blue-500 dp-inline-picker-item-base fill-white;
+        @apply bg-blue-600 border-blue-700 shadow-sm text-neutral-100 dark:border-blue-500 dp-inline-picker-item-base fill-neutral-100;
     }
 
     .dp-inline-picker-item-selected-disabled {
@@ -744,7 +744,7 @@
     }
 
     .dp-table-item-base {
-        @apply px-2 py-1 text-center text-neutral-800 dark:text-white;
+        @apply px-2 py-1 text-center text-neutral-800 dark:text-neutral-100;
     }
 
     .dp-table-item {
@@ -860,7 +860,7 @@
     }
 
     .dp-mobile-navigation-menu-button {
-        @apply relative flex items-center justify-center p-1 ml-3 rounded-full fill-neutral-800 dark:fill-white hover:bg-neutral-100 active:bg-neutral-200 dp-transitions hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+        @apply relative flex items-center justify-center p-1 ml-3 rounded-full fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 dp-transitions hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
     }
 
     .dp-mobile-navigation-menu-button-open-icon {

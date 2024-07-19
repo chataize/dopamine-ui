@@ -62,14 +62,14 @@
                 <input class="dp-clock-number @(_isHourAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Hour" @bind:after="InvokeValueChangedAsync" />
                 <input class="dp-clock-number @(!_isHourAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Hour" @bind:after="InvokeValueChangedAsync" />
             </div>
-            <span class="font-mono text-2xl text-neutral-800 dark:text-white">:</span>
+            <span class="font-mono text-2xl text-neutral-800 dark:text-neutral-100">:</span>
             <div class="relative">
                 <input class="dp-clock-number @(_isMinuteAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Minute" @bind:after="InvokeValueChangedAsync" />
                 <input class="dp-clock-number @(!_isMinuteAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Minute" @bind:after="InvokeValueChangedAsync" />
             </div>
             @if (IsShowingSeconds)
             {
-                <span class="font-mono text-2xl text-neutral-800 dark:text-white">:</span>
+                <span class="font-mono text-2xl text-neutral-800 dark:text-neutral-100">:</span>
                 <div class="relative">
                     <input class="dp-clock-number @(_isSecondAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Second" @bind:after="InvokeValueChangedAsync" />
                     <input class="dp-clock-number @(!_isSecondAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Second" @bind:after="InvokeValueChangedAsync" />

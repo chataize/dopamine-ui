@@ -6522,6 +6522,12 @@ video {
   padding: 1.5rem;
 }
 
+@media (max-width: 1023px) {
+  .dp-navigation-content {
+    padding-top: 6rem;
+  }
+}
+
 .dp-mobile-navigation-menu {
   transition-property: all;
   transition-duration: 300ms;

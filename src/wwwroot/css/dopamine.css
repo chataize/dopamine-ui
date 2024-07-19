@@ -843,7 +843,7 @@
         @apply z-30 flex items-center justify-between w-full px-3 py-2 cursor-default pointer-events-auto select-none dp-transitions;
     }
 
-    .dp-mobile-navigation-menu-bar-collapsed {
+    .dp-mobile-navigation-menu-bar-hidden {
         @apply shadow backdrop-blur-xl dp-mobile-navigation-menu-bar;
     }
 
@@ -851,20 +851,40 @@
         @apply pt-3 pl-2 dp-transitions;
     }
 
-    .dp-mobile-navigation-menu-logo-collapsed {
+    .dp-mobile-navigation-menu-logo-hidden {
         @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-logo;
     }
 
-    .dp-mobile-navigation-menu-title {
+    .dp-mobile-navigation-menu-title-base {
         @apply absolute pl-3 text-2xl font-bold transition-all duration-300 ease-in-out;
     }
 
-    .dp-mobile-navigation-menu-title-expanded {
-        @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-title;
+    .dp-mobile-navigation-menu-title {
+        @apply dp-mobile-navigation-menu-title-base text-neutral-800 dark:text-neutral-100;
+    }
+
+    .dp-mobile-navigation-menu-title-disabled {
+        @apply cursor-not-allowed dp-mobile-navigation-menu-title-base text-neutral-400 dark:text-neutral-500;
+    }
+
+    .dp-mobile-navigation-menu-title-hidden {
+        @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-title-base;
+    }
+
+    .dp-mobile-navigation-menu-button-base {
+        @apply relative flex items-center justify-center p-1 ml-3 rounded-full dp-transitions;
     }
 
     .dp-mobile-navigation-menu-button {
-        @apply relative flex items-center justify-center p-1 ml-3 rounded-full fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 dp-transitions hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+        @apply dp-mobile-navigation-menu-button-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+    }
+
+    .dp-mobile-navigation-menu-button-disabled {
+        @apply cursor-not-allowed dp-mobile-navigation-menu-button-base fill-neutral-400 dark:fill-neutral-500;
+    }
+
+    .dp-mobile-navigation-menu-button-hidden {
+        @apply relative flex items-center justify-center p-1 ml-3 scale-0 rounded-full opacity-0 pointer-events-none dp-transitions;
     }
 
     .dp-mobile-navigation-menu-button-open-icon {
@@ -887,7 +907,7 @@
         @apply z-30 flex flex-col w-full p-3 transition-all duration-300 ease-in-out;
     }
 
-    .dp-mobile-navigation-menu-links-collapsed {
+    .dp-mobile-navigation-menu-links-hidden {
         @apply -translate-y-12 opacity-0 pointer-events-none dp-mobile-navigation-menu-links;
     }
 }

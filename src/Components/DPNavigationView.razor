@@ -15,7 +15,7 @@
             <span class="@MobileMenuTitleClass">
                 <CascadingValue Value="Context">@Title</CascadingValue>
             </span>
-            <button class="dp-mobile-navigation-menu-button" @onclick="ToggleIsExpanded">
+            <button class="@ButtonClass" @onclick="ToggleIsExpanded">
                 <svg class="@OpenIconClass" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(4,4)">
@@ -71,9 +71,9 @@
     {
         get
         {
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
-                return "hidden";
+                return "dp-mobile-navigation-menu";
             }
 
             return _isExpanded ? "dp-mobile-navigation-menu-expanded" : "dp-mobile-navigation-menu";
@@ -84,12 +84,25 @@
     {
         get
         {
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
-                return "hidden";
+                return "dp-mobile-navigation-menu-bar-hidden";
             }
 
-            return _isExpanded ? "dp-mobile-navigation-menu-bar" : "dp-mobile-navigation-menu-bar-collapsed";
+            return _isExpanded ? "dp-mobile-navigation-menu-bar" : "dp-mobile-navigation-menu-bar-hidden";
+        }
+    }
+
+    private string MobileMenuTitleClass
+    {
+        get
+        {
+            if (Context.IsDisabled)
+            {
+                return "dp-mobile-navigation-menu-title-disabled";
+            }
+
+            return _isExpanded ? "dp-mobile-navigation-menu-title-hidden" : "dp-mobile-navigation-menu-title";
         }
     }
 
@@ -99,46 +112,22 @@
         {
             if (IsDisabled)
             {
-                return "hidden";
+                return "dp-mobile-navigation-menu-logo-hidden";
             }
 
-            return _isExpanded ? "dp-mobile-navigation-menu-logo" : "dp-mobile-navigation-menu-logo-collapsed";
+            return _isExpanded ? "dp-mobile-navigation-menu-logo" : "dp-mobile-navigation-menu-logo-hidden";
         }
     }
 
-    private string MobileMenuTitleClass
-    {
-        get
-        {
-            if (IsDisabled)
-            {
-                return "hidden";
-            }
-
-            return _isExpanded ? "dp-mobile-navigation-menu-title-expanded" : "dp-mobile-navigation-menu-title";
-        }
-    }
-
-    private string MobileMenuLinksClass
-    {
-        get
-        {
-            if (IsDisabled)
-            {
-                return "hidden";
-            }
-
-            return _isExpanded ? "dp-mobile-navigation-menu-links" : "dp-mobile-navigation-menu-links-collapsed";
-        }
-    }
+    private string ButtonClass => Context.IsDisabled ? "dp-mobile-navigation-menu-button-disabled" : "dp-mobile-navigation-menu-button";
 
     private string OpenIconClass
     {
         get
         {
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
-                return "hidden";
+                return "dp-mobile-navigation-menu-button-open-icon";
             }
 
             return _isExpanded ? "dp-mobile-navigation-menu-button-open-icon-hidden" : "dp-mobile-navigation-menu-button-open-icon";
@@ -149,14 +138,16 @@
     {
         get
         {
-            if (IsDisabled)
+            if (Context.IsDisabled)
             {
-                return "hidden";
+                return "dp-mobile-navigation-menu-button-close-icon-hidden";
             }
 
             return _isExpanded ? "dp-mobile-navigation-menu-button-close-icon" : "dp-mobile-navigation-menu-button-close-icon-hidden";
         }
     }
+
+    private string MobileMenuLinksClass =>  _isExpanded && !Context.IsDisabled ? "dp-mobile-navigation-menu-links" : "dp-mobile-navigation-menu-links-hidden";
 
     internal void SetTitle(RenderFragment? title)
     {
@@ -171,6 +162,9 @@
 
     private void ToggleIsExpanded()
     {
-        _isExpanded = !_isExpanded;
+        if (!Context.IsDisabled)
+        {
+            _isExpanded = !_isExpanded;
+        }
     }
 }

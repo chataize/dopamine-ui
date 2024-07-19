@@ -1,0 +1,15 @@
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ParentContext.NavigationView?.SetTitle(ChildContent);
+    }
+}

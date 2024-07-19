@@ -516,11 +516,11 @@
     }
 
     .dp-spoiler-button-loading {
-        @apply dp-spoiler-button-base;
+        @apply cursor-wait dp-spoiler-button-base;
     }
 
     .dp-spoiler-button-disabled {
-        @apply dp-spoiler-button-base fill-neutral-300 dark:fill-neutral-600;
+        @apply cursor-not-allowed dp-spoiler-button-base fill-neutral-300 dark:fill-neutral-600;
     }
 
     .dp-spoiler-content {

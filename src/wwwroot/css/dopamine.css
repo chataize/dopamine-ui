@@ -798,4 +798,68 @@
     .dp-navigation-content {
         @apply relative p-6 space-y-4 overflow-scroll;
     }
+
+    .dp-mobile-navigation-menu-base {
+        @apply absolute z-30 flex flex-col w-full sm:hidden dp-transitions rounded-b-xl;
+    }
+
+    .dp-mobile-navigation-menu {
+        @apply pointer-events-none dp-mobile-navigation-menu-base;
+    }
+
+    .dp-mobile-navigation-menu-expanded {
+        @apply shadow backdrop-blur-2xl dp-mobile-navigation-menu-base;
+    }
+
+    .dp-mobile-navigation-menu-bar {
+        @apply z-30 flex items-center justify-between w-full px-3 py-2 pointer-events-auto dp-transitions;
+    }
+
+    .dp-mobile-navigation-menu-bar-collapsed {
+        @apply shadow backdrop-blur-xl dp-mobile-navigation-menu-bar;
+    }
+
+    .dp-mobile-navigation-menu-logo {
+        @apply pt-3 pl-2 dp-transitions;
+    }
+
+    .dp-mobile-navigation-menu-logo-collapsed {
+        @apply scale-0 opacity-0 blur-xl dp-mobile-navigation-menu-logo;
+    }
+
+    .dp-mobile-navigation-menu-title {
+        @apply absolute pl-3 text-2xl font-bold transition-all duration-300 ease-in-out;
+    }
+
+    .dp-mobile-navigation-menu-title-expanded {
+        @apply scale-0 opacity-0 blur-xl dp-mobile-navigation-menu-title;
+    }
+
+    .dp-mobile-navigation-menu-button {
+        @apply relative flex items-center justify-center p-1 ml-3 rounded-full fill-black dark:fill-white hover:bg-neutral-100 active:bg-neutral-200 dp-transitions hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+    }
+
+    .dp-mobile-navigation-menu-button-open-icon {
+        @apply dp-transitions;
+    }
+
+    .dp-mobile-navigation-menu-button-open-icon-hidden {
+        @apply scale-0 opacity-0 dp-mobile-navigation-menu-button-open-icon;
+    }
+
+    .dp-mobile-navigation-menu-button-close-icon {
+        @apply absolute dp-transitions;
+    }
+
+    .dp-mobile-navigation-menu-button-close-icon-hidden {
+        @apply scale-0 opacity-0 dp-mobile-navigation-menu-button-close-icon;
+    }
+
+    .dp-mobile-navigation-menu-links {
+        @apply z-30 flex flex-col w-full p-3 transition-all duration-300 ease-in-out;
+    }
+
+    .dp-mobile-navigation-menu-links-collapsed {
+        @apply -translate-y-12 opacity-0 pointer-events-none dp-mobile-navigation-menu-links;
+    }
 }

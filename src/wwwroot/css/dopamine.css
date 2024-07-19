@@ -308,7 +308,7 @@
     }
 
     .dp-menu-collapsed {
-        @apply scale-0 opacity-0 dp-menu-base blur-xl;
+        @apply scale-0 opacity-0 pointer-events-none dp-menu-base blur-xl;
     }
 
     .dp-menu-item-base {
@@ -340,7 +340,7 @@
     }
 
     .dp-calendar-collapsed {
-        @apply scale-0 -translate-y-24 opacity-0 dp-calendar-base blur-xl;
+        @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-calendar-base blur-xl;
     }
 
     .dp-calendar-grid {
@@ -400,7 +400,7 @@
     }
 
     .dp-clock-collapsed {
-        @apply scale-0 -translate-y-24 opacity-0 dp-clock-base blur-xl;
+        @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-clock-base blur-xl;
     }
 
     .dp-clock-arrow {
@@ -824,7 +824,7 @@
     }
 
     .dp-mobile-navigation-menu-logo-collapsed {
-        @apply scale-0 opacity-0 blur-xl dp-mobile-navigation-menu-logo;
+        @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-logo;
     }
 
     .dp-mobile-navigation-menu-title {
@@ -832,7 +832,7 @@
     }
 
     .dp-mobile-navigation-menu-title-expanded {
-        @apply scale-0 opacity-0 blur-xl dp-mobile-navigation-menu-title;
+        @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-title;
     }
 
     .dp-mobile-navigation-menu-button {
@@ -844,7 +844,7 @@
     }
 
     .dp-mobile-navigation-menu-button-open-icon-hidden {
-        @apply scale-0 opacity-0 dp-mobile-navigation-menu-button-open-icon;
+        @apply scale-0 opacity-0 pointer-events-none dp-mobile-navigation-menu-button-open-icon;
     }
 
     .dp-mobile-navigation-menu-button-close-icon {
@@ -852,7 +852,7 @@
     }
 
     .dp-mobile-navigation-menu-button-close-icon-hidden {
-        @apply scale-0 opacity-0 dp-mobile-navigation-menu-button-close-icon;
+        @apply scale-0 opacity-0 pointer-events-none dp-mobile-navigation-menu-button-close-icon;
     }
 
     .dp-mobile-navigation-menu-links {

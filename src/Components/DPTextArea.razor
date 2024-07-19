@@ -6,7 +6,7 @@
             <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <div class="relative">
+    <div class="relative flex @WidthClass">
         <textarea id="@_id" class="@InputClass @WidthClass" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@Context.IsDisabled" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
         @if (IsLoading)
         {

@@ -6447,7 +6447,7 @@ video {
   width: 100vw;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
   .dp-navigation-view {
     flex-direction: column;
   }
@@ -6462,7 +6462,7 @@ video {
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .dp-navigation-menu {
     display: block;
   }
@@ -6538,7 +6538,7 @@ video {
   border-bottom-left-radius: 0.75rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .dp-mobile-navigation-menu {
     display: none;
   }
@@ -6564,7 +6564,7 @@ video {
   border-bottom-left-radius: 0.75rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .dp-mobile-navigation-menu-expanded {
     display: none;
   }

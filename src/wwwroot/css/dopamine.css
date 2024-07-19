@@ -804,11 +804,11 @@
     }
 
     .dp-navigation-view {
-        @apply fixed flex w-screen h-screen -sm:flex-col;
+        @apply fixed flex w-screen h-screen -lg:flex-col;
     }
 
     .dp-navigation-menu {
-        @apply hidden border-r min-w-fit border-neutral-100 dark:border-neutral-800 sm:block;
+        @apply hidden border-r min-w-fit border-neutral-100 dark:border-neutral-800 lg:block;
     }
 
     .dp-navigation-menu-logo {
@@ -824,7 +824,7 @@
     }
 
     .dp-mobile-navigation-menu-base {
-        @apply absolute z-30 flex flex-col w-full select-none sm:hidden dp-transitions rounded-b-xl;
+        @apply absolute z-30 flex flex-col w-full select-none lg:hidden dp-transitions rounded-b-xl;
     }
 
     .dp-mobile-navigation-menu {

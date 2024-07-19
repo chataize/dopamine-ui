@@ -332,7 +332,7 @@
     }
 
     .dp-calendar-base {
-        @apply absolute z-10 p-3 space-y-3 border rounded-xl dp-transitions backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+        @apply absolute z-10 p-3 space-y-3 border shadow rounded-xl dp-transitions backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
     }
 
     .dp-calendar {
@@ -392,7 +392,7 @@
     }
 
     .dp-clock-base {
-        @apply absolute z-10 flex justify-center px-4 py-2.5 space-y-3 dp-transitions border rounded-xl backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+        @apply absolute z-10 shadow flex justify-center px-4 py-2.5 space-y-3 dp-transitions border rounded-xl backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
     }
 
     .dp-clock {

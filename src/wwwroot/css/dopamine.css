@@ -780,11 +780,11 @@
     }
 
     .dp-navigation-view {
-        @apply fixed flex w-screen h-screen;
+        @apply fixed flex w-screen h-screen -sm:flex-col;
     }
 
     .dp-navigation-menu {
-        @apply border-r min-w-fit border-neutral-200 dark:border-neutral-700;
+        @apply hidden border-r min-w-fit border-neutral-200 dark:border-neutral-700 sm:block;
     }
 
     .dp-navigation-menu-logo {

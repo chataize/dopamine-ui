@@ -11,39 +11,57 @@
             <tr>
                 @if (Column1 != null)
                 {
-                    <th class="dp-table-fist-item">@Column1</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@Column1</span>
+                    </th>
                 }
                 else if (Column2 != null || Column3 != null || Column4 != null || Column5 != null)
                 {
-                    <th class="dp-table-fist-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@string.Empty</span>
+                    </th>
                 }
                 @if (Column2 != null)
                 {
-                    <th class="dp-table-fist-item">@Column2</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@Column2</span>
+                    </th>
                 }
                 else if (Column3 != null || Column4 != null || Column5 != null)
                 {
-                    <th class="dp-table-fist-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@string.Empty</span>
+                    </th>
                 }
                 @if (Column3 != null)
                 {
-                    <th class="dp-table-fist-item">@Column3</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@Column3</span>
+                    </th>
                 }
                 else if (Column4 != null || Column5 != null)
                 {
-                    <th class="dp-table-fist-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@string.Empty</span>
+                    </th>
                 }
                 @if (Column4 != null)
                 {
-                    <th class="dp-table-fist-item">@Column4</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@Column4</span>
+                    </th>
                 }
                 else if (Column5 != null)
                 {
-                    <th class="dp-table-fist-item">@string.Empty</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@string.Empty</span>
+                    </th>
                 }
                 @if (Column5 != null)
                 {
-                    <th class="dp-table-fist-item">@Column5</th>
+                    <th class="dp-table-fist-item">
+                        <span class="@TextColorClass">@Column5</span>
+                    </th>
                 }
             </tr>
         </thead>
@@ -53,23 +71,33 @@
                 <tr>
                     @if (row is I1ColumnRepresentable representable1)
                     {
-                        <td class="dp-table-item">@representable1.Column1</td>
+                        <td class="dp-table-item">
+                            <span class="@TextColorClass">@representable1.Column1</span>
+                        </td>
                     }
                     @if (row is I2ColumnRepresentable representable2)
                     {
-                        <td class="dp-table-item">@representable2.Column2</td>
+                        <td class="dp-table-item">
+                            <span class="@TextColorClass">@representable2.Column2</span>
+                        </td>
                     }
                     @if (row is I3ColumnRepresentable representable3)
                     {
-                        <td class="dp-table-item">@representable3.Column3</td>
+                        <td class="dp-table-item">
+                            <span class="@TextColorClass">@representable3.Column3</span>
+                        </td>
                     }
                     @if (row is I4ColumnRepresentable representable4)
                     {
-                        <td class="dp-table-item">@representable4.Column4</td>
+                        <td class="dp-table-item">
+                            <span class="@TextColorClass">@representable4.Column4</span>
+                        </td>
                     }
                     @if (row is I5ColumnRepresentable representable5)
                     {
-                        <td class="dp-table-item">@representable5.Column5</td>
+                        <td class="dp-table-item">
+                            <span class="@TextColorClass">@representable5.Column5</span>
+                        </td>
                     }
                 </tr>
             }
@@ -78,6 +106,9 @@
 </div>
 
 @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     [Parameter]
     public string? Column1 { get; set; }
 
@@ -99,6 +130,14 @@
     [Parameter]
     public bool? IsFullWidth { get; set; }
 
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
     private string WidthClass
     {
         get
@@ -117,6 +156,5 @@
         }
     }
 
-    [Parameter]
-    public object? Tag { get; set; }
+    private string TextColorClass => Context.IsDisabled ? "dp-text-color-disabled" : "dp-text-color";
 }

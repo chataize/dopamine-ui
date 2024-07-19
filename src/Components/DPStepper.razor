@@ -8,11 +8,11 @@
     }
     <div id="@_id" class="@BorderClass @WidthClass">
         <div class="relative flex items-center py-2 pl-3 w-fit">
-            <input class="dp-stepper-number @(Context.IsDisabled ? "select-none" : "") @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
-            <input class="dp-stepper-number absolute @(Context.IsDisabled ? "select-none" : "") @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
+            <input class="@NumberClass @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
+            <input class="absolute @NumberClass @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
         </div>
-        <div class="relative flex items-center">
-            <div class="pl-2 pr-1 group dp-stepper-button-hitbox" @onclick="DecrementAsync">
+        <div class="relative flex items-center cursor-default">
+            <div class="pl-2 pr-1 group @DecrementButtonHitboxClass" @onclick="DecrementAsync">
                 <button class="@DecrementButtonClass" disabled="@Context.IsDisabled">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -23,7 +23,7 @@
                     </svg>
                 </button>
             </div>
-            <div class="pl-1 pr-2 group dp-stepper-button-hitbox" @onclick="IncrementAsync">
+            <div class="pl-1 pr-2 group @IncrementButtonHitboxClass" @onclick="IncrementAsync">
                 <button class="@IncrementButtonClass" disabled="@Context.IsDisabled">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -36,7 +36,7 @@
             </div>
             @if (IsLoading)
             {
-                <div class="absolute right-0 flex items-center pr-3 w-fit">
+                <div class="dp-stepper-loading-indicator">
                     <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
                     <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="20" width="20" class="hidden dark:inline" />
                 </div>
@@ -144,6 +144,60 @@
             }
 
             return "dp-stepper";
+        }
+    }
+
+    private string NumberClass
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dp-stepper-number-loading";
+            }
+
+            if (Context.IsDisabled)
+            {
+                return "dp-stepper-number-disabled";
+            }
+
+            return "dp-stepper-number";
+        }
+    }
+
+    private string IncrementButtonHitboxClass
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dp-stepper-button-hitbox-loading";
+            }
+
+            if (CanIncrement)
+            {
+                return "dp-stepper-button-hitbox";
+            }
+
+            return "dp-stepper-button-hitbox-disabled";
+        }
+    }
+
+    private string DecrementButtonHitboxClass
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "dp-stepper-button-hitbox-loading";
+            }
+
+            if (CanDecrement)
+            {
+                return "dp-stepper-button-hitbox";
+            }
+
+            return "dp-stepper-button-hitbox-disabled";
         }
     }
 

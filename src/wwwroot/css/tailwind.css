@@ -4406,11 +4406,51 @@ video {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+.dp-stepper-number-loading {
+  background-color: transparent;
+  font-weight: 700;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  cursor: wait;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.dp-stepper-number-disabled {
+  background-color: transparent;
+  font-weight: 700;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  cursor: not-allowed;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 .dp-stepper-button-hitbox {
   display: flex;
   height: 100%;
-  cursor: pointer;
   align-items: center;
+  cursor: pointer;
+}
+
+.dp-stepper-button-hitbox-loading {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  cursor: wait;
+}
+
+.dp-stepper-button-hitbox-disabled {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  cursor: not-allowed;
 }
 
 .dp-stepper-button {
@@ -4472,6 +4512,7 @@ video {
   height: fit-content;
   border-radius: 9999px;
   padding: 0.25rem;
+  cursor: wait;
   opacity: 0;
 }
 
@@ -4491,6 +4532,17 @@ video {
   .dp-stepper-button-disabled {
     fill: #737373;
   }
+}
+
+.dp-stepper-loading-indicator {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: wait;
+  align-items: center;
+  padding-right: 0.75rem;
 }
 
 .dp-spoiler {
@@ -6746,10 +6798,6 @@ video {
   position: relative;
 }
 
-.right-0 {
-  right: 0px;
-}
-
 .right-2 {
   right: 0.5rem;
 }
@@ -7026,10 +7074,6 @@ video {
 
 .pr-2 {
   padding-right: 0.5rem;
-}
-
-.pr-3 {
-  padding-right: 0.75rem;
 }
 
 .pt-2 {

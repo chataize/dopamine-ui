@@ -443,8 +443,28 @@
         @apply font-bold transition-all duration-500 ease-out bg-transparent;
     }
 
+    .dp-stepper-number-loading {
+        @apply cursor-wait select-none dp-stepper-number;
+    }
+
+    .dp-stepper-number-disabled {
+        @apply cursor-not-allowed select-none dp-stepper-number;
+    }
+
+    .dp-stepper-button-hitbox-base {
+        @apply flex items-center h-full;
+    }
+
     .dp-stepper-button-hitbox {
-        @apply flex items-center h-full cursor-pointer;
+        @apply cursor-pointer dp-stepper-button-hitbox-base;
+    }
+
+    .dp-stepper-button-hitbox-loading {
+        @apply cursor-wait dp-stepper-button-hitbox-base;
+    }
+
+    .dp-stepper-button-hitbox-disabled {
+        @apply cursor-not-allowed dp-stepper-button-hitbox-base;
     }
 
     .dp-stepper-button-base {
@@ -456,11 +476,15 @@
     }
 
     .dp-stepper-button-loading {
-        @apply opacity-0 dp-stepper-button-base;
+        @apply opacity-0 cursor-wait dp-stepper-button-base;
     }
 
     .dp-stepper-button-disabled {
         @apply cursor-not-allowed dp-stepper-button-base fill-neutral-400 dark:fill-neutral-500;
+    }
+
+    .dp-stepper-loading-indicator {
+        @apply absolute right-0 flex items-center pr-3 cursor-wait w-fit;
     }
 
     .dp-spoiler-base {

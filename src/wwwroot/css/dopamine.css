@@ -784,11 +784,11 @@
     }
 
     .dp-navigation-menu {
-        @apply hidden border-r min-w-fit border-neutral-200 dark:border-neutral-700 sm:block;
+        @apply hidden border-r min-w-fit border-neutral-100 dark:border-neutral-800 sm:block;
     }
 
     .dp-navigation-menu-logo {
-        @apply relative p-6 border-b border-neutral-200 dark:border-neutral-700;
+        @apply relative p-6 border-b border-neutral-100 dark:border-neutral-800;
     }
 
     .dp-navigation-menu-links {

@@ -307,7 +307,7 @@
         @apply scale-100 opacity-100 dp-menu-base blur-none;
     }
 
-    .dp-menu-collapsed {
+    .dp-menu-hidden {
         @apply scale-0 opacity-0 pointer-events-none dp-menu-base blur-xl;
     }
 
@@ -339,7 +339,7 @@
         @apply translate-y-2 opacity-100 dp-calendar-base;
     }
 
-    .dp-calendar-collapsed {
+    .dp-calendar-hidden {
         @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-calendar-base blur-xl;
     }
 
@@ -399,7 +399,7 @@
         @apply translate-y-2 opacity-100 dp-clock-base;
     }
 
-    .dp-clock-collapsed {
+    .dp-clock-hidden {
         @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-clock-base blur-xl;
     }
 

@@ -32,7 +32,7 @@
 
     private bool ActualIsOpen => IsOpen && !Context.IsDisabled;
 
-    private string ListClass => ActualIsOpen ? "dp-menu" : "dp-menu-collapsed";
+    private string ListClass => ActualIsOpen ? "dp-menu" : "dp-menu-hidden";
 
     private string WidthClass
     {
@@ -52,7 +52,7 @@
         }
     }
 
-    internal async Task CollapseAsync()
+    internal async Task CloseAsync()
     {
         IsOpen = false;
 

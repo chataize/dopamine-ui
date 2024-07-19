@@ -504,7 +504,7 @@
     }
 
     .dp-spoiler-button-base {
-        @apply dp-transitions;
+        @apply relative flex dp-transitions;
     }
 
     .dp-spoiler-button {
@@ -516,7 +516,7 @@
     }
 
     .dp-spoiler-button-loading {
-        @apply hidden;
+        @apply dp-spoiler-button-base;
     }
 
     .dp-spoiler-button-disabled {

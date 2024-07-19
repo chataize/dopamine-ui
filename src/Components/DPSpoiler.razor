@@ -1,7 +1,7 @@
 <div class="group @SpoilerClass @ActiveScaleTransitionClass">
     <label for="@_id" class="@LabelClass" @onmouseenter="SetLabelHovered" @onmouseleave="SetLabelNotHovered">
         <span>@Label</span>
-        <button id="@_id" disabled="@Context.IsDisabled" @onclick="ToggleIsExpanded">
+        <button id="@_id" class="@ButtonClass" disabled="@Context.IsDisabled" @onclick="ToggleIsExpanded">
             @if (IsLoading)
             {
                 <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />

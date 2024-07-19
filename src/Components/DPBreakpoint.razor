@@ -1,27 +1,32 @@
-@if (FromClass == null)
-{
-    if (ToClass == null)
+<CascadingValue Value="Context">
+    @if (FromClass == null)
     {
-        <div class="relative block">@ChildContent</div>
+        if (ToClass == null)
+        {
+            <div class="relative block">@ChildContent</div>
+        }
+        else
+        {
+            <div class="relative block @(ToClass):hidden">@ChildContent</div>
+        }
     }
     else
     {
-        <div class="relative block @(ToClass):hidden">@ChildContent</div>
+        if (ToClass == null)
+        {
+            <div class="relative hidden @(FromClass):block">@ChildContent</div>
+        }
+        else
+        {
+            <div class="relative hidden @(FromClass):block @(ToClass):hidden">@ChildContent</div>
+        }
     }
-}
-else
-{
-    if (ToClass == null)
-    {
-        <div class="relative hidden @(FromClass):block">@ChildContent</div>
-    }
-    else
-    {
-        <div class="relative hidden @(FromClass):block @(ToClass):hidden">@ChildContent</div>
-    }
-}
+</CascadingValue>
 
-@code {
+    @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     [Parameter]
     public ScreenSize? FromSize { get; set; }
 
@@ -32,7 +37,12 @@ else
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
     public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
     private string? FromClass => ScreenSizeToClass(FromSize);
 

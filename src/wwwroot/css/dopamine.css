@@ -800,11 +800,11 @@
     }
 
     .dp-mobile-navigation-menu-base {
-        @apply absolute z-30 flex flex-col w-full sm:hidden dp-transitions rounded-b-xl;
+        @apply absolute z-30 flex flex-col w-full select-none sm:hidden dp-transitions rounded-b-xl;
     }
 
     .dp-mobile-navigation-menu {
-        @apply pointer-events-none dp-mobile-navigation-menu-base;
+        @apply pointer-events-none dp-mobile-navigation-menu-base
     }
 
     .dp-mobile-navigation-menu-expanded {
@@ -812,7 +812,7 @@
     }
 
     .dp-mobile-navigation-menu-bar {
-        @apply z-30 flex items-center justify-between w-full px-3 py-2 pointer-events-auto dp-transitions;
+        @apply z-30 flex items-center justify-between w-full px-3 py-2 cursor-default pointer-events-auto select-none dp-transitions;
     }
 
     .dp-mobile-navigation-menu-bar-collapsed {

@@ -6440,6 +6440,9 @@ video {
   z-index: 30;
   display: flex;
   width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   flex-direction: column;
   border-bottom-right-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
@@ -6463,6 +6466,9 @@ video {
   z-index: 30;
   display: flex;
   width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   flex-direction: column;
   border-bottom-right-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
@@ -6491,6 +6497,10 @@ video {
   z-index: 30;
   display: flex;
   width: 100%;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   align-items: center;
   justify-content: space-between;
   padding-left: 0.75rem;
@@ -6507,6 +6517,10 @@ video {
   z-index: 30;
   display: flex;
   width: 100%;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   align-items: center;
   justify-content: space-between;
   padding-left: 0.75rem;

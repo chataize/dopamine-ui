@@ -1,7 +1,7 @@
 @typeparam T
 
 <label for="@_id" class="group @LabelClass @BorderClass @WidthClass">
-    <input id="@_id" type="checkbox" value="@IsSelected" disabled="@ActualIsDisabled" hidden @onchange="OnChangeAsync" />
+    <input id="@_id" type="checkbox" value="@IsSelected" disabled="@Context.IsDisabled" hidden @onchange="OnChangeAsync" />
     <div class="group @CircleClass">
         <div class="@DotClass" />
     </div>
@@ -13,6 +13,9 @@
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
+
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
 
     [CascadingParameter]
     public DPRadioGroup<T>? RadioGroup { get; set; }
@@ -35,11 +38,11 @@
     [Parameter]
     public object? Tag { get; set; }
 
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || RadioGroup?.IsDisabled == true || IsDisabled };
+
     private bool IsSelected => RadioGroup != null && EqualityComparer<T>.Default.Equals(Value, RadioGroup.Value);
 
-    private bool ActualIsDisabled => IsDisabled || RadioGroup?.IsDisabled == true;
-
-    private string LabelClass => ActualIsDisabled ? "dp-radio-disabled" : "dp-radio";
+    private string LabelClass => Context.IsDisabled ? "dp-radio-disabled" : "dp-radio";
 
     private string BorderClass
     {
@@ -47,7 +50,7 @@
         {
             if (IsBorderless == false)
             {
-                return ActualIsDisabled ? "dp-border-disabled" : "dp-border";
+                return Context.IsDisabled ? "dp-border-disabled" : "dp-border";
             }
 
             if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
@@ -55,7 +58,7 @@
                 return string.Empty;
             }
 
-            return ActualIsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
+            return Context.IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
         }
     }
 
@@ -63,7 +66,7 @@
     {
         get
         {
-            if (ActualIsDisabled)
+            if (Context.IsDisabled)
             {
                 return IsSelected ? "dp-radio-circle-on-disabled" : "dp-radio-circle-off-disabled";
             }
@@ -76,7 +79,7 @@
     {
         get
         {
-            if (ActualIsDisabled)
+            if (Context.IsDisabled)
             {
                 return IsSelected ? "dp-radio-dot-on-disabled" : "dp-radio-dot-off-disabled";
             }
@@ -105,7 +108,7 @@
 
     private async Task OnChangeAsync()
     {
-        if (RadioGroup != null && !ActualIsDisabled)
+        if (!Context.IsDisabled && RadioGroup != null)
         {
             await RadioGroup.UpdateValueAsync(Value);
         }

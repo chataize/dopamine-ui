@@ -81,6 +81,11 @@
         StateHasChanged();
     }
 
+    internal void Collapse()
+    {
+        _isExpanded = false;
+    }
+
     private void ToggleIsExpanded()
     {
         _isExpanded = !_isExpanded;

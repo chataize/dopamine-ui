@@ -6478,6 +6478,10 @@ video {
   z-index: 30;
 }
 
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
 .block {
   display: block;
 }
@@ -6730,8 +6734,8 @@ video {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
-.fill-white {
-  fill: #fff;
+.fill-black {
+  fill: #000;
 }
 
 .p-1 {
@@ -6917,6 +6921,16 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.blur-sm {
+  --tw-blur: blur(4px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .backdrop-blur {
   --tw-backdrop-blur: blur(8px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -7050,6 +7064,11 @@ video {
     --tw-bg-opacity: 1;
     background-color: rgb(38 38 38 / var(--tw-bg-opacity));
   }
+
+  .hover\:bg-neutral-100:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+  }
 }
 
 .active\:scale-75:active {
@@ -7067,6 +7086,11 @@ video {
 .active\:bg-neutral-700:active {
   --tw-bg-opacity: 1;
   background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+}
+
+.active\:bg-neutral-200:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
@@ -7286,6 +7310,10 @@ video {
     background-color: rgb(113 63 18 / var(--tw-bg-opacity));
   }
 
+  .dark\:fill-white {
+    fill: #fff;
+  }
+
   .dark\:opacity-0 {
     opacity: 0;
   }
@@ -7332,5 +7360,17 @@ video {
 
   .dark\:outline-yellow-900 {
     outline-color: #713f12;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dark\:hover\:bg-neutral-800:hover {
+      --tw-bg-opacity: 1;
+      background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+    }
+  }
+
+  .dark\:active\:bg-neutral-700:active {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
   }
 }

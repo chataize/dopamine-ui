@@ -7,37 +7,31 @@
             <CascadingValue Value="Context">@Links</CascadingValue>
         </nav>
     </div>
-    <div class="absolute z-30 flex flex-col w-full sm:hidden transition-all ease-in-out duration-300 rounded-b-xl @(_isExpanded ? "backdrop-blur-2xl shadow" : "pointer-events-none")">
-        <div class="z-30 flex items-center justify-between w-full px-3 py-2 transition-all ease-in-out duration-300 pointer-events-auto  @(_isExpanded ? "" :"backdrop-blur-xl shadow")">
-            <span class="transition-all ease-in-out duration-300 pt-3 pl-2 @(_isExpanded ? "" : "opacity-0 blur-xl scale-0")">
+    <div class="absolute z-30 flex flex-col w-full sm:hidden dp-transitions rounded-b-xl @(_isExpanded ? "backdrop-blur-2xl shadow" : "pointer-events-none")">
+        <div class="z-30 flex items-center justify-between w-full px-3 py-2 dp-transitions pointer-events-auto  @(_isExpanded ? "" :"backdrop-blur-xl shadow")">
+            <span class="dp-transitions pt-3 pl-2 @(_isExpanded ? "" : "opacity-0 blur-xl scale-0")">
                 <CascadingValue Value="Context">@Logo</CascadingValue>
             </span>
             <span class="absolute text-2xl pl-3 font-bold transition-all ease-in-out duration-300 @(_isExpanded ? "opacity-0 blur-xl scale-0" : "")">
                 <CascadingValue Value="Context">@Title</CascadingValue>
             </span>
-            <button class="relative p-3 rounded-full fill-white" @onclick="ToggleIsExpanded">
-                <div class="dp-transitions hover:scale-125 active:scale-75 hover:bg-neutral-800 p-1 rounded-full active:bg-neutral-700 @(_isExpanded ? "blur-xl opacity-0   pointer-events-none" : "")">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
+            <button class="relative p-1 ml-3 rounded-full fill-black dark:fill-white hover:bg-neutral-100 active:bg-neutral-200 dp-transitions hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700" @onclick="ToggleIsExpanded">
+                <svg class="dp-transitions @(_isExpanded ? "opacity-0 scale-0 blur" : "")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
+                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <g transform="scale(4,4)">
+                            <path d="M51,46c1.104,0 2,0.895 2,2c0,1.105 -0.896,2 -2,2c-0.601,0 -37.399,0 -38,0c-1.104,0 -2,-0.895 -2,-2c0,-1.105 0.896,-2 2,-2c0.601,0 37.399,0 38,0zM51,30c1.104,0 2,0.895 2,2c0,1.105 -0.896,2 -2,2c-0.601,0 -37.399,0 -38,0c-1.104,0 -2,-0.895 -2,-2c0,-1.105 0.896,-2 2,-2c0.601,0 37.399,0 38,0zM51,14c1.104,0 2,0.895 2,2c0,1.105 -0.896,2 -2,2c-0.601,0 -37.399,0 -38,0c-1.104,0 -2,-0.895 -2,-2c0,-1.105 0.896,-2 2,-2c0.601,0 37.399,0 38,0z"></path>
+                        </g>
+                    </g>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <svg class="dp-transitions @(_isExpanded ? "" : "opacity-0 scale-0 blur")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(4,4)">
-                                <path d="M51,46c1.104,0 2,0.895 2,2c0,1.105 -0.896,2 -2,2c-0.601,0 -37.399,0 -38,0c-1.104,0 -2,-0.895 -2,-2c0,-1.105 0.896,-2 2,-2c0.601,0 37.399,0 38,0zM51,30c1.104,0 2,0.895 2,2c0,1.105 -0.896,2 -2,2c-0.601,0 -37.399,0 -38,0c-1.104,0 -2,-0.895 -2,-2c0,-1.105 0.896,-2 2,-2c0.601,0 37.399,0 38,0zM51,14c1.104,0 2,0.895 2,2c0,1.105 -0.896,2 -2,2c-0.601,0 -37.399,0 -38,0c-1.104,0 -2,-0.895 -2,-2c0,-1.105 0.896,-2 2,-2c0.601,0 37.399,0 38,0z"></path>
+                                <path d="M16,14c-0.512,0 -1.02306,0.19494 -1.41406,0.58594c-0.781,0.781 -0.781,2.04712 0,2.82812l14.58594,14.58594l-14.58594,14.58594c-0.781,0.781 -0.781,2.04713 0,2.82812c0.391,0.391 0.90206,0.58594 1.41406,0.58594c0.512,0 1.02306,-0.19494 1.41406,-0.58594l14.58594,-14.58594l14.58594,14.58594c0.781,0.781 2.04713,0.781 2.82812,0c0.781,-0.781 0.781,-2.04713 0,-2.82812l-14.58594,-14.58594l14.58594,-14.58594c0.781,-0.781 0.781,-2.04712 0,-2.82812c-0.781,-0.781 -2.04713,-0.781 -2.82812,0l-14.58594,14.58594l-14.58594,-14.58594c-0.391,-0.391 -0.90206,-0.58594 -1.41406,-0.58594z"></path>
                             </g>
                         </g>
                     </svg>
                 </div>
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div class="dp-transitions hover:scale-125 active:scale-75 hover:bg-neutral-800 p-1 rounded-full active:bg-neutral-700 @(_isExpanded ? "pointer-events-auto" : "opacity-0 blur-xl pointer-events-none")">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
-                            <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                <g transform="scale(4,4)">
-                                    <path d="M16,14c-0.512,0 -1.02306,0.19494 -1.41406,0.58594c-0.781,0.781 -0.781,2.04712 0,2.82812l14.58594,14.58594l-14.58594,14.58594c-0.781,0.781 -0.781,2.04713 0,2.82812c0.391,0.391 0.90206,0.58594 1.41406,0.58594c0.512,0 1.02306,-0.19494 1.41406,-0.58594l14.58594,-14.58594l14.58594,14.58594c0.781,0.781 2.04713,0.781 2.82812,0c0.781,-0.781 0.781,-2.04713 0,-2.82812l-14.58594,-14.58594l14.58594,-14.58594c0.781,-0.781 0.781,-2.04712 0,-2.82812c-0.781,-0.781 -2.04713,-0.781 -2.82812,0l-14.58594,14.58594l-14.58594,-14.58594c-0.391,-0.391 -0.90206,-0.58594 -1.41406,-0.58594z"></path>
-                                </g>
-                            </g>
-                        </svg>
-                    </div>
-
-                </div>
-
             </button>
         </div>
         <nav class="flex flex-col w-full p-3 z-30 transition-all ease-in-out duration-300 @(_isExpanded ? "" : "opacity-0 -translate-y-12 pointer-events-none")">

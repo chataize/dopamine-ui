@@ -3359,7 +3359,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
-  z-index: 30;
+  z-index: 10;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -3406,7 +3406,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
-  z-index: 30;
+  z-index: 10;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -3663,7 +3663,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
-  z-index: 30;
+  z-index: 10;
 }
 
 .dp-calendar > :not([hidden]) ~ :not([hidden]) {
@@ -3701,7 +3701,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
-  z-index: 30;
+  z-index: 10;
 }
 
 .dp-calendar-collapsed > :not([hidden]) ~ :not([hidden]) {
@@ -4112,7 +4112,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
-  z-index: 30;
+  z-index: 10;
   display: flex;
   justify-content: center;
 }
@@ -4155,7 +4155,7 @@ video {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
-  z-index: 30;
+  z-index: 10;
   display: flex;
   justify-content: center;
 }
@@ -5798,7 +5798,7 @@ video {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  z-index: 50;
+  z-index: 40;
   display: flex;
   height: 100%;
   width: 100%;
@@ -5818,7 +5818,7 @@ video {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  z-index: 50;
+  z-index: 40;
   display: flex;
   height: 100%;
   width: 100%;
@@ -5847,6 +5847,7 @@ video {
 
 .dp-dialog {
   position: relative;
+  z-index: 50;
 }
 
 .dp-dialog > :not([hidden]) ~ :not([hidden]) {
@@ -6086,7 +6087,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 40;
+  z-index: 20;
   display: flex;
   width: 100%;
   cursor: default;
@@ -6148,7 +6149,7 @@ video {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 40;
+  z-index: 20;
   display: flex;
   width: 100%;
   cursor: default;
@@ -6219,7 +6220,7 @@ video {
   left: 0px;
   right: 0px;
   bottom: 2rem;
-  z-index: 40;
+  z-index: 20;
   display: flex;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -6239,7 +6240,7 @@ video {
   left: 0px;
   right: 0px;
   bottom: 2rem;
-  z-index: 40;
+  z-index: 20;
   display: flex;
   -webkit-user-select: none;
      -moz-user-select: none;

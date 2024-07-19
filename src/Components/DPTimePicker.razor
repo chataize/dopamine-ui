@@ -6,7 +6,7 @@
             <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <button id="@_id" class="@DropdownClass @WidthClass" @onclick="ToggleIsExpanded" disabled="@Context.IsDisabled">
+    <button id="@_id" class="@DropdownClass @WidthClass" @onclick="ToggleIsOpen" disabled="@Context.IsDisabled">
         <span>@Value.ToString(IsShowingSeconds ? "HH:mm:ss" : "HH:mm")</span>
         @if (IsLoading)
         {
@@ -15,7 +15,7 @@
         }
         else
         {
-            <svg class="transition-all duration-300 ease-in-out @(_isExpanded ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+            <svg class="transition-all duration-300 ease-in-out @(_isOpen ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                 <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                     <g transform="scale(8.53333,8.53333)">
                         <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
@@ -26,7 +26,7 @@
     </button>
     <div class="@ClockClass @WidthClass">
         <div class="@(IsShowingSeconds ? "dp-clock-grid-seconds" : "dp-clock-grid")">
-            <button class="dp-clock-arrow" @onclick="AddHourAsync" disabled="@(!ActualIsExpanded)">
+            <button class="dp-clock-arrow" @onclick="AddHourAsync" disabled="@(!ActualIsOpen)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -36,7 +36,7 @@
                 </svg>
             </button>
             <span />
-            <button class="dp-clock-arrow" @onclick="AddMinuteAsync" disabled="@(!ActualIsExpanded)">
+            <button class="dp-clock-arrow" @onclick="AddMinuteAsync" disabled="@(!ActualIsOpen)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -48,7 +48,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="dp-clock-arrow" @onclick="AddSecondAsync" disabled="@(!ActualIsExpanded)">
+                <button class="dp-clock-arrow" @onclick="AddSecondAsync" disabled="@(!ActualIsOpen)">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -59,23 +59,23 @@
                 </button>
             }
             <div class="relative">
-                <input class="dp-clock-number @(_isHourAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Hour" @bind:after="InvokeValueChangedAsync" />
-                <input class="dp-clock-number @(!_isHourAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Hour" @bind:after="InvokeValueChangedAsync" />
+                <input class="dp-clock-number @(_isHourAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsOpen)" @bind="Hour" @bind:after="InvokeValueChangedAsync" />
+                <input class="dp-clock-number @(!_isHourAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsOpen)" @bind="Hour" @bind:after="InvokeValueChangedAsync" />
             </div>
             <span class="font-mono text-2xl text-neutral-800 dark:text-neutral-100">:</span>
             <div class="relative">
-                <input class="dp-clock-number @(_isMinuteAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Minute" @bind:after="InvokeValueChangedAsync" />
-                <input class="dp-clock-number @(!_isMinuteAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Minute" @bind:after="InvokeValueChangedAsync" />
+                <input class="dp-clock-number @(_isMinuteAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsOpen)" @bind="Minute" @bind:after="InvokeValueChangedAsync" />
+                <input class="dp-clock-number @(!_isMinuteAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsOpen)" @bind="Minute" @bind:after="InvokeValueChangedAsync" />
             </div>
             @if (IsShowingSeconds)
             {
                 <span class="font-mono text-2xl text-neutral-800 dark:text-neutral-100">:</span>
                 <div class="relative">
-                    <input class="dp-clock-number @(_isSecondAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Second" @bind:after="InvokeValueChangedAsync" />
-                    <input class="dp-clock-number @(!_isSecondAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsExpanded)" @bind="Second" @bind:after="InvokeValueChangedAsync" />
+                    <input class="dp-clock-number @(_isSecondAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsOpen)" @bind="Second" @bind:after="InvokeValueChangedAsync" />
+                    <input class="dp-clock-number @(!_isSecondAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsOpen)" @bind="Second" @bind:after="InvokeValueChangedAsync" />
                 </div>
             }
-            <button class="dp-clock-arrow" @onclick="SubtractHourAsync" disabled="@(!ActualIsExpanded)">
+            <button class="dp-clock-arrow" @onclick="SubtractHourAsync" disabled="@(!ActualIsOpen)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -85,7 +85,7 @@
                 </svg>
             </button>
             <span />
-            <button class="dp-clock-arrow" @onclick="SubtractMinuteAsync" disabled="@(!ActualIsExpanded)">
+            <button class="dp-clock-arrow" @onclick="SubtractMinuteAsync" disabled="@(!ActualIsOpen)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -97,7 +97,7 @@
             @if (IsShowingSeconds)
             {
                 <span />
-                <button class="dp-clock-arrow" @onclick="SubtractSecondAsync" disabled="@(!ActualIsExpanded)">
+                <button class="dp-clock-arrow" @onclick="SubtractSecondAsync" disabled="@(!ActualIsOpen)">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -114,7 +114,7 @@
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
 
-    private bool _isExpanded;
+    private bool _isOpen;
 
     private bool _isHourAlternated;
 
@@ -190,7 +190,7 @@
         }
     }
 
-    private bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
+    private bool ActualIsOpen => _isOpen && !Context.IsDisabled;
 
     private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
@@ -221,16 +221,16 @@
                 return "dp-dropdown-disabled";
             }
 
-            if (ActualIsExpanded)
+            if (ActualIsOpen)
             {
-                return "dp-dropdown-expanded";
+                return "dp-dropdown-open";
             }
 
             return "dp-dropdown";
         }
     }
 
-    private string ClockClass => ActualIsExpanded ? "dp-clock" : "dp-clock-collapsed";
+    private string ClockClass => ActualIsOpen ? "dp-clock" : "dp-clock-collapsed";
 
     private string WidthClass
     {
@@ -252,7 +252,7 @@
 
     private async Task AddHourAsync()
     {
-        if (!ActualIsExpanded)
+        if (!ActualIsOpen)
         {
             return;
         }
@@ -273,7 +273,7 @@
 
     private async Task AddMinuteAsync()
     {
-        if (!ActualIsExpanded)
+        if (!ActualIsOpen)
         {
             return;
         }
@@ -294,7 +294,7 @@
 
     private async Task AddSecondAsync()
     {
-        if (!ActualIsExpanded)
+        if (!ActualIsOpen)
         {
             return;
         }
@@ -315,7 +315,7 @@
 
     private async Task SubtractHourAsync()
     {
-        if (!ActualIsExpanded)
+        if (!ActualIsOpen)
         {
             return;
         }
@@ -336,7 +336,7 @@
 
     private async Task SubtractMinuteAsync()
     {
-        if (!ActualIsExpanded)
+        if (!ActualIsOpen)
         {
             return;
         }
@@ -357,7 +357,7 @@
 
     private async Task SubtractSecondAsync()
     {
-        if (!ActualIsExpanded)
+        if (!ActualIsOpen)
         {
             return;
         }
@@ -378,17 +378,17 @@
 
     private async Task InvokeValueChangedAsync()
     {
-        if (ActualIsExpanded && ValueChanged.HasDelegate)
+        if (ActualIsOpen && ValueChanged.HasDelegate)
         {
             await ValueChanged.InvokeAsync(Value);
         }
     }
 
-    private void ToggleIsExpanded()
+    private void ToggleIsOpen()
     {
         if (!Context.IsDisabled)
         {
-            _isExpanded = !_isExpanded;
+            _isOpen = !_isOpen;
         }
     }
 

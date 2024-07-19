@@ -18,7 +18,7 @@
     [Parameter]
     public object? Tag { get; set; }
 
-    private UIContext Context => ParentContext with { IsDisabled = ParentContext.Menu?.IsExpanded == false || ParentContext.IsDisabled || IsDisabled };
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.Menu?.IsOpen == false || ParentContext.IsDisabled || IsDisabled };
 
     private string ItemClass => Context.IsDisabled ? "dp-menu-item-disabled" : "dp-menu-item";
 

@@ -6,7 +6,7 @@
             <span class="@EditIndicatorClass">●</span>
         </label>
     }
-    <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToggleIsExpanded">
+    <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToggleIsOpen">
         <span>@FormattedValue</span>
         @if (IsLoading)
         {
@@ -15,7 +15,7 @@
         }
         else
         {
-            <svg class="transition-all duration-300 ease-in-out @(_isExpanded ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+            <svg class="transition-all duration-300 ease-in-out @(_isOpen ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                 <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                     <g transform="scale(8.53333,8.53333)">
                         <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
@@ -26,7 +26,7 @@
     </button>
     <div class="@CalendarClass @WidthClass">
         <div class="flex items-center justify-between space-x-4 font-semibold">
-            <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth" disabled="@(!ActualIsExpanded)">
+            <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth" disabled="@(!ActualIsOpen)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -37,7 +37,7 @@
             </button>
             <span class="w-6 cursor-default text-neutral-800 dark:text-neutral-100">@FormattedMonth</span>
             <span class="cursor-default text-neutral-800 dark:text-neutral-100">@FormattedYear</span>
-            <button class="@NextMonthButtonClass" @onclick="ShowNextMonth" disabled="@(!ActualIsExpanded)">
+            <button class="@NextMonthButtonClass" @onclick="ShowNextMonth" disabled="@(!ActualIsOpen)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(3.55556,3.55556)">
@@ -62,7 +62,7 @@
             @for (int i = 1; i <= DaysInMonth; i++)
             {
                 int day = i;
-                <button class="@GetDayClass(day)" disabled="@(!ActualIsExpanded)" @onclick="() => SelectDayAsync(day)">@i</button>
+                <button class="@GetDayClass(day)" disabled="@(!ActualIsOpen)" @onclick="() => SelectDayAsync(day)">@i</button>
             }
         </div>
     </div>
@@ -75,7 +75,7 @@
 
     private int _browsedMonth = DateTimeOffset.UtcNow.Month;
 
-    private bool _isExpanded = false;
+    private bool _isOpen = false;
 
     [CascadingParameter]
     public UIContext ParentContext { get; set; } = new();
@@ -157,7 +157,7 @@
         }
     }
 
-    private bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
+    private bool ActualIsOpen => _isOpen && !Context.IsDisabled;
 
     private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
@@ -188,16 +188,16 @@
                 return "dp-dropdown-disabled";
             }
 
-            if (ActualIsExpanded)
+            if (ActualIsOpen)
             {
-                return "dp-dropdown-expanded";
+                return "dp-dropdown-open";
             }
 
             return "dp-dropdown";
         }
     }
 
-    private string CalendarClass => ActualIsExpanded ? "dp-calendar" : "dp-calendar-collapsed";
+    private string CalendarClass => ActualIsOpen ? "dp-calendar" : "dp-calendar-collapsed";
 
     private string NextMonthButtonClass => IsNextMonthInRage ? "dp-calendar-arrow" : "dp-calendar-arrow-disabled";
 
@@ -256,13 +256,13 @@
         return _browsedYear == now.Year && _browsedMonth == now.Month && day == now.Day;
     }
 
-    private void ToggleIsExpanded()
+    private void ToggleIsOpen()
     {
         if (!Context.IsDisabled)
         {
-            _isExpanded = !_isExpanded;
+            _isOpen = !_isOpen;
 
-            if (_isExpanded)
+            if (_isOpen)
             {
                 _browsedYear = Value.Year;
                 _browsedMonth = Value.Month;
@@ -272,7 +272,7 @@
 
     private void ShowNextMonth()
     {
-        if (!ActualIsExpanded || !IsNextMonthInRage)
+        if (!ActualIsOpen || !IsNextMonthInRage)
         {
             return;
         }
@@ -295,7 +295,7 @@
 
     private void ShowPreviousMonth()
     {
-        if (!ActualIsExpanded || !IsPreviousMonthInRange)
+        if (!ActualIsOpen || !IsPreviousMonthInRange)
         {
             return;
         }
@@ -318,7 +318,7 @@
 
     private async Task SelectDayAsync(int day)
     {
-        if (!ActualIsExpanded)
+        if (!ActualIsOpen)
         {
             return;
         }
@@ -330,7 +330,7 @@
         }
 
         Value = valueAtSelection;
-        _isExpanded = false;
+        _isOpen = false;
 
         if (ValueChanged.HasDelegate)
         {

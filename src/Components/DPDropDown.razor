@@ -9,7 +9,7 @@
         </label>
     }
     <div class="relative flex">
-        <button id="@_id" class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToogleIsExpanded">
+        <button id="@_id" class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToogleIsOpen">
             <span>@ValueLabel</span>
             @if (IsLoading)
             {
@@ -18,7 +18,7 @@
             }
             else
             {
-                <svg class="transition-all duration-300 ease-in-out @(ActualIsExpanded ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                <svg class="transition-all duration-300 ease-in-out @(ActualIsOpen ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                         <g transform="scale(8.53333,8.53333)">
                             <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
@@ -38,7 +38,7 @@
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
 
-    private bool _isExpanded { get; set; }
+    private bool _isOpen { get; set; }
 
     [CascadingParameter]
     public UIContext ParentContext { get; set; } = new();
@@ -72,11 +72,11 @@
 
     internal List<DPDropDownItem<T>> Items { get; set; } = [];
 
-    internal bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
+    internal bool ActualIsOpen => _isOpen && !Context.IsDisabled;
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
-    private UIContext ChildContext => Context with { IsDisabled = ParentContext.IsDisabled || !_isExpanded };
+    private UIContext ChildContext => Context with { IsDisabled = ParentContext.IsDisabled || !_isOpen };
 
     private RenderFragment? ValueLabel => Items.FirstOrDefault(x => x.Value?.Equals(Value) == true)?.ChildContent;
 
@@ -109,16 +109,16 @@
                 return "dp-dropdown-disabled";
             }
 
-            if (ActualIsExpanded)
+            if (ActualIsOpen)
             {
-                return "dp-dropdown-expanded";
+                return "dp-dropdown-open";
             }
 
             return "dp-dropdown";
         }
     }
 
-    private string ListClass => ActualIsExpanded ? "dp-menu translate-y-12" : "dp-menu-collapsed -translate-y-12";
+    private string ListClass => ActualIsOpen ? "dp-menu translate-y-12" : "dp-menu-collapsed -translate-y-12";
 
     private string WidthClass
     {
@@ -142,7 +142,7 @@
     {
         if (!Context.IsDisabled)
         {
-            _isExpanded = false;
+            _isOpen = false;
             Value = value;
 
             if (ValueChanged.HasDelegate)
@@ -157,11 +157,11 @@
         StateHasChanged();
     }
 
-    private void ToogleIsExpanded()
+    private void ToogleIsOpen()
     {
         if (!Context.IsDisabled)
         {
-            _isExpanded = !_isExpanded;
+            _isOpen = !_isOpen;
         }
     }
 }

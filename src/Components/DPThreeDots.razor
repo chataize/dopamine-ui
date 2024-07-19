@@ -1,5 +1,5 @@
 <div>
-    <button class="@ButtonClass" disabled="@Context.IsDisabled" @onclick="ToggleIsExpanded">
+    <button class="@ButtonClass" disabled="@Context.IsDisabled" @onclick="ToggleIsOpen">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
             <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                 <g transform="scale(8.53333,8.53333)">
@@ -9,14 +9,14 @@
         </svg>
     </button>
     <CascadingValue Value="Context">
-        <DPMenu @bind-IsExpanded="_isExpanded" IsDisabled="@Context.IsDisabled">
+        <DPMenu @bind-IsOpen="_isOpen" IsDisabled="@Context.IsDisabled">
             @ChildContent
         </DPMenu>
     </CascadingValue>
 </div>
 
 @code {
-    private bool _isExpanded;
+    private bool _isOpen;
 
     [CascadingParameter]
     public UIContext ParentContext { get; set; } = new();
@@ -32,15 +32,15 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private bool ActualIsExpanded => _isExpanded && !Context.IsDisabled;
+    private bool ActualIsOpen => _isOpen && !Context.IsDisabled;
 
     private string ButtonClass => Context.IsDisabled ? "dp-three-dots-disabled" : "dp-three-dots";
 
-    private void ToggleIsExpanded()
+    private void ToggleIsOpen()
     {
         if (!Context.IsDisabled)
         {
-            _isExpanded = !_isExpanded;
+            _isOpen = !_isOpen;
         }
     }
 }

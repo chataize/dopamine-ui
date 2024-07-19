@@ -15,10 +15,10 @@
     public bool? IsFullWidth { get; set; }
 
     [Parameter]
-    public bool IsExpanded { get; set; }
+    public bool IsOpen { get; set; }
 
     [Parameter]
-    public EventCallback<bool> IsExpandedChanged { get; set; }
+    public EventCallback<bool> IsOpenChanged { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
@@ -28,11 +28,11 @@
 
     private UIContext Context => ParentContext with { Menu = this, IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsExpanded };
+    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsOpen };
 
-    private bool ActualIsExpanded => IsExpanded && !Context.IsDisabled;
+    private bool ActualIsOpen => IsOpen && !Context.IsDisabled;
 
-    private string ListClass => ActualIsExpanded ? "dp-menu" : "dp-menu-collapsed";
+    private string ListClass => ActualIsOpen ? "dp-menu" : "dp-menu-collapsed";
 
     private string WidthClass
     {
@@ -54,11 +54,11 @@
 
     internal async Task CollapseAsync()
     {
-        IsExpanded = false;
+        IsOpen = false;
 
-        if (IsExpandedChanged.HasDelegate)
+        if (IsOpenChanged.HasDelegate)
         {
-            await IsExpandedChanged.InvokeAsync(IsExpanded);
+            await IsOpenChanged.InvokeAsync(IsOpen);
         }
     }
 }

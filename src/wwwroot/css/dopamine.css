@@ -799,6 +799,10 @@
         @apply text-blue-600 bg-blue-100 dp-navigation-link-base dark:bg-blue-900 dark:text-blue-300 fill-blue-600 dark:fill-blue-300 hover:scale-105 active:scale-95 hover:shadow-sm active:shadow-sm;
     }
 
+    .dp-navigation-link-selected-disabled {
+        @apply cursor-not-allowed dark:bg-neutral-800 text-neutral-500 bg-neutral-100 fill-neutral-500 dark:text-neutral-400 dark:fill-neutral-400 dp-navigation-link-base;
+    }
+
     .dp-navigation-link-disabled {
         @apply cursor-not-allowed text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 dp-navigation-link-base;
     }

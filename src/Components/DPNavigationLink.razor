@@ -45,10 +45,20 @@
         {
             if (IsSelected)
             {
+                if (Context.IsDisabled)
+                {
+                    return "dp-navigation-link-selected-disabled";
+                }
+
                 return "dp-navigation-link-selected";
             }
 
-            return Context.IsDisabled ? "dp-navigation-link-disabled" : "dp-navigation-link";
+            if (Context.IsDisabled)
+            {
+                return "dp-navigation-link-disabled";
+            }
+
+            return "dp-navigation-link";
         }
     }
 

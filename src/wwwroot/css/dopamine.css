@@ -560,7 +560,7 @@
     }
 
     .dp-card-disabled {
-        @apply cursor-not-allowed select-none dp-card-base border-neutral-100 dark:border-neutral-700;
+        @apply dp-card-base border-neutral-100 dark:border-neutral-700;
     }
 
     .dp-card-loading-indicator-base {

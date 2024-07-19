@@ -1,5 +1,5 @@
 <div class="relative @ScreenSizeClass:flex @ScreenSizeClass:space-x-4 -@ScreenSizeClass:space-y-4">
-    @ChildContent
+    <CascadingValue Value="Context">@ChildContent</CascadingValue>
 </div>
 
 @code {

@@ -3,6 +3,9 @@
 </div>
 
 @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
@@ -10,7 +13,12 @@
     public ScreenSize RequiredSize { get; set; }
 
     [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
     public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
     private string ScreenSizeClass
     {

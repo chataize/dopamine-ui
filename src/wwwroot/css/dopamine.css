@@ -800,7 +800,7 @@
     }
 
     .dp-navigation-link-disabled {
-        @apply text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 dp-navigation-link-base;
+        @apply cursor-not-allowed text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 dp-navigation-link-base;
     }
 
     .dp-navigation-view {

@@ -6443,6 +6443,7 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-weight: 600;
+  cursor: not-allowed;
   fill: #a3a3a3;
   --tw-text-opacity: 1;
   color: rgb(163 163 163 / var(--tw-text-opacity));

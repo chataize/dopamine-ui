@@ -6519,7 +6519,7 @@ video {
 }
 
 .dp-navigation-content {
-  overflow: scroll;
+  overflow: auto;
   padding: 1.5rem;
 }
 

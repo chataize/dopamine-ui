@@ -1,0 +1,33 @@
+<CascadingValue Value="Context">
+    <div class="dp-page">
+        @if (Title != null)
+        {
+            <PageTitle>@Title</PageTitle>
+            <DPNavigationTitle>@Title</DPNavigationTitle>
+        }
+        @ChildContent
+        <DPLoadingScreen IsShown="@IsLoading" />
+    </div>
+</CascadingValue>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
+}

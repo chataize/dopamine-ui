@@ -36,7 +36,7 @@
             <CascadingValue Value="Context">@Links</CascadingValue>
         </nav>
     </div>
-    <div class="dp-navigation-content">
+    <div class="relative w-full h-screen overflow-auto">
         <CascadingValue Value="Context">@Content</CascadingValue>
     </div>
 </div>
@@ -147,7 +147,7 @@
         }
     }
 
-    private string MobileMenuLinksClass =>  _isOpen && !Context.IsDisabled ? "dp-mobile-navigation-menu-links" : "dp-mobile-navigation-menu-links-hidden";
+    private string MobileMenuLinksClass => _isOpen && !Context.IsDisabled ? "dp-mobile-navigation-menu-links" : "dp-mobile-navigation-menu-links-hidden";
 
     internal void SetTitle(RenderFragment? title)
     {

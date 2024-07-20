@@ -839,10 +839,6 @@
         @apply relative p-4 space-y-2 dp-transitions;
     }
 
-    .dp-navigation-content {
-        @apply relative w-full p-6 space-y-4 overflow-auto -lg:pt-24;
-    }
-
     .dp-mobile-navigation-menu-base {
         @apply absolute z-30 flex flex-col w-full select-none lg:hidden dp-transitions rounded-b-xl;
     }
@@ -925,5 +921,9 @@
 
     .dp-mobile-navigation-menu-links-hidden {
         @apply -translate-y-12 opacity-0 pointer-events-none dp-mobile-navigation-menu-links;
+    }
+
+    .dp-page {
+        @apply relative w-full p-6 space-y-4 overflow-auto -lg:pt-24;
     }
 }

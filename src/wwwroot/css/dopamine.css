@@ -696,7 +696,7 @@
     }
 
     .dp-color-picker-row {
-        @apply flex space-x-4 -sm:hidden;
+        @apply flex justify-between space-x-4 -sm:hidden;
     }
 
     .dp-color-picker-row-compact {

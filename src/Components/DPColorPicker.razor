@@ -1,4 +1,4 @@
-<div>
+<div class="@WidthClass">
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <label class="dp-label-base">
@@ -7,7 +7,7 @@
         </label>
     }
 </div>
-<div class="dp-color-picker-row">
+<div class="dp-color-picker-row @WidthClass">
     <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
     <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
     <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
@@ -48,6 +48,9 @@
     public EventCallback<DPColor> ValueChanged { get; set; }
 
     [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
     public bool IsEdited { get; set; }
 
     [Parameter]
@@ -70,6 +73,24 @@
             }
 
             return "dp-edit-indicator-inactive";
+        }
+    }
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit min-w-fit";
         }
     }
 

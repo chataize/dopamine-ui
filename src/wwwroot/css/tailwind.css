@@ -5713,6 +5713,7 @@ video {
 
 .dp-color-picker-row {
   display: flex;
+  justify-content: space-between;
 }
 
 .dp-color-picker-row > :not([hidden]) ~ :not([hidden]) {

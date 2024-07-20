@@ -46,16 +46,27 @@
         {
             if (IsLoading)
             {
+                if (Style == ButtonStyle.Rounded)
+                {
+                    return "dp-button-rounded-loading";
+                }
+
                 return "dp-button-loading";
             }
 
             if (Context.IsDisabled)
             {
+                if (Style == ButtonStyle.Rounded)
+                {
+                    return "dp-button-rounded-disabled";
+                }
+
                 return "dp-button-disabled";
             }
 
             return Style switch
             {
+                ButtonStyle.Rounded => "dp-button-rounded",
                 ButtonStyle.Borderless => "dp-button-borderless",
                 ButtonStyle.Light => "dp-button-light",
                 ButtonStyle.Primary => "dp-button-primary",

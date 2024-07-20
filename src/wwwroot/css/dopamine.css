@@ -107,6 +107,22 @@
         @apply border shadow-sm cursor-not-allowed dp-button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
     }
 
+    .dp-button-rounded-base {
+        @apply relative flex justify-center p-1 font-semibold text-center rounded-full select-none dp-transitions h-fit;
+    }
+
+    .dp-button-rounded {
+        @apply dp-button-rounded-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 hover:scale-125 active:scale-75;
+    }
+
+    .dp-button-rounded-loading {
+        @apply cursor-wait dp-button-rounded-base;
+    }
+
+    .dp-button-rounded-disabled {
+        @apply cursor-not-allowed dp-button-rounded-base fill-neutral-400 dark:fill-neutral-500;
+    }
+
     .dp-label-base {
         @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold select-none dp-transitions;
     }

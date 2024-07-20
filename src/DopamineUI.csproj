@@ -3,7 +3,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>0.3.1</Version>
+    <Version>0.3.2</Version>
     <AssemblyName>ChatAIze.DopamineUI</AssemblyName>
     <RootNamespace>ChatAIze.DopamineUI</RootNamespace>
     <PackageId>ChatAIze.DopamineUI</PackageId>

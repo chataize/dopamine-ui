@@ -528,11 +528,11 @@
     }
 
     .dp-spoiler-label {
-        @apply text-neutral-800 group-hover:text-blue-600 group-active:text-blue-700 dark:group-hover:text-blue-500 dark:group-active:text-blue-400 dp-spoiler-label-base dark:text-neutral-100;
+        @apply text-neutral-800 group-hover/spoiler:text-blue-600 group-active/spoiler:text-blue-700 dark:group-hover/spoiler:text-blue-500 dark:group-active/spoiler:text-blue-400 dp-spoiler-label-base dark:text-neutral-100;
     }
 
     .dp-spoiler-label-open {
-        @apply text-blue-500 group-hover:text-blue-600 group-active:text-blue-700 dp-spoiler-label-base dark:text-blue-600 dark:group-hover:text-blue-500 dark:group-active:text-blue-400;
+        @apply text-blue-500 group-hover/spoiler:text-blue-600 group-active/spoiler:text-blue-700 dp-spoiler-label-base dark:text-blue-600 dark:group-hover/spoiler:text-blue-500 dark:group-active/spoiler:text-blue-400;
     }
 
     .dp-spoiler-label-loading {
@@ -548,11 +548,11 @@
     }
 
     .dp-spoiler-button {
-        @apply fill-neutral-800 dp-spoiler-button-base group-hover:fill-blue-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400 group-active:fill-blue-700 dark:fill-neutral-100;
+        @apply fill-neutral-800 dp-spoiler-button-base group-hover/spoiler:fill-blue-600 dark:group-hover/spoiler:fill-blue-500 dark:group-active/spoiler:fill-blue-400 group-active/spoiler:fill-blue-700 dark:fill-neutral-100;
     }
 
     .dp-spoiler-button-open {
-        @apply -rotate-180 dp-spoiler-button-base group-hover:fill-blue-600 fill-blue-500 dark:fill-blue-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400 group-active:fill-blue-700;
+        @apply -rotate-180 dp-spoiler-button-base group-hover/spoiler:fill-blue-600 fill-blue-500 dark:fill-blue-600 dark:group-hover/spoiler:fill-blue-500 dark:group-active/spoiler:fill-blue-400 group-active/spoiler:fill-blue-700;
     }
 
     .dp-spoiler-button-loading {

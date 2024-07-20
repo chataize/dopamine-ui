@@ -4865,13 +4865,13 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-spoiler-label {
+  .group\/spoiler:hover .dp-spoiler-label {
     --tw-text-opacity: 1;
     color: rgb(37 99 235 / var(--tw-text-opacity));
   }
 }
 
-.group:active .dp-spoiler-label {
+.group\/spoiler:active .dp-spoiler-label {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
 }
@@ -4883,13 +4883,13 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-spoiler-label {
+    .group\/spoiler:hover .dp-spoiler-label {
       --tw-text-opacity: 1;
       color: rgb(59 130 246 / var(--tw-text-opacity));
     }
   }
 
-  .group:active .dp-spoiler-label {
+  .group\/spoiler:active .dp-spoiler-label {
     --tw-text-opacity: 1;
     color: rgb(96 165 250 / var(--tw-text-opacity));
   }
@@ -4917,13 +4917,13 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-spoiler-label-open {
+  .group\/spoiler:hover .dp-spoiler-label-open {
     --tw-text-opacity: 1;
     color: rgb(37 99 235 / var(--tw-text-opacity));
   }
 }
 
-.group:active .dp-spoiler-label-open {
+.group\/spoiler:active .dp-spoiler-label-open {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
 }
@@ -4935,13 +4935,13 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-spoiler-label-open {
+    .group\/spoiler:hover .dp-spoiler-label-open {
       --tw-text-opacity: 1;
       color: rgb(59 130 246 / var(--tw-text-opacity));
     }
   }
 
-  .group:active .dp-spoiler-label-open {
+  .group\/spoiler:active .dp-spoiler-label-open {
     --tw-text-opacity: 1;
     color: rgb(96 165 250 / var(--tw-text-opacity));
   }
@@ -5015,12 +5015,12 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-spoiler-button {
+  .group\/spoiler:hover .dp-spoiler-button {
     fill: #2563eb;
   }
 }
 
-.group:active .dp-spoiler-button {
+.group\/spoiler:active .dp-spoiler-button {
   fill: #1d4ed8;
 }
 
@@ -5030,12 +5030,12 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-spoiler-button {
+    .group\/spoiler:hover .dp-spoiler-button {
       fill: #3b82f6;
     }
   }
 
-  .group:active .dp-spoiler-button {
+  .group\/spoiler:active .dp-spoiler-button {
     fill: #60a5fa;
   }
 }
@@ -5052,12 +5052,12 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-spoiler-button-open {
+  .group\/spoiler:hover .dp-spoiler-button-open {
     fill: #2563eb;
   }
 }
 
-.group:active .dp-spoiler-button-open {
+.group\/spoiler:active .dp-spoiler-button-open {
   fill: #1d4ed8;
 }
 
@@ -5067,12 +5067,12 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-spoiler-button-open {
+    .group\/spoiler:hover .dp-spoiler-button-open {
       fill: #3b82f6;
     }
   }
 
-  .group:active .dp-spoiler-button-open {
+  .group\/spoiler:active .dp-spoiler-button-open {
     fill: #60a5fa;
   }
 }

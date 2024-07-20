@@ -260,7 +260,7 @@
     }
 
     .dp-radio-circle-on {
-        @apply bg-blue-600 border-blue-700 dp-radio-circle-base group-hover:bg-blue-700 group-active:bg-blue-800 dark:group-hover:bg-blue-500 dark:group-active:bg-blue-400 group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-500 dark:group-hover:border-blue-400 dark:group-active:border-blue-400 group-hover:scale-105 group-active:scale-95 fill-neutral-100 stroke-white;
+        @apply bg-blue-600 border-blue-700 dp-radio-circle-base group-hover/radio:bg-blue-700 group-active/radio:bg-blue-800 dark:group-hover/radio:bg-blue-500 dark:group-active/radio:bg-blue-400 group-hover/radio:border-blue-800 group-active/radio:border-blue-800 dark:border-blue-500 dark:group-hover/radio:border-blue-400 dark:group-active/radio:border-blue-400 group-hover/radio:scale-105 group-active/radio:scale-95 fill-neutral-100 stroke-white;
     }
 
     .dp-radio-circle-on-disabled {
@@ -268,7 +268,7 @@
     }
 
     .dp-radio-circle-off {
-        @apply dp-radio-circle-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover:fill-neutral-400 dark:group-hover:stroke-neutral-400 dark:group-active:fill-neutral-300 dark:group-active:stroke-neutral-300 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95 stroke-neutral-200 fill-neutral-200 group-hover:stroke-neutral-500 group-hover:fill-neutral-500 group-active:stroke-neutral-600 group-active:fill-neutral-600;
+        @apply dp-radio-circle-base bg-neutral-200 group-hover/radio:bg-neutral-300 group-active/radio:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover/radio:fill-neutral-400 dark:group-hover/radio:stroke-neutral-400 dark:group-active/radio:fill-neutral-300 dark:group-active/radio:stroke-neutral-300 dark:group-hover/radio:bg-neutral-600 dark:group-active/radio:bg-neutral-500 border-neutral-300 group-hover/radio:border-neutral-400 group-active/radio:border-neutral-400 dark:border-neutral-600 dark:group-hover/radio:border-neutral-500 dark:group-active/radio:border-neutral-500 group-hover/radio:scale-105 group-active/radio:scale-95 stroke-neutral-200 fill-neutral-200 group-hover/radio:stroke-neutral-500 group-hover/radio:fill-neutral-500 group-active/radio:stroke-neutral-600 group-active/radio:fill-neutral-600;
     }
 
     .dp-radio-circle-off-disabled {
@@ -280,7 +280,7 @@
     }
 
     .dp-radio-dot-on {
-        @apply w-5 h-5 bg-white shadow-sm border-blue-700 sm:w-3.5 sm:h-3.5 dp-radio-dot-base group-hover:border-blue-800 group-active:border-blue-800 dark:border-blue-700 dark:group-hover:border-blue-600 dark:group-active:border-blue-600;
+        @apply w-5 h-5 bg-white shadow-sm border-blue-700 sm:w-3.5 sm:h-3.5 dp-radio-dot-base group-hover/radio:border-blue-800 group-active/radio:border-blue-800 dark:border-blue-700 dark:group-hover/radio:border-blue-600 dark:group-active/radio:border-blue-600;
     }
 
     .dp-radio-dot-on-disabled {
@@ -288,7 +288,7 @@
     }
 
     .dp-radio-dot-off {
-        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover:bg-neutral-500 group-active:bg-neutral-600 group-hover:border-neutral-500 dark:group-hover:bg-neutral-400 dark:group-hover:border-neutral-400 group-active:border-neutral-400 group-hover:shadow-sm dark:group-active:bg-neutral-300 dark:group-active:border-neutral-300;
+        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover/radio:bg-neutral-500 group-active/radio:bg-neutral-600 group-hover/radio:border-neutral-500 dark:group-hover/radio:bg-neutral-400 dark:group-hover/radio:border-neutral-400 group-active/radio:border-neutral-400 group-hover/radio:shadow-sm dark:group-active/radio:bg-neutral-300 dark:group-active/radio:border-neutral-300;
     }
 
     .dp-radio-dot-off-disabled {

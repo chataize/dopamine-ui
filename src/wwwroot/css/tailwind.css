@@ -2749,7 +2749,7 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-radio-circle-on {
+  .group\/radio:hover .dp-radio-circle-on {
     --tw-scale-x: 1.05;
     --tw-scale-y: 1.05;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2760,7 +2760,7 @@ video {
   }
 }
 
-.group:active .dp-radio-circle-on {
+.group\/radio:active .dp-radio-circle-on {
   --tw-scale-x: .95;
   --tw-scale-y: .95;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2777,7 +2777,7 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-radio-circle-on {
+    .group\/radio:hover .dp-radio-circle-on {
       --tw-border-opacity: 1;
       border-color: rgb(96 165 250 / var(--tw-border-opacity));
       --tw-bg-opacity: 1;
@@ -2785,7 +2785,7 @@ video {
     }
   }
 
-  .group:active .dp-radio-circle-on {
+  .group\/radio:active .dp-radio-circle-on {
     --tw-border-opacity: 1;
     border-color: rgb(96 165 250 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
@@ -2871,7 +2871,7 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-radio-circle-off {
+  .group\/radio:hover .dp-radio-circle-off {
     --tw-scale-x: 1.05;
     --tw-scale-y: 1.05;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2884,7 +2884,7 @@ video {
   }
 }
 
-.group:active .dp-radio-circle-off {
+.group\/radio:active .dp-radio-circle-off {
   --tw-scale-x: .95;
   --tw-scale-y: .95;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2907,7 +2907,7 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-radio-circle-off {
+    .group\/radio:hover .dp-radio-circle-off {
       --tw-border-opacity: 1;
       border-color: rgb(115 115 115 / var(--tw-border-opacity));
       --tw-bg-opacity: 1;
@@ -2917,7 +2917,7 @@ video {
     }
   }
 
-  .group:active .dp-radio-circle-off {
+  .group\/radio:active .dp-radio-circle-off {
     --tw-border-opacity: 1;
     border-color: rgb(115 115 115 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
@@ -2989,13 +2989,13 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-radio-dot-on {
+  .group\/radio:hover .dp-radio-dot-on {
     --tw-border-opacity: 1;
     border-color: rgb(30 64 175 / var(--tw-border-opacity));
   }
 }
 
-.group:active .dp-radio-dot-on {
+.group\/radio:active .dp-radio-dot-on {
   --tw-border-opacity: 1;
   border-color: rgb(30 64 175 / var(--tw-border-opacity));
 }
@@ -3014,13 +3014,13 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-radio-dot-on {
+    .group\/radio:hover .dp-radio-dot-on {
       --tw-border-opacity: 1;
       border-color: rgb(37 99 235 / var(--tw-border-opacity));
     }
   }
 
-  .group:active .dp-radio-dot-on {
+  .group\/radio:active .dp-radio-dot-on {
     --tw-border-opacity: 1;
     border-color: rgb(37 99 235 / var(--tw-border-opacity));
   }
@@ -3092,7 +3092,7 @@ video {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .group:hover .dp-radio-dot-off {
+  .group\/radio:hover .dp-radio-dot-off {
     --tw-border-opacity: 1;
     border-color: rgb(115 115 115 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
@@ -3103,7 +3103,7 @@ video {
   }
 }
 
-.group:active .dp-radio-dot-off {
+.group\/radio:active .dp-radio-dot-off {
   --tw-border-opacity: 1;
   border-color: rgb(163 163 163 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -3124,7 +3124,7 @@ video {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .group:hover .dp-radio-dot-off {
+    .group\/radio:hover .dp-radio-dot-off {
       --tw-border-opacity: 1;
       border-color: rgb(163 163 163 / var(--tw-border-opacity));
       --tw-bg-opacity: 1;
@@ -3132,7 +3132,7 @@ video {
     }
   }
 
-  .group:active .dp-radio-dot-off {
+  .group\/radio:active .dp-radio-dot-off {
     --tw-border-opacity: 1;
     border-color: rgb(212 212 212 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;

@@ -1,10 +1,10 @@
-<label for="@_id" class="@LabelClass @BorderClass @WidthClass">
+<label for="@_id" class="group/switch @LabelClass @BorderClass @WidthClass">
     <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" @bind:after="InvokeValueChangedAsync" />
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <span>@Label</span>
     }
-    <div class="group @PillClass">
+    <div class="group/switch @PillClass">
         <div class="@DotClass sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
         <div class="@DotClass -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
     </div>
@@ -51,7 +51,7 @@
         }
     }
 
-    private string LabelClass => Context.IsDisabled ? "dp-switch-disabled group" : "dp-switch group";
+    private string LabelClass => Context.IsDisabled ? "dp-switch-disabled" : "dp-switch";
 
     private string BorderClass
     {

@@ -184,11 +184,11 @@
     }
 
     .dp-switch-pill-on {
-        @apply bg-green-600 border-green-700 dp-switch-pill-base group-hover:bg-green-700 group-active:bg-green-800 dark:group-hover:bg-green-500 dark:group-active:bg-green-400 group-hover:border-green-800 group-active:border-green-800 dark:border-green-500 dark:group-hover:border-green-400 dark:group-active:border-green-400 group-hover:scale-105 group-active:scale-95;
+        @apply bg-green-600 border-green-700 dp-switch-pill-base group-hover/switch:bg-green-700 group-active/switch:bg-green-800 dark:group-hover/switch:bg-green-500 dark:group-active/switch:bg-green-400 group-hover/switch:border-green-800 group-active/switch:border-green-800 dark:border-green-500 dark:group-hover/switch:border-green-400 dark:group-active/switch:border-green-400 group-hover/switch:scale-105 group-active/switch:scale-95;
     }
 
     .dp-switch-pill-off {
-        @apply dp-switch-pill-base bg-neutral-200 group-hover:bg-neutral-300 group-active:bg-neutral-400 dark:bg-neutral-700 dark:group-hover:bg-neutral-600 dark:group-active:bg-neutral-500 border-neutral-300 group-hover:border-neutral-400 group-active:border-neutral-400 dark:border-neutral-600 dark:group-hover:border-neutral-500 dark:group-active:border-neutral-500 group-hover:scale-105 group-active:scale-95;
+        @apply dp-switch-pill-base bg-neutral-200 group-hover/switch:bg-neutral-300 group-active/switch:bg-neutral-400 dark:bg-neutral-700 dark:group-hover/switch:bg-neutral-600 dark:group-active/switch:bg-neutral-500 border-neutral-300 group-hover/switch:border-neutral-400 group-active/switch:border-neutral-400 dark:border-neutral-600 dark:group-hover/switch:border-neutral-500 dark:group-active/switch:border-neutral-500 group-hover/switch:scale-105 group-active/switch:scale-95;
     }
 
     .dp-switch-pill-disabled {
@@ -200,11 +200,11 @@
     }
 
     .dp-switch-dot-on {
-        @apply bg-white border-green-700 dp-switch-dot-base group-hover:border-green-800 group-active:border-green-800 dark:border-green-700 dark:group-hover:border-green-600 dark:group-active:border-green-600;
+        @apply bg-white border-green-700 dp-switch-dot-base group-hover/switch:border-green-800 group-active/switch:border-green-800 dark:border-green-700 dark:group-hover/switch:border-green-600 dark:group-active/switch:border-green-600;
     }
 
     .dp-switch-dot-off {
-        @apply bg-white dp-switch-dot-base border-neutral-200 group-hover:border-neutral-300 group-active:border-white;
+        @apply bg-white dp-switch-dot-base border-neutral-200 group-hover/switch:border-neutral-300 group-active/switch:border-white;
     }
 
     .dp-switch-dot-disabled {

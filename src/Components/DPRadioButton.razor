@@ -1,15 +1,20 @@
 @typeparam T
-
-<label for="@_id" class="group/radio @LabelClass @BorderClass @WidthClass">
-    <input id="@_id" type="checkbox" value="@IsSelected" disabled="@Context.IsDisabled" hidden @onchange="OnChangeAsync" />
-    <div class="@CircleClass">
-        <div class="@DotClass" />
-    </div>
-    @if (!string.IsNullOrWhiteSpace(Label))
+<div class="space-y-3 @WidthClass">
+    <label for="@_id" class="group/radio @LabelClass @BorderClass @WidthClass">
+        <input id="@_id" type="checkbox" value="@IsSelected" disabled="@Context.IsDisabled" hidden @onchange="OnChangeAsync" />
+        <div class="@CircleClass">
+            <div class="@DotClass" />
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Label))
+        {
+            <span>@Label</span>
+        }
+    </label>
+    @if (!string.IsNullOrWhiteSpace(Caption))
     {
-        <span>@Label</span>
+        <div class="@CaptionClass">@Caption</div>
     }
-</label>
+</div>
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
@@ -22,6 +27,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public T? Value { get; set; }
@@ -85,6 +93,26 @@
             }
 
             return IsSelected ? "dp-radio-dot-on" : "dp-radio-dot-off";
+        }
+    }
+
+    private string CaptionClass
+    {
+        get
+        {
+            var captionClass = Context.IsDisabled ? "dp-caption-disabled" : "dp-caption";
+
+            if (IsBorderless == false)
+            {
+                return captionClass + " px-3";
+            }
+
+            if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
+            {
+                return captionClass;
+            }
+
+            return captionClass + " -sm:px-3";
         }
     }
 

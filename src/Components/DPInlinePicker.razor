@@ -1,20 +1,26 @@
 @typeparam T
 
-<div>
-    @if (!String.IsNullOrWhiteSpace(Label))
-    {
-        <label class="dp-label-base">
-            <span class="@LabelClass">@Label</span>
-            <span class="@EditIndicatorClass">●</span>
-        </label>
-    }
-    <div class="@PickerClass @WidthClass">
-        <CascadingValue Value="Context">
-            <CascadingValue Value="this">
-                @ChildContent
+<div class="space-y-3 @WidthClass">
+    <div>
+        @if (!String.IsNullOrWhiteSpace(Label))
+        {
+            <label class="dp-label-base">
+                <span class="@LabelClass">@Label</span>
+                <span class="@EditIndicatorClass">●</span>
+            </label>
+        }
+        <div class="@PickerClass @WidthClass">
+            <CascadingValue Value="Context">
+                <CascadingValue Value="this">
+                    @ChildContent
+                </CascadingValue>
             </CascadingValue>
-        </CascadingValue>
+        </div>
     </div>
+    @if (!String.IsNullOrWhiteSpace(Caption))
+    {
+        <div class="@CaptionClass">@Caption</div>
+    }
 </div>
 
 @code {
@@ -23,6 +29,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public T? Value { get; set; }
@@ -63,6 +72,8 @@
     }
 
     private string PickerClass => Context.IsDisabled ? "dp-inline-picker-disabled" : "dp-inline-picker";
+
+    private string CaptionClass => Context.IsDisabled ? "dp-caption-disabled px-3" : "dp-caption px-3";
 
     private string WidthClass
     {

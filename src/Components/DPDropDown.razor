@@ -1,6 +1,6 @@
 @typeparam T
 
-<div>
+<div class="space-y-3 @WidthClass">
     @if (!String.IsNullOrWhiteSpace(Label))
     {
         <label for="@_id" class="dp-label-base">
@@ -33,6 +33,10 @@
             </CascadingValue>
         </div>
     </div>
+    @if (!string.IsNullOrWhiteSpace(Caption))
+    {
+        <div class="@CaptionClass">@Caption</div>
+    }
 </div>
 
 @code {
@@ -45,6 +49,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public T? Value { get; set; }
@@ -119,6 +126,8 @@
     }
 
     private string ListClass => ActualIsOpen ? "dp-menu translate-y-12" : "dp-menu-hidden -translate-y-12";
+
+    private string CaptionClass => Context.IsDisabled ? "dp-caption-disabled px-3" : "dp-caption px-3";
 
     private string WidthClass
     {

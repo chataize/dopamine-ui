@@ -1,19 +1,25 @@
-<div>
-    @if (!string.IsNullOrWhiteSpace(Label))
-    {
-        <label for="@_id" class="dp-label-base">
-            <span class="@LabelClass">@Label</span>
-            <span class="@EditIndicatorClass">●</span>
-        </label>
-    }
-    <div class="relative flex @WidthClass">
-        <textarea id="@_id" class="@InputClass @WidthClass" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@Context.IsDisabled" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
-        @if (IsLoading)
+<div class="space-y-3 @WidthClass">
+    <div>
+        @if (!string.IsNullOrWhiteSpace(Label))
         {
-            <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute p-1 rounded-lg right-2 top-2 backdrop-blur dark:hidden" />
-            <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" width="26" height="26" class="absolute hidden p-1 rounded-lg top-2 right-2 backdrop-blur dark:inline" />
+            <label for="@_id" class="dp-label-base">
+                <span class="@LabelClass">@Label</span>
+                <span class="@EditIndicatorClass">●</span>
+            </label>
         }
+        <div class="relative flex @WidthClass">
+            <textarea id="@_id" class="@InputClass @WidthClass" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@Context.IsDisabled" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
+            @if (IsLoading)
+            {
+                <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute p-1 rounded-lg right-2 top-2 backdrop-blur dark:hidden" />
+                <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" width="26" height="26" class="absolute hidden p-1 rounded-lg top-2 right-2 backdrop-blur dark:inline" />
+            }
+        </div>
     </div>
+    @if (!string.IsNullOrWhiteSpace(Caption))
+    {
+        <div class="@CaptionClass">@Caption</div>
+    }
 </div>
 
 @code {
@@ -24,6 +30,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public string? Placeholder { get; set; }
@@ -123,6 +132,8 @@
     }
 
     private string CaseClass => IsLowercase ? "lowercase" : string.Empty;
+
+    private string CaptionClass => Context.IsDisabled ? "dp-caption-disabled px-3" : "dp-caption px-3";
 
     private string WidthClass
     {

@@ -1,14 +1,21 @@
-<label for="@_id" class="group/switch @LabelClass @BorderClass @WidthClass">
-    <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" @bind:after="InvokeValueChangedAsync" />
-    @if (!string.IsNullOrWhiteSpace(Label))
+<div class="space-y-3 @WidthClass">
+    <label for="@_id" class="group/switch @LabelClass @BorderClass @WidthClass">
+        <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" @bind:after="InvokeValueChangedAsync" />
+        @if (!string.IsNullOrWhiteSpace(Label))
+        {
+            <span>@Label</span>
+        }
+        <div class="@PillClass">
+            <div class="@DotClass sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
+            <div class="@DotClass -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
+        </div>
+
+    </label>
+    @if (!string.IsNullOrWhiteSpace(Caption))
     {
-        <span>@Label</span>
+        <div class="@CaptionClass">@Caption</div>
     }
-    <div class="@PillClass">
-        <div class="@DotClass sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
-        <div class="@DotClass -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
-    </div>
-</label>
+</div>
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
@@ -18,6 +25,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public bool Value { get; set; }
@@ -94,6 +104,26 @@
             }
 
             return Value ? "dp-switch-dot-on" : "dp-switch-dot-off";
+        }
+    }
+
+    private string CaptionClass
+    {
+        get
+        {
+            var captionClass = Context.IsDisabled ? "dp-caption-disabled" : "dp-caption";
+
+            if (IsBorderless == false)
+            {
+                return captionClass + " px-3";
+            }
+
+            if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
+            {
+                return captionClass;
+            }
+
+            return captionClass + " -sm:px-3";
         }
     }
 

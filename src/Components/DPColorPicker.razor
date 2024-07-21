@@ -1,5 +1,5 @@
-<div class="space-y-2">
-    <div class="@WidthClass">
+<div class="space-y-3">
+    <div class="space-y-2">
         @if (!string.IsNullOrWhiteSpace(Label))
         {
             <label class="dp-label-base">
@@ -7,33 +7,37 @@
                 <span class="@EditIndicatorClass">●</span>
             </label>
         }
+        <div class="dp-color-picker-row @WidthClass">
+            <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
+            <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
+            <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
+            <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
+            <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
+            <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
+            <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
+            <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
+            <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
+            <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
+        </div>
+        <div class="dp-color-picker-row-compact">
+            <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
+            <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
+            <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
+            <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
+            <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
+        </div>
+        <div class="dp-color-picker-row-compact">
+            <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
+            <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
+            <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
+            <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
+            <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
+        </div>
     </div>
-    <div class="dp-color-picker-row @WidthClass">
-        <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
-        <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
-        <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
-        <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
-        <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
-        <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
-        <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
-        <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
-        <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
-        <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
-    </div>
-    <div class="dp-color-picker-row-compact">
-        <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
-        <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
-        <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
-        <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
-        <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
-    </div>
-    <div class="dp-color-picker-row-compact">
-        <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
-        <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
-        <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
-        <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
-        <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
-    </div>
+    @if (!string.IsNullOrWhiteSpace(Caption))
+    {
+        <div class="@CaptionClass">@Caption</div>
+    }
 </div>
 
 @code {
@@ -42,6 +46,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public DPColor? Value { get; set; }
@@ -77,6 +84,8 @@
             return "dp-edit-indicator-inactive";
         }
     }
+
+    private string CaptionClass => Context.IsDisabled ? "dp-caption-disabled px-3" : "dp-caption px-3";
 
     private string WidthClass
     {

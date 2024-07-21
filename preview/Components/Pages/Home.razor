@@ -95,7 +95,7 @@
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPButton IsFullWidth="true">Button</DPButton>
+        <DPButton Caption="This is an example caption." IsFullWidth="true">Button</DPButton>
         <DPButton IsFullWidth="true">Button</DPButton>
     </DPAdaptiveView>
     <DPSubheader>Rounded</DPSubheader>
@@ -145,7 +145,7 @@
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPTextField Label="Normal" IsFullWidth="true" @bind-Value="Text" />
+        <DPTextField Label="Normal" Caption="This is an example caption." IsFullWidth="true" @bind-Value="Text" />
         <DPTextField Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
         <DPTextField Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="Text" />
     </DPAdaptiveView>
@@ -162,10 +162,10 @@
         <DPTextArea Label="Disabled" IsDisabled="true" @bind-Value="Text" />
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
-    <DPAdaptiveView>
-        <DPTextArea Label="Normal" IsFullWidth="true" @bind-Value="Text" />
-        <DPTextArea Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
-        <DPTextArea Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="Text" />
+    <DPAdaptiveView RequiredSize="@ScreenSize.ExtraExtraLarge">
+        <DPTextArea Label="Normal" Caption="This is an example caption." IsFullWidth="true" @bind-Value="Text" />
+        <DPTextArea Label="Loading" Caption="This is an example caption." IsFullWidth="true" IsLoading="true" @bind-Value="Text" />
+        <DPTextArea Label="Disabled" Caption="This is an example caption." IsFullWidth="true" IsDisabled="true" @bind-Value="Text" />
     </DPAdaptiveView>
 
     <br />
@@ -175,14 +175,14 @@
     <DPHeader>Toggle Buttons</DPHeader>
     <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
-        <DPToggleButton @bind-Value="BoolValue">Normal</DPToggleButton>
+        <DPToggleButton Caption="This is an example caption." @bind-Value="BoolValue">Normal</DPToggleButton>
         <DPToggleButton IsLoading="true" @bind-Value="BoolValue">Loading</DPToggleButton>
         <DPToggleButton IsDisabled="true" @bind-Value="BoolValue">Disabled</DPToggleButton>
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
-    <DPToggleButton IsFullWidth="true" @bind-Value="BoolValue">Normal</DPToggleButton>
-    <DPToggleButton IsFullWidth="true" IsLoading="true" @bind-Value="BoolValue">Loading</DPToggleButton>
-    <DPToggleButton IsFullWidth="true" IsDisabled="true" @bind-Value="BoolValue">Disabled</DPToggleButton>
+    <DPToggleButton Caption="This is an example caption." IsFullWidth="true" @bind-Value="BoolValue">Normal</DPToggleButton>
+    <DPToggleButton Caption="This is an example caption." IsFullWidth="true" IsLoading="true" @bind-Value="BoolValue">Loading</DPToggleButton>
+    <DPToggleButton Caption="This is an example caption." IsFullWidth="true" IsDisabled="true" @bind-Value="BoolValue">Disabled</DPToggleButton>
 
     <br />
     <DPDivider />
@@ -190,26 +190,26 @@
 
     <DPHeader>Toggle Switches</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPToggleSwitch @bind-value="BoolValue" />
+    <DPToggleSwitch Caption="This is an example caption under a unlabeled toggle switch." @bind-value="BoolValue" />
     <DPSubheader>Automatic</DPSubheader>
     <DPAdaptiveView>
-        <DPToggleSwitch Label="Normal" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" Caption="This is an example caption under a toggle switch." @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" Caption="This is an example caption under a toggle switch." IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
     <DPSubheader>Borderless</DPSubheader>
     <DPAdaptiveView>
-        <DPToggleSwitch Label="Normal" IsBorderless="true" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" Caption="This is an example caption under a toggle switch." IsBorderless="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" Caption="This is an example caption under a toggle switch." IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
     <DPSubheader>Bordered</DPSubheader>
     <DPAdaptiveView>
-        <DPToggleSwitch Label="Normal" IsBorderless="false" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" Caption="This is an example caption under a toggle switch." IsBorderless="false" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" Caption="This is an example caption under a toggle switch." IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPToggleSwitch Label="Normal" IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
-        <DPToggleSwitch Label="Disabled" IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Normal" Caption="This is an example caption under a full-width toggle switch." IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
+        <DPToggleSwitch Label="Disabled" Caption="This is an example caption under a full-width toggle switch." IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
 
     <br />
@@ -218,26 +218,26 @@
 
     <DPHeader>Checkboxes</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPCheckBox @bind-value="BoolValue" />
+    <DPCheckBox Caption="This is an example caption." @bind-value="BoolValue" />
     <DPSubheader>Automatic</DPSubheader>
     <DPAdaptiveView>
-        <DPCheckBox Label="Normal" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" Caption="This is an example caption." @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" Caption="This is an example caption." IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
     <DPSubheader>Borderless</DPSubheader>
     <DPAdaptiveView>
-        <DPCheckBox Label="Normal" IsBorderless="true" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" Caption="This is an example caption." IsBorderless="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" Caption="This is an example caption." IsBorderless="true" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
     <DPSubheader>Bordered</DPSubheader>
     <DPAdaptiveView>
-        <DPCheckBox Label="Normal" IsBorderless="false" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" Caption="This is an example caption." IsBorderless="false" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" Caption="This is an example caption." IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPCheckBox Label="Normal" IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
-        <DPCheckBox Label="Disabled" IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
+        <DPCheckBox Label="Normal" Caption="This is an example caption." IsFullWidth="true" IsBorderless="false" @bind-value="BoolValue" />
+        <DPCheckBox Label="Disabled" Caption="This is an example caption." IsFullWidth="true" IsBorderless="false" IsDisabled="true" @bind-value="BoolValue" />
     </DPAdaptiveView>
 
     <br />
@@ -248,49 +248,49 @@
     <DPSubheader>Unlabeled</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
-            <DPRadioButton Value="SampleEnum.Value1" />
-            <DPRadioButton Value="SampleEnum.Value2" />
-            <DPRadioButton IsDisabled="true" Value="SampleEnum.Value3" />
+            <DPRadioButton Value="SampleEnum.Value1" Caption="This is an example caption." />
+            <DPRadioButton Value="SampleEnum.Value2" Caption="This is an example caption." />
+            <DPRadioButton IsDisabled="true" Value="SampleEnum.Value3" Caption="This is an example caption." />
         </DPRadioGroup>
     </DPAdaptiveView>
     <DPSubheader>Automatic</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
-            <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" />
-            <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" />
-            <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" />
+            <DPRadioButton Label="Value 1" Caption="This is an example caption." Value="SampleEnum.Value1" />
+            <DPRadioButton Label="Value 2" Caption="This is an example caption." Value="SampleEnum.Value2" />
+            <DPRadioButton Label="Disabled" Caption="This is an example caption." IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </DPAdaptiveView>
     <DPSubheader>Disabled Group</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup IsDisabled="true" @bind-Value="EnumValue">
-            <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" />
-            <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" />
-            <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" />
+            <DPRadioButton Label="Value 1" Caption="This is an example caption." Value="SampleEnum.Value1" />
+            <DPRadioButton Label="Value 2" Caption="This is an example caption." Value="SampleEnum.Value2" />
+            <DPRadioButton Label="Disabled" Caption="This is an example caption." IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </DPAdaptiveView>
     <DPSubheader>Borderless</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
-            <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsBorderless="true" />
-            <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsBorderless="true" />
-            <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="true" />
+            <DPRadioButton Label="Value 1" Caption="This is an example caption." Value="SampleEnum.Value1" IsBorderless="true" />
+            <DPRadioButton Label="Value 2" Caption="This is an example caption." Value="SampleEnum.Value2" IsBorderless="true" />
+            <DPRadioButton Label="Disabled" Caption="This is an example caption." IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="true" />
         </DPRadioGroup>
     </DPAdaptiveView>
     <DPSubheader>Bordered</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
-            <DPRadioButton Label="Value 1" IsBorderless="false" Value="SampleEnum.Value1" />
-            <DPRadioButton Label="Value 2" IsBorderless="false" Value="SampleEnum.Value2" />
-            <DPRadioButton Label="Disabled" IsBorderless="false" IsDisabled="true" Value="SampleEnum.Value3" />
+            <DPRadioButton Label="Value 1" Caption="This is an example caption." IsBorderless="false" Value="SampleEnum.Value1" />
+            <DPRadioButton Label="Value 2" Caption="This is an example caption." IsBorderless="false" Value="SampleEnum.Value2" />
+            <DPRadioButton Label="Disabled" Caption="This is an example caption." IsBorderless="false" IsDisabled="true" Value="SampleEnum.Value3" />
         </DPRadioGroup>
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
         <DPRadioGroup @bind-Value="EnumValue">
-            <DPRadioButton Label="Value 1" Value="SampleEnum.Value1" IsBorderless="false" IsFullWidth="true" />
-            <DPRadioButton Label="Value 2" Value="SampleEnum.Value2" IsBorderless="false" IsFullWidth="true" />
-            <DPRadioButton Label="Disabled" IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="false" IsFullWidth="true" />
+            <DPRadioButton Label="Value 1" Caption="This is an example caption." Value="SampleEnum.Value1" IsBorderless="false" IsFullWidth="true" />
+            <DPRadioButton Label="Value 2" Caption="This is an example caption." Value="SampleEnum.Value2" IsBorderless="false" IsFullWidth="true" />
+            <DPRadioButton Label="Disabled" Caption="This is an example caption." IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="false" IsFullWidth="true" />
         </DPRadioGroup>
     </DPAdaptiveView>
 
@@ -300,41 +300,41 @@
 
     <DPHeader>Drop Down</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPDropDown @bind-Value="EnumValue">
+    <DPDropDown @bind-Value="EnumValue" Caption="This is an example caption.">
         <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value2" IsDisabled="true">Value 2</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
     </DPDropDown>
     <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
-        <DPDropDown @bind-Value="EnumValue" Label="@EnumValue.ToString()">
+        <DPDropDown @bind-Value="EnumValue" Label="@EnumValue.ToString()" Caption="This is an example caption.">
             <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
             <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
             <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
         </DPDropDown>
-        <DPDropDown @bind-Value="EnumValue" Label="Loading" IsLoading="true">
+        <DPDropDown @bind-Value="EnumValue" Label="Loading" Caption="This is an example caption." IsLoading="true">
             <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
             <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
             <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
         </DPDropDown>
-        <DPDropDown @bind-Value="EnumValue" Label="Disabled" IsDisabled="true">
+        <DPDropDown @bind-Value="EnumValue" Label="Disabled" Caption="This is an example caption." IsDisabled="true">
             <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
             <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
             <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
         </DPDropDown>
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
-    <DPDropDown @bind-Value="EnumValue" Label="@EnumValue.ToString()" IsFullWidth="true">
+    <DPDropDown @bind-Value="EnumValue" Label="@EnumValue.ToString()" Caption="This is an example caption." IsFullWidth="true">
         <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
     </DPDropDown>
-    <DPDropDown @bind-Value="EnumValue" Label="Loading" IsLoading="true" IsFullWidth="true">
+    <DPDropDown @bind-Value="EnumValue" Label="Loading" Caption="This is an example caption." IsLoading="true" IsFullWidth="true">
         <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
     </DPDropDown>
-    <DPDropDown @bind-Value="EnumValue" Label="Disabled" IsDisabled="true" IsFullWidth="true">
+    <DPDropDown @bind-Value="EnumValue" Label="Disabled" Caption="This is an example caption." IsDisabled="true" IsFullWidth="true">
         <DPDropDownItem Value="SampleEnum.Value1">Value 1</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value2">Value 2</DPDropDownItem>
         <DPDropDownItem Value="SampleEnum.Value3">Value 3</DPDropDownItem>
@@ -346,25 +346,21 @@
 
     <DPHeader>Date Picker</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPAdaptiveView>
-        <DPDatePicker From="@_from" To="@_to" @bind-Value="DateValue" />
-        <DPDatePicker From="@_from" To="@_to" IsLoading="true" @bind-Value="DateValue" />
-        <DPDatePicker From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
-    </DPAdaptiveView>
+    <DPDatePicker Caption="This is an example caption." From="@_from" To="@_to" @bind-Value="DateValue" />
+    <DPDatePicker Caption="This is an example caption." From="@_from" To="@_to" IsLoading="true" @bind-Value="DateValue" />
+    <DPDatePicker Caption="This is an example caption." From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
     <DPSubheader>Standard</DPSubheader>
-    <DPAdaptiveView>
-        <DPDatePicker Label="Normal" From="@_from" To="@_to" @bind-Value="DateValue" />
-        <DPDatePicker Label="Normal" From="@_from" To="@_to" IsEdited="true" @bind-Value="DateValue" />
-        <DPDatePicker Label="Loading" From="@_from" To="@_to" IsLoading="true" @bind-Value="DateValue" />
-        <DPDatePicker Label="Loading" From="@_from" To="@_to" IsEdited="true" IsLoading="true" @bind-Value="DateValue" />
-        <DPDatePicker Label="Disabled" From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
-        <DPDatePicker Label="Disabled" From="@_from" To="@_to" IsEdited="true" IsDisabled="true" @bind-Value="DateValue" />
-    </DPAdaptiveView>
+    <DPDatePicker Label="Normal" Caption="This is an example caption." From="@_from" To="@_to" @bind-Value="DateValue" />
+    <DPDatePicker Label="Normal" Caption="This is an example caption." From="@_from" To="@_to" IsEdited="true" @bind-Value="DateValue" />
+    <DPDatePicker Label="Loading" Caption="This is an example caption." From="@_from" To="@_to" IsLoading="true" @bind-Value="DateValue" />
+    <DPDatePicker Label="Loading" Caption="This is an example caption." From="@_from" To="@_to" IsEdited="true" IsLoading="true" @bind-Value="DateValue" />
+    <DPDatePicker Label="Disabled" Caption="This is an example caption." From="@_from" To="@_to" IsDisabled="true" @bind-Value="DateValue" />
+    <DPDatePicker Label="Disabled" Caption="This is an example caption." From="@_from" To="@_to" IsEdited="true" IsDisabled="true" @bind-Value="DateValue" />
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPDatePicker Label="Normal" From="@_from" To="@_to" IsFullWidth="true" @bind-Value="DateValue" />
-        <DPDatePicker Label="Loading" From="@_from" To="@_to" IsFullWidth="true" IsLoading="true" @bind-Value="DateValue" />
-        <DPDatePicker Label="Disabled" From="@_from" To="@_to" IsFullWidth="true" IsDisabled="true" @bind-Value="DateValue" />
+        <DPDatePicker Label="Normal" Caption="This is an example caption." From="@_from" To="@_to" IsFullWidth="true" @bind-Value="DateValue" />
+        <DPDatePicker Label="Loading" Caption="This is an example caption." From="@_from" To="@_to" IsFullWidth="true" IsLoading="true" @bind-Value="DateValue" />
+        <DPDatePicker Label="Disabled" Caption="This is an example caption." From="@_from" To="@_to" IsFullWidth="true" IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
 
     <br />
@@ -374,24 +370,24 @@
     <DPHeader>Time Picker</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
     <DPAdaptiveView>
-        <DPTimePicker @bind-Value="DateValue" />
-        <DPTimePicker IsShowingSeconds="true" @bind-Value="DateValue" />
-        <DPTimePicker IsLoading="true" @bind-Value="DateValue" />
-        <DPTimePicker IsDisabled="true" @bind-Value="DateValue" />
+        <DPTimePicker Caption="This is an example caption." @bind-Value="DateValue" />
+        <DPTimePicker Caption="This is an example caption." IsShowingSeconds="true" @bind-Value="DateValue" />
+        <DPTimePicker Caption="This is an example caption." IsLoading="true" @bind-Value="DateValue" />
+        <DPTimePicker Caption="This is an example caption." IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
     <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
-        <DPTimePicker Label="Normal" @bind-Value="DateValue" />
-        <DPTimePicker Label="Normal" IsShowingSeconds="true" IsEdited="@BoolValue" @bind-Value="DateValue" />
-        <DPTimePicker Label="Loading" IsLoading="true" @bind-Value="DateValue" />
-        <DPTimePicker Label="Disabled" IsDisabled="true" @bind-Value="DateValue" />
+        <DPTimePicker Label="Normal" Caption="This is an example caption." @bind-Value="DateValue" />
+        <DPTimePicker Label="Normal" Caption="This is an example caption." IsShowingSeconds="true" IsEdited="@BoolValue" @bind-Value="DateValue" />
+        <DPTimePicker Label="Loading" Caption="This is an example caption." IsLoading="true" @bind-Value="DateValue" />
+        <DPTimePicker Label="Disabled" Caption="This is an example caption." IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPTimePicker Label="Normal" IsFullWidth="true" @bind-Value="DateValue" />
-        <DPTimePicker Label="Normal" IsShowingSeconds="true" IsFullWidth="true" IsEdited="@BoolValue" @bind-Value="DateValue" />
-        <DPTimePicker Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="DateValue" />
-        <DPTimePicker Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="DateValue" />
+        <DPTimePicker Label="Normal" Caption="This is an example caption." IsFullWidth="true" @bind-Value="DateValue" />
+        <DPTimePicker Label="Normal" Caption="This is an example caption." IsShowingSeconds="true" IsFullWidth="true" IsEdited="@BoolValue" @bind-Value="DateValue" />
+        <DPTimePicker Label="Loading" Caption="This is an example caption." IsFullWidth="true" IsLoading="true" @bind-Value="DateValue" />
+        <DPTimePicker Label="Disabled" Caption="This is an example caption." IsFullWidth="true" IsDisabled="true" @bind-Value="DateValue" />
     </DPAdaptiveView>
 
     <br />
@@ -400,18 +396,18 @@
 
     <DPHeader>Stepper</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPStepper @bind-Value="IntValue" />
+    <DPStepper Caption="This is an example caption." @bind-Value="IntValue" />
     <DPSubheader>Standard</DPSubheader>
     <DPAdaptiveView>
-        <DPStepper Label="Normal" @bind-Value="IntValue" />
-        <DPStepper Label="Loading" IsLoading="true" @bind-Value="IntValue" />
-        <DPStepper Label="Disabled" IsDisabled="true" @bind-Value="IntValue" />
+        <DPStepper Label="Normal" Caption="This is an example caption." @bind-Value="IntValue" />
+        <DPStepper Label="Loading" Caption="This is an example caption." IsLoading="true" @bind-Value="IntValue" />
+        <DPStepper Label="Disabled" Caption="This is an example caption." IsDisabled="true" @bind-Value="IntValue" />
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPStepper Label="Normal" IsFullWidth="true" @bind-Value="IntValue" />
-        <DPStepper Label="Loading" IsFullWidth="true" IsLoading="true" @bind-Value="IntValue" />
-        <DPStepper Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
+        <DPStepper Label="Normal" Caption="This is an example caption." IsFullWidth="true" @bind-Value="IntValue" />
+        <DPStepper Label="Loading" Caption="This is an example caption." IsFullWidth="true" IsLoading="true" @bind-Value="IntValue" />
+        <DPStepper Label="Disabled" Caption="This is an example caption." IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
     </DPAdaptiveView>
 
     <br />
@@ -420,28 +416,28 @@
 
     <DPHeader>Progress Bar</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPProgressBar Value="@IntValue" />
+    <DPProgressBar Caption="This is an example caption." Value="@IntValue" />
     <DPSubheader>Automatic</DPSubheader>
-    <DPProgressBar Label="Normal" Value="@IntValue" />
-    <DPProgressBar Label="Normal" Value="@IntValue" IsShowingValue="true" />
-    <DPProgressBar Label="Normal" Value="@IntValue" IsShowingPercentage="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsShowingValue="true" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsShowingPercentage="true" IsDisabled="true" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsShowingValue="true" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsShowingPercentage="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsShowingValue="true" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsShowingPercentage="true" IsDisabled="true" />
     <DPSubheader>Standard Width</DPSubheader>
-    <DPProgressBar Label="Normal" Value="@IntValue" IsFullWidth="false" />
-    <DPProgressBar Label="Normal" Value="@IntValue" IsShowingValue="true" IsFullWidth="false" />
-    <DPProgressBar Label="Normal" Value="@IntValue" IsShowingPercentage="true" IsFullWidth="false" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsFullWidth="false" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsShowingValue="true" IsFullWidth="false" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsShowingPercentage="true" IsFullWidth="false" IsDisabled="true" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsFullWidth="false" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsShowingValue="true" IsFullWidth="false" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsShowingPercentage="true" IsFullWidth="false" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsFullWidth="false" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsShowingValue="true" IsFullWidth="false" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsShowingPercentage="true" IsFullWidth="false" IsDisabled="true" />
     <DPSubheader>Full Width</DPSubheader>
-    <DPProgressBar Label="Normal" Value="@IntValue" IsFullWidth="true" />
-    <DPProgressBar Label="Normal" Value="@IntValue" IsShowingValue="true" IsFullWidth="true" />
-    <DPProgressBar Label="Normal" Value="@IntValue" IsShowingPercentage="true" IsFullWidth="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsFullWidth="true" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsShowingValue="true" IsFullWidth="true" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Value="@IntValue" IsShowingPercentage="true" IsFullWidth="true" IsDisabled="true" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsFullWidth="true" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsShowingValue="true" IsFullWidth="true" />
+    <DPProgressBar Label="Normal" Caption="This is an example caption." Value="@IntValue" IsShowingPercentage="true" IsFullWidth="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsFullWidth="true" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsShowingValue="true" IsFullWidth="true" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="This is an example caption." Value="@IntValue" IsShowingPercentage="true" IsFullWidth="true" IsDisabled="true" />
 
     <br />
     <DPDivider />
@@ -531,14 +527,14 @@
 
     <DPHeader>Inline Picker</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPInlinePicker @bind-Value="EnumValue">
+    <DPInlinePicker Caption="This is an example caption." @bind-Value="EnumValue">
         <DPPickerItem Value="SampleEnum.Value1">Value 1</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value2">Value 2</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value3">Value 3</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value4" IsDisabled="true">Value 4</DPPickerItem>
     </DPInlinePicker>
     <DPSubheader>Standard</DPSubheader>
-    <DPInlinePicker Label="Normal" @bind-Value="EnumValue">
+    <DPInlinePicker Label="Normal" Caption="This is an example caption." @bind-Value="EnumValue">
         <DPPickerItem Value="SampleEnum.Value1">Value 1</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value2">Value 2</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value3">Value 3</DPPickerItem>
@@ -551,13 +547,13 @@
         <DPPickerItem Value="SampleEnum.Value4" IsDisabled="true">Value 4</DPPickerItem>
     </DPInlinePicker>
     <DPSubheader>Full Width</DPSubheader>
-    <DPInlinePicker Label="Normal" IsFullWidth="true" @bind-Value="EnumValue">
+    <DPInlinePicker Label="Normal" Caption="This is an example caption." IsFullWidth="true" @bind-Value="EnumValue">
         <DPPickerItem Value="SampleEnum.Value1">Value 1</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value2">Value 2</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value3">Value 3</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value4" IsDisabled="true">Value 4</DPPickerItem>
     </DPInlinePicker>
-    <DPInlinePicker Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="EnumValue">
+    <DPInlinePicker Label="Disabled" Caption="This is an example caption." IsFullWidth="true" IsDisabled="true" @bind-Value="EnumValue">
         <DPPickerItem Value="SampleEnum.Value1">Value 1</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value2">Value 2</DPPickerItem>
         <DPPickerItem Value="SampleEnum.Value3">Value 3</DPPickerItem>
@@ -612,13 +608,13 @@
 
     <DPHeader>Color Picker</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPColorPicker @bind-Value="ColorValue" />
+    <DPColorPicker Caption="This is an example caption." @bind-Value="ColorValue" />
     <DPSubheader>Standard</DPSubheader>
-    <DPColorPicker Label="Normal" @bind-Value="ColorValue" />
-    <DPColorPicker Label="Disabled" IsDisabled="true" @bind-Value="ColorValue" />
+    <DPColorPicker Label="Normal" Caption="This is an example caption." @bind-Value="ColorValue" />
+    <DPColorPicker Label="Disabled" Caption="This is an example caption." IsDisabled="true" @bind-Value="ColorValue" />
     <DPSubheader>Full Width</DPSubheader>
-    <DPColorPicker Label="Normal" IsFullWidth="true" @bind-Value="ColorValue" />
-    <DPColorPicker Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="ColorValue" />
+    <DPColorPicker Label="Normal" Caption="This is an example caption." IsFullWidth="true" @bind-Value="ColorValue" />
+    <DPColorPicker Label="Disabled" Caption="This is an example caption." IsFullWidth="true" IsDisabled="true" @bind-Value="ColorValue" />
 
     <br />
     <DPDivider />
@@ -674,16 +670,16 @@
 
     <DPHeader>Slider</DPHeader>
     <DPSubheader>Unlabeled</DPSubheader>
-    <DPSlider @bind-Value="IntValue" />
+    <DPSlider Caption="This is an example caption." @bind-Value="IntValue" />
     <DPSubheader>Standard</DPSubheader>
-    <DPSlider Label="Normal" IsShowingValue="true" @bind-Value="IntValue" />
-    <DPSlider Label="Disabled" IsShowingPercentage="true" IsDisabled="true" @bind-Value="IntValue" />
+    <DPSlider Label="Normal" Caption="This is an example caption." IsShowingValue="true" @bind-Value="IntValue" />
+    <DPSlider Label="Disabled" Caption="This is an example caption." IsShowingPercentage="true" IsDisabled="true" @bind-Value="IntValue" />
     <DPSubheader>Full Width</DPSubheader>
-    <DPSlider Label="Normal" IsFullWidth="true" @bind-Value="IntValue" />
-    <DPSlider Label="Disabled" IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
+    <DPSlider Label="Normal" Caption="This is an example caption." IsFullWidth="true" @bind-Value="IntValue" />
+    <DPSlider Label="Disabled" Caption="This is an example caption." IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
     <DPSubheader>Decimal</DPSubheader>
-    <DPDecimalSlider Label="Normal" Step="0.5" IsShowingValue="true" @bind-Value="DoubleValue" />
-    <DPDecimalSlider Label="Disabled" Step="0.5" IsShowingPercentage="true" IsDisabled="true" @bind-Value="DoubleValue" />
+    <DPDecimalSlider Label="Normal" Caption="This is an example caption." Step="0.5" IsShowingValue="true" @bind-Value="DoubleValue" />
+    <DPDecimalSlider Label="Disabled" Caption="This is an example caption." Step="0.5" IsShowingPercentage="true" IsDisabled="true" @bind-Value="DoubleValue" />
 
     <br />
     <DPDivider />

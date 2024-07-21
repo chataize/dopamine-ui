@@ -1,25 +1,31 @@
-<div>
-    @if (!string.IsNullOrWhiteSpace(Label))
-    {
-        <label class="dp-label-base">
-            <span class="@LabelClass">@Label</span>
-            @if (IsShowingValue)
-            {
-                <span class="@LabelClass"> — </span>
-                <span class="@LabelClass">@Value</span>
-                <span class="@LabelClass text-xs"> / </span>
-                <span class="@LabelClass">@MaxValue</span>
-            }
-            @if (IsShowingPercentage)
-            {
-                <span class="@LabelClass"> — </span>
-                <span class="@LabelClass">@Math.Round(ActualValue, 2)%</span>
-            }
-        </label>
-    }
-    <div class="dp-progressbar @WidthClass">
-        <div class="@FillClass" style="width: @Math.Clamp(ActualValue,0.0,100.0)%"></div>
+<div class="space-y-3">
+    <div>
+        @if (!string.IsNullOrWhiteSpace(Label))
+        {
+            <label class="dp-label-base">
+                <span class="@LabelClass">@Label</span>
+                @if (IsShowingValue)
+                {
+                    <span class="@LabelClass"> — </span>
+                    <span class="@LabelClass">@Value</span>
+                    <span class="@LabelClass text-xs"> / </span>
+                    <span class="@LabelClass">@MaxValue</span>
+                }
+                @if (IsShowingPercentage)
+                {
+                    <span class="@LabelClass"> — </span>
+                    <span class="@LabelClass">@Math.Round(ActualValue, 2)%</span>
+                }
+            </label>
+        }
+        <div class="dp-progressbar @WidthClass">
+            <div class="@FillClass" style="width: @Math.Clamp(ActualValue,0.0,100.0)%"></div>
+        </div>
     </div>
+    @if (!string.IsNullOrWhiteSpace(Caption))
+    {
+        <div class="@CaptionClass">@Caption</div>
+    }
 </div>
 
 @code {
@@ -28,6 +34,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public double Value { get; set; } = 0.5;
@@ -57,6 +66,22 @@
     private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
 
     private string FillClass => Context.IsDisabled ? "dp-progressbar-fill-disabled" : "dp-progressbar-fill";
+
+    private string CaptionClass
+    {
+        get
+        {
+            var captionClass = Context.IsDisabled ? "dp-caption-disabled" : "dp-caption";
+
+            if (!string.IsNullOrWhiteSpace(Label))
+            {
+                captionClass += " px-3";
+
+            }
+
+            return captionClass;
+        }
+    }
 
     private string WidthClass
     {

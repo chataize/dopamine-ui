@@ -1,23 +1,29 @@
-<div>
-    @if (!string.IsNullOrWhiteSpace(Label))
+<div class="space-y-3 @WidthClass">
+    <div>
+        @if (!string.IsNullOrWhiteSpace(Label))
+        {
+            <label class="dp-label-base">
+                <span class="@LabelClass">@Label</span>
+                @if (IsShowingValue)
+                {
+                    <span class="@LabelClass"> — </span>
+                    <span class="@LabelClass">@Value</span>
+                    <span class="@LabelClass text-xs"> / </span>
+                    <span class="@LabelClass">@MaxValue</span>
+                }
+                @if (IsShowingPercentage)
+                {
+                    <span class="@LabelClass"> — </span>
+                    <span class="@LabelClass">@Math.Round(Percentage, 2)%</span>
+                }
+            </label>
+        }
+        <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:after="InvokeValueChangedAsync">
+    </div>
+    @if (!string.IsNullOrWhiteSpace(Caption))
     {
-        <label class="dp-label-base">
-            <span class="@LabelClass">@Label</span>
-            @if (IsShowingValue)
-            {
-                <span class="@LabelClass"> — </span>
-                <span class="@LabelClass">@Value</span>
-                <span class="@LabelClass text-xs"> / </span>
-                <span class="@LabelClass">@MaxValue</span>
-            }
-            @if (IsShowingPercentage)
-            {
-                <span class="@LabelClass"> — </span>
-                <span class="@LabelClass">@Math.Round(Percentage, 2)%</span>
-            }
-        </label>
+        <div class="@CaptionClass">@Caption</div>
     }
-    <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:after="InvokeValueChangedAsync">
 </div>
 
 @code {
@@ -28,6 +34,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public double Value { get; set; }
@@ -91,6 +100,22 @@
     }
 
     private string SliderClass => Context.IsDisabled ? "dp-slider-disabled" : "dp-slider";
+
+    private string CaptionClass
+    {
+        get
+        {
+            var captionClass = Context.IsDisabled ? "dp-caption-disabled" : "dp-caption";
+
+            if (!string.IsNullOrWhiteSpace(Label))
+            {
+                captionClass += " px-3";
+
+            }
+
+            return captionClass;
+        }
+    }
 
     private string WidthClass
     {

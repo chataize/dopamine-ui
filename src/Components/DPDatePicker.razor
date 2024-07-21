@@ -1,71 +1,77 @@
-<div class="relative select-none @WidthClass">
-    @if (!String.IsNullOrWhiteSpace(Label))
-    {
-        <label for="@_id" class="dp-label-base">
-            <span class="@LabelClass">@Label</span>
-            <span class="@EditIndicatorClass">●</span>
-        </label>
-    }
-    <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToggleIsOpen">
-        <span>@FormattedValue</span>
-        @if (IsLoading)
+<div class="space-y-3 @WidthClass">
+    <div class="relative select-none @WidthClass">
+        @if (!String.IsNullOrWhiteSpace(Label))
         {
-            <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
-            <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="20" width="20" class="hidden dark:inline" />
+            <label for="@_id" class="dp-label-base">
+                <span class="@LabelClass">@Label</span>
+                <span class="@EditIndicatorClass">●</span>
+            </label>
         }
-        else
-        {
-            <svg class="transition-all duration-300 ease-in-out @(_isOpen ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
-                <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                    <g transform="scale(8.53333,8.53333)">
-                        <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
-                    </g>
-                </g>
-            </svg>
-        }
-    </button>
-    <div class="@CalendarClass @WidthClass">
-        <div class="flex items-center justify-between space-x-4 font-semibold">
-            <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth" disabled="@(!ActualIsOpen)">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+        <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToggleIsOpen">
+            <span>@FormattedValue</span>
+            @if (IsLoading)
+            {
+                <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />
+                <img src="/_content/ChatAIze.DopamineUI/img/loading-dark.gif" height="20" width="20" class="hidden dark:inline" />
+            }
+            else
+            {
+                <svg class="transition-all duration-300 ease-in-out @(_isOpen ? "-rotate-180" : "rotate-0")" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                        <g transform="scale(3.55556,3.55556)">
-                            <path d="M46.023,59.542c-1.008,0 -2.016,-0.378 -2.794,-1.137l-20.046,-19.561c-0.771,-0.752 -1.206,-1.785 -1.206,-2.863c0,-1.078 0.435,-2.11 1.206,-2.863l20.007,-19.522c1.582,-1.542 4.113,-1.512 5.657,0.069c1.542,1.581 1.512,4.114 -0.069,5.656l-17.074,16.66l17.113,16.698c1.581,1.542 1.611,4.075 0.069,5.656c-0.783,0.803 -1.823,1.207 -2.863,1.207z"></path>
+                        <g transform="scale(8.53333,8.53333)">
+                            <path d="M24.99023,8.98633c-0.26377,0.00624 -0.51439,0.11645 -0.69727,0.30664l-9.29297,9.29297l-9.29297,-9.29297c-0.18827,-0.19353 -0.4468,-0.30272 -0.7168,-0.30273c-0.40692,0.00011 -0.77321,0.24676 -0.92633,0.62377c-0.15312,0.37701 -0.06255,0.80921 0.22907,1.09303l10,10c0.39053,0.39037 1.02353,0.39037 1.41406,0l10,-10c0.29724,-0.28583 0.38857,-0.7248 0.23,-1.10546c-0.15857,-0.38066 -0.53454,-0.62497 -0.94679,-0.61524z"></path>
                         </g>
                     </g>
                 </svg>
-            </button>
-            <span class="w-6 cursor-default text-neutral-800 dark:text-neutral-100">@FormattedMonth</span>
-            <span class="cursor-default text-neutral-800 dark:text-neutral-100">@FormattedYear</span>
-            <button class="@NextMonthButtonClass" @onclick="ShowNextMonth" disabled="@(!ActualIsOpen)">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
-                    <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                        <g transform="scale(3.55556,3.55556)">
-                            <path d="M25.977,59.542c-1.04,0 -2.079,-0.403 -2.863,-1.207c-1.542,-1.581 -1.512,-4.114 0.069,-5.656l17.113,-16.698l-17.074,-16.66c-1.581,-1.542 -1.611,-4.075 -0.069,-5.656c1.544,-1.582 4.076,-1.612 5.657,-0.069l20.008,19.522c0.771,0.752 1.206,1.785 1.206,2.863c0,1.078 -0.435,2.11 -1.206,2.863l-20.047,19.56c-0.779,0.76 -1.787,1.138 -2.794,1.138z"></path>
+            }
+        </button>
+        <div class="@CalendarClass @WidthClass">
+            <div class="flex items-center justify-between space-x-4 font-semibold">
+                <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth" disabled="@(!ActualIsOpen)">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                        <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                            <g transform="scale(3.55556,3.55556)">
+                                <path d="M46.023,59.542c-1.008,0 -2.016,-0.378 -2.794,-1.137l-20.046,-19.561c-0.771,-0.752 -1.206,-1.785 -1.206,-2.863c0,-1.078 0.435,-2.11 1.206,-2.863l20.007,-19.522c1.582,-1.542 4.113,-1.512 5.657,0.069c1.542,1.581 1.512,4.114 -0.069,5.656l-17.074,16.66l17.113,16.698c1.581,1.542 1.611,4.075 0.069,5.656c-0.783,0.803 -1.823,1.207 -2.863,1.207z"></path>
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </button>
-        </div>
-        <div class="dp-calendar-grid">
-            <span class="dp-calendar-weekday">M</span>
-            <span class="dp-calendar-weekday">T</span>
-            <span class="dp-calendar-weekday">W</span>
-            <span class="dp-calendar-weekday">T</span>
-            <span class="dp-calendar-weekday">F</span>
-            <span class="dp-calendar-weekday">S</span>
-            <span class="dp-calendar-weekday">S</span>
-            @for (int i = 0; i < DayOffset; i++)
-            {
-                <span />
-            }
-            @for (int i = 1; i <= DaysInMonth; i++)
-            {
-                int day = i;
-                <button class="@GetDayClass(day)" disabled="@(!ActualIsOpen)" @onclick="() => SelectDayAsync(day)">@i</button>
-            }
+                    </svg>
+                </button>
+                <span class="w-6 cursor-default text-neutral-800 dark:text-neutral-100">@FormattedMonth</span>
+                <span class="cursor-default text-neutral-800 dark:text-neutral-100">@FormattedYear</span>
+                <button class="@NextMonthButtonClass" @onclick="ShowNextMonth" disabled="@(!ActualIsOpen)">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
+                        <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                            <g transform="scale(3.55556,3.55556)">
+                                <path d="M25.977,59.542c-1.04,0 -2.079,-0.403 -2.863,-1.207c-1.542,-1.581 -1.512,-4.114 0.069,-5.656l17.113,-16.698l-17.074,-16.66c-1.581,-1.542 -1.611,-4.075 -0.069,-5.656c1.544,-1.582 4.076,-1.612 5.657,-0.069l20.008,19.522c0.771,0.752 1.206,1.785 1.206,2.863c0,1.078 -0.435,2.11 -1.206,2.863l-20.047,19.56c-0.779,0.76 -1.787,1.138 -2.794,1.138z"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="dp-calendar-grid">
+                <span class="dp-calendar-weekday">M</span>
+                <span class="dp-calendar-weekday">T</span>
+                <span class="dp-calendar-weekday">W</span>
+                <span class="dp-calendar-weekday">T</span>
+                <span class="dp-calendar-weekday">F</span>
+                <span class="dp-calendar-weekday">S</span>
+                <span class="dp-calendar-weekday">S</span>
+                @for (int i = 0; i < DayOffset; i++)
+                {
+                    <span />
+                }
+                @for (int i = 1; i <= DaysInMonth; i++)
+                {
+                    int day = i;
+                    <button class="@GetDayClass(day)" disabled="@(!ActualIsOpen)" @onclick="() => SelectDayAsync(day)">@i</button>
+                }
+            </div>
         </div>
     </div>
+    @if (!String.IsNullOrWhiteSpace(Caption))
+    {
+        <div class="@CaptionClass">@Caption</div>
+    }
 </div>
 
 @code {
@@ -82,6 +88,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public DateTimeOffset Value { get; set; } = DateTimeOffset.UtcNow;
@@ -202,6 +211,8 @@
     private string NextMonthButtonClass => IsNextMonthInRage ? "dp-calendar-arrow" : "dp-calendar-arrow-disabled";
 
     private string PreviousMonthButtonClass => IsPreviousMonthInRange ? "dp-calendar-arrow" : "dp-calendar-arrow-disabled";
+
+    private string CaptionClass => Context.IsDisabled ? "dp-caption-disabled px-3" : "dp-caption px-3";
 
     private string WidthClass
     {

@@ -926,4 +926,12 @@
     .dp-page {
         @apply relative w-full p-6 space-y-4 overflow-auto -lg:pt-24;
     }
+
+    .dp-caption {
+        @apply text-xs dp-text-color dp-transitions;
+    }
+
+    .dp-caption-disabled {
+        @apply text-xs dp-text-color-disabled dp-transitions;
+    }
 }

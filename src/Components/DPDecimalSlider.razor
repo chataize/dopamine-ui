@@ -8,8 +8,11 @@
                 {
                     <span class="@LabelClass"> — </span>
                     <span class="@LabelClass">@Value</span>
-                    <span class="@LabelClass text-xs"> / </span>
-                    <span class="@LabelClass">@MaxValue</span>
+                    @if (IsShowingMaxValue)
+                    {
+                        <span class="@LabelClass text-xs"> / </span>
+                        <span class="@LabelClass">@MaxValue</span>
+                    }
                 }
                 @if (IsShowingPercentage)
                 {
@@ -55,6 +58,9 @@
 
     [Parameter]
     public bool IsShowingValue { get; set; }
+
+    [Parameter]
+    public bool IsShowingMaxValue { get; set; }
 
     [Parameter]
     public bool IsShowingPercentage { get; set; }

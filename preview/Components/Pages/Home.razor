@@ -738,7 +738,7 @@
 
     private bool AreCaptionsEnabled { get; set; }
 
-    private string ActualCaptionText => AreCaptionsEnabled ? CaptionText : null;
+    private string? ActualCaptionText => AreCaptionsEnabled ? CaptionText : null;
 
     private bool IsSavePending { get; set; }
 

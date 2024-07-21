@@ -928,7 +928,7 @@
     }
 
     .dp-caption {
-        @apply text-xs dp-text-color dp-transitions;
+        @apply text-xs text-neutral-600 dark:text-neutral-300 dp-transitions;
     }
 
     .dp-caption-disabled {

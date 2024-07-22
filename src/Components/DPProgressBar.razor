@@ -13,6 +13,10 @@
                         <span class="@LabelClass text-xs"> / </span>
                         <span class="@LabelClass">@MaxValue</span>
                     }
+                    @if (!string.IsNullOrWhiteSpace(Unit))
+                    {
+                        <span class="@LabelClass">@Unit</span>
+                    }
                 }
                 @if (IsShowingPercentage)
                 {
@@ -40,6 +44,9 @@
 
     [Parameter]
     public string? Caption { get; set; }
+
+    [Parameter]
+    public string? Unit { get; set; }
 
     [Parameter]
     public double Value { get; set; } = 0.5;

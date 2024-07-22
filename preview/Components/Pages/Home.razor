@@ -418,12 +418,12 @@
     <DPSubheader>Unlabeled</DPSubheader>
     <DPProgressBar Caption="@ActualCaptionText" Value="@IntValue" />
     <DPSubheader>Automatic</DPSubheader>
-    <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" />
-    <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" IsShowingValue="true" />
-    <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" IsShowingPercentage="true" />
-    <DPProgressBar Label="Disabled" Caption="@ActualCaptionText" Value="@IntValue" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Caption="@ActualCaptionText" Value="@IntValue" IsShowingValue="true" IsDisabled="true" />
-    <DPProgressBar Label="Disabled" Caption="@ActualCaptionText" Value="@IntValue" IsShowingPercentage="true" IsDisabled="true" />
+    <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" ZeroLabel="Zero" MaxValueLabel="Infinity" />
+    <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" ZeroLabel="Zero" MaxValueLabel="Infinity" IsShowingValue="true" />
+    <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" ZeroLabel="Zero" MaxValueLabel="Infinity" IsShowingPercentage="true" />
+    <DPProgressBar Label="Disabled" Caption="@ActualCaptionText" Value="@IntValue" ZeroLabel="Zero" MaxValueLabel="Infinity" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="@ActualCaptionText" Value="@IntValue" ZeroLabel="Zero" MaxValueLabel="Infinity" IsShowingValue="true" IsDisabled="true" />
+    <DPProgressBar Label="Disabled" Caption="@ActualCaptionText" Value="@IntValue" ZeroLabel="Zero" MaxValueLabel="Infinity" IsShowingPercentage="true" IsDisabled="true" />
     <DPSubheader>Standard Width</DPSubheader>
     <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" IsFullWidth="false" />
     <DPProgressBar Label="Normal" Caption="@ActualCaptionText" Value="@IntValue" IsShowingValue="true" IsFullWidth="false" />
@@ -672,13 +672,13 @@
     <DPSubheader>Unlabeled</DPSubheader>
     <DPSlider Caption="@ActualCaptionText" @bind-Value="IntValue" />
     <DPSubheader>Standard</DPSubheader>
-    <DPSlider Label="Normal" Caption="@ActualCaptionText" IsShowingValue="true" @bind-Value="IntValue" />
-    <DPSlider Label="Disabled" Caption="@ActualCaptionText" IsShowingPercentage="true" IsDisabled="true" @bind-Value="IntValue" />
+    <DPSlider Label="Normal" Caption="@ActualCaptionText" MinValueLabel="Zero" MaxValueLabel="Infinity" IsShowingValue="true" @bind-Value="IntValue" />
+    <DPSlider Label="Disabled" Caption="@ActualCaptionText" MinValueLabel="Zero" MaxValueLabel="Infinity"  IsShowingPercentage="true" IsDisabled="true" @bind-Value="IntValue" />
     <DPSubheader>Full Width</DPSubheader>
-    <DPSlider Label="Normal" Caption="@ActualCaptionText" IsFullWidth="true" @bind-Value="IntValue" />
-    <DPSlider Label="Disabled" Caption="@ActualCaptionText" IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
+    <DPSlider Label="Normal" Caption="@ActualCaptionText" MinValueLabel="Zero" MaxValueLabel="Infinity"  IsFullWidth="true" @bind-Value="IntValue" />
+    <DPSlider Label="Disabled" Caption="@ActualCaptionText" MinValueLabel="Zero" MaxValueLabel="Infinity"  IsFullWidth="true" IsDisabled="true" @bind-Value="IntValue" />
     <DPSubheader>Decimal</DPSubheader>
-    <DPDecimalSlider Label="Normal" Caption="@ActualCaptionText" Step="0.5" IsShowingValue="true" @bind-Value="DoubleValue" />
+    <DPDecimalSlider Label="Normal" Caption="@ActualCaptionText" Step="0.5" MinValueLabel="Zero" MaxValueLabel="Infinity" IsShowingValue="true" @bind-Value="DoubleValue" />
     <DPDecimalSlider Label="Disabled" Caption="@ActualCaptionText" Step="0.5" IsShowingPercentage="true" IsDisabled="true" @bind-Value="DoubleValue" />
 
     <br />

@@ -4,24 +4,37 @@
         {
             <label class="dp-label-base">
                 <span class="@LabelClass">@Label</span>
-                @if (IsShowingValue)
+                @if (Value == MaxValue && !string.IsNullOrWhiteSpace(MaxValueLabel))
                 {
                     <span class="@LabelClass"> — </span>
-                    <span class="@LabelClass">@Value</span>
-                    @if (IsShowingMaxValue)
-                    {
-                        <span class="@LabelClass text-xs"> / </span>
-                        <span class="@LabelClass">@MaxValue</span>
-                    }
-                    @if (!string.IsNullOrWhiteSpace(Unit))
-                    {
-                        <span class="@LabelClass">@Unit</span>
-                    }
+                    <span class="@LabelClass">@MaxValueLabel</span>
                 }
-                @if (IsShowingPercentage)
+                else if (Value == 0.0 && !string.IsNullOrWhiteSpace(ZeroLabel))
                 {
                     <span class="@LabelClass"> — </span>
-                    <span class="@LabelClass">@Math.Round(ActualValue, 2)%</span>
+                    <span class="@LabelClass">@ZeroLabel</span>
+                }
+                else
+                {
+                    @if (IsShowingValue)
+                    {
+                        <span class="@LabelClass"> — </span>
+                        <span class="@LabelClass">@Value</span>
+                        @if (IsShowingMaxValue)
+                        {
+                            <span class="@LabelClass text-xs"> / </span>
+                            <span class="@LabelClass">@MaxValue</span>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Unit))
+                        {
+                            <span class="@LabelClass">@Unit</span>
+                        }
+                    }
+                    @if (IsShowingPercentage)
+                    {
+                        <span class="@LabelClass"> — </span>
+                        <span class="@LabelClass">@Math.Round(ActualValue, 2)%</span>
+                    }
                 }
             </label>
         }
@@ -52,7 +65,13 @@
     public double Value { get; set; } = 0.5;
 
     [Parameter]
-    public double MaxValue { get; set; } = 100.0;
+    public string? ZeroLabel { get; set; }
+
+    [Parameter]
+    public int MaxValue { get; set; } = 100;
+
+    [Parameter]
+    public string? MaxValueLabel { get; set; }
 
     [Parameter]
     public bool IsShowingValue { get; set; }

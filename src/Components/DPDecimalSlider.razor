@@ -23,6 +23,7 @@
                     <span class="@LabelClass"> — </span>
                     <span class="@LabelClass">@Math.Round(Percentage, 2)%</span>
                 }
+                <span class="@EditIndicatorClass">●</span>
             </label>
         }
         <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:after="InvokeValueChangedAsync">

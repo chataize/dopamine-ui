@@ -39,7 +39,7 @@
                 <span class="@EditIndicatorClass">●</span>
             </label>
         }
-        <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:after="InvokeValueChangedAsync">
+        <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:event="oninput" @bind:after="InvokeValueChangedAsync">
     </div>
     @if (!string.IsNullOrWhiteSpace(Caption))
     {

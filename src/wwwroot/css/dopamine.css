@@ -776,7 +776,7 @@
     }
 
     .dp-slider {
-        @apply dp-slider-base bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-600 dark:[&::-webkit-slider-thumb]:bg-blue-500 hover:[&::-webkit-slider-thumb]:bg-blue-700 dark:hover:[&::-webkit-slider-thumb]:bg-blue-500 active:[&::-webkit-slider-thumb]:bg-blue-800 dark:active:[&::-webkit-slider-thumb]:bg-blue-400 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:duration-300 hover:[&::-webkit-slider-thumb]:scale-125 active:[&::-webkit-slider-thumb]:scale-75 [&::-webkit-slider-thumb]:cursor-pointer;
+        @apply dp-slider-base bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-600 hover:[&::-webkit-slider-thumb]:bg-blue-700 dark:hover:[&::-webkit-slider-thumb]:bg-blue-500 active:[&::-webkit-slider-thumb]:bg-blue-800 dark:active:[&::-webkit-slider-thumb]:bg-blue-400 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:duration-300 hover:[&::-webkit-slider-thumb]:scale-125 active:[&::-webkit-slider-thumb]:scale-75 [&::-webkit-slider-thumb]:cursor-pointer;
     }
 
     .dp-slider-disabled {
@@ -784,11 +784,11 @@
     }
 
     .dp-slider-fill-base {
-        @apply absolute bottom-0 flex h-2 mb-1.5 transition-all duration-100 ease-out  rounded-full pointer-events-none;
+        @apply absolute bottom-0 flex h-2 mb-1.5 transition-all duration-100 ease-out rounded-full pointer-events-none;
     }
 
     .dp-slider-fill {
-        @apply bg-blue-600 dp-slider-fill-base dark:bg-blue-500;
+        @apply bg-blue-600 dp-slider-fill-base;
     }
 
     .dp-slider-fill-disabled {

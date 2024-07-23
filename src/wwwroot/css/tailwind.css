@@ -6139,11 +6139,6 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
-  .dp-slider::-webkit-slider-thumb {
-    --tw-bg-opacity: 1;
-    background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-  }
-
   @media (hover: hover) and (pointer: fine) {
     .dp-slider::-webkit-slider-thumb:hover {
       --tw-bg-opacity: 1;
@@ -6224,13 +6219,6 @@ video {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
-@media (prefers-color-scheme: dark) {
-  .dp-slider-fill {
-    --tw-bg-opacity: 1;
-    background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-  }
 }
 
 .dp-slider-fill-disabled {

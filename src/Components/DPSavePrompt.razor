@@ -4,7 +4,7 @@
             <DPParagraph><b>Warning</b> — You have unsaved changes!</DPParagraph>
         </div>
         <div class="flex items-center space-x-4 -sm:justify-between -sm:w-full">
-            <DPButton Style="@ButtonStyle.Borderless" Clicked="OnResetClicked">Reset</DPButton>
+            <DPButton Style="@ButtonStyle.Borderless" IsDisabled="@IsSavePending" Clicked="OnResetClicked">Reset</DPButton>
             <DPButton Style="@ButtonStyle.Accent" IsLoading="@IsSavePending" Clicked="OnSaveClicked">Save Changes</DPButton>
         </div>
     </div>

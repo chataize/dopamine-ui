@@ -110,7 +110,7 @@
         get => Value;
         set
         {
-            if (!Context.IsDisabled)
+            if (!Context.IsDisabled && value != Value && value >= MinValue && value <= MaxValue)
             {
                 Value = value;
             }

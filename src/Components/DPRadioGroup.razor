@@ -1,19 +1,26 @@
 @typeparam T
 
-<div class="@WidthClass">
-    @if (!String.IsNullOrWhiteSpace(Label))
-    {
-        <label class="dp-label-base">
-            <span class="@LabelClass">@Label</span>
-            <span class="@EditIndicatorClass">●</span>
-        </label>
-    }
-    <div class="space-y-4 @WidthClass">
-        <CascadingValue Value="Context">
-            <CascadingValue Value="this">@ChildContent</CascadingValue>
-        </CascadingValue>
+<div class="space-y-3 @WidthClass">
+    <div class="@WidthClass">
+        @if (!String.IsNullOrWhiteSpace(Label))
+        {
+            <label class="dp-label-base">
+                <span class="@LabelClass">@Label</span>
+                <span class="@EditIndicatorClass">●</span>
+            </label>
+        }
+        <div class="space-y-4 @WidthClass">
+            <CascadingValue Value="Context">
+                <CascadingValue Value="this">@ChildContent</CascadingValue>
+            </CascadingValue>
+        </div>
     </div>
+    @if (!string.IsNullOrWhiteSpace(Caption))
+    {
+        <div class="@CaptionClass">@Caption</div>
+    }
 </div>
+
 
 @code {
     [CascadingParameter]
@@ -21,6 +28,9 @@
 
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Caption { get; set; }
 
     [Parameter]
     public T? Value { get; set; }
@@ -32,13 +42,16 @@
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
+    public bool? IsBorderless { get; set; }
+
+    [Parameter]
+    public bool? IsFullWidth { get; set; }
+
+    [Parameter]
     public bool IsEdited { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
-
-    [Parameter]
-    public bool? IsFullWidth { get; set; }
 
     [Parameter]
     public object? Tag { get; set; }
@@ -57,6 +70,26 @@
             }
 
             return "dp-edit-indicator-inactive";
+        }
+    }
+
+    private string CaptionClass
+    {
+        get
+        {
+            var captionClass = Context.IsDisabled ? "dp-caption-disabled" : "dp-caption";
+
+            if (IsBorderless == false)
+            {
+                return captionClass + " px-3";
+            }
+
+            if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
+            {
+                return captionClass;
+            }
+
+            return captionClass + " -sm:px-3";
         }
     }
 

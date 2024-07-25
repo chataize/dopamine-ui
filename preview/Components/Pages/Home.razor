@@ -255,7 +255,7 @@
     </DPAdaptiveView>
     <DPSubheader>Automatic</DPSubheader>
     <DPAdaptiveView>
-        <DPRadioGroup @bind-Value="EnumValue">
+        <DPRadioGroup Label="Automatic" @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Caption="@ActualCaptionText" Value="SampleEnum.Value1" />
             <DPRadioButton Label="Value 2" Caption="@ActualCaptionText" Value="SampleEnum.Value2" />
             <DPRadioButton Label="Disabled" Caption="@ActualCaptionText" IsDisabled="true" Value="SampleEnum.Value3" />
@@ -263,7 +263,7 @@
     </DPAdaptiveView>
     <DPSubheader>Disabled Group</DPSubheader>
     <DPAdaptiveView>
-        <DPRadioGroup IsDisabled="true" @bind-Value="EnumValue">
+        <DPRadioGroup Label="Disabled" IsDisabled="true" @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Caption="@ActualCaptionText" Value="SampleEnum.Value1" />
             <DPRadioButton Label="Value 2" Caption="@ActualCaptionText" Value="SampleEnum.Value2" />
             <DPRadioButton Label="Disabled" Caption="@ActualCaptionText" IsDisabled="true" Value="SampleEnum.Value3" />
@@ -271,7 +271,7 @@
     </DPAdaptiveView>
     <DPSubheader>Borderless</DPSubheader>
     <DPAdaptiveView>
-        <DPRadioGroup @bind-Value="EnumValue">
+        <DPRadioGroup Label="Borderless" @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Caption="@ActualCaptionText" Value="SampleEnum.Value1" IsBorderless="true" />
             <DPRadioButton Label="Value 2" Caption="@ActualCaptionText" Value="SampleEnum.Value2" IsBorderless="true" />
             <DPRadioButton Label="Disabled" Caption="@ActualCaptionText" IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="true" />
@@ -287,7 +287,7 @@
     </DPAdaptiveView>
     <DPSubheader>Full Width</DPSubheader>
     <DPAdaptiveView>
-        <DPRadioGroup @bind-Value="EnumValue">
+        <DPRadioGroup Label="Full Width" IsFullWidth="true" @bind-Value="EnumValue">
             <DPRadioButton Label="Value 1" Caption="@ActualCaptionText" Value="SampleEnum.Value1" IsBorderless="false" IsFullWidth="true" />
             <DPRadioButton Label="Value 2" Caption="@ActualCaptionText" Value="SampleEnum.Value2" IsBorderless="false" IsFullWidth="true" />
             <DPRadioButton Label="Disabled" Caption="@ActualCaptionText" IsDisabled="true" Value="SampleEnum.Value3" IsBorderless="false" IsFullWidth="true" />

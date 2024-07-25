@@ -1,13 +1,26 @@
 @typeparam T
 
-<CascadingValue Value="Context">
-    <CascadingValue Value="this">
-        @ChildContent</CascadingValue>
-</CascadingValue>
+<div class="@WidthClass">
+    @if (!String.IsNullOrWhiteSpace(Label))
+    {
+        <label class="dp-label-base">
+            <span class="@LabelClass">@Label</span>
+            <span class="@EditIndicatorClass">●</span>
+        </label>
+    }
+    <div class="space-y-4 @WidthClass">
+        <CascadingValue Value="Context">
+            <CascadingValue Value="this">@ChildContent</CascadingValue>
+        </CascadingValue>
+    </div>
+</div>
 
 @code {
     [CascadingParameter]
     public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Label { get; set; }
 
     [Parameter]
     public T? Value { get; set; }
@@ -16,15 +29,54 @@
     public EventCallback<T> ValueChanged { get; set; }
 
     [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsEdited { get; set; }
+
+    [Parameter]
     public bool IsDisabled { get; set; }
 
     [Parameter]
-    public RenderFragment? ChildContent { get; set; }
+    public bool? IsFullWidth { get; set; }
 
     [Parameter]
     public object? Tag { get; set; }
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private string LabelClass => Context.IsDisabled ? "dp-label-disabled" : "dp-label";
+
+    private string EditIndicatorClass
+    {
+        get
+        {
+            if (IsEdited)
+            {
+                return Context.IsDisabled ? "dp-edit-indicator-disabled" : "dp-edit-indicator";
+            }
+
+            return "dp-edit-indicator-inactive";
+        }
+    }
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit";
+            }
+
+            if (IsFullWidth == false || string.IsNullOrWhiteSpace(Label))
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit min-w-fit";
+        }
+    }
 
     internal async Task UpdateValueAsync(T? value)
     {

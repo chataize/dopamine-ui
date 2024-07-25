@@ -57,12 +57,14 @@
     {
         get
         {
-            if (IsBorderless == false)
+            var isBorderless = IsBorderless ?? RadioGroup?.IsBorderless;
+
+            if (isBorderless == false)
             {
                 return Context.IsDisabled ? "dp-border-disabled" : "dp-border";
             }
 
-            if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
+            if (isBorderless == true || string.IsNullOrWhiteSpace(Label))
             {
                 return string.Empty;
             }
@@ -102,13 +104,14 @@
         get
         {
             var captionClass = Context.IsDisabled ? "dp-caption-disabled" : "dp-caption";
+            var isBorderless = IsBorderless ?? RadioGroup?.IsBorderless;
 
-            if (IsBorderless == false)
+            if (isBorderless == false)
             {
                 return captionClass + " px-3";
             }
 
-            if (IsBorderless == true || string.IsNullOrWhiteSpace(Label))
+            if (isBorderless == true || string.IsNullOrWhiteSpace(Label))
             {
                 return captionClass;
             }
@@ -121,12 +124,13 @@
     {
         get
         {
-            if (IsFullWidth == true)
+            var isFullWidth = IsFullWidth ?? RadioGroup?.IsFullWidth;
+            if (isFullWidth == true)
             {
                 return "w-full min-w-fit";
             }
 
-            if (IsFullWidth == false || string.IsNullOrWhiteSpace(Label))
+            if (isFullWidth == false || string.IsNullOrWhiteSpace(Label))
             {
                 return "w-fit";
             }

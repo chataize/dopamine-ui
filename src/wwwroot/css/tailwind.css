@@ -1879,6 +1879,18 @@ video {
 }
 
 .dp-switch {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dp-switch {
+    --tw-text-opacity: 1;
+    color: rgb(245 245 245 / var(--tw-text-opacity));
+  }
+}
+
+.dp-switch {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1910,8 +1922,6 @@ video {
 
 .dp-switch {
   cursor: pointer;
-  --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity));
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1928,10 +1938,15 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.dp-switch-disabled {
+  --tw-text-opacity: 1;
+  color: rgb(163 163 163 / var(--tw-text-opacity));
+}
+
 @media (prefers-color-scheme: dark) {
-  .dp-switch {
+  .dp-switch-disabled {
     --tw-text-opacity: 1;
-    color: rgb(245 245 245 / var(--tw-text-opacity));
+    color: rgb(115 115 115 / var(--tw-text-opacity));
   }
 }
 
@@ -1967,15 +1982,6 @@ video {
 
 .dp-switch-disabled {
   cursor: not-allowed;
-  --tw-text-opacity: 1;
-  color: rgb(212 212 212 / var(--tw-text-opacity));
-}
-
-@media (prefers-color-scheme: dark) {
-  .dp-switch-disabled {
-    --tw-text-opacity: 1;
-    color: rgb(82 82 82 / var(--tw-text-opacity));
-  }
 }
 
 .dp-switch-pill-on {
@@ -2300,6 +2306,18 @@ video {
 }
 
 .dp-checkbox {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dp-checkbox {
+    --tw-text-opacity: 1;
+    color: rgb(245 245 245 / var(--tw-text-opacity));
+  }
+}
+
+.dp-checkbox {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2320,8 +2338,6 @@ video {
 .dp-checkbox {
   font-weight: 600;
   cursor: pointer;
-  --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity));
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2338,10 +2354,15 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.dp-checkbox-disabled {
+  --tw-text-opacity: 1;
+  color: rgb(163 163 163 / var(--tw-text-opacity));
+}
+
 @media (prefers-color-scheme: dark) {
-  .dp-checkbox {
+  .dp-checkbox-disabled {
     --tw-text-opacity: 1;
-    color: rgb(245 245 245 / var(--tw-text-opacity));
+    color: rgb(115 115 115 / var(--tw-text-opacity));
   }
 }
 
@@ -2366,15 +2387,6 @@ video {
 .dp-checkbox-disabled {
   font-weight: 600;
   cursor: not-allowed;
-  --tw-text-opacity: 1;
-  color: rgb(212 212 212 / var(--tw-text-opacity));
-}
-
-@media (prefers-color-scheme: dark) {
-  .dp-checkbox-disabled {
-    --tw-text-opacity: 1;
-    color: rgb(82 82 82 / var(--tw-text-opacity));
-  }
 }
 
 .dp-checkbox-square-on {
@@ -2638,6 +2650,18 @@ video {
 }
 
 .dp-radio {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dp-radio {
+    --tw-text-opacity: 1;
+    color: rgb(245 245 245 / var(--tw-text-opacity));
+  }
+}
+
+.dp-radio {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2658,8 +2682,6 @@ video {
 .dp-radio {
   font-weight: 600;
   cursor: pointer;
-  --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity));
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2676,10 +2698,15 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.dp-radio-disabled {
+  --tw-text-opacity: 1;
+  color: rgb(163 163 163 / var(--tw-text-opacity));
+}
+
 @media (prefers-color-scheme: dark) {
-  .dp-radio {
+  .dp-radio-disabled {
     --tw-text-opacity: 1;
-    color: rgb(245 245 245 / var(--tw-text-opacity));
+    color: rgb(115 115 115 / var(--tw-text-opacity));
   }
 }
 
@@ -2704,15 +2731,6 @@ video {
 .dp-radio-disabled {
   font-weight: 600;
   cursor: not-allowed;
-  --tw-text-opacity: 1;
-  color: rgb(212 212 212 / var(--tw-text-opacity));
-}
-
-@media (prefers-color-scheme: dark) {
-  .dp-radio-disabled {
-    --tw-text-opacity: 1;
-    color: rgb(82 82 82 / var(--tw-text-opacity));
-  }
 }
 
 .dp-radio-circle-on {

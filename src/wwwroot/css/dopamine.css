@@ -172,11 +172,11 @@
     }
 
     .dp-switch {
-        @apply cursor-pointer dp-switch-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-neutral-100;
+        @apply cursor-pointer dp-switch-base hover:scale-105 active:scale-95 dp-text-color;
     }
 
     .dp-switch-disabled {
-        @apply cursor-not-allowed dp-switch-base text-neutral-300 dark:text-neutral-600;
+        @apply cursor-not-allowed dp-switch-base dp-text-color-disabled;
     }
 
     .dp-switch-pill-base {
@@ -216,11 +216,11 @@
     }
 
     .dp-checkbox {
-        @apply cursor-pointer dp-checkbox-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-neutral-100;
+        @apply cursor-pointer dp-checkbox-base hover:scale-105 active:scale-95 dp-text-color;
     }
 
     .dp-checkbox-disabled {
-        @apply cursor-not-allowed dp-checkbox-base text-neutral-300 dark:text-neutral-600;
+        @apply cursor-not-allowed dp-checkbox-base dp-text-color-disabled;
     }
 
     .dp-checkbox-square-base {
@@ -248,11 +248,11 @@
     }
 
     .dp-radio {
-        @apply cursor-pointer dp-radio-base hover:scale-105 active:scale-95 text-neutral-800 dark:text-neutral-100;
+        @apply cursor-pointer dp-radio-base hover:scale-105 active:scale-95 dp-text-color;
     }
 
     .dp-radio-disabled {
-        @apply cursor-not-allowed dp-radio-base text-neutral-300 dark:text-neutral-600;
+        @apply cursor-not-allowed dp-radio-base dp-text-color-disabled;
     }
 
     .dp-radio-circle-base {

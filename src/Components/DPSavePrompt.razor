@@ -4,7 +4,7 @@
             <DPParagraph><b>Warning</b> — You have unsaved changes!</DPParagraph>
         </div>
         <div class="flex items-center space-x-4 -sm:justify-between -sm:w-full">
-            <DPButton Style="@ButtonStyle.Borderless" IsDisabled="@IsSavePending" Clicked="OnResetClicked">Reset</DPButton>
+            <DPButton Style="@ButtonStyle.Borderless" IsDisabled="@IsSavePending" Clicked="OnDiscardClicked">Discard</DPButton>
             <DPButton Style="@ButtonStyle.Accent" IsLoading="@IsSavePending" Clicked="OnSaveClicked">Save Changes</DPButton>
         </div>
     </div>
@@ -27,7 +27,7 @@
     public EventCallback SaveClicked { get; set; }
 
     [Parameter]
-    public EventCallback ResetClicked { get; set; }
+    public EventCallback DiscardClicked { get; set; }
 
     [Parameter]
     public object? Tag { get; set; }
@@ -46,11 +46,11 @@
         }
     }
 
-    private async Task OnResetClicked()
+    private async Task OnDiscardClicked()
     {
-        if (!Context.IsDisabled && ResetClicked.HasDelegate)
+        if (!Context.IsDisabled && DiscardClicked.HasDelegate)
         {
-            await ResetClicked.InvokeAsync();
+            await DiscardClicked.InvokeAsync();
         }
     }
 }

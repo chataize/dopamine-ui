@@ -687,7 +687,7 @@
 
     <DPHeader>Save Prompt</DPHeader>
     <DPToggleSwitch Label="Show Save Prompt" @bind-Value="IsSavePromptShown" />
-    <DPSavePrompt IsShown="@IsSavePromptShown" IsSavePending="@IsSavePending" SaveClicked="SimulateSaveAsync" />
+    <DPSavePrompt IsShown="@IsSavePromptShown" IsSavePending="@IsSavePending" SaveClicked="SimulateSaveAsync" DiscardClicked="DiscardChanges" />
 
     <br />
     <DPDivider />
@@ -775,6 +775,11 @@
         IsSavePending = true;
         await Task.Delay(3000);
         IsSavePending = false;
+        IsSavePromptShown = false;
+    }
+
+    private void DiscardChanges()
+    {
         IsSavePromptShown = false;
     }
 }

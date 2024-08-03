@@ -564,7 +564,7 @@
     }
 
     .dp-spoiler-content {
-        @apply px-3 pb-2 space-y-4 text-left;
+        @apply px-3 space-y-4 text-left;
     }
 
     .dp-number-animation {

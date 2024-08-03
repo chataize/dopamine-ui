@@ -21,7 +21,7 @@
     </label>
     @if (ActualIsOpen)
     {
-        <div class="dp-spoiler-content">
+        <div class="dp-spoiler-content @PaddingClass">
             <CascadingValue Value="Context">@ChildContent</CascadingValue>
         </div>
     }
@@ -42,6 +42,9 @@
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsBottomPaddingExtended { get; set; }
 
     [Parameter]
     public bool IsLoading { get; set; }
@@ -125,6 +128,8 @@
             return "dp-spoiler-button";
         }
     }
+
+    private string PaddingClass => IsBottomPaddingExtended ? "pb-3" : "pb-2";
 
     private string ActiveScaleTransitionClass => _isLabelHovered && !Context.IsDisabled ? "active:scale-95" : string.Empty;
 

@@ -3,7 +3,7 @@
         @if (Title != null)
         {
             <PageTitle>@Title</PageTitle>
-            <DPNavigationTitle>@Title</DPNavigationTitle>
+            <DPNavigationTitle BackUrl="@BackUrl">@Title</DPNavigationTitle>
         }
         @ChildContent
         <DPLoadingScreen IsShown="@IsLoading" />
@@ -16,6 +16,9 @@
 
     [Parameter]
     public string? Title { get; set; }
+
+    [Parameter]
+    public string? BackUrl { get; set; }
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }

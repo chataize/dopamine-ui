@@ -1,3 +1,5 @@
+@inject NavigationManager NavigationManager
+
 <div class="dp-navigation-view">
     <nav class="dp-navigation-menu">
         <div>
@@ -17,9 +19,27 @@
             <span class="@MobileMenuLogoClass">
                 <CascadingValue Value="Context">@Logo</CascadingValue>
             </span>
-            <span class="@MobileMenuTitleClass">
-                <CascadingValue Value="Context">@Title</CascadingValue>
-            </span>
+            <div class="@MobileMenuTitleClass">
+                @if (!string.IsNullOrWhiteSpace(BackUrl))
+                {
+                    <button class="@ButtonClass" @onclick="TryGoBack">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
+                            <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                <g transform="scale(4,4)">
+                                    <path d="M42.852,55.605c-0.504,0 -1.008,-0.189 -1.396,-0.568l-22.165,-21.626c-0.386,-0.376 -0.604,-0.893 -0.604,-1.432c0,-0.539 0.218,-1.055 0.604,-1.432l22.121,-21.584c0.789,-0.77 2.057,-0.756 2.828,0.035c0.771,0.791 0.756,2.057 -0.035,2.829l-20.653,20.152l20.696,20.194c0.791,0.771 0.807,2.038 0.035,2.829c-0.391,0.401 -0.912,0.603 -1.431,0.603z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                }
+                else
+                {
+                    <div />
+                }
+                <div>
+                    <CascadingValue Value="Context">@Title</CascadingValue>
+                </div>
+            </div>
             <button class="@ButtonClass" @onclick="ToggleIsOpen">
                 <svg class="@OpenIconClass" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
                     <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -67,6 +87,9 @@
 
     [Parameter]
     public RenderFragment? Title { get; set; }
+
+    [Parameter]
+    public string? BackUrl { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
@@ -164,6 +187,12 @@
         StateHasChanged();
     }
 
+    internal void SetBackUrl(string? backUrl)
+    {
+        BackUrl = backUrl;
+        StateHasChanged();
+    }
+
     internal void Close()
     {
         _isOpen = false;
@@ -174,6 +203,14 @@
         if (!Context.IsDisabled)
         {
             _isOpen = !_isOpen;
+        }
+    }
+
+    private void TryGoBack()
+    {
+        if (!Context.IsDisabled && !string.IsNullOrWhiteSpace(BackUrl))
+        {
+            NavigationManager.NavigateTo(BackUrl);
         }
     }
 }

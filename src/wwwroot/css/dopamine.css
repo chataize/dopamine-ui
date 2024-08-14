@@ -880,7 +880,7 @@
     }
 
     .dp-mobile-navigation-menu-title-base {
-        @apply absolute pl-3 text-2xl font-bold transition-all duration-300 ease-in-out;
+        @apply absolute flex space-x-3 items-center text-2xl font-bold transition-all duration-300 ease-in-out;
     }
 
     .dp-mobile-navigation-menu-title {
@@ -896,7 +896,7 @@
     }
 
     .dp-mobile-navigation-menu-button-base {
-        @apply relative flex items-center justify-center p-1 ml-3 rounded-full dp-transitions;
+        @apply relative flex items-center justify-center p-1 rounded-full dp-transitions;
     }
 
     .dp-mobile-navigation-menu-button {

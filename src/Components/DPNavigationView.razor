@@ -1,12 +1,17 @@
 <div class="dp-navigation-view">
-    <div class="dp-navigation-menu">
-        <div class="dp-navigation-menu-logo">
-            <CascadingValue Value="Context">@Logo</CascadingValue>
+    <nav class="dp-navigation-menu">
+        <div>
+            <div class="dp-navigation-menu-logo">
+                <CascadingValue Value="Context">@Logo</CascadingValue>
+            </div>
+            <div class="dp-navigation-menu-links">
+                <CascadingValue Value="Context">@Links</CascadingValue>
+            </div>
         </div>
-        <nav class="dp-navigation-menu-links">
-            <CascadingValue Value="Context">@Links</CascadingValue>
-        </nav>
-    </div>
+        <div class="dp-navigation-menu-links">
+            <CascadingValue Value="Context">@Footer</CascadingValue>
+        </div>
+    </nav>
     <div class="@MobileMenuClass">
         <div class="@MobileMenuBarClass">
             <span class="@MobileMenuLogoClass">
@@ -34,6 +39,7 @@
         </div>
         <nav class="@MobileMenuLinksClass">
             <CascadingValue Value="Context">@Links</CascadingValue>
+            <CascadingValue Value="Context">@Footer</CascadingValue>
         </nav>
     </div>
     <div class="relative w-full h-screen overflow-auto">
@@ -52,6 +58,9 @@
 
     [Parameter]
     public RenderFragment? Links { get; set; }
+
+    [Parameter]
+    public RenderFragment? Footer { get; set; }
 
     [Parameter]
     public RenderFragment? Content { get; set; }

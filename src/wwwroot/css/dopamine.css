@@ -840,7 +840,7 @@
     }
 
     .dp-navigation-menu {
-        @apply hidden border-r min-w-fit border-neutral-100 dark:border-neutral-800 lg:block;
+        @apply hidden border-r min-w-fit border-neutral-100 dark:border-neutral-800 lg:flex flex-col justify-between;
     }
 
     .dp-navigation-menu-logo {

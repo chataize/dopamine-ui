@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.7 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -6681,6 +6681,8 @@ video {
   display: none;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  flex-direction: column;
+  justify-content: space-between;
   border-right-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
@@ -6688,7 +6690,7 @@ video {
 
 @media (min-width: 1024px) {
   .dp-navigation-menu {
-    display: block;
+    display: flex;
   }
 }
 

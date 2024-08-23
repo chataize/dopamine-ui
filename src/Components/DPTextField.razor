@@ -8,7 +8,7 @@
             </label>
         }
         <div class="relative flex @WidthClass">
-            <input id="@_id" class="@InputClass @WidthClass @CaseClass" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@Context.IsDisabled" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
+            <input id="@_id" class="@InputClass @WidthClass @CaseClass" type="@ActualInputType" placeholder="@Placeholder" size="@Size" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@Context.IsDisabled" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" @onkeypress="OnKeyPressAsync" />
             @if (IsLoading)
             {
                 <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute p-1 rounded-lg right-2 top-2 backdrop-blur dark:hidden" />
@@ -72,6 +72,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [Parameter]
+    public EventCallback EnterPressed { get; set; }
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 
@@ -172,20 +175,6 @@
         }
     }
 
-    private async Task OnChangeAsync(ChangeEventArgs e)
-    {
-        var normalizedValue = NormalizeValue(e.Value?.ToString() ?? string.Empty);
-        if (Value != normalizedValue)
-        {
-            Value = normalizedValue;
-
-            if (ValueChanged.HasDelegate)
-            {
-                await ValueChanged.InvokeAsync(normalizedValue);
-            }
-        }
-    }
-
     private string NormalizeValue(string? value)
     {
         if (value == null)
@@ -206,5 +195,27 @@
         }
 
         return value;
+    }
+
+    private async Task OnChangeAsync(ChangeEventArgs e)
+    {
+        var normalizedValue = NormalizeValue(e.Value?.ToString() ?? string.Empty);
+        if (Value != normalizedValue)
+        {
+            Value = normalizedValue;
+
+            if (ValueChanged.HasDelegate)
+            {
+                await ValueChanged.InvokeAsync(normalizedValue);
+            }
+        }
+    }
+
+    private async Task OnKeyPressAsync(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && EnterPressed.HasDelegate)
+        {
+            await EnterPressed.InvokeAsync();
+        }
     }
 }

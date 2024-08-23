@@ -213,7 +213,7 @@
 
     private async Task OnKeyPressAsync(KeyboardEventArgs e)
     {
-        if (e.Key == "Enter" && EnterPressed.HasDelegate)
+        if (!Context.IsDisabled && EnterPressed.HasDelegate && e.Key == "Enter")
         {
             await EnterPressed.InvokeAsync();
         }

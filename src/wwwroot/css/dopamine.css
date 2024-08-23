@@ -152,7 +152,7 @@
     }
 
     .dp-textfield-base {
-        @apply flex px-3 py-2 border shadow-sm rounded-xl dp-transitions;
+        @apply flex px-3 py-2 border shadow-sm rounded-xl resize-none dp-transitions;
     }
 
     .dp-textfield {

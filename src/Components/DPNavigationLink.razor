@@ -1,0 +1,56 @@
+@inject NavigationManager NavigationManager
+
+<button class="group/navlink @ButtonClass @WidthClass" @onclick="NavigateToPath">
+    <CascadingValue Value="Context"> @ChildContent</CascadingValue>
+</button>
+
+@code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
+    [Parameter]
+    public string? Path { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public object? Tag { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
+
+    private string ButtonClass => Context.IsDisabled ? "dp-navigation-link-disabled" : "dp-navigation-link";
+
+    private string WidthClass
+    {
+        get
+        {
+            if (IsFullWidth == true)
+            {
+                return "w-full min-w-fit";
+            }
+
+            if (IsFullWidth == false)
+            {
+                return "w-fit";
+            }
+
+            return "w-full sm:w-fit min-w-fit";
+        }
+    }
+
+    private void NavigateToPath()
+    {
+        if (!Context.IsDisabled && !string.IsNullOrWhiteSpace(Path))
+        {
+            Context.NavigationView?.Close();
+            NavigationManager.NavigateTo(Path);
+        }
+    }
+}

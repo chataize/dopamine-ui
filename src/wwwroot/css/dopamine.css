@@ -567,6 +567,18 @@
         @apply px-3 space-y-4 text-left;
     }
 
+    .dp-navigation-link-base {
+        @apply relative flex px-3 py-2 justify-start text-left rounded-xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-700 dp-transitions;
+    }
+
+    .dp-navigation-link {
+        @apply dp-navigation-link-base text-neutral-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-500 active:text-blue-700 dark:active:text-blue-400 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 dark:hover:fill-blue-500 active:fill-blue-700 dark:active:fill-blue-400 hover:border-2 active:border-2 hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 active:scale-95;
+    }
+
+    .dp-navigation-link-disabled {
+        @apply dp-navigation-link-base text-neutral-300 dark:text-neutral-600 fill-neutral-300 dark:fill-neutral-600 cursor-not-allowed;
+    }
+
     .dp-number-animation {
         @apply scale-50 opacity-0 blur-sm;
     }

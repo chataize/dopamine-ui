@@ -1,5 +1,5 @@
 <CascadingValue Value="ChildContext">
-    <DPOverlay IsShown="@IsShown" IsDisabled="@IsDisabled">
+    <DPOverlay IsVisible="@IsVisible" IsDisabled="@IsDisabled">
         <div class="dp-dialog">
             @ChildContent
         </div>
@@ -14,7 +14,7 @@
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public bool IsShown { get; set; }
+    public bool IsVisible { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
@@ -23,5 +23,5 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsShown };
+    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsVisible };
 }

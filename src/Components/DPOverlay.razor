@@ -12,7 +12,7 @@
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public bool IsShown { get; set; }
+    public bool IsVisible { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
@@ -22,9 +22,9 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsShown };
+    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsVisible };
 
-    private string OverlayClass => IsShown ? "dp-overlay" : "dp-overlay-hidden";
+    private string OverlayClass => IsVisible ? "dp-overlay" : "dp-overlay-hidden";
 
-    private string ContentClass => IsShown ? "dp-overlay-content" : "dp-overlay-content-hidden";
+    private string ContentClass => IsVisible ? "dp-overlay-content" : "dp-overlay-content-hidden";
 }

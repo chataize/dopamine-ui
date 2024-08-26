@@ -621,7 +621,7 @@
     <br />
 
     <DPHeader>Overlay</DPHeader>
-    <DPOverlay IsShown="@IsOverlayShown">
+    <DPOverlay IsVisible="@IsOverlayShown">
         <DPToggleSwitch Label="Show Overlay" @bind-Value="IsOverlayShown" />
     </DPOverlay>
     <DPToggleSwitch Label="Show Overlay" @bind-Value="IsOverlayShown" />
@@ -631,7 +631,7 @@
     <br />
 
     <DPHeader>Loading Screen</DPHeader>
-    <DPLoadingScreen IsShown="@IsLoadingScreenShown" />
+    <DPLoadingScreen IsVisible="@IsLoadingScreenShown" />
     <DPButton Clicked="ShowLoadingScreenAsync">Show Loading Screen</DPButton>
 
     <br />
@@ -639,7 +639,7 @@
     <br />
 
     <DPHeader>Dialog</DPHeader>
-    <DPDialog IsShown="@IsDialogShown">
+    <DPDialog IsVisible="@IsDialogShown">
         <div class="space-y-8">
             <div class="space-y-4">
                 <DPHeader>Delete Account</DPHeader>
@@ -687,7 +687,7 @@
 
     <DPHeader>Save Prompt</DPHeader>
     <DPToggleSwitch Label="Show Save Prompt" @bind-Value="IsSavePromptShown" />
-    <DPSavePrompt IsShown="@IsSavePromptShown" IsSavePending="@IsSavePending" SaveClicked="SimulateSaveAsync" DiscardClicked="DiscardChanges" />
+    <DPSavePrompt IsVisible="@IsSavePromptShown" IsSavePending="@IsSavePending" SaveClicked="SimulateSaveAsync" DiscardClicked="DiscardChanges" />
 
     <br />
     <DPDivider />

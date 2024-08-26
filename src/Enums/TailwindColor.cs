@@ -1,6 +1,6 @@
 namespace ChatAIze.DopamineUI.Enums;
 
-public enum DPColor
+public enum TailwindColor
 {
     Slate,
 

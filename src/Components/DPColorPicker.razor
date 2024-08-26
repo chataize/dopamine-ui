@@ -8,30 +8,30 @@
             </label>
         }
         <div class="dp-color-picker-row @WidthClass">
-            <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
-            <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
-            <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
-            <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
-            <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
-            <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
-            <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
-            <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
-            <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
-            <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
+            <button class="@GetColorClass(TailwindColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Red)" />
+            <button class="@GetColorClass(TailwindColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Orange)" />
+            <button class="@GetColorClass(TailwindColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Yellow)" />
+            <button class="@GetColorClass(TailwindColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Lime)" />
+            <button class="@GetColorClass(TailwindColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Green)" />
+            <button class="@GetColorClass(TailwindColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Cyan)" />
+            <button class="@GetColorClass(TailwindColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Blue)" />
+            <button class="@GetColorClass(TailwindColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Violet)" />
+            <button class="@GetColorClass(TailwindColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Purple)" />
+            <button class="@GetColorClass(TailwindColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Pink)" />
         </div>
         <div class="dp-color-picker-row-compact">
-            <button class="@GetColorClass(DPColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Red)" />
-            <button class="@GetColorClass(DPColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Orange)" />
-            <button class="@GetColorClass(DPColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Yellow)" />
-            <button class="@GetColorClass(DPColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Lime)" />
-            <button class="@GetColorClass(DPColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Green)" />
+            <button class="@GetColorClass(TailwindColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Red)" />
+            <button class="@GetColorClass(TailwindColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Orange)" />
+            <button class="@GetColorClass(TailwindColor.Yellow)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Yellow)" />
+            <button class="@GetColorClass(TailwindColor.Lime)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Lime)" />
+            <button class="@GetColorClass(TailwindColor.Green)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Green)" />
         </div>
         <div class="dp-color-picker-row-compact">
-            <button class="@GetColorClass(DPColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Cyan)" />
-            <button class="@GetColorClass(DPColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Blue)" />
-            <button class="@GetColorClass(DPColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Violet)" />
-            <button class="@GetColorClass(DPColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Purple)" />
-            <button class="@GetColorClass(DPColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(DPColor.Pink)" />
+            <button class="@GetColorClass(TailwindColor.Cyan)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Cyan)" />
+            <button class="@GetColorClass(TailwindColor.Blue)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Blue)" />
+            <button class="@GetColorClass(TailwindColor.Violet)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Violet)" />
+            <button class="@GetColorClass(TailwindColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Purple)" />
+            <button class="@GetColorClass(TailwindColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Pink)" />
         </div>
     </div>
     @if (!string.IsNullOrWhiteSpace(Caption))
@@ -51,10 +51,10 @@
     public string? Caption { get; set; }
 
     [Parameter]
-    public DPColor? Value { get; set; }
+    public TailwindColor? Value { get; set; }
 
     [Parameter]
-    public EventCallback<DPColor> ValueChanged { get; set; }
+    public EventCallback<TailwindColor> ValueChanged { get; set; }
 
     [Parameter]
     public bool? IsFullWidth { get; set; }
@@ -105,25 +105,25 @@
         }
     }
 
-    private static string GetColorName(DPColor color)
+    private static string GetColorName(TailwindColor color)
     {
         return color switch
         {
-            DPColor.Red => "red",
-            DPColor.Orange => "orange",
-            DPColor.Yellow => "yellow",
-            DPColor.Green => "green",
-            DPColor.Lime => "lime",
-            DPColor.Cyan => "cyan",
-            DPColor.Blue => "blue",
-            DPColor.Violet => "violet",
-            DPColor.Purple => "purple",
-            DPColor.Pink => "pink",
+            TailwindColor.Red => "red",
+            TailwindColor.Orange => "orange",
+            TailwindColor.Yellow => "yellow",
+            TailwindColor.Green => "green",
+            TailwindColor.Lime => "lime",
+            TailwindColor.Cyan => "cyan",
+            TailwindColor.Blue => "blue",
+            TailwindColor.Violet => "violet",
+            TailwindColor.Purple => "purple",
+            TailwindColor.Pink => "pink",
             _ => throw new ArgumentOutOfRangeException(nameof(color), color, "Invalid color.")
         };
     }
 
-    private string GetColorClass(DPColor color)
+    private string GetColorClass(TailwindColor color)
     {
         var colorName = GetColorName(color);
 
@@ -145,7 +145,7 @@
         return $"dp-color-picker-color bg-{colorName}-500";
     }
 
-    private async Task SelectColorAsync(DPColor color)
+    private async Task SelectColorAsync(TailwindColor color)
     {
         if (!Context.IsDisabled && Value != color)
         {

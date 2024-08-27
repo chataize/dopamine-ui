@@ -1,21 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
-    <PackageId>ChatAIze.DopamineUI</PackageId>
-    <AssemblyName>ChatAIze.DopamineUI</AssemblyName>
-    <RootNamespace>ChatAIze.DopamineUI</RootNamespace>
     <Product>Dopamine UI</Product>
-    <Description>
-      Aesthetic C# .NET Blazor component library that makes the UI seamless and entertaining to use.
-    </Description>
     <Version>0.8.2</Version>
     <Company>ChatAIze</Company>
     <Authors>Marcel Kwiatkowski</Authors>
     <Copyright>© ChatAIze 2024</Copyright>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <AssemblyName>ChatAIze.DopamineUI</AssemblyName>
+    <RootNamespace>ChatAIze.DopamineUI</RootNamespace>
+    <PackageId>ChatAIze.DopamineUI</PackageId>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://www.chataize.com</PackageProjectUrl>
     <PackageReleaseNotes>https://github.com/chataize/dopamine-ui/releases</PackageReleaseNotes>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/chataize/dopamine-ui</RepositoryUrl>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Description>
+      Aesthetic C# .NET Blazor component library that makes the UI seamless and entertaining to use.
+    </Description>
     <PackageTags>
       .net, api, area, asp, asp-net, asp-net-core, assembly, blazor, box, button, button, buttons,
       chataize, check, check-box, checkbox, component, component-library, component-pack,
@@ -26,11 +31,6 @@
       textarea, textfield, toggle, toggle-switch, toggleswitch, ui, user, user-interface, ux, web,
       web-assembly, webassembly
     </PackageTags>
-    <RepositoryUrl>https://github.com/chataize/dopamine-ui</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <SupportedPlatform Include="browser" />

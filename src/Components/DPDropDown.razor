@@ -28,7 +28,7 @@
                     </svg>
                 }
             </button>
-            <div class="@ListClass @WidthClass">
+            <div class="@ListClass @WidthClass @ScrollClass">
                 <CascadingValue Value="ChildContext">
                     <CascadingValue Value="this">@ChildContent</CascadingValue>
                 </CascadingValue>
@@ -66,6 +66,9 @@
 
     [Parameter]
     public bool? IsFullWidth { get; set; }
+
+    [Parameter]
+    public bool IsScrollable { get; set; }
 
     [Parameter]
     public bool IsEdited { get; set; }
@@ -128,6 +131,8 @@
     }
 
     private string ListClass => ActualIsOpen ? "dp-menu translate-y-12" : "dp-menu-hidden -translate-y-12";
+
+    private string ScrollClass => IsScrollable ? "overflow-y-scroll max-h-60" : "";
 
     private string CaptionClass => Context.IsDisabled ? "dp-caption-disabled px-3" : "dp-caption px-3";
 

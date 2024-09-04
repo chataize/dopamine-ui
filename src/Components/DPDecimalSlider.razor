@@ -111,7 +111,7 @@
         get => Value;
         set
         {
-            if (!Context.IsDisabled && value != Value && value >= MinValue && value <= MaxValue && IsStepCompliant(value))
+            if (!Context.IsDisabled && value != Value && value >= MinValue && value <= MaxValue)
             {
                 Value = value;
             }
@@ -146,7 +146,6 @@
             if (!string.IsNullOrWhiteSpace(Label))
             {
                 captionClass += " px-3";
-
             }
 
             return captionClass;
@@ -195,16 +194,5 @@
         {
             await ValueChanged.InvokeAsync(Value);
         }
-    }
-
-    private bool IsStepCompliant(double value)
-    {
-        if (value == MinValue || value == MaxValue)
-        {
-            return true;
-        }
-
-        const double epsilon = 0.000001;
-        return Math.Abs((value - MinValue) % Step) < epsilon;
     }
 }

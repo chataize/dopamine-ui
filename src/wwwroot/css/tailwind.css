@@ -7444,8 +7444,8 @@ video {
   overflow: auto;
 }
 
-.overflow-scroll {
-  overflow: scroll;
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .overflow-y-scroll {

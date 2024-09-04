@@ -104,7 +104,7 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private double Percentage => MaxValue == 0 ? 0 : (Value / MaxValue) * 100.0;
+    private double Percentage => MaxValue == MinValue ? 100.0 : ((Value - MinValue) / (MaxValue - MinValue)) * 100.0;
 
     private double InternalValue
     {

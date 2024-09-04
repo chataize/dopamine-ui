@@ -5144,8 +5144,6 @@ video {
   justify-content: flex-start;
   border-radius: 0.75rem;
   border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(245 245 245 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   padding-left: 0.75rem;
@@ -5157,14 +5155,14 @@ video {
 
 @media (prefers-color-scheme: dark) {
   .dp-navigation-link {
-    --tw-border-opacity: 1;
-    border-color: rgb(64 64 64 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
     background-color: rgb(23 23 23 / var(--tw-bg-opacity));
   }
 }
 
 .dp-navigation-link {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 229 229 / var(--tw-border-opacity));
   fill: #262626;
   --tw-text-opacity: 1;
   color: rgb(38 38 38 / var(--tw-text-opacity));
@@ -5198,6 +5196,8 @@ video {
 
 @media (prefers-color-scheme: dark) {
   .dp-navigation-link {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity));
     fill: #f5f5f5;
     --tw-text-opacity: 1;
     color: rgb(245 245 245 / var(--tw-text-opacity));
@@ -5231,8 +5231,6 @@ video {
   justify-content: flex-start;
   border-radius: 0.75rem;
   border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(245 245 245 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   padding-left: 0.75rem;
@@ -5244,8 +5242,6 @@ video {
 
 @media (prefers-color-scheme: dark) {
   .dp-navigation-link-disabled {
-    --tw-border-opacity: 1;
-    border-color: rgb(64 64 64 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
     background-color: rgb(23 23 23 / var(--tw-bg-opacity));
   }
@@ -5253,6 +5249,8 @@ video {
 
 .dp-navigation-link-disabled {
   cursor: not-allowed;
+  --tw-border-opacity: 1;
+  border-color: rgb(245 245 245 / var(--tw-border-opacity));
   fill: #d4d4d4;
   --tw-text-opacity: 1;
   color: rgb(212 212 212 / var(--tw-text-opacity));
@@ -5260,6 +5258,8 @@ video {
 
 @media (prefers-color-scheme: dark) {
   .dp-navigation-link-disabled {
+    --tw-border-opacity: 1;
+    border-color: rgb(38 38 38 / var(--tw-border-opacity));
     fill: #525252;
     --tw-text-opacity: 1;
     color: rgb(82 82 82 / var(--tw-text-opacity));

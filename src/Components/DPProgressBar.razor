@@ -4,12 +4,12 @@
         {
             <label class="dp-label-base">
                 <span class="@LabelClass">@Label</span>
-                @if (Value == MaxValue && !string.IsNullOrWhiteSpace(MaxValueLabel))
+                @if (Value >= MaxValue && !string.IsNullOrWhiteSpace(MaxValueLabel))
                 {
                     <span class="@LabelClass"> — </span>
                     <span class="@LabelClass">@MaxValueLabel</span>
                 }
-                else if (Value == 0.0 && !string.IsNullOrWhiteSpace(ZeroLabel))
+                else if (Value <= 0.0 && !string.IsNullOrWhiteSpace(ZeroLabel))
                 {
                     <span class="@LabelClass"> — </span>
                     <span class="@LabelClass">@ZeroLabel</span>

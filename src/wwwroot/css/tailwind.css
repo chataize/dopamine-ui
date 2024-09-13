@@ -5277,6 +5277,7 @@ video {
 
 .dp-progressbar {
   height: 0.625rem;
+  overflow: hidden;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));

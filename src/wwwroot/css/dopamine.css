@@ -584,7 +584,7 @@
     }
 
     .dp-progressbar {
-        @apply bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700;
+        @apply bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 overflow-hidden;
     }
 
     .dp-progressbar-fill-base {

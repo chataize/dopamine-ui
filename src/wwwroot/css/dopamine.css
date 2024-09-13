@@ -381,6 +381,7 @@
 
     .dp-calendar-day-base {
         @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-lg sm:rounded-sm;
+        aspect-ratio: 1;
     }
 
     .dp-calendar-day {

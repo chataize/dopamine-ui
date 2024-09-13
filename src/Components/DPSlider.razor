@@ -39,7 +39,9 @@
                 <span class="@EditIndicatorClass">●</span>
             </label>
         }
-        <div class="@FillClass @MaxWidthClass" style="width: @Math.Clamp(Percentage,0.0,100.0)%"></div>
+        <div class="absolute bottom-0 flex h-2 mb-1.5 rounded-full overflow-hidden @WidthClass">
+            <div class="@FillClass @WidthClass" style="width: @Math.Clamp(Percentage,0.0,100.0)%" />
+        </div>
         <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:event="oninput" @bind:after="InvokeValueChangedAsync" />
     </div>
     @if (!string.IsNullOrWhiteSpace(Caption))
@@ -168,24 +170,6 @@
             }
 
             return "w-full sm:w-64 min-w-fit";
-        }
-    }
-
-    private string MaxWidthClass
-    {
-        get
-        {
-            if (IsFullWidth == true)
-            {
-                return "max-w-full min-w-fit";
-            }
-
-            if (IsFullWidth == false)
-            {
-                return "max-w-64";
-            }
-
-            return "max-w-full sm:max-w-64 min-w-fit";
         }
     }
 

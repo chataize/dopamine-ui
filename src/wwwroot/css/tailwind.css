@@ -6359,11 +6359,8 @@ video {
 
 .dp-slider-fill {
   pointer-events: none;
-  position: absolute;
-  bottom: 0px;
-  margin-bottom: 0.375rem;
   display: flex;
-  height: 0.5rem;
+  height: 100%;
   border-radius: 9999px;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -6375,11 +6372,8 @@ video {
 
 .dp-slider-fill-disabled {
   pointer-events: none;
-  position: absolute;
-  bottom: 0px;
-  margin-bottom: 0.375rem;
   display: flex;
-  height: 0.5rem;
+  height: 100%;
   border-radius: 9999px;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -7285,12 +7279,20 @@ video {
   position: relative;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .right-2 {
   right: 0.5rem;
 }
 
 .top-2 {
   top: 0.5rem;
+}
+
+.mb-1\.5 {
+  margin-bottom: 0.375rem;
 }
 
 .block {
@@ -7315,6 +7317,10 @@ video {
 
 .h-1 {
   height: 0.25rem;
+}
+
+.h-2 {
+  height: 0.5rem;
 }
 
 .h-screen {
@@ -7445,6 +7451,10 @@ video {
   overflow: auto;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -7544,6 +7554,11 @@ video {
 .bg-red-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
 .bg-violet-200 {

@@ -796,7 +796,7 @@
     }
 
     .dp-slider-fill-base {
-        @apply absolute bottom-0 flex h-2 mb-1.5 transition-all duration-100 ease-out rounded-full pointer-events-none;
+        @apply flex h-full transition-all duration-100 ease-out rounded-full pointer-events-none;
     }
 
     .dp-slider-fill {

@@ -172,24 +172,6 @@
         }
     }
 
-    private string MaxWidthClass
-    {
-        get
-        {
-            if (IsFullWidth == true)
-            {
-                return "max-w-full min-w-fit";
-            }
-
-            if (IsFullWidth == false)
-            {
-                return "max-w-64";
-            }
-
-            return "max-w-full sm:max-w-64 min-w-fit";
-        }
-    }
-
     private async Task InvokeValueChangedAsync()
     {
         if (!Context.IsDisabled && ValueChanged.HasDelegate)

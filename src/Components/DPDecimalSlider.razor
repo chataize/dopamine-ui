@@ -19,7 +19,7 @@
                     @if (IsShowingValue)
                     {
                         <span class="@LabelClass"> — </span>
-                        <span class="@LabelClass">@Value</span>
+                        <span class="@LabelClass">@($"{(Value % 1 == 0 ? Value.ToString("F1") : Value.ToString())}")</span>
                         @if (IsShowingMaxValue)
                         {
                             <span class="@LabelClass text-xs"> / </span>

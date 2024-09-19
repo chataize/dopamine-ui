@@ -155,7 +155,7 @@
 
     private async Task OnChangeAsync(ChangeEventArgs e)
     {
-        var normalizedValue = NormalizeValue(e.Value?.ToString() ?? string.Empty);
+        var normalizedValue = NormalizeValue(e.Value?.ToString()?.Trim() ?? string.Empty);
         if (Value != normalizedValue)
         {
             Value = normalizedValue;
@@ -173,8 +173,6 @@
         {
             return string.Empty;
         }
-
-        value = value.Trim();
 
         if (value.Length > MaxLength)
         {

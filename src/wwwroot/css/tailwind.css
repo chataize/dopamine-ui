@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -7359,14 +7359,6 @@ video {
   min-width: fit-content;
 }
 
-.max-w-64 {
-  max-width: 16rem;
-}
-
-.max-w-full {
-  max-width: 100%;
-}
-
 .-translate-y-12 {
   --tw-translate-y: -3rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -7892,10 +7884,6 @@ video {
   .sm\:w-fit {
     width: -moz-fit-content;
     width: fit-content;
-  }
-
-  .sm\:max-w-64 {
-    max-width: 16rem;
   }
 
   .sm\:space-x-3 > :not([hidden]) ~ :not([hidden]) {

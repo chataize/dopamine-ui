@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
     <Product>Dopamine UI</Product>
-    <Version>0.8.7</Version>
+    <Version>0.8.8</Version>
     <Company>ChatAIze</Company>
     <Authors>Marcel Kwiatkowski</Authors>
     <Copyright>© ChatAIze 2024</Copyright>

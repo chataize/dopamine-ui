@@ -180,7 +180,7 @@
     }
 
     .dp-switch-pill-base {
-        @apply flex items-center h-8 border rounded-full shadow-sm dp-transitions sm:h-6 w-14 sm:w-11;
+        @apply flex items-center h-8 border rounded-full shadow-sm dp-transitions sm:h-6 w-14 sm:w-11 shrink-0;
     }
 
     .dp-switch-pill-on {
@@ -224,7 +224,7 @@
     }
 
     .dp-checkbox-square-base {
-        @apply flex items-center justify-center w-8 h-8 border rounded-lg shadow-sm stroke-2 dp-transitions sm:rounded-md sm:w-6 sm:h-6;
+        @apply flex items-center justify-center w-8 h-8 border rounded-lg shadow-sm stroke-2 dp-transitions sm:rounded-md sm:w-6 sm:h-6 shrink-0;
     }
 
     .dp-checkbox-square-on {
@@ -256,7 +256,7 @@
     }
 
     .dp-radio-circle-base {
-        @apply flex items-center justify-center w-8 h-8 border rounded-full shadow-sm stroke-2 dp-transitions sm:w-6 sm:h-6;
+        @apply flex items-center justify-center w-8 h-8 border rounded-full shadow-sm stroke-2 dp-transitions sm:w-6 sm:h-6 shrink-0;
     }
 
     .dp-radio-circle-on {

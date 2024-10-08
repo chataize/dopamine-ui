@@ -809,7 +809,7 @@
     }
 
     .dp-save-prompt-base {
-        @apply z-20 flex items-center justify-between w-full px-2 py-2 border shadow cursor-default select-none dp-transitions sm:pl-4 sm:space-x-4 -sm:flex-col backdrop-blur-2xl backdrop-brightness-90 dark:backdrop-brightness-200 border-neutral-300 dark:border-neutral-600 rounded-xl;
+        @apply z-20 flex items-center justify-between w-full px-2 py-2 border shadow cursor-default select-none dp-transitions sm:pl-4 sm:space-x-4 -sm:flex-col bg-neutral-200 dark:bg-neutral-700 border-neutral-300 dark:border-neutral-600 rounded-xl;
     }
 
     .dp-save-prompt {
@@ -817,7 +817,7 @@
     }
 
     .dp-save-prompt-hidden {
-        @apply translate-y-8 pointer-events-none dp-save-prompt-base blur-xl;
+        @apply dp-save-prompt-base translate-y-8 pointer-events-none blur-xl;
     }
 
     .dp-save-prompt-container {
@@ -825,7 +825,7 @@
     }
 
     .dp-save-prompt-container-hidden {
-        @apply opacity-0 dp-save-prompt-container;
+        @apply dp-save-prompt-container opacity-0;
     }
 
     .dp-navigation-menu-link-base {

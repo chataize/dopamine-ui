@@ -809,7 +809,7 @@
     }
 
     .dp-save-prompt-base {
-        @apply z-20 flex items-center justify-between w-full px-2 py-2 border shadow cursor-default select-none dp-transitions sm:pl-4 sm:space-x-4 -sm:flex-col bg-neutral-200 dark:bg-neutral-700 border-neutral-300 dark:border-neutral-600 rounded-xl;
+        @apply z-30 flex items-center justify-between w-full px-2 py-2 border shadow cursor-default select-none dp-transitions sm:pl-4 sm:space-x-4 -sm:flex-col bg-neutral-200 dark:bg-neutral-700 border-neutral-300 dark:border-neutral-600 rounded-xl;
     }
 
     .dp-save-prompt {
@@ -821,7 +821,7 @@
     }
 
     .dp-save-prompt-container {
-        @apply fixed left-0 right-0 z-20 flex items-center px-8 pointer-events-none select-none bottom-8 justify-stretch dp-transitions;
+        @apply fixed left-0 right-0 z-30 flex items-center px-8 pointer-events-none select-none bottom-8 justify-stretch dp-transitions;
     }
 
     .dp-save-prompt-container-hidden {

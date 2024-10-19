@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "ChatAIze",
+    "classifications": [
+        "Web",
+        "Server",
+        "Blazor",
+        "Razor",
+        "Tailwind CSS",
+        "Dopamine UI"
+    ],
+    "identity": "ChatAIze.DopamineUI.Template",
+    "name": "Dopamine UI App",
+    "shortName": "dopamineapp",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "BlazorApp1"
+}

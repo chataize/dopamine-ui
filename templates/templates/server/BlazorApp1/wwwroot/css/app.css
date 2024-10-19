@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    color-scheme: light dark;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply text-neutral-800 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100 dark:bg-neutral-900;
+}

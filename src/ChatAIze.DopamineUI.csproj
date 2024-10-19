@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
+    <Title>Dopamine UI</Title>
     <Product>Dopamine UI</Product>
     <Version>0.8.10</Version>
     <Company>ChatAIze</Company>

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DopamineUI", "src\DopamineUI.csproj", "{E9E6F28E-EA80-4285-BFE6-9C19AFBE8EC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAIze.DopamineUI", "src\ChatAIze.DopamineUI.csproj", "{E9E6F28E-EA80-4285-BFE6-9C19AFBE8EC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DopamineUIPreview", "preview\DopamineUIPreview.csproj", "{FDEC57A1-C54D-4451-8F2A-67CE6449DD3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAIze.DopamineUIPreview", "preview\ChatAIze.DopamineUI.Preview.csproj", "{FDEC57A1-C54D-4451-8F2A-67CE6449DD3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DopamineUITemplates", "templates\DopamineUITemplates.csproj", "{4A79C608-C555-45E0-BBAB-AB02DF8D5233}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAIze.DopamineUITemplates", "templates\ChatAIze.DopamineUI.Templates.csproj", "{4A79C608-C555-45E0-BBAB-AB02DF8D5233}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

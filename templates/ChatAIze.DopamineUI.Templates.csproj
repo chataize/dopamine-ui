@@ -24,7 +24,7 @@
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
         <Description>
-            Blazor web app templates with Dopamine UI pre-installed.
+            Blazor web app project templates with Dopamine UI pre-installed.
         </Description>
         <PackageTags>
             .net, api, area, asp, asp-net, asp-net-core, assembly, blazor, box, button, button,

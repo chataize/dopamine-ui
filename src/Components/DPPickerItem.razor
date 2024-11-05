@@ -9,7 +9,7 @@
     public UIContext ParentContext { get; set; } = new();
 
     [CascadingParameter]
-    public DPInlinePicker<T>? Picker { get; set; }
+    public DPSegmentedControl<T>? Picker { get; set; }
 
     [Parameter]
     public T? Value { get; set; }
@@ -33,18 +33,18 @@
             {
                 if (Context.IsDisabled)
                 {
-                    return "dp-inline-picker-item-selected-disabled";
+                    return "dp-segmented-control-item-selected-disabled";
                 }
 
-                return "dp-inline-picker-item-selected";
+                return "dp-segmented-control-item-selected";
             }
 
             if (Context.IsDisabled)
             {
-                return "dp-inline-picker-item-disabled";
+                return "dp-segmented-control-item-disabled";
             }
 
-            return "dp-inline-picker-item";
+            return "dp-segmented-control-item";
         }
     }
 

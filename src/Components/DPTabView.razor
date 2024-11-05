@@ -1,13 +1,13 @@
 <CascadingValue Value="Context">
     <div class="space-y-4">
-        <DPInlinePicker IsFullWidth="@IsFullWidth" @bind-Value="_selectedTab">
+        <DPSegmentedControl IsFullWidth="@IsFullWidth" @bind-Value="_selectedTab">
             @foreach (var tab in Tabs)
             {
                 <DPPickerItem Value="@tab">
                     @tab.Label
                 </DPPickerItem>
             }
-        </DPInlinePicker>
+        </DPSegmentedControl>
         <div class="relative">
             @if (_selectedTab != null)
             {

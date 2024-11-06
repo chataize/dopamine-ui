@@ -50,5 +50,8 @@
     <PackageReference
         Include="Microsoft.AspNetCore.Components.Web"
         Version="8.0.10" />
+    <PackageReference
+        Include="ChatAIze.Abstractions"
+        Version="0.4.4" />
   </ItemGroup>
 </Project>

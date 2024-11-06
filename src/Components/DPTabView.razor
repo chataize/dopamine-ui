@@ -3,9 +3,9 @@
         <DPSegmentedControl IsFullWidth="@IsFullWidth" @bind-Value="_selectedTab">
             @foreach (var tab in Tabs)
             {
-                <DPPickerItem Value="@tab">
+                <DPSegment Value="@tab">
                     @tab.Label
-                </DPPickerItem>
+                </DPSegment>
             }
         </DPSegmentedControl>
         <div class="relative">

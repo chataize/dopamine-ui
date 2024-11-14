@@ -332,11 +332,11 @@
     }
 
     .dp-menu-item {
-        @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100;
+        @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl active:scale-95 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100;
     }
 
     .dp-menu-item-selected {
-        @apply bg-blue-600 text-neutral-100 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl hover:scale-105 active:scale-95 fill-neutral-100;
+        @apply bg-blue-600 text-neutral-100 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl active:scale-95 fill-neutral-100;
     }
 
     .dp-menu-item-selected-disabled {

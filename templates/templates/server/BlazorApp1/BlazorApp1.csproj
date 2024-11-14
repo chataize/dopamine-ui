@@ -7,6 +7,6 @@
   <ItemGroup>
     <PackageReference
         Include="ChatAIze.DopamineUI"
-        Version="0.8.19" />
+        Version="0.8.20" />
   </ItemGroup>
 </Project>

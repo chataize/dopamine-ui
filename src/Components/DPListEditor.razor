@@ -1,0 +1,113 @@
+@if (ItemCards)
+{
+    @foreach (var item in _items)
+    {
+        <DPCard IsTopPaddingExtended="true" IsBottomPaddingExtended="true" IsFullWidth="true">
+    <div class="flex space-x-3">
+        <DPTextField Placeholder="@ItemPlaceholder" IsFullWidth="true" @bind-Value="@item.Value" @bind-Value:after="ApplyChanges" />
+        <DPButton Style="ButtonStyle.Danger" Clicked="() => RemoveItem(item)">
+            <svg class="shrink-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
+                <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                    <g transform="scale(4,4)">
+                        <path d="M28,7c-2.757,0 -5,2.243 -5,5v3h-10c-1.104,0 -2,0.896 -2,2c0,1.104 0.896,2 2,2h2.10938l1.68359,30.33203c0.178,3.178 2.80723,5.66797 5.99023,5.66797h18.43359c3.182,0 5.81223,-2.48997 5.99023,-5.66797l1.68359,-30.33203h2.10938c1.104,0 2,-0.896 2,-2c0,-1.104 -0.896,-2 -2,-2h-10v-3c0,-2.757 -2.243,-5 -5,-5zM28,11h8c0.552,0 1,0.449 1,1v3h-10v-3c0,-0.551 0.448,-1 1,-1zM19.11328,19h25.77344l-1.67383,30.10938c-0.059,1.06 -0.93509,1.89063 -1.99609,1.89063h-18.43359c-1.06,0 -1.93709,-0.82967 -1.99609,-1.88867zM32,23.25c-0.967,0 -1.75,0.784 -1.75,1.75v20c0,0.966 0.783,1.75 1.75,1.75c0.967,0 1.75,-0.784 1.75,-1.75v-20c0,-0.966 -0.783,-1.75 -1.75,-1.75zM24.64258,23.25195c-0.965,0.034 -1.7205,0.84259 -1.6875,1.80859l0.69727,20.08594c0.033,0.945 0.81005,1.68945 1.74805,1.68945c0.021,0 0.0415,0 0.0625,0c0.965,-0.034 1.7205,-0.84455 1.6875,-1.81055l-0.69727,-20.08594c-0.034,-0.965 -0.84655,-1.7105 -1.81055,-1.6875zM39.35547,23.25195c-0.967,-0.027 -1.77459,0.7225 -1.80859,1.6875l-0.69727,20.08594c-0.034,0.966 0.7215,1.77655 1.6875,1.81055c0.021,0.001 0.0415,0 0.0625,0c0.938,0 1.71505,-0.74445 1.74805,-1.68945l0.69727,-20.08594c0.034,-0.966 -0.72345,-1.77459 -1.68945,-1.80859z"></path>
+                    </g>
+                </g>
+            </svg>
+        </DPButton>
+    </div>
+</DPCard>
+    }
+
+}
+else
+{
+    @foreach (var item in _items)
+    {
+        <div class="flex space-x-3">
+    <DPTextField Placeholder="@ItemPlaceholder" IsFullWidth="true" @bind-Value="@item.Value" @bind-Value:after="ApplyChanges" />
+    <DPButton Style="ButtonStyle.Danger" Clicked="() => RemoveItem(item)">
+        <svg class="shrink-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
+            <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <g transform="scale(4,4)">
+                    <path d="M28,7c-2.757,0 -5,2.243 -5,5v3h-10c-1.104,0 -2,0.896 -2,2c0,1.104 0.896,2 2,2h2.10938l1.68359,30.33203c0.178,3.178 2.80723,5.66797 5.99023,5.66797h18.43359c3.182,0 5.81223,-2.48997 5.99023,-5.66797l1.68359,-30.33203h2.10938c1.104,0 2,-0.896 2,-2c0,-1.104 -0.896,-2 -2,-2h-10v-3c0,-2.757 -2.243,-5 -5,-5zM28,11h8c0.552,0 1,0.449 1,1v3h-10v-3c0,-0.551 0.448,-1 1,-1zM19.11328,19h25.77344l-1.67383,30.10938c-0.059,1.06 -0.93509,1.89063 -1.99609,1.89063h-18.43359c-1.06,0 -1.93709,-0.82967 -1.99609,-1.88867zM32,23.25c-0.967,0 -1.75,0.784 -1.75,1.75v20c0,0.966 0.783,1.75 1.75,1.75c0.967,0 1.75,-0.784 1.75,-1.75v-20c0,-0.966 -0.783,-1.75 -1.75,-1.75zM24.64258,23.25195c-0.965,0.034 -1.7205,0.84259 -1.6875,1.80859l0.69727,20.08594c0.033,0.945 0.81005,1.68945 1.74805,1.68945c0.021,0 0.0415,0 0.0625,0c0.965,-0.034 1.7205,-0.84455 1.6875,-1.81055l-0.69727,-20.08594c-0.034,-0.965 -0.84655,-1.7105 -1.81055,-1.6875zM39.35547,23.25195c-0.967,-0.027 -1.77459,0.7225 -1.80859,1.6875l-0.69727,20.08594c-0.034,0.966 0.7215,1.77655 1.6875,1.81055c0.021,0.001 0.0415,0 0.0625,0c0.938,0 1.71505,-0.74445 1.74805,-1.68945l0.69727,-20.08594c0.034,-0.966 -0.72345,-1.77459 -1.68945,-1.80859z"></path>
+                </g>
+            </g>
+        </svg>
+    </DPButton>
+</div>
+    }
+}
+
+<DPButton Style="ButtonStyle.Primary" IsFullWidth="true" IsDisabled="_items.Count >= MaxItems" Clicked="AddItem">@AddButtonText</DPButton>
+
+@code {
+    private List<ItemReference> _items = new();
+
+    private List<string>? _previousItems;
+
+    [Parameter]
+    public List<string>? Items { get; set; } = [];
+
+    [Parameter]
+    public EventCallback<List<string>> ItemsChanged { get; set; }
+
+    [Parameter]
+    public string? ItemPlaceholder { get; set; }
+
+    [Parameter]
+    public bool ItemCards { get; set; } = true;
+
+    [Parameter]
+    public int MaxItems { get; set; } = int.MaxValue;
+
+    [Parameter]
+    public bool DistinctItems { get; set; }
+
+    [Parameter]
+    public string AddButtonText { get; set; } = "Add";
+
+    protected override void OnInitialized()
+    {
+        if (Items == _previousItems)
+        {
+            return;
+        }
+
+        _previousItems = Items;
+        _items = Items?.Select(i => new ItemReference { Value = i }).ToList() ?? [];
+    }
+
+    private void AddItem()
+    {
+        _items.Add(new());
+        ApplyChanges();
+    }
+
+    private void RemoveItem(ItemReference item)
+    {
+        _items.Remove(item);
+        ApplyChanges();
+    }
+
+    private void ApplyChanges()
+    {
+        var newItems = _items.Select(i => i.Value).Where(i => !string.IsNullOrWhiteSpace(i));
+
+        if (DistinctItems)
+        {
+            newItems = newItems.Distinct();
+        }
+
+        Items = newItems.ToList();
+
+        if (ItemsChanged.HasDelegate)
+        {
+            ItemsChanged.InvokeAsync(Items);
+        }
+    }
+
+    private record ItemReference
+    {
+        public string Value { get; set; } = string.Empty;
+    }
+}

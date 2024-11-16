@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Title>Dopamine UI</Title>
     <Product>Dopamine UI</Product>
-    <Version>0.8.20</Version>
+    <Version>0.9.0</Version>
     <Company>ChatAIze</Company>
     <Authors>Marcel Kwiatkowski</Authors>
     <Copyright>© ChatAIze 2024</Copyright>
@@ -37,11 +37,21 @@
     <SupportedPlatform Include="browser" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="icon.png" Pack="true" PackagePath="\" />
-    <None Include="../README.md" Pack="true" PackagePath="" />
+    <None
+        Include="icon.png"
+        Pack="true"
+        PackagePath="\" />
+    <None
+        Include="../README.md"
+        Pack="true"
+        PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" />
-    <PackageReference Include="ChatAIze.Abstractions" Version="0.10.1" />
+    <PackageReference
+        Include="Microsoft.AspNetCore.Components.Web"
+        Version="9.0.0" />
+    <PackageReference
+        Include="ChatAIze.Abstractions"
+        Version="0.10.1" />
   </ItemGroup>
 </Project>

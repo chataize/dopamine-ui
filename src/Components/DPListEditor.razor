@@ -1,4 +1,4 @@
-@if (ItemCards)
+@if (ShowItemBorders)
 {
     @foreach (var item in _items)
     {
@@ -55,7 +55,7 @@ else
     public string? ItemPlaceholder { get; set; }
 
     [Parameter]
-    public bool ItemCards { get; set; } = true;
+    public bool ShowItemBorders { get; set; } = true;
 
     [Parameter]
     public int MaxItems { get; set; } = int.MaxValue;

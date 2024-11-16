@@ -2,7 +2,7 @@
     <PropertyGroup>
         <title>Dopamine UI Templates</title>
         <Product>Dopamine UI</Product>
-        <Version>0.8.20</Version>
+        <Version>0.9.0</Version>
         <Company>ChatAIze</Company>
         <Authors>Marcel Kwiatkowski</Authors>
         <Copyright>© ChatAIze 2024</Copyright>
@@ -45,19 +45,11 @@
         <SupportedPlatform Include="browser" />
     </ItemGroup>
     <ItemGroup>
-        <None
-                Include="icon.png"
-                Pack="true"
-                PackagePath="\" />
-        <None
-                Include="../README.md"
-                Pack="true"
-                PackagePath="" />
+        <None Include="icon.png" Pack="true" PackagePath="\" />
+        <None Include="../README.md" Pack="true" PackagePath="" />
     </ItemGroup>
     <ItemGroup>
-        <Content
-                Include="templates\**\*"
-                Exclude="templates\**\bin\**;templates\**\obj\**" />
+        <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
         <Compile Remove="**\*" />
     </ItemGroup>
 </Project>

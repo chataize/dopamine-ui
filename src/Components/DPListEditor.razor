@@ -61,7 +61,7 @@ else
     public int MaxItems { get; set; } = int.MaxValue;
 
     [Parameter]
-    public bool DistinctItems { get; set; }
+    public bool AllowDuplicates { get; set; }
 
     [Parameter]
     public string AddButtonText { get; set; } = "Add";
@@ -93,7 +93,7 @@ else
     {
         var newItems = _items.Select(i => i.Value).Where(i => !string.IsNullOrWhiteSpace(i));
 
-        if (DistinctItems)
+        if (!AllowDuplicates)
         {
             newItems = newItems.Distinct();
         }

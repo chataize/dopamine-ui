@@ -37,21 +37,11 @@
     <SupportedPlatform Include="browser" />
   </ItemGroup>
   <ItemGroup>
-    <None
-        Include="icon.png"
-        Pack="true"
-        PackagePath="\" />
-    <None
-        Include="../README.md"
-        Pack="true"
-        PackagePath="" />
+    <None Include="icon.png" Pack="true" PackagePath="\" />
+    <None Include="../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference
-        Include="Microsoft.AspNetCore.Components.Web"
-        Version="9.0.0" />
-    <PackageReference
-        Include="ChatAIze.Abstractions"
-        Version="0.10.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" />
+    <PackageReference Include="ChatAIze.Abstractions" Version="0.10.2" />
   </ItemGroup>
 </Project>

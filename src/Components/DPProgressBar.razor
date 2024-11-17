@@ -39,7 +39,7 @@
             </label>
         }
         <div class="dp-progressbar @WidthClass">
-            <div class="@FillClass" style="width: @Math.Round(Math.Clamp(ActualValue, 0.0, 100.0), 2)%"></div>
+            <div class="@FillClass" style="width: @Math.Round(Math.Clamp(ActualValue, 0.0, 100.0))%"></div>
         </div>
     </div>
     @if (!string.IsNullOrWhiteSpace(Caption))

@@ -4,7 +4,7 @@
     {
         <DPCard IsTopPaddingExtended="true" IsBottomPaddingExtended="true" IsFullWidth="true">
     <div class="flex space-x-3">
-        <DPTextField Placeholder="@ItemPlaceholder" IsFullWidth="true" @bind-Value="@item.Value" @bind-Value:after="ApplyChanges" />
+        <DPTextField Placeholder="@ItemPlaceholder" Type="TextFieldType" IsFullWidth="true" @bind-Value="@item.Value" @bind-Value:after="ApplyChanges" />
         <DPButton Style="ButtonStyle.Danger" Clicked="() => RemoveItem(item)">
             <svg class="shrink-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0,0,256,256">
                 <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -53,6 +53,9 @@ else
 
     [Parameter]
     public string? ItemPlaceholder { get; set; }
+
+    [Parameter]
+    public TextFieldType TextFieldType { get; set; }
 
     [Parameter]
     public bool ShowItemBorders { get; set; } = true;

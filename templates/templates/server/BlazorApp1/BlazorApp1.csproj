@@ -6,6 +6,6 @@
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ChatAIze.DopamineUI" Version="0.9.4" />
+    <PackageReference Include="ChatAIze.DopamineUI" Version="0.9.5" />
   </ItemGroup>
 </Project>

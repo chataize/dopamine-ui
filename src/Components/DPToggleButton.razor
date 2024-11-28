@@ -1,3 +1,5 @@
+@implements ITaggable
+
 <div class="space-y-3 @WidthClass">
     <button class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">
         @if (IsLoading)

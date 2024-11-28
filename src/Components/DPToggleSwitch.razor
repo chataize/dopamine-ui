@@ -1,3 +1,5 @@
+@implements ITaggable
+
 <div class="space-y-3 @WidthClass">
     <label for="@_id" class="group/switch @LabelClass @BorderClass @WidthClass">
         <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" @bind:after="InvokeValueChangedAsync" />

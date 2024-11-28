@@ -1,3 +1,5 @@
+@implements ITaggable
+
 <button class="@ItemClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">
     <CascadingValue Value="Context">@ChildContent</CascadingValue>
 </button>

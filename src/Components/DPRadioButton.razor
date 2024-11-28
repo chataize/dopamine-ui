@@ -20,8 +20,6 @@
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
 
-    [CascadingParameter]
-    public DPRadioGroup<T>? RadioGroup { get; set; }
 
     [Parameter]
     public string? Label { get; set; }
@@ -43,6 +41,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private DPRadioGroup<T>? RadioGroup { get; set; }
 
     [CascadingParameter]
     private UIContext ParentContext { get; set; } = new();

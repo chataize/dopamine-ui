@@ -6,9 +6,6 @@
 
 @code {
     [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
-    [CascadingParameter]
     public DPDropDown<T>? DropDown { get; set; }
 
     [Parameter]
@@ -22,6 +19,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || DropDown?.ActualIsOpen == false || IsDisabled };
 

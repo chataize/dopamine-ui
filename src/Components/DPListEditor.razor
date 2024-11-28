@@ -40,9 +40,6 @@ else
 <DPButton Style="ButtonStyle.Primary" IsFullWidth="true" IsDisabled="_items.Count >= MaxItems" Clicked="AddItem">@AddButtonText</DPButton>
 
 @code {
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     private List<ItemReference> _items = new();
 
     private List<string>? _previousItems;
@@ -76,6 +73,9 @@ else
 
     [Parameter]
     public bool IsDisabled { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 

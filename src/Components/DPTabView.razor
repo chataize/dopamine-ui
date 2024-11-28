@@ -21,9 +21,6 @@
 @code {
     private DPTab? _selectedTab = null;
 
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
@@ -37,6 +34,9 @@
     public object? Tag { get; set; }
 
     internal List<DPTab> Tabs { get; set; } = new();
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { TabView = this, IsDisabled = ParentContext.IsDisabled || IsDisabled };
 

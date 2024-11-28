@@ -46,9 +46,6 @@
 
     private bool _isOpen { get; set; }
 
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     [Parameter]
     public string? Label { get; set; }
 
@@ -85,6 +82,9 @@
     internal List<DPDropDownItem<T>> Items { get; set; } = [];
 
     internal bool ActualIsOpen => _isOpen && !Context.IsDisabled;
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 

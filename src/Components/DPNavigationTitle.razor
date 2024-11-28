@@ -1,7 +1,4 @@
 @code {
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
@@ -10,6 +7,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     protected override void OnInitialized()
     {

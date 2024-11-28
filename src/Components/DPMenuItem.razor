@@ -3,9 +3,6 @@
 </button>
 
 @code {
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
@@ -17,6 +14,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.Menu?.IsOpen == false || ParentContext.IsDisabled || IsDisabled };
 

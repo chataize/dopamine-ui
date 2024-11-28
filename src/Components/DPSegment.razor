@@ -5,12 +5,6 @@
 </button>
 
 @code {
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
-    [CascadingParameter]
-    public DPSegmentedControl<T>? Picker { get; set; }
-
     [Parameter]
     public T? Value { get; set; }
 
@@ -22,6 +16,12 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    public DPSegmentedControl<T>? Picker { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 

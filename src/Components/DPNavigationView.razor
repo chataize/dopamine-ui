@@ -70,9 +70,6 @@
 @code {
     private bool _isOpen;
 
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     [Parameter]
     public RenderFragment? Logo { get; set; }
 
@@ -96,6 +93,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { NavigationView = this, IsDisabled = ParentContext.IsDisabled || IsDisabled };
 

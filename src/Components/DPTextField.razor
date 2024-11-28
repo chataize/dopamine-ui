@@ -25,9 +25,6 @@
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
 
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     [Parameter]
     public TextFieldType Type { get; set; }
 
@@ -75,6 +72,9 @@
 
     [Parameter]
     public EventCallback EnterPressed { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsLoading || IsDisabled };
 

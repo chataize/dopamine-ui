@@ -7,9 +7,6 @@
 </CascadingValue>
 
 @code {
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
-
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
@@ -20,6 +17,9 @@
     public bool IsDisabled { get; set; }
 
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 

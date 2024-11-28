@@ -21,11 +21,9 @@
             <div class="relative hidden @(FromClass):block @(ToClass):hidden">@ChildContent</div>
         }
     }
-</CascadingValue>
+    </CascadingValue>
 
     @code {
-    [CascadingParameter]
-    public UIContext ParentContext { get; set; } = new();
 
     [Parameter]
     public ScreenSize? FromSize { get; set; }
@@ -41,6 +39,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private UIContext ParentContext { get; set; } = new();
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 

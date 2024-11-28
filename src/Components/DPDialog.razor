@@ -1,7 +1,7 @@
 @implements ITaggable
 
 <CascadingValue Value="ChildContext">
-    <DPOverlay IsVisible="@IsVisible" IsDisabled="@IsDisabled">
+    <DPOverlay IsVisible="@IsOpen" IsDisabled="@IsDisabled">
         <div class="dp-dialog">
             @ChildContent
         </div>
@@ -13,7 +13,7 @@
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public bool IsVisible { get; set; }
+    public bool IsOpen { get; set; }
 
     [Parameter]
     public bool IsDisabled { get; set; }
@@ -26,5 +26,5 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsVisible };
+    private UIContext ChildContext => Context with { IsDisabled = Context.IsDisabled || !IsOpen };
 }

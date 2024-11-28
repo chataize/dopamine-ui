@@ -683,7 +683,7 @@
     <br />
 
     <DPHeader>Dialog</DPHeader>
-    <DPDialog IsVisible="@IsDialogShown">
+    <DPDialog IsOpen="@IsDialogOpen">
         <div class="space-y-8">
             <div class="space-y-4">
                 <DPHeader>Delete Account</DPHeader>
@@ -695,11 +695,11 @@
             </div>
             <DPAdaptiveView>
                 <DPButton Style="ButtonStyle.Destructive">Delete Account</DPButton>
-                <DPButton Clicked="() => IsDialogShown = false">Cancel</DPButton>
+                <DPButton Clicked="() => IsDialogOpen = false">Cancel</DPButton>
             </DPAdaptiveView>
         </div>
     </DPDialog>
-    <DPToggleSwitch Label="Show Dialog" @bind-Value="IsDialogShown" />
+    <DPToggleSwitch Label="Show Dialog" @bind-Value="IsDialogOpen" />
 
     <br />
     <DPDivider />
@@ -772,7 +772,7 @@
 
     private bool IsLoadingScreenShown { get; set; }
 
-    private bool IsDialogShown { get; set; }
+    private bool IsDialogOpen { get; set; }
 
     private bool IsSavePromptShown { get; set; }
 

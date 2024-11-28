@@ -2,7 +2,7 @@
 {
     @foreach (var item in _items)
     {
-        <DPCard IsTopPaddingExtended="true" IsBottomPaddingExtended="true" IsFullWidth="true">
+        <DPCard IsTopPaddingExtended="true" IsBottomPaddingExtended="true" IsFullWidth="true" IsDisabled="IsDisabled">
     <div class="flex space-x-3">
         <DPTextField Placeholder="@ItemPlaceholder" Type="TextFieldType" IsFullWidth="true" @bind-Value="@item.Value" @bind-Value:after="ApplyChanges" />
         <DPButton Style="ButtonStyle.Danger" Clicked="() => RemoveItem(item)">
@@ -68,6 +68,9 @@ else
 
     [Parameter]
     public string AddButtonText { get; set; } = "Add";
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
 
     protected override void OnInitialized()
     {

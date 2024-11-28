@@ -2,7 +2,7 @@
 {
     @foreach (var item in _items)
     {
-        <DPCard IsTopPaddingExtended="true" IsBottomPaddingExtended="true" IsFullWidth="true" IsDisabled="IsDisabled">
+        <DPCard IsTopPaddingExtended="true" IsBottomPaddingExtended="true" IsFullWidth="true" IsDisabled="Context.IsDisabled">
     <div class="flex space-x-3">
         <DPTextField Placeholder="@ItemPlaceholder" Type="TextFieldType" IsLowercase="IsLowercase" IsFullWidth="true" @bind-Value="@item.Value" @bind-Value:after="ApplyChanges" />
         <DPButton Style="ButtonStyle.Danger" Clicked="() => RemoveItem(item)">
@@ -17,7 +17,6 @@
     </div>
 </DPCard>
     }
-
 }
 else
 {
@@ -41,6 +40,9 @@ else
 <DPButton Style="ButtonStyle.Primary" IsFullWidth="true" IsDisabled="_items.Count >= MaxItems" Clicked="AddItem">@AddButtonText</DPButton>
 
 @code {
+    [CascadingParameter]
+    public UIContext ParentContext { get; set; } = new();
+
     private List<ItemReference> _items = new();
 
     private List<string>? _previousItems;
@@ -74,6 +76,8 @@ else
 
     [Parameter]
     public bool IsDisabled { get; set; }
+
+    private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
     protected override void OnInitialized()
     {

@@ -18,7 +18,7 @@
     public object? Tag { get; set; }
 
     [CascadingParameter]
-    public DPSegmentedControl<T>? Picker { get; set; }
+    private DPSegmentedControl<T>? Picker { get; set; }
 
     [CascadingParameter]
     private UIContext ParentContext { get; set; } = new();

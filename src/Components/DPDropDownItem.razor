@@ -6,9 +6,6 @@
 </button>
 
 @code {
-    [CascadingParameter]
-    public DPDropDown<T>? DropDown { get; set; }
-
     [Parameter]
     public T? Value { get; set; }
 
@@ -20,6 +17,9 @@
 
     [Parameter]
     public object? Tag { get; set; }
+
+    [CascadingParameter]
+    private DPDropDown<T>? DropDown { get; set; }
 
     [CascadingParameter]
     private UIContext ParentContext { get; set; } = new();

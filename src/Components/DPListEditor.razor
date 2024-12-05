@@ -39,7 +39,7 @@ else
     }
 }
 
-<DPButton Style="ButtonStyle.Primary" IsFullWidth="true" IsDisabled="_items.Count >= MaxItems" Clicked="AddItem">@AddButtonText</DPButton>
+<DPButton Style="ButtonStyle.Primary" IsFullWidth="true" IsDisabled="Context.IsDisabled || _items.Count >= MaxItems" Clicked="AddItem">@AddButtonText</DPButton>
 
 @code {
     private List<ItemReference> _items = new();

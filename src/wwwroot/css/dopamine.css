@@ -52,15 +52,15 @@
     }
 
     .dp-border-base {
-        @apply px-3 py-2 border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700;
+        @apply px-3 py-2 border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dp-transitions;
     }
 
     .dp-border {
-        @apply dp-border-base hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:border-neutral-200 dark:hover:border-neutral-700 dark:active:border-neutral-600;
+        @apply dp-border-base border-neutral-200 dark:border-neutral-700 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
     }
 
     .dp-border-disabled {
-        @apply dp-border-base border-neutral-50 dark:border-neutral-800;
+        @apply dp-border-base border-neutral-100 dark:border-neutral-800;
     }
 
     .dp-button-base {
@@ -569,7 +569,7 @@
     }
 
     .dp-navigation-link-base {
-        @apply relative flex px-3 py-2 justify-start text-left rounded-xl bg-white dark:bg-neutral-900 border dp-transitions;
+        @apply relative flex px-3 py-2 justify-start text-left rounded-xl shadow-sm bg-white dark:bg-neutral-900 border dp-transitions;
     }
 
     .dp-navigation-link {

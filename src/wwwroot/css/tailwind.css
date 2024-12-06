@@ -703,6 +703,9 @@ video {
 }
 
 .dp-border {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
@@ -723,10 +726,13 @@ video {
   }
 }
 
+.dp-border {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 229 229 / var(--tw-border-opacity, 1));
+}
+
 @media (hover: hover) and (pointer: fine) {
   .dp-border:hover {
-    --tw-border-opacity: 1;
-    border-color: rgb(229 229 229 / var(--tw-border-opacity, 1));
     --tw-bg-opacity: 1;
     background-color: rgb(229 229 229 / var(--tw-bg-opacity, 1));
   }
@@ -740,10 +746,13 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
+  .dp-border {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity, 1));
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .dp-border:hover {
-      --tw-border-opacity: 1;
-      border-color: rgb(64 64 64 / var(--tw-border-opacity, 1));
       --tw-bg-opacity: 1;
       background-color: rgb(64 64 64 / var(--tw-bg-opacity, 1));
     }
@@ -758,6 +767,9 @@ video {
 }
 
 .dp-border-disabled {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0.75rem;
   border-width: 1px;
   padding-left: 0.75rem;
@@ -780,7 +792,7 @@ video {
 
 .dp-border-disabled {
   --tw-border-opacity: 1;
-  border-color: rgb(250 250 250 / var(--tw-border-opacity, 1));
+  border-color: rgb(245 245 245 / var(--tw-border-opacity, 1));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -5162,6 +5174,9 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-align: left;
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -5249,6 +5264,9 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-align: left;
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -7775,6 +7793,9 @@ video {
 
 @media (max-width: 639px) {
   .-sm\:dp-border {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 0.75rem;
     border-width: 1px;
     padding-left: 0.75rem;
@@ -7795,10 +7816,13 @@ video {
     }
   }
 
+  .-sm\:dp-border {
+    --tw-border-opacity: 1;
+    border-color: rgb(229 229 229 / var(--tw-border-opacity, 1));
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .-sm\:dp-border:hover {
-      --tw-border-opacity: 1;
-      border-color: rgb(229 229 229 / var(--tw-border-opacity, 1));
       --tw-bg-opacity: 1;
       background-color: rgb(229 229 229 / var(--tw-bg-opacity, 1));
     }
@@ -7812,10 +7836,13 @@ video {
   }
 
   @media (prefers-color-scheme: dark) {
+    .-sm\:dp-border {
+      --tw-border-opacity: 1;
+      border-color: rgb(64 64 64 / var(--tw-border-opacity, 1));
+    }
+
     @media (hover: hover) and (pointer: fine) {
       .-sm\:dp-border:hover {
-        --tw-border-opacity: 1;
-        border-color: rgb(64 64 64 / var(--tw-border-opacity, 1));
         --tw-bg-opacity: 1;
         background-color: rgb(64 64 64 / var(--tw-bg-opacity, 1));
       }
@@ -7830,6 +7857,9 @@ video {
   }
 
   .-sm\:dp-border-disabled {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 0.75rem;
     border-width: 1px;
     padding-left: 0.75rem;
@@ -7852,7 +7882,7 @@ video {
 
   .-sm\:dp-border-disabled {
     --tw-border-opacity: 1;
-    border-color: rgb(250 250 250 / var(--tw-border-opacity, 1));
+    border-color: rgb(245 245 245 / var(--tw-border-opacity, 1));
   }
 
   @media (prefers-color-scheme: dark) {

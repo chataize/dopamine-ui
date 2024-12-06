@@ -156,7 +156,7 @@
     }
 
     .dp-textfield {
-        @apply dp-textfield-base text-neutral-800 bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-neutral-100;
+        @apply dp-textfield-base border-neutral-200 text-neutral-800 bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-neutral-100;
     }
 
     .dp-textfield-loading {

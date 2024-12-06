@@ -300,7 +300,7 @@
     }
 
     .dp-dropdown {
-        @apply text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
+        @apply text-neutral-800 dp-dropdown-base border-neutral-200 fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
     }
 
     .dp-dropdown-open {

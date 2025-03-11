@@ -1,0 +1,5 @@
+﻿<Solution>
+  <Project Path="src/ChatAIze.DopamineUI.csproj" />
+  <Project Path="preview/ChatAIze.DopamineUI.Preview.csproj" />
+  <Project Path="templates/ChatAIze.DopamineUI.Templates.csproj" />
+</Solution>

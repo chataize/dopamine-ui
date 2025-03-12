@@ -65,35 +65,35 @@
 }
 
 @utility dp-button {
-    @apply border shadow-sm dp-button-base text-neutral-800 bg-neutral-100 fill-neutral-800 dark:fill-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+    @apply border shadow-sm dp-button-base text-neutral-800 bg-neutral-100 fill-neutral-800 dark:fill-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-toggled {
-    @apply text-blue-600 bg-blue-100 border border-blue-200 shadow-sm dp-button-base fill-blue-600 hover:fill-blue-700 active:fill-blue-800 hover:text-blue-700 active:text-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dark:bg-blue-950 dark:hover:bg-blue-900 dark:active:bg-blue-800 dark:border-blue-900 dark:hover:border-blue-900 dark:active:border-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 hover:bg-blue-200 active:bg-blue-300 active:border-blue-300 hover:scale-105 active:scale-95;
+    @apply text-blue-600 bg-blue-100 border border-blue-200 shadow-sm dp-button-base fill-blue-600 hover:fill-blue-700 active:fill-blue-800 hover:text-blue-700 active:text-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dark:bg-blue-950 dark:hover:bg-blue-900 dark:active:bg-blue-800 dark:border-blue-900 dark:hover:border-blue-900 dark:active:border-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 hover:bg-blue-200 active:bg-blue-300 active:border-blue-300 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-borderless {
-    @apply dp-button-base text-neutral-800 fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+    @apply dp-button-base text-neutral-800 fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-light {
-    @apply border shadow-sm text-neutral-800 dp-button-base fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+    @apply border shadow-sm text-neutral-800 dp-button-base fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-primary {
-    @apply text-blue-600 border shadow-sm hover:text-blue-700 active:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 fill-blue-600 hover:fill-blue-700 active:fill-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+    @apply text-blue-600 border shadow-sm hover:text-blue-700 active:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 fill-blue-600 hover:fill-blue-700 active:fill-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-accent {
-    @apply bg-blue-600 border border-blue-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
+    @apply bg-blue-600 border border-blue-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-danger {
-    @apply text-red-600 border shadow-sm hover:text-red-700 active:text-red-800 dark:text-red-500 dark:hover:text-red-400 dark:active:text-red-300 fill-red-600 hover:fill-red-700 active:fill-red-800 dark:fill-red-500 dark:hover:fill-red-400 dark:active:fill-red-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+    @apply text-red-600 border shadow-sm hover:text-red-700 active:text-red-800 dark:text-red-500 dark:hover:text-red-400 dark:active:text-red-300 fill-red-600 hover:fill-red-700 active:fill-red-800 dark:fill-red-500 dark:hover:fill-red-400 dark:active:fill-red-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-destructive {
-    @apply bg-red-600 border border-red-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
+    @apply bg-red-600 border border-red-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-button-loading {
@@ -109,7 +109,7 @@
 }
 
 @utility dp-button-rounded {
-    @apply dp-button-rounded-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 hover:scale-125 active:scale-75;
+    @apply dp-button-rounded-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 hover:scale-125 active:scale-75 cursor-pointer;
 }
 
 @utility dp-button-rounded-loading {
@@ -297,11 +297,11 @@
 }
 
 @utility dp-dropdown {
-    @apply text-neutral-800 dp-dropdown-base border-neutral-200 fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
+    @apply text-neutral-800 dp-dropdown-base border-neutral-200 fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300 cursor-pointer;
 }
 
 @utility dp-dropdown-open {
-    @apply scale-95 text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+    @apply scale-95 text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600 cursor-pointer;
 }
 
 @utility dp-dropdown-loading {
@@ -329,11 +329,11 @@
 }
 
 @utility dp-menu-item {
-    @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl active:scale-95 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100;
+    @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl active:scale-95 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100 cursor-pointer;
 }
 
 @utility dp-menu-item-selected {
-    @apply bg-blue-600 text-neutral-100 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl active:scale-95 fill-neutral-100;
+    @apply bg-blue-600 text-neutral-100 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl active:scale-95 fill-neutral-100 cursor-pointer;
 }
 
 @utility dp-menu-item-selected-disabled {
@@ -365,7 +365,7 @@
 }
 
 @utility dp-calendar-arrow {
-    @apply dp-calendar-arrow-base fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
+    @apply dp-calendar-arrow-base fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75 cursor-pointer;
 }
 
 @utility dp-calendar-arrow-disabled {
@@ -418,7 +418,7 @@
 }
 
 @utility dp-clock-arrow {
-    @apply flex justify-center dp-transitions fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
+    @apply flex justify-center dp-transitions fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75 cursor-pointer;
 }
 
 @utility dp-clock-grid-base {
@@ -470,7 +470,7 @@
 }
 
 @utility dp-stepper-button-hitbox {
-    @apply cursor-pointer dp-stepper-button-hitbox-base;
+    @apply dp-stepper-button-hitbox-base cursor-pointer;
 }
 
 @utility dp-stepper-button-hitbox-loading {
@@ -486,7 +486,7 @@
 }
 
 @utility dp-stepper-button {
-    @apply dp-stepper-button-base fill-neutral-800 dark:fill-neutral-100 group-hover:fill-blue-600 group-active:fill-blue-700 group-hover:scale-125 group-active:scale-75 group-hover:bg-neutral-200 group-active:bg-neutral-300 dark:group-hover:bg-neutral-700 dark:group-active:bg-neutral-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400;
+    @apply dp-stepper-button-base fill-neutral-800 dark:fill-neutral-100 group-hover:fill-blue-600 group-active:fill-blue-700 group-hover:scale-125 group-active:scale-75 group-hover:bg-neutral-200 group-active:bg-neutral-300 dark:group-hover:bg-neutral-700 dark:group-active:bg-neutral-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400 cursor-pointer;
 }
 
 @utility dp-stepper-button-loading {
@@ -570,7 +570,7 @@
 }
 
 @utility dp-navigation-link {
-    @apply dp-navigation-link-base text-neutral-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-500 active:text-blue-700 dark:active:text-blue-400 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 dark:hover:fill-blue-500 active:fill-blue-700 dark:active:fill-blue-400 hover:border-2 active:border-2 border-neutral-200 dark:border-neutral-700 hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 active:scale-95;
+    @apply dp-navigation-link-base text-neutral-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-500 active:text-blue-700 dark:active:text-blue-400 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 dark:hover:fill-blue-500 active:fill-blue-700 dark:active:fill-blue-400 hover:border-2 active:border-2 border-neutral-200 dark:border-neutral-700 hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 active:scale-95 cursor-pointer;
 }
 
 @utility dp-navigation-link-disabled {
@@ -690,11 +690,11 @@
 }
 
 @utility dp-segment {
-    @apply border-transparent text-neutral-800 dp-segment-base dark:text-neutral-100 fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-200 hover:shadow-sm active:shadow-sm hover:scale-105 active:scale-95 hover:border-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:hover:border-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
+    @apply border-transparent text-neutral-800 dp-segment-base dark:text-neutral-100 fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-200 hover:shadow-sm active:shadow-sm hover:scale-105 active:scale-95 hover:border-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:hover:border-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 cursor-pointer;
 }
 
 @utility dp-segment-selected {
-    @apply bg-blue-600 border-blue-700 shadow-sm text-neutral-100 dark:border-blue-500 dp-segment-base fill-neutral-100;
+    @apply bg-blue-600 border-blue-700 shadow-sm text-neutral-100 dark:border-blue-500 dp-segment-base fill-neutral-100 cursor-pointer;
 }
 
 @utility dp-segment-selected-disabled {
@@ -718,11 +718,11 @@
 }
 
 @utility dp-color-picker-color {
-    @apply dp-color-picker-color-base border-neutral-100 hover:border-neutral-200 active:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600 dark:active:border-neutral-500 hover:scale-125 active:scale-75;
+    @apply dp-color-picker-color-base border-neutral-100 hover:border-neutral-200 active:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600 dark:active:border-neutral-500 hover:scale-125 active:scale-75 cursor-pointer;
 }
 
 @utility dp-color-picker-color-selected {
-    @apply dp-color-picker-color-base border-neutral-100 outline dark:border-neutral-700;
+    @apply dp-color-picker-color-base border-neutral-100 outline dark:border-neutral-700 cursor-pointer;
 }
 
 @utility dp-color-picker-color-selected-disabled {

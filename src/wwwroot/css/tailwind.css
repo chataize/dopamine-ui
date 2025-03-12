@@ -2681,6 +2681,7 @@
     transition-duration: 300ms;
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
+    cursor: pointer;
     fill: var(--color-neutral-800);
     &:hover {
       @media (hover: hover) {

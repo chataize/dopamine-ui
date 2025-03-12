@@ -666,7 +666,7 @@
 }
 
 @utility dp-three-dots {
-    @apply dp-three-dots-base hover:scale-125 active:scale-75 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-500 active:fill-blue-600 dark:active:fill-blue-400 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+    @apply dp-three-dots-base hover:scale-125 active:scale-75 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-500 active:fill-blue-600 dark:active:fill-blue-400 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 cursor-pointer;
 }
 
 @utility dp-three-dots-disabled {

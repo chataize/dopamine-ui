@@ -1,6 +1,6 @@
 @implements ITaggable
 
-<div class="relative @ScreenSizeClass:flex @ScreenSizeClass:space-x-4 -@ScreenSizeClass:space-y-4">
+<div class="@GetContainerClass()">
     <CascadingValue Value="Context">@ChildContent</CascadingValue>
 </div>
 
@@ -22,19 +22,43 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private string ScreenSizeClass
+    private string GetContainerClass()
     {
-        get
+        var classes = new List<string> { "relative" };
+
+        switch (RequiredSize)
         {
-            return RequiredSize switch
-            {
-                ScreenSize.Small => "sm",
-                ScreenSize.Medium => "md",
-                ScreenSize.Large => "lg",
-                ScreenSize.ExtraLarge => "xl",
-                ScreenSize.ExtraExtraLarge => "2xl",
-                _ => "sm"
-            };
+             case ScreenSize.ExtraSmall:
+                classes.Add("flex");
+                classes.Add("space-x-4");
+                break;
+            case ScreenSize.Small:
+                classes.Add("sm:flex");
+                classes.Add("sm:space-x-4");
+                classes.Add("not-sm:space-y-4");
+                break;
+            case ScreenSize.Medium:
+                classes.Add("md:flex");
+                classes.Add("md:space-x-4");
+                classes.Add("not-md:space-y-4");
+                break;
+            case ScreenSize.Large:
+                classes.Add("lg:flex");
+                classes.Add("lg:space-x-4");
+                classes.Add("-lg:space-y-4");
+                break;
+            case ScreenSize.ExtraLarge:
+                classes.Add("xl:flex");
+                classes.Add("xl:space-x-4");
+                classes.Add("not-xl:space-y-4");
+                break;
+            case ScreenSize.ExtraExtraLarge:
+                classes.Add("2xl:flex");
+                classes.Add("2xl:space-x-4");
+                classes.Add("not-2xl:space-y-4");
+                break;
         }
+
+        return string.Join(" ", classes);
     }
 }

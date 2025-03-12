@@ -1,32 +1,12 @@
 @implements ITaggable
 
-<CascadingValue Value="Context">
-    @if (FromClass == null)
-    {
-        if (ToClass == null)
-        {
-            <div class="relative block">@ChildContent</div>
-        }
-        else
-        {
-            <div class="relative block @(ToClass):hidden">@ChildContent</div>
-        }
-    }
-    else
-    {
-        if (ToClass == null)
-        {
-            <div class="relative hidden @(FromClass):block">@ChildContent</div>
-        }
-        else
-        {
-            <div class="relative hidden @(FromClass):block @(ToClass):hidden">@ChildContent</div>
-        }
-    }
+<div class="@BuildClasses()">
+    <CascadingValue Value="Context">
+        @ChildContent
     </CascadingValue>
+</div>
 
-    @code {
-
+@code {
     [Parameter]
     public ScreenSize? FromSize { get; set; }
 
@@ -47,33 +27,54 @@
 
     private UIContext Context => ParentContext with { IsDisabled = ParentContext.IsDisabled || IsDisabled };
 
-    private string? FromClass => ScreenSizeToClass(FromSize);
-
-    private string? ToClass => ScreenSizeToClass(NextScreenSize(ToSize));
-
-    private static string? ScreenSizeToClass(ScreenSize? screenSize)
+    private string BuildClasses()
     {
-        return screenSize switch
-        {
-            ScreenSize.Small => "sm",
-            ScreenSize.Medium => "md",
-            ScreenSize.Large => "lg",
-            ScreenSize.ExtraLarge => "xl",
-            ScreenSize.ExtraExtraLarge => "2xl",
-            _ => null
-        };
-    }
+        var classes = new List<string> { "relative" };
 
-    private static ScreenSize? NextScreenSize(ScreenSize? screenSize)
-    {
-        return screenSize switch
+        if (FromSize is null)
         {
-            ScreenSize.ExtraSmall => ScreenSize.Small,
-            ScreenSize.Small => ScreenSize.Medium,
-            ScreenSize.Medium => ScreenSize.Large,
-            ScreenSize.Large => ScreenSize.ExtraLarge,
-            ScreenSize.ExtraLarge => ScreenSize.ExtraExtraLarge,
-            _ => null
-        };
+            classes.Add("block");
+
+            if (ToSize is not null)
+            {
+                classes.Add(ToSize switch
+                {
+                    ScreenSize.Small => "sm:hidden",
+                    ScreenSize.Medium => "md:hidden",
+                    ScreenSize.Large => "lg:hidden",
+                    ScreenSize.ExtraLarge => "xl:hidden",
+                    ScreenSize.ExtraExtraLarge => "2xl:hidden",
+                    _ => ""
+                });
+            }
+        }
+        else
+        {
+            classes.Add("hidden");
+            classes.Add(FromSize switch
+            {
+                ScreenSize.Small => "sm:block",
+                ScreenSize.Medium => "md:block",
+                ScreenSize.Large => "lg:block",
+                ScreenSize.ExtraLarge => "xl:block",
+                ScreenSize.ExtraExtraLarge => "2xl:block",
+                _ => string.Empty
+            });
+
+            if (ToSize is not null)
+            {
+                classes.Add(ToSize switch
+                {
+                    ScreenSize.Small => "sm:hidden",
+                    ScreenSize.Medium => "md:hidden",
+                    ScreenSize.Large => "lg:hidden",
+                    ScreenSize.ExtraLarge => "xl:hidden",
+                    ScreenSize.ExtraExtraLarge => "2xl:hidden",
+                    _ => string.Empty
+                });
+            }
+        }
+
+        return string.Join(" ", classes.Where(c => !string.IsNullOrWhiteSpace(c)));
     }
 }

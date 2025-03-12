@@ -9,6 +9,7 @@
                 <span class="@EditIndicatorClass">●</span>
             </label>
         }
+
         <div class="dp-color-picker-row @WidthClass">
             <button class="@GetColorClass(TailwindColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Red)" />
             <button class="@GetColorClass(TailwindColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Orange)" />
@@ -21,6 +22,7 @@
             <button class="@GetColorClass(TailwindColor.Purple)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Purple)" />
             <button class="@GetColorClass(TailwindColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Pink)" />
         </div>
+
         <div class="dp-color-picker-row-compact">
             <button class="@GetColorClass(TailwindColor.Red)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Red)" />
             <button class="@GetColorClass(TailwindColor.Orange)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Orange)" />
@@ -36,6 +38,7 @@
             <button class="@GetColorClass(TailwindColor.Pink)" disabled="@Context.IsDisabled" @onclick="() => SelectColorAsync(TailwindColor.Pink)" />
         </div>
     </div>
+
     @if (!string.IsNullOrWhiteSpace(Caption))
     {
         <div class="@CaptionClass">@Caption</div>
@@ -107,45 +110,75 @@
         }
     }
 
-    private static string GetColorName(TailwindColor color)
-    {
-        return color switch
-        {
-            TailwindColor.Red => "red",
-            TailwindColor.Orange => "orange",
-            TailwindColor.Yellow => "yellow",
-            TailwindColor.Green => "green",
-            TailwindColor.Lime => "lime",
-            TailwindColor.Cyan => "cyan",
-            TailwindColor.Blue => "blue",
-            TailwindColor.Violet => "violet",
-            TailwindColor.Purple => "purple",
-            TailwindColor.Pink => "pink",
-            _ => throw new ArgumentOutOfRangeException(nameof(color), color, "Invalid color.")
-        };
-    }
-
     private string GetColorClass(TailwindColor color)
     {
-        var colorName = GetColorName(color);
-
         if (Value == color)
         {
-            if (Context.IsDisabled)
-            {
-                return $"dp-color-picker-color-selected-disabled bg-{colorName}-200 outline-{colorName}-200 dark:bg-{colorName}-900 dark:outline-{colorName}-900";
-            }
-
-            return $"dp-color-picker-color-selected bg-{colorName}-500 outline-{colorName}-500";
+            return Context.IsDisabled ? GetSelectedDisabledClass(color) : GetSelectedClass(color);
         }
 
-        if (Context.IsDisabled)
-        {
-            return $"dp-color-picker-color-disabled bg-{colorName}-200 dark:bg-{colorName}-900";
-        }
-
-        return $"dp-color-picker-color bg-{colorName}-500";
+        return Context.IsDisabled ? GetUnselectedDisabledClass(color) : GetUnselectedClass(color);
     }
+
+    private static string GetSelectedDisabledClass(TailwindColor color) => color switch
+    {
+        TailwindColor.Red => "dp-color-picker-color-selected-disabled bg-red-200 outline-red-200 dark:bg-red-900 dark:outline-red-900",
+        TailwindColor.Orange => "dp-color-picker-color-selected-disabled bg-orange-200 outline-orange-200 dark:bg-orange-900 dark:outline-orange-900",
+        TailwindColor.Yellow => "dp-color-picker-color-selected-disabled bg-yellow-200 outline-yellow-200 dark:bg-yellow-900 dark:outline-yellow-900",
+        TailwindColor.Lime => "dp-color-picker-color-selected-disabled bg-lime-200 outline-lime-200 dark:bg-lime-900 dark:outline-lime-900",
+        TailwindColor.Green => "dp-color-picker-color-selected-disabled bg-green-200 outline-green-200 dark:bg-green-900 dark:outline-green-900",
+        TailwindColor.Cyan => "dp-color-picker-color-selected-disabled bg-cyan-200 outline-cyan-200 dark:bg-cyan-900 dark:outline-cyan-900",
+        TailwindColor.Blue => "dp-color-picker-color-selected-disabled bg-blue-200 outline-blue-200 dark:bg-blue-900 dark:outline-blue-900",
+        TailwindColor.Violet => "dp-color-picker-color-selected-disabled bg-violet-200 outline-violet-200 dark:bg-violet-900 dark:outline-violet-900",
+        TailwindColor.Purple => "dp-color-picker-color-selected-disabled bg-purple-200 outline-purple-200 dark:bg-purple-900 dark:outline-purple-900",
+        TailwindColor.Pink => "dp-color-picker-color-selected-disabled bg-pink-200 outline-pink-200 dark:bg-pink-900 dark:outline-pink-900",
+        _ => throw new ArgumentOutOfRangeException()
+    };
+
+    private static string GetSelectedClass(TailwindColor color) => color switch
+    {
+        TailwindColor.Red => "dp-color-picker-color-selected bg-red-500 outline-red-500",
+        TailwindColor.Orange => "dp-color-picker-color-selected bg-orange-500 outline-orange-500",
+        TailwindColor.Yellow => "dp-color-picker-color-selected bg-yellow-500 outline-yellow-500",
+        TailwindColor.Lime => "dp-color-picker-color-selected bg-lime-500 outline-lime-500",
+        TailwindColor.Green => "dp-color-picker-color-selected bg-green-500 outline-green-500",
+        TailwindColor.Cyan => "dp-color-picker-color-selected bg-cyan-500 outline-cyan-500",
+        TailwindColor.Blue => "dp-color-picker-color-selected bg-blue-500 outline-blue-500",
+        TailwindColor.Violet => "dp-color-picker-color-selected bg-violet-500 outline-violet-500",
+        TailwindColor.Purple => "dp-color-picker-color-selected bg-purple-500 outline-purple-500",
+        TailwindColor.Pink => "dp-color-picker-color-selected bg-pink-500 outline-pink-500",
+        _ => throw new ArgumentOutOfRangeException()
+    };
+
+    private static string GetUnselectedDisabledClass(TailwindColor color) => color switch
+    {
+        TailwindColor.Red => "dp-color-picker-color-disabled bg-red-200 dark:bg-red-900",
+        TailwindColor.Orange => "dp-color-picker-color-disabled bg-orange-200 dark:bg-orange-900",
+        TailwindColor.Yellow => "dp-color-picker-color-disabled bg-yellow-200 dark:bg-yellow-900",
+        TailwindColor.Lime => "dp-color-picker-color-disabled bg-lime-200 dark:bg-lime-900",
+        TailwindColor.Green => "dp-color-picker-color-disabled bg-green-200 dark:bg-green-900",
+        TailwindColor.Cyan => "dp-color-picker-color-disabled bg-cyan-200 dark:bg-cyan-900",
+        TailwindColor.Blue => "dp-color-picker-color-disabled bg-blue-200 dark:bg-blue-900",
+        TailwindColor.Violet => "dp-color-picker-color-disabled bg-violet-200 dark:bg-violet-900",
+        TailwindColor.Purple => "dp-color-picker-color-disabled bg-purple-200 dark:bg-purple-900",
+        TailwindColor.Pink => "dp-color-picker-color-disabled bg-pink-200 dark:bg-pink-900",
+        _ => throw new ArgumentOutOfRangeException()
+    };
+
+    private static string GetUnselectedClass(TailwindColor color) => color switch
+    {
+        TailwindColor.Red => "dp-color-picker-color bg-red-500",
+        TailwindColor.Orange => "dp-color-picker-color bg-orange-500",
+        TailwindColor.Yellow => "dp-color-picker-color bg-yellow-500",
+        TailwindColor.Lime => "dp-color-picker-color bg-lime-500",
+        TailwindColor.Green => "dp-color-picker-color bg-green-500",
+        TailwindColor.Cyan => "dp-color-picker-color bg-cyan-500",
+        TailwindColor.Blue => "dp-color-picker-color bg-blue-500",
+        TailwindColor.Violet => "dp-color-picker-color bg-violet-500",
+        TailwindColor.Purple => "dp-color-picker-color bg-purple-500",
+        TailwindColor.Pink => "dp-color-picker-color bg-pink-500",
+        _ => throw new ArgumentOutOfRangeException()
+    };
 
     private async Task SelectColorAsync(TailwindColor color)
     {

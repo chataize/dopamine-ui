@@ -6,17 +6,33 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-200: oklch(0.885 0.062 18.334);
     --color-red-300: oklch(0.808 0.114 19.571);
     --color-red-400: oklch(0.704 0.191 22.216);
     --color-red-500: oklch(0.637 0.237 25.331);
     --color-red-600: oklch(0.577 0.245 27.325);
     --color-red-700: oklch(0.505 0.213 27.518);
     --color-red-800: oklch(0.444 0.177 26.899);
+    --color-red-900: oklch(0.396 0.141 25.723);
+    --color-orange-200: oklch(0.901 0.076 70.697);
+    --color-orange-500: oklch(0.705 0.213 47.604);
+    --color-orange-900: oklch(0.408 0.123 38.172);
+    --color-yellow-200: oklch(0.945 0.129 101.54);
+    --color-yellow-500: oklch(0.795 0.184 86.047);
+    --color-yellow-900: oklch(0.421 0.095 57.708);
+    --color-lime-200: oklch(0.938 0.127 124.321);
+    --color-lime-500: oklch(0.768 0.233 130.85);
+    --color-lime-900: oklch(0.405 0.101 131.063);
+    --color-green-200: oklch(0.925 0.084 155.995);
     --color-green-400: oklch(0.792 0.209 151.711);
     --color-green-500: oklch(0.723 0.219 149.579);
     --color-green-600: oklch(0.627 0.194 149.214);
     --color-green-700: oklch(0.527 0.154 150.069);
     --color-green-800: oklch(0.448 0.119 151.328);
+    --color-green-900: oklch(0.393 0.095 152.535);
+    --color-cyan-200: oklch(0.917 0.08 205.041);
+    --color-cyan-500: oklch(0.715 0.143 215.221);
+    --color-cyan-900: oklch(0.398 0.07 227.392);
     --color-blue-100: oklch(0.932 0.032 255.585);
     --color-blue-200: oklch(0.882 0.059 254.128);
     --color-blue-300: oklch(0.809 0.105 251.813);
@@ -27,6 +43,15 @@
     --color-blue-800: oklch(0.424 0.199 265.638);
     --color-blue-900: oklch(0.379 0.146 265.522);
     --color-blue-950: oklch(0.282 0.091 267.935);
+    --color-violet-200: oklch(0.894 0.057 293.283);
+    --color-violet-500: oklch(0.606 0.25 292.717);
+    --color-violet-900: oklch(0.38 0.189 293.745);
+    --color-purple-200: oklch(0.902 0.063 306.703);
+    --color-purple-500: oklch(0.627 0.265 303.9);
+    --color-purple-900: oklch(0.381 0.176 304.987);
+    --color-pink-200: oklch(0.899 0.061 343.231);
+    --color-pink-500: oklch(0.656 0.241 354.308);
+    --color-pink-900: oklch(0.408 0.153 2.432);
     --color-neutral-50: oklch(0.985 0 0);
     --color-neutral-100: oklch(0.97 0 0);
     --color-neutral-200: oklch(0.922 0 0);
@@ -6737,8 +6762,68 @@
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
   }
+  .bg-blue-200 {
+    background-color: var(--color-blue-200);
+  }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
+  .bg-cyan-200 {
+    background-color: var(--color-cyan-200);
+  }
+  .bg-cyan-500 {
+    background-color: var(--color-cyan-500);
+  }
+  .bg-green-200 {
+    background-color: var(--color-green-200);
+  }
+  .bg-green-500 {
+    background-color: var(--color-green-500);
+  }
+  .bg-lime-200 {
+    background-color: var(--color-lime-200);
+  }
+  .bg-lime-500 {
+    background-color: var(--color-lime-500);
+  }
   .bg-neutral-200 {
     background-color: var(--color-neutral-200);
+  }
+  .bg-orange-200 {
+    background-color: var(--color-orange-200);
+  }
+  .bg-orange-500 {
+    background-color: var(--color-orange-500);
+  }
+  .bg-pink-200 {
+    background-color: var(--color-pink-200);
+  }
+  .bg-pink-500 {
+    background-color: var(--color-pink-500);
+  }
+  .bg-purple-200 {
+    background-color: var(--color-purple-200);
+  }
+  .bg-purple-500 {
+    background-color: var(--color-purple-500);
+  }
+  .bg-red-200 {
+    background-color: var(--color-red-200);
+  }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
+  .bg-violet-200 {
+    background-color: var(--color-violet-200);
+  }
+  .bg-violet-500 {
+    background-color: var(--color-violet-500);
+  }
+  .bg-yellow-200 {
+    background-color: var(--color-yellow-200);
+  }
+  .bg-yellow-500 {
+    background-color: var(--color-yellow-500);
   }
   .p-1 {
     padding: calc(var(--spacing) * 1);
@@ -6966,6 +7051,66 @@
   }
   .opacity-100 {
     opacity: 100%;
+  }
+  .outline-blue-200 {
+    outline-color: var(--color-blue-200);
+  }
+  .outline-blue-500 {
+    outline-color: var(--color-blue-500);
+  }
+  .outline-cyan-200 {
+    outline-color: var(--color-cyan-200);
+  }
+  .outline-cyan-500 {
+    outline-color: var(--color-cyan-500);
+  }
+  .outline-green-200 {
+    outline-color: var(--color-green-200);
+  }
+  .outline-green-500 {
+    outline-color: var(--color-green-500);
+  }
+  .outline-lime-200 {
+    outline-color: var(--color-lime-200);
+  }
+  .outline-lime-500 {
+    outline-color: var(--color-lime-500);
+  }
+  .outline-orange-200 {
+    outline-color: var(--color-orange-200);
+  }
+  .outline-orange-500 {
+    outline-color: var(--color-orange-500);
+  }
+  .outline-pink-200 {
+    outline-color: var(--color-pink-200);
+  }
+  .outline-pink-500 {
+    outline-color: var(--color-pink-500);
+  }
+  .outline-purple-200 {
+    outline-color: var(--color-purple-200);
+  }
+  .outline-purple-500 {
+    outline-color: var(--color-purple-500);
+  }
+  .outline-red-200 {
+    outline-color: var(--color-red-200);
+  }
+  .outline-red-500 {
+    outline-color: var(--color-red-500);
+  }
+  .outline-violet-200 {
+    outline-color: var(--color-violet-200);
+  }
+  .outline-violet-500 {
+    outline-color: var(--color-violet-500);
+  }
+  .outline-yellow-200 {
+    outline-color: var(--color-yellow-200);
+  }
+  .outline-yellow-500 {
+    outline-color: var(--color-yellow-500);
   }
   .backdrop-blur {
     --tw-backdrop-blur: blur(8px);
@@ -7309,9 +7454,59 @@
       display: inline-block;
     }
   }
+  .dark\:bg-blue-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-blue-900);
+    }
+  }
+  .dark\:bg-cyan-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-cyan-900);
+    }
+  }
+  .dark\:bg-green-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-green-900);
+    }
+  }
+  .dark\:bg-lime-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-lime-900);
+    }
+  }
   .dark\:bg-neutral-600 {
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-neutral-600);
+    }
+  }
+  .dark\:bg-orange-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-orange-900);
+    }
+  }
+  .dark\:bg-pink-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-pink-900);
+    }
+  }
+  .dark\:bg-purple-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-purple-900);
+    }
+  }
+  .dark\:bg-red-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-red-900);
+    }
+  }
+  .dark\:bg-violet-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-violet-900);
+    }
+  }
+  .dark\:bg-yellow-900 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-yellow-900);
     }
   }
   .dark\:text-neutral-100 {
@@ -7327,6 +7522,56 @@
   .dark\:opacity-100 {
     @media (prefers-color-scheme: dark) {
       opacity: 100%;
+    }
+  }
+  .dark\:outline-blue-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-blue-900);
+    }
+  }
+  .dark\:outline-cyan-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-cyan-900);
+    }
+  }
+  .dark\:outline-green-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-green-900);
+    }
+  }
+  .dark\:outline-lime-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-lime-900);
+    }
+  }
+  .dark\:outline-orange-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-orange-900);
+    }
+  }
+  .dark\:outline-pink-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-pink-900);
+    }
+  }
+  .dark\:outline-purple-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-purple-900);
+    }
+  }
+  .dark\:outline-red-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-red-900);
+    }
+  }
+  .dark\:outline-violet-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-violet-900);
+    }
+  }
+  .dark\:outline-yellow-900 {
+    @media (prefers-color-scheme: dark) {
+      outline-color: var(--color-yellow-900);
     }
   }
 }

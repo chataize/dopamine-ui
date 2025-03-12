@@ -1,963 +1,958 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@config "../../tailwind.config.js";
-
-@layer components {
-    .dp-transitions {
-        @apply transition-all duration-300 ease-in-out;
-    }
-
-    .dp-text-color {
-        @apply text-neutral-800 dark:text-neutral-100;
-    }
-
-    .dp-text-color-disabled {
-        @apply text-neutral-400 dark:text-neutral-500;
-    }
-
-    .dp-header-base {
-        @apply relative text-3xl font-bold dp-transitions;
-    }
-
-    .dp-header {
-        @apply dp-header-base dp-text-color;
-    }
-
-    .dp-header-disabled {
-        @apply dp-header-base dp-text-color-disabled;
-    }
-
-    .dp-subheader-base {
-        @apply relative text-xl font-semibold dp-transitions;
-    }
-
-    .dp-subheader {
-        @apply dp-subheader-base dp-text-color;
-    }
-
-    .dp-subheader-disabled {
-        @apply dp-subheader-base dp-text-color-disabled;
-    }
-
-    .dp-paragraph-base {
-        @apply dp-transitions;
-    }
-
-    .dp-paragraph {
-        @apply dp-paragraph-base dp-text-color;
-    }
-
-    .dp-paragraph-disabled {
-        @apply dp-paragraph-base dp-text-color-disabled;
-    }
-
-    .dp-border-base {
-        @apply px-3 py-2 border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dp-transitions;
-    }
-
-    .dp-border {
-        @apply dp-border-base border-neutral-200 dark:border-neutral-700 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
-    }
-
-    .dp-border-disabled {
-        @apply dp-border-base border-neutral-100 dark:border-neutral-800;
-    }
-
-    .dp-button-base {
-        @apply relative flex justify-center px-3 py-2 font-semibold text-center select-none rounded-xl dp-transitions;
-    }
-
-    .dp-button {
-        @apply border shadow-sm dp-button-base text-neutral-800 bg-neutral-100 fill-neutral-800 dark:fill-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-toggled {
-        @apply text-blue-600 bg-blue-100 border border-blue-200 shadow-sm dp-button-base fill-blue-600 hover:fill-blue-700 active:fill-blue-800 hover:text-blue-700 active:text-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dark:bg-blue-950 dark:hover:bg-blue-900 dark:active:bg-blue-800 dark:border-blue-900 dark:hover:border-blue-900 dark:active:border-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 hover:bg-blue-200 active:bg-blue-300 active:border-blue-300 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-borderless {
-        @apply dp-button-base text-neutral-800 fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-light {
-        @apply border shadow-sm text-neutral-800 dp-button-base fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-primary {
-        @apply text-blue-600 border shadow-sm hover:text-blue-700 active:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 fill-blue-600 hover:fill-blue-700 active:fill-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-accent {
-        @apply bg-blue-600 border border-blue-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-danger {
-        @apply text-red-600 border shadow-sm hover:text-red-700 active:text-red-800 dark:text-red-500 dark:hover:text-red-400 dark:active:text-red-300 fill-red-600 hover:fill-red-700 active:fill-red-800 dark:fill-red-500 dark:hover:fill-red-400 dark:active:fill-red-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-destructive {
-        @apply bg-red-600 border border-red-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
-    }
-
-    .dp-button-loading {
-        @apply border shadow-sm cursor-wait dp-button-base border-neutral-100 bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 animate-pulse;
-    }
-
-    .dp-button-disabled {
-        @apply border shadow-sm cursor-not-allowed dp-button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
-    }
-
-    .dp-button-rounded-base {
-        @apply relative flex justify-center p-1 font-semibold text-center rounded-full select-none dp-transitions h-fit;
-    }
-
-    .dp-button-rounded {
-        @apply dp-button-rounded-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 hover:scale-125 active:scale-75;
-    }
-
-    .dp-button-rounded-loading {
-        @apply cursor-wait dp-button-rounded-base;
-    }
-
-    .dp-button-rounded-disabled {
-        @apply cursor-not-allowed dp-button-rounded-base fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-label-base {
-        @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold select-none dp-transitions;
-    }
-
-    .dp-label {
-        @apply text-neutral-800 dark:text-neutral-100;
-    }
-
-    .dp-label-disabled {
-        @apply text-neutral-400 dark:text-neutral-500;
-    }
-
-    .dp-edit-indicator-base {
-        @apply text-xs select-none dp-transitions;
-    }
-
-    .dp-edit-indicator {
-        @apply text-blue-600 dp-edit-indicator-base dark:text-blue-500;
-    }
-
-    .dp-edit-indicator-inactive {
-        @apply w-0 opacity-0 dp-edit-indicator-base;
-    }
-
-    .dp-edit-indicator-disabled {
-        @apply dp-edit-indicator-base text-neutral-300 dark:text-neutral-600;
-    }
-
-    .dp-textfield-base {
-        @apply flex px-3 py-2 border shadow-sm rounded-xl resize-none dp-transitions;
-    }
-
-    .dp-textfield {
-        @apply dp-textfield-base border-neutral-200 text-neutral-800 bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-neutral-100;
-    }
-
-    .dp-textfield-loading {
-        @apply cursor-wait select-none dp-textfield-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 animate-pulse;
-    }
-
-    .dp-textfield-disabled {
-        @apply cursor-not-allowed select-none dp-textfield-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500;
-    }
-
-    .dp-switch-base {
-        @apply flex items-center justify-between space-x-4 font-semibold select-none dp-transitions sm:space-x-12;
-    }
-
-    .dp-switch {
-        @apply cursor-pointer dp-switch-base hover:scale-105 active:scale-95 dp-text-color;
-    }
-
-    .dp-switch-disabled {
-        @apply cursor-not-allowed dp-switch-base dp-text-color-disabled;
-    }
-
-    .dp-switch-pill-base {
-        @apply flex items-center h-8 border rounded-full shadow-sm dp-transitions sm:h-6 w-14 sm:w-11 shrink-0;
-    }
-
-    .dp-switch-pill-on {
-        @apply bg-green-600 border-green-700 dp-switch-pill-base group-hover/switch:bg-green-700 group-active/switch:bg-green-800 dark:group-hover/switch:bg-green-500 dark:group-active/switch:bg-green-400 group-hover/switch:border-green-800 group-active/switch:border-green-800 dark:border-green-500 dark:group-hover/switch:border-green-400 dark:group-active/switch:border-green-400 group-hover/switch:scale-105 group-active/switch:scale-95;
-    }
-
-    .dp-switch-pill-off {
-        @apply dp-switch-pill-base bg-neutral-200 group-hover/switch:bg-neutral-300 group-active/switch:bg-neutral-400 dark:bg-neutral-700 dark:group-hover/switch:bg-neutral-600 dark:group-active/switch:bg-neutral-500 border-neutral-300 group-hover/switch:border-neutral-400 group-active/switch:border-neutral-400 dark:border-neutral-600 dark:group-hover/switch:border-neutral-500 dark:group-active/switch:border-neutral-500 group-hover/switch:scale-105 group-active/switch:scale-95;
-    }
-
-    .dp-switch-pill-disabled {
-        @apply dp-switch-pill-base bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-switch-dot-base {
-        @apply w-6 h-6 border rounded-full shadow-sm dp-transitions sm:w-4 sm:h-4;
-    }
-
-    .dp-switch-dot-on {
-        @apply bg-white border-green-700 dp-switch-dot-base group-hover/switch:border-green-800 group-active/switch:border-green-800 dark:border-green-700 dark:group-hover/switch:border-green-600 dark:group-active/switch:border-green-600;
-    }
-
-    .dp-switch-dot-off {
-        @apply bg-white dp-switch-dot-base border-neutral-200 group-hover/switch:border-neutral-300 group-active/switch:border-white;
-    }
-
-    .dp-switch-dot-disabled {
-        @apply bg-white dp-switch-dot-base dark:bg-neutral-600 border-neutral-100 dark:border-neutral-700;
-    }
-
-    .dp-checkbox-base {
-        @apply flex items-center justify-start space-x-4 font-semibold select-none dp-transitions;
-    }
-
-    .dp-checkbox {
-        @apply cursor-pointer dp-checkbox-base hover:scale-105 active:scale-95 dp-text-color;
-    }
-
-    .dp-checkbox-disabled {
-        @apply cursor-not-allowed dp-checkbox-base dp-text-color-disabled;
-    }
-
-    .dp-checkbox-square-base {
-        @apply flex items-center justify-center w-8 h-8 border rounded-lg shadow-sm stroke-2 dp-transitions sm:rounded-md sm:w-6 sm:h-6 shrink-0;
-    }
-
-    .dp-checkbox-square-on {
-        @apply bg-blue-600 border-blue-700 dp-checkbox-square-base group-hover/checkbox:bg-blue-700 group-active/checkbox:bg-blue-800 dark:group-hover/checkbox:bg-blue-500 dark:group-active/checkbox:bg-blue-400 group-hover/checkbox:border-blue-800 group-active/checkbox:border-blue-800 dark:border-blue-500 dark:group-hover/checkbox:border-blue-400 dark:group-active/checkbox:border-blue-400 group-hover/checkbox:scale-105 group-active/checkbox:scale-95 fill-neutral-100 stroke-white;
-    }
-
-    .dp-checkbox-square-on-disabled {
-        @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-checkbox-square-off {
-        @apply dp-checkbox-square-base bg-neutral-200 group-hover/checkbox:bg-neutral-300 group-active/checkbox:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover/checkbox:fill-neutral-400 dark:group-hover/checkbox:stroke-neutral-400 dark:group-active/checkbox:fill-neutral-300 dark:group-active/checkbox:stroke-neutral-300 dark:group-hover/checkbox:bg-neutral-600 dark:group-active/checkbox:bg-neutral-500 border-neutral-300 group-hover/checkbox:border-neutral-400 group-active/checkbox:border-neutral-400 dark:border-neutral-600 dark:group-hover/checkbox:border-neutral-500 dark:group-active/checkbox:border-neutral-500 group-hover/checkbox:scale-105 group-active/checkbox:scale-95 stroke-neutral-200 fill-neutral-200 group-hover/checkbox:stroke-neutral-500 group-hover/checkbox:fill-neutral-500 group-active/checkbox:stroke-neutral-600 group-active/checkbox:fill-neutral-600;
-    }
-
-    .dp-checkbox-square-off-disabled {
-        @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-radio-base {
-        @apply flex items-center justify-start space-x-4 font-semibold select-none dp-transitions;
-    }
-
-    .dp-radio {
-        @apply cursor-pointer dp-radio-base hover:scale-105 active:scale-95 dp-text-color;
-    }
-
-    .dp-radio-disabled {
-        @apply cursor-not-allowed dp-radio-base dp-text-color-disabled;
-    }
-
-    .dp-radio-circle-base {
-        @apply flex items-center justify-center w-8 h-8 border rounded-full shadow-sm stroke-2 dp-transitions sm:w-6 sm:h-6 shrink-0;
-    }
-
-    .dp-radio-circle-on {
-        @apply bg-blue-600 border-blue-700 dp-radio-circle-base group-hover/radio:bg-blue-700 group-active/radio:bg-blue-800 dark:group-hover/radio:bg-blue-500 dark:group-active/radio:bg-blue-400 group-hover/radio:border-blue-800 group-active/radio:border-blue-800 dark:border-blue-500 dark:group-hover/radio:border-blue-400 dark:group-active/radio:border-blue-400 group-hover/radio:scale-105 group-active/radio:scale-95 fill-neutral-100 stroke-white;
-    }
-
-    .dp-radio-circle-on-disabled {
-        @apply dp-radio-circle-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-radio-circle-off {
-        @apply dp-radio-circle-base bg-neutral-200 group-hover/radio:bg-neutral-300 group-active/radio:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover/radio:fill-neutral-400 dark:group-hover/radio:stroke-neutral-400 dark:group-active/radio:fill-neutral-300 dark:group-active/radio:stroke-neutral-300 dark:group-hover/radio:bg-neutral-600 dark:group-active/radio:bg-neutral-500 border-neutral-300 group-hover/radio:border-neutral-400 group-active/radio:border-neutral-400 dark:border-neutral-600 dark:group-hover/radio:border-neutral-500 dark:group-active/radio:border-neutral-500 group-hover/radio:scale-105 group-active/radio:scale-95 stroke-neutral-200 fill-neutral-200 group-hover/radio:stroke-neutral-500 group-hover/radio:fill-neutral-500 group-active/radio:stroke-neutral-600 group-active/radio:fill-neutral-600;
-    }
-
-    .dp-radio-circle-off-disabled {
-        @apply dp-radio-circle-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-radio-dot-base {
-        @apply border rounded-full dp-transitions;
-    }
-
-    .dp-radio-dot-on {
-        @apply w-5 h-5 bg-white shadow-sm border-blue-700 sm:w-3.5 sm:h-3.5 dp-radio-dot-base group-hover/radio:border-blue-800 group-active/radio:border-blue-800 dark:border-blue-700 dark:group-hover/radio:border-blue-600 dark:group-active/radio:border-blue-600;
-    }
-
-    .dp-radio-dot-on-disabled {
-        @apply w-4 h-4 shadow-sm sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-300 dp-switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
-    }
-
-    .dp-radio-dot-off {
-        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover/radio:bg-neutral-500 group-active/radio:bg-neutral-600 group-hover/radio:border-neutral-500 dark:group-hover/radio:bg-neutral-400 dark:group-hover/radio:border-neutral-400 group-active/radio:border-neutral-400 group-hover/radio:shadow-sm dark:group-active/radio:bg-neutral-300 dark:group-active/radio:border-neutral-300;
-    }
-
-    .dp-radio-dot-off-disabled {
-        @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
-    }
-
-    .dp-dropdown-base {
-        @apply flex items-center justify-between px-3 py-2 space-x-3 font-semibold text-center border shadow-sm select-none rounded-xl dp-transitions dp-button-base;
-    }
-
-    .dp-dropdown {
-        @apply text-neutral-800 dp-dropdown-base border-neutral-200 fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
-    }
-
-    .dp-dropdown-open {
-        @apply scale-95 text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
-    }
-
-    .dp-dropdown-loading {
-        @apply cursor-wait animate-pulse dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
-    }
-
-    .dp-dropdown-disabled {
-        @apply cursor-not-allowed dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
-    }
-
-    .dp-menu-base {
-        @apply absolute z-10 p-1 space-y-1 border shadow select-none rounded-xl dp-transitions backdrop-blur-xl dark:border-neutral-700 border-neutral-200;
-    }
-
-    .dp-menu {
-        @apply scale-100 opacity-100 dp-menu-base blur-none;
-    }
-
-    .dp-menu-hidden {
-        @apply scale-0 opacity-0 pointer-events-none dp-menu-base blur-xl;
-    }
-
-    .dp-menu-item-base {
-        @apply flex w-full px-3 py-2 font-semibold rounded-lg select-none dp-transitions sm:py-1;
-    }
-
-    .dp-menu-item {
-        @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl active:scale-95 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100;
-    }
-
-    .dp-menu-item-selected {
-        @apply bg-blue-600 text-neutral-100 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl active:scale-95 fill-neutral-100;
-    }
-
-    .dp-menu-item-selected-disabled {
-        @apply cursor-not-allowed text-neutral-800 dark:text-neutral-100 bg-neutral-400 dark:bg-neutral-500 dp-menu-item-base fill-neutral-800 dark:fill-neutral-100;
-    }
-
-    .dp-menu-item-disabled {
-        @apply cursor-not-allowed dp-menu-item-base text-neutral-400 dark:text-neutral-500 fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-calendar-base {
-        @apply absolute z-10 p-3 space-y-3 border shadow rounded-xl dp-transitions backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-calendar {
-        @apply translate-y-2 opacity-100 dp-calendar-base;
-    }
-
-    .dp-calendar-hidden {
-        @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-calendar-base blur-xl;
-    }
-
-    .dp-calendar-grid {
-        @apply grid grid-cols-7 grid-rows-3 font-semibold text-center sm:text-xs;
-    }
-
-    .dp-calendar-arrow-base {
-        @apply dp-transitions;
-    }
-
-    .dp-calendar-arrow {
-        @apply dp-calendar-arrow-base fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
-    }
-
-    .dp-calendar-arrow-disabled {
-        @apply cursor-not-allowed dp-calendar-arrow-base fill-neutral-400 dark:fill-neutral-600;
-    }
-
-    .dp-calendar-weekday {
-        @apply cursor-default text-neutral-600 dark:text-neutral-400;
-    }
-
-    .dp-calendar-day-base {
-        @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-lg sm:rounded-sm;
-        aspect-ratio: 1;
-    }
-
-    .dp-calendar-day {
-        @apply cursor-pointer text-neutral-800 dark:text-neutral-100 dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-neutral-100 hover:text-neutral-100 hover:scale-105 active:scale-95;
-    }
-
-    .dp-calendar-day-disabled {
-        @apply cursor-not-allowed dp-calendar-day-base text-neutral-400 dark:text-neutral-500;
-    }
-
-    .dp-calendar-day-selected {
-        @apply bg-blue-600 cursor-pointer text-neutral-100 dp-calendar-day-base hover:bg-blue-700 active:bg-blue-800 hover:scale-105 active:scale-95;
-    }
-
-    .dp-calendar-day-selected-disabled {
-        @apply bg-blue-600 cursor-not-allowed text-neutral-100 dp-calendar-day-base;
-    }
-
-    .dp-calendar-day-now {
-        @apply text-blue-600 cursor-pointer dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-neutral-100 hover:text-neutral-100 dark:text-blue-500 hover:scale-105 active:scale-95;
-    }
-
-    .dp-calendar-day-now-disabled {
-        @apply text-blue-600 cursor-not-allowed dark:active:text-neutral-800 dark:text-blue-500 dp-calendar-day-base;
-    }
-
-    .dp-clock-base {
-        @apply absolute z-10 shadow flex justify-center px-4 py-2.5 space-y-3 dp-transitions border rounded-xl backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-clock {
-        @apply translate-y-2 opacity-100 dp-clock-base;
-    }
-
-    .dp-clock-hidden {
-        @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-clock-base blur-xl;
-    }
-
-    .dp-clock-arrow {
-        @apply flex justify-center dp-transitions fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
-    }
-
-    .dp-clock-grid-base {
-        @apply grid text-center;
-    }
-
-    .dp-clock-grid {
-        @apply w-24 grid-cols-3 dp-clock-grid-base;
-    }
-
-    .dp-clock-grid-seconds {
-        @apply w-40 grid-cols-5 dp-clock-grid-base;
-    }
-
-    .dp-clock-number {
-        @apply absolute top-0 left-0 text-2xl font-bold text-center transition-all duration-500 ease-out bg-transparent text-neutral-800 dark:text-neutral-100;
-    }
-
-    .dp-stepper-base {
-        @apply flex justify-between space-x-4 font-semibold border shadow-sm rounded-xl;
-    }
-
-    .dp-stepper {
-        @apply dp-stepper-base bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
-    }
-
-    .dp-stepper-loading {
-        @apply cursor-wait select-none dp-stepper-base bg-neutral-50 text-neutral-400 fill-neutral-400 border-neutral-100 animate-pulse dark:bg-neutral-800 dark:border-neutral-800;
-    }
-
-    .dp-stepper-disabled {
-        @apply cursor-not-allowed select-none dp-stepper-base bg-neutral-50 border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
-    }
-
-    .dp-stepper-number {
-        @apply font-bold transition-all duration-500 ease-out bg-transparent;
-    }
-
-    .dp-stepper-number-loading {
-        @apply cursor-wait select-none dp-stepper-number;
-    }
-
-    .dp-stepper-number-disabled {
-        @apply cursor-not-allowed select-none dp-stepper-number;
-    }
-
-    .dp-stepper-button-hitbox-base {
-        @apply flex items-center h-full;
-    }
-
-    .dp-stepper-button-hitbox {
-        @apply cursor-pointer dp-stepper-button-hitbox-base;
-    }
-
-    .dp-stepper-button-hitbox-loading {
-        @apply cursor-wait dp-stepper-button-hitbox-base;
-    }
-
-    .dp-stepper-button-hitbox-disabled {
-        @apply cursor-not-allowed dp-stepper-button-hitbox-base;
-    }
-
-    .dp-stepper-button-base {
-        @apply p-1 rounded-full dp-transitions h-fit;
-    }
-
-    .dp-stepper-button {
-        @apply dp-stepper-button-base fill-neutral-800 dark:fill-neutral-100 group-hover:fill-blue-600 group-active:fill-blue-700 group-hover:scale-125 group-active:scale-75 group-hover:bg-neutral-200 group-active:bg-neutral-300 dark:group-hover:bg-neutral-700 dark:group-active:bg-neutral-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400;
-    }
-
-    .dp-stepper-button-loading {
-        @apply opacity-0 cursor-wait dp-stepper-button-base;
-    }
-
-    .dp-stepper-button-disabled {
-        @apply cursor-not-allowed dp-stepper-button-base fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-stepper-loading-indicator {
-        @apply absolute right-0 flex items-center pr-3 cursor-wait w-fit;
-    }
-
-    .dp-spoiler-base {
-        @apply flex flex-col w-full border shadow-sm rounded-xl dp-transitions;
-    }
-
-    .dp-spoiler {
-        @apply dp-spoiler-base border-neutral-200 active:border-2 hover:border-blue-600 active:border-blue-700 dark:hover:border-blue-500 dark:active:border-blue-400 hover:border-2 hover:scale-105 sm:hover:scale-[1.01] dark:border-neutral-700;
-    }
-
-    .dp-spoiler-open {
-        @apply border-2 border-blue-500 dark:border-blue-600 dp-spoiler-base hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 sm:hover:scale-[1.01];
-    }
-
-    .dp-spoiler-loading {
-        @apply cursor-wait dp-spoiler-base border-neutral-100 animate-pulse dark:border-neutral-700;
-    }
-
-    .dp-spoiler-disabled {
-        @apply cursor-not-allowed dp-spoiler-base border-neutral-100 dark:border-neutral-700;
-    }
-
-    .dp-spoiler-label-base {
-        @apply flex items-center justify-between w-full px-3 py-2 font-semibold cursor-pointer select-none dp-transitions;
-    }
-
-    .dp-spoiler-label {
-        @apply text-neutral-800 group-hover/spoiler:text-blue-600 group-active/spoiler:text-blue-700 dark:group-hover/spoiler:text-blue-500 dark:group-active/spoiler:text-blue-400 dp-spoiler-label-base dark:text-neutral-100;
-    }
-
-    .dp-spoiler-label-open {
-        @apply text-blue-500 group-hover/spoiler:text-blue-600 group-active/spoiler:text-blue-700 dp-spoiler-label-base dark:text-blue-600 dark:group-hover/spoiler:text-blue-500 dark:group-active/spoiler:text-blue-400;
-    }
-
-    .dp-spoiler-label-loading {
-        @apply cursor-wait text-neutral-300 dp-spoiler-label-base dark:text-neutral-600;
-    }
-
-    .dp-spoiler-label-disabled {
-        @apply cursor-not-allowed text-neutral-300 dp-spoiler-label-base dark:text-neutral-600;
-    }
-
-    .dp-spoiler-button-base {
-        @apply relative flex dp-transitions;
-    }
-
-    .dp-spoiler-button {
-        @apply fill-neutral-800 dp-spoiler-button-base group-hover/spoiler:fill-blue-600 dark:group-hover/spoiler:fill-blue-500 dark:group-active/spoiler:fill-blue-400 group-active/spoiler:fill-blue-700 dark:fill-neutral-100;
-    }
-
-    .dp-spoiler-button-open {
-        @apply -rotate-180 dp-spoiler-button-base group-hover/spoiler:fill-blue-600 fill-blue-500 dark:fill-blue-600 dark:group-hover/spoiler:fill-blue-500 dark:group-active/spoiler:fill-blue-400 group-active/spoiler:fill-blue-700;
-    }
-
-    .dp-spoiler-button-loading {
-        @apply cursor-wait dp-spoiler-button-base;
-    }
-
-    .dp-spoiler-button-disabled {
-        @apply cursor-not-allowed dp-spoiler-button-base fill-neutral-300 dark:fill-neutral-600;
-    }
-
-    .dp-spoiler-content {
-        @apply px-3 space-y-4 text-left;
-    }
-
-    .dp-navigation-link-base {
-        @apply relative flex px-3 py-2 justify-start text-left rounded-xl shadow-sm bg-white dark:bg-neutral-900 border dp-transitions;
-    }
-
-    .dp-navigation-link {
-        @apply dp-navigation-link-base text-neutral-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-500 active:text-blue-700 dark:active:text-blue-400 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 dark:hover:fill-blue-500 active:fill-blue-700 dark:active:fill-blue-400 hover:border-2 active:border-2 border-neutral-200 dark:border-neutral-700 hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 active:scale-95;
-    }
-
-    .dp-navigation-link-disabled {
-        @apply dp-navigation-link-base text-neutral-300 dark:text-neutral-600 fill-neutral-300 dark:fill-neutral-600 border-neutral-100 dark:border-neutral-800 cursor-not-allowed;
-    }
-
-    .dp-number-animation {
-        @apply scale-50 opacity-0 blur-sm;
-    }
-
-    .dp-progressbar {
-        @apply bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 overflow-hidden;
-    }
-
-    .dp-progressbar-fill-base {
-        @apply h-2.5 rounded-full dp-transitions;
-    }
-
-    .dp-progressbar-fill {
-        @apply bg-blue-600 dp-progressbar-fill-base dark:bg-blue-500;
-    }
-
-    .dp-progressbar-fill-disabled {
-        @apply dp-progressbar-fill-base bg-neutral-400 dark:bg-neutral-500;
-    }
-
-    .dp-card-base {
-        @apply relative px-3 border shadow-sm rounded-xl;
-    }
-
-    .dp-card {
-        @apply dp-transitions dp-card-base border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-card-loading {
-        @apply cursor-wait select-none dp-card-base animate-pulse border-neutral-100 dark:border-neutral-700 backdrop-blur-xl;
-    }
-
-    .dp-card-disabled {
-        @apply dp-card-base border-neutral-100 dark:border-neutral-700;
-    }
-
-    .dp-card-loading-indicator-base {
-        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full dp-transitions;
-    }
-
-    .dp-card-loading-indicator {
-        @apply rounded-xl dp-card-loading-indicator-base;
-    }
-
-    .dp-card-loading-indicator-hidden {
-        @apply scale-0 opacity-0 pointer-events-none dp-card-loading-indicator-base;
-    }
-
-    .dp-card-loading-indicator-background-base {
-        @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full rounded-xl dp-transitions;
-    }
-
-    .dp-card-loading-indicator-background {
-        @apply dp-card-loading-indicator-background-base backdrop-blur-xl;
-    }
-
-    .dp-card-loading-indicator-background-hidden {
-        @apply opacity-0 pointer-events-none dp-card-loading-indicator-background-base;
-    }
-
-    .dp-card-label-base {
-        @apply font-semibold dp-transitions;
-    }
-
-    .dp-card-label {
-        @apply text-neutral-800 dp-card-label-base dark:text-neutral-100;
-    }
-
-    .dp-card-label-disabled {
-        @apply text-neutral-400 dark:text-neutral-500 dp-card-label-base;
-    }
-
-    .dp-card-content-base {
-        @apply space-y-4 dp-transitions;
-    }
-
-    .dp-card-content {
-        @apply relative text-neutral-800 dp-card-content-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100;
-    }
-
-    .dp-card-content-disabled {
-        @apply text-neutral-400 dark:text-neutral-500 dp-card-content-base fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-three-dots-base {
-        @apply relative p-1 text-xl rounded-full dp-transitions;
-    }
-
-    .dp-three-dots {
-        @apply dp-three-dots-base hover:scale-125 active:scale-75 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-500 active:fill-blue-600 dark:active:fill-blue-400 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
-    }
-
-    .dp-three-dots-disabled {
-        @apply cursor-not-allowed dp-three-dots-base fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-segmented-control-base {
-        @apply flex p-1 border shadow-sm select-none rounded-xl dp-transitions;
-    }
-
-    .dp-segmented-control {
-        @apply dp-segmented-control-base bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
-    }
-
-    .dp-segmented-control-disabled {
-        @apply dp-segmented-control-base bg-neutral-50 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
-    }
-
-    .dp-segment-base {
-        @apply px-2 py-1 font-semibold border rounded-lg select-none dp-transitions;
-    }
-
-    .dp-segment {
-        @apply border-transparent text-neutral-800 dp-segment-base dark:text-neutral-100 fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-200 hover:shadow-sm active:shadow-sm hover:scale-105 active:scale-95 hover:border-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:hover:border-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
-    }
-
-    .dp-segment-selected {
-        @apply bg-blue-600 border-blue-700 shadow-sm text-neutral-100 dark:border-blue-500 dp-segment-base fill-neutral-100;
-    }
-
-    .dp-segment-selected-disabled {
-        @apply bg-white shadow-sm cursor-not-allowed dp-segment-base border-neutral-100 text-neutral-400 dark:text-neutral-500 dark:bg-neutral-700 dark:border-neutral-700 fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-segment-disabled {
-        @apply border-transparent cursor-not-allowed dp-segment-base text-neutral-400 dark:text-neutral-500 fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-color-picker-row {
-        @apply flex justify-between space-x-4 -sm:hidden;
-    }
-
-    .dp-color-picker-row-compact {
-        @apply flex justify-between space-x-4 sm:hidden;
-    }
-
-    .dp-color-picker-color-base {
-        @apply w-10 h-10 border-4 rounded-full shadow-sm dp-transitions sm:w-8 sm:h-8;
-    }
-
-    .dp-color-picker-color {
-        @apply dp-color-picker-color-base border-neutral-100 hover:border-neutral-200 active:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600 dark:active:border-neutral-500 hover:scale-125 active:scale-75;
-    }
-
-    .dp-color-picker-color-selected {
-        @apply dp-color-picker-color-base border-neutral-100 outline dark:border-neutral-700;
-    }
-
-    .dp-color-picker-color-selected-disabled {
-        @apply dp-color-picker-color-base border-neutral-50 outline dark:border-neutral-800;
-    }
-
-    .dp-color-picker-color-disabled {
-        @apply cursor-not-allowed dp-color-picker-color-base border-neutral-50 dark:border-neutral-800;
-    }
-
-    .dp-overaly-base {
-        @apply fixed bottom-0 left-0 right-0 z-40 flex items-center justify-center w-full h-full dp-transitions;
-    }
-
-    .dp-overlay {
-        @apply cursor-default dp-overaly-base backdrop-blur-md;
-    }
-
-    .dp-overlay-hidden {
-        @apply opacity-0 pointer-events-none dp-overaly-base;
-    }
-
-    .dp-overlay-content-base {
-        @apply dp-transitions;
-    }
-
-    .dp-overlay-content {
-        @apply dp-overlay-content-base;
-    }
-
-    .dp-overlay-content-hidden {
-        @apply scale-0 opacity-0 pointer-events-none dp-overlay-content-base;
-    }
-
-    .dp-dialog {
-        @apply relative z-50 p-6 space-y-6 bg-white border shadow rounded-xl border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
-    }
-
-    .dp-table {
-        @apply rounded-xl border-spacing-3;
-    }
-
-    .dp-table-container {
-        @apply relative border shadow-sm bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700 rounded-xl;
-    }
-
-    .dp-table-item-base {
-        @apply px-2 py-1 text-center text-neutral-800 dark:text-neutral-100;
-    }
-
-    .dp-table-item {
-        @apply border-t dp-table-item-base border-neutral-200 dark:border-neutral-700;
-    }
-
-    .dp-table-fist-item {
-        @apply dp-table-item-base;
-    }
-
-    .dp-slider-base {
-        @apply select-none h-2 rounded-lg appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-sm [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full dp-transitions [&::-webkit-slider-thumb]:scale-[1.01];
-    }
-
-    .dp-slider {
-        @apply dp-slider-base bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-600 hover:[&::-webkit-slider-thumb]:bg-blue-700 dark:hover:[&::-webkit-slider-thumb]:bg-blue-500 active:[&::-webkit-slider-thumb]:bg-blue-800 dark:active:[&::-webkit-slider-thumb]:bg-blue-400 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:duration-300 hover:[&::-webkit-slider-thumb]:scale-125 active:[&::-webkit-slider-thumb]:scale-75 [&::-webkit-slider-thumb]:cursor-pointer;
-    }
-
-    .dp-slider-disabled {
-        @apply cursor-not-allowed dp-slider-base bg-neutral-100 dark:bg-neutral-800 [&::-webkit-slider-thumb]:bg-neutral-400 dark:[&::-webkit-slider-thumb]:bg-neutral-500;
-    }
-
-    .dp-slider-fill-base {
-        @apply flex h-full transition-all duration-100 ease-out rounded-full pointer-events-none;
-    }
-
-    .dp-slider-fill {
-        @apply bg-blue-600 dp-slider-fill-base;
-    }
-
-    .dp-slider-fill-disabled {
-        @apply dp-slider-fill-base bg-neutral-400 dark:bg-neutral-500;
-    }
-
-    .dp-save-prompt-base {
-        @apply z-30 flex items-center justify-between w-full px-2 py-2 border shadow cursor-default select-none dp-transitions sm:pl-4 sm:space-x-4 -sm:flex-col bg-neutral-200 dark:bg-neutral-700 border-neutral-300 dark:border-neutral-600 rounded-xl;
-    }
-
-    .dp-save-prompt {
-        @apply pointer-events-auto dp-save-prompt-base;
-    }
-
-    .dp-save-prompt-hidden {
-        @apply dp-save-prompt-base translate-y-8 pointer-events-none blur-xl;
-    }
-
-    .dp-save-prompt-container {
-        @apply fixed left-0 right-0 z-30 flex items-center px-8 pointer-events-none select-none bottom-8 justify-stretch dp-transitions;
-    }
-
-    .dp-save-prompt-container-hidden {
-        @apply dp-save-prompt-container opacity-0;
-    }
-
-    .dp-navigation-menu-link-base {
-        @apply flex items-center w-full px-3 py-2 space-x-3 font-semibold cursor-pointer select-none dp-transitions rounded-xl;
-    }
-
-    .dp-navigation-menu-link {
-        @apply text-neutral-800 fill-neutral-800 dark:fill-neutral-200 dp-navigation-menu-link-base dark:text-neutral-200 hover:text-blue-600 dark:hover:text-blue-500 hover:fill-blue-600 dark:hover:fill-blue-500 active:text-blue-700 dark:active:text-blue-400 active:fill-blue-700 dark:active:fill-blue-400 hover:scale-105 active:scale-95 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 hover:shadow-sm active:shadow-sm;
-    }
-
-    .dp-navigation-menu-link-selected {
-        @apply text-blue-600 bg-blue-100 dp-navigation-menu-link-base dark:bg-blue-900 dark:text-blue-300 fill-blue-600 dark:fill-blue-300 hover:scale-105 active:scale-95 hover:shadow-sm active:shadow-sm;
-    }
-
-    .dp-navigation-menu-link-selected-disabled {
-        @apply cursor-not-allowed dark:bg-neutral-800 text-neutral-500 bg-neutral-100 fill-neutral-500 dark:text-neutral-400 dark:fill-neutral-400 dp-navigation-menu-link-base;
-    }
-
-    .dp-navigation-menu-link-disabled {
-        @apply cursor-not-allowed text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 dp-navigation-menu-link-base;
-    }
-
-    .dp-navigation-view {
-        @apply fixed flex w-screen h-screen -lg:flex-col;
-    }
-
-    .dp-navigation-menu {
-        @apply hidden border-r min-w-fit border-neutral-100 dark:border-neutral-800 lg:flex flex-col justify-between;
-    }
-
-    .dp-navigation-menu-logo {
-        @apply relative p-6 border-b border-neutral-100 dark:border-neutral-800;
-    }
-
-    .dp-navigation-menu-links {
-        @apply relative p-4 space-y-2 dp-transitions;
-    }
-
-    .dp-mobile-navigation-menu-base {
-        @apply absolute z-30 flex flex-col w-full select-none lg:hidden dp-transitions rounded-b-xl;
-    }
-
-    .dp-mobile-navigation-menu {
-        @apply pointer-events-none dp-mobile-navigation-menu-base
-    }
-
-    .dp-mobile-navigation-menu-open {
-        @apply shadow backdrop-blur-2xl dp-mobile-navigation-menu-base;
-    }
-
-    .dp-mobile-navigation-menu-bar {
-        @apply z-30 flex items-center justify-between w-full px-3 py-2 cursor-default pointer-events-auto select-none dp-transitions;
-    }
-
-    .dp-mobile-navigation-menu-bar-hidden {
-        @apply shadow backdrop-blur-xl dp-mobile-navigation-menu-bar;
-    }
-
-    .dp-mobile-navigation-menu-logo {
-        @apply pt-3 pl-2 dp-transitions;
-    }
-
-    .dp-mobile-navigation-menu-logo-hidden {
-        @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-logo;
-    }
-
-    .dp-mobile-navigation-menu-title-base {
-        @apply absolute flex space-x-3 items-center text-2xl font-bold transition-all duration-300 ease-in-out;
-    }
-
-    .dp-mobile-navigation-menu-title {
-        @apply dp-mobile-navigation-menu-title-base text-neutral-800 dark:text-neutral-100;
-    }
-
-    .dp-mobile-navigation-menu-title-disabled {
-        @apply cursor-not-allowed dp-mobile-navigation-menu-title-base text-neutral-400 dark:text-neutral-500;
-    }
-
-    .dp-mobile-navigation-menu-title-hidden {
-        @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-title-base;
-    }
-
-    .dp-mobile-navigation-menu-button-base {
-        @apply relative flex items-center justify-center p-1 rounded-full dp-transitions;
-    }
-
-    .dp-mobile-navigation-menu-button {
-        @apply dp-mobile-navigation-menu-button-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
-    }
-
-    .dp-mobile-navigation-menu-button-disabled {
-        @apply cursor-not-allowed dp-mobile-navigation-menu-button-base fill-neutral-400 dark:fill-neutral-500;
-    }
-
-    .dp-mobile-navigation-menu-button-hidden {
-        @apply relative flex items-center justify-center p-1 ml-3 scale-0 rounded-full opacity-0 pointer-events-none dp-transitions;
-    }
-
-    .dp-mobile-navigation-menu-button-open-icon {
-        @apply dp-transitions;
-    }
-
-    .dp-mobile-navigation-menu-button-open-icon-hidden {
-        @apply scale-0 opacity-0 pointer-events-none dp-mobile-navigation-menu-button-open-icon;
-    }
-
-    .dp-mobile-navigation-menu-button-close-icon {
-        @apply absolute dp-transitions;
-    }
-
-    .dp-mobile-navigation-menu-button-close-icon-hidden {
-        @apply scale-0 opacity-0 pointer-events-none dp-mobile-navigation-menu-button-close-icon;
-    }
-
-    .dp-mobile-navigation-menu-links {
-        @apply z-30 flex flex-col w-full p-3 transition-all duration-300 ease-in-out;
-    }
-
-    .dp-mobile-navigation-menu-links-hidden {
-        @apply -translate-y-12 opacity-0 pointer-events-none dp-mobile-navigation-menu-links;
-    }
-
-    .dp-page {
-        @apply relative w-full p-6 space-y-4 overflow-auto -lg:pt-24;
-    }
-
-    .dp-caption {
-        @apply text-xs text-neutral-600 dark:text-neutral-300 dp-transitions;
-    }
-
-    .dp-caption-disabled {
-        @apply text-xs dp-text-color-disabled dp-transitions;
-    }
+@import "tailwindcss";
+
+@utility dp-transitions {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+@utility dp-text-color {
+    @apply text-neutral-800 dark:text-neutral-100;
+}
+
+@utility dp-text-color-disabled {
+    @apply text-neutral-400 dark:text-neutral-500;
+}
+
+@utility dp-header-base {
+    @apply relative text-3xl font-bold dp-transitions;
+}
+
+@utility dp-header {
+    @apply dp-header-base dp-text-color;
+}
+
+@utility dp-header-disabled {
+    @apply dp-header-base dp-text-color-disabled;
+}
+
+@utility dp-subheader-base {
+    @apply relative text-xl font-semibold dp-transitions;
+}
+
+@utility dp-subheader {
+    @apply dp-subheader-base dp-text-color;
+}
+
+@utility dp-subheader-disabled {
+    @apply dp-subheader-base dp-text-color-disabled;
+}
+
+@utility dp-paragraph-base {
+    @apply dp-transitions;
+}
+
+@utility dp-paragraph {
+    @apply dp-paragraph-base dp-text-color;
+}
+
+@utility dp-paragraph-disabled {
+    @apply dp-paragraph-base dp-text-color-disabled;
+}
+
+@utility dp-border-base {
+    @apply px-3 py-2 border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dp-transitions;
+}
+
+@utility dp-border {
+    @apply dp-border-base border-neutral-200 dark:border-neutral-700 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
+}
+
+@utility dp-border-disabled {
+    @apply dp-border-base border-neutral-100 dark:border-neutral-800;
+}
+
+@utility dp-button-base {
+    @apply relative flex justify-center px-3 py-2 font-semibold text-center select-none rounded-xl dp-transitions;
+}
+
+@utility dp-button {
+    @apply border shadow-sm dp-button-base text-neutral-800 bg-neutral-100 fill-neutral-800 dark:fill-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-toggled {
+    @apply text-blue-600 bg-blue-100 border border-blue-200 shadow-sm dp-button-base fill-blue-600 hover:fill-blue-700 active:fill-blue-800 hover:text-blue-700 active:text-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dark:bg-blue-950 dark:hover:bg-blue-900 dark:active:bg-blue-800 dark:border-blue-900 dark:hover:border-blue-900 dark:active:border-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 hover:bg-blue-200 active:bg-blue-300 active:border-blue-300 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-borderless {
+    @apply dp-button-base text-neutral-800 fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-light {
+    @apply border shadow-sm text-neutral-800 dp-button-base fill-neutral-800 dark:fill-neutral-100 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 dark:text-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-primary {
+    @apply text-blue-600 border shadow-sm hover:text-blue-700 active:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 dark:active:text-blue-300 fill-blue-600 hover:fill-blue-700 active:fill-blue-800 dark:fill-blue-500 dark:hover:fill-blue-400 dark:active:fill-blue-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-accent {
+    @apply bg-blue-600 border border-blue-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:hover:border-blue-700 dark:active:border-blue-800 dark:border-blue-500 hover:bg-blue-700 active:bg-blue-800 active:border-blue-800 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-danger {
+    @apply text-red-600 border shadow-sm hover:text-red-700 active:text-red-800 dark:text-red-500 dark:hover:text-red-400 dark:active:text-red-300 fill-red-600 hover:fill-red-700 active:fill-red-800 dark:fill-red-500 dark:hover:fill-red-400 dark:active:fill-red-300 dp-button-base bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:border-neutral-700 dark:active:border-neutral-600 hover:bg-neutral-200 active:bg-neutral-300 border-neutral-200 active:border-neutral-300 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-destructive {
+    @apply bg-red-600 border border-red-700 shadow-sm text-neutral-100 fill-neutral-100 dp-button-base dark:border-red-500 dark:hover:border-red-700 dark:active:border-red-800 hover:bg-red-700 active:bg-red-800 active:border-red-800 hover:scale-105 active:scale-95;
+}
+
+@utility dp-button-loading {
+    @apply border shadow-sm cursor-wait dp-button-base border-neutral-100 bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 animate-pulse;
+}
+
+@utility dp-button-disabled {
+    @apply border shadow-sm cursor-not-allowed dp-button-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
+}
+
+@utility dp-button-rounded-base {
+    @apply relative flex justify-center p-1 font-semibold text-center rounded-full select-none dp-transitions h-fit;
+}
+
+@utility dp-button-rounded {
+    @apply dp-button-rounded-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 hover:scale-125 active:scale-75;
+}
+
+@utility dp-button-rounded-loading {
+    @apply cursor-wait dp-button-rounded-base;
+}
+
+@utility dp-button-rounded-disabled {
+    @apply cursor-not-allowed dp-button-rounded-base fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-label-base {
+    @apply flex items-center px-3 mb-1 space-x-1 text-sm font-bold select-none dp-transitions;
+}
+
+@utility dp-label {
+    @apply text-neutral-800 dark:text-neutral-100;
+}
+
+@utility dp-label-disabled {
+    @apply text-neutral-400 dark:text-neutral-500;
+}
+
+@utility dp-edit-indicator-base {
+    @apply text-xs select-none dp-transitions;
+}
+
+@utility dp-edit-indicator {
+    @apply text-blue-600 dp-edit-indicator-base dark:text-blue-500;
+}
+
+@utility dp-edit-indicator-inactive {
+    @apply w-0 opacity-0 dp-edit-indicator-base;
+}
+
+@utility dp-edit-indicator-disabled {
+    @apply dp-edit-indicator-base text-neutral-300 dark:text-neutral-600;
+}
+
+@utility dp-textfield-base {
+    @apply flex px-3 py-2 border shadow-sm rounded-xl resize-none dp-transitions;
+}
+
+@utility dp-textfield {
+    @apply dp-textfield-base border-neutral-200 text-neutral-800 bg-neutral-100 placeholder-neutral-400 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-neutral-100;
+}
+
+@utility dp-textfield-loading {
+    @apply cursor-wait select-none dp-textfield-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500 animate-pulse;
+}
+
+@utility dp-textfield-disabled {
+    @apply cursor-not-allowed select-none dp-textfield-base bg-neutral-50 text-neutral-400 border-neutral-100 placeholder-neutral-300 dark:bg-neutral-800 dark:border-neutral-800 dark:placeholder-neutral-600 dark:text-neutral-500;
+}
+
+@utility dp-switch-base {
+    @apply flex items-center justify-between space-x-4 font-semibold select-none dp-transitions sm:space-x-12;
+}
+
+@utility dp-switch {
+    @apply cursor-pointer dp-switch-base hover:scale-105 active:scale-95 dp-text-color;
+}
+
+@utility dp-switch-disabled {
+    @apply cursor-not-allowed dp-switch-base dp-text-color-disabled;
+}
+
+@utility dp-switch-pill-base {
+    @apply flex items-center h-8 border rounded-full shadow-sm dp-transitions sm:h-6 w-14 sm:w-11 shrink-0;
+}
+
+@utility dp-switch-pill-on {
+    @apply bg-green-600 border-green-700 dp-switch-pill-base group-hover/switch:bg-green-700 group-active/switch:bg-green-800 dark:group-hover/switch:bg-green-500 dark:group-active/switch:bg-green-400 group-hover/switch:border-green-800 group-active/switch:border-green-800 dark:border-green-500 dark:group-hover/switch:border-green-400 dark:group-active/switch:border-green-400 group-hover/switch:scale-105 group-active/switch:scale-95;
+}
+
+@utility dp-switch-pill-off {
+    @apply dp-switch-pill-base bg-neutral-200 group-hover/switch:bg-neutral-300 group-active/switch:bg-neutral-400 dark:bg-neutral-700 dark:group-hover/switch:bg-neutral-600 dark:group-active/switch:bg-neutral-500 border-neutral-300 group-hover/switch:border-neutral-400 group-active/switch:border-neutral-400 dark:border-neutral-600 dark:group-hover/switch:border-neutral-500 dark:group-active/switch:border-neutral-500 group-hover/switch:scale-105 group-active/switch:scale-95;
+}
+
+@utility dp-switch-pill-disabled {
+    @apply dp-switch-pill-base bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-switch-dot-base {
+    @apply w-6 h-6 border rounded-full shadow-sm dp-transitions sm:w-4 sm:h-4;
+}
+
+@utility dp-switch-dot-on {
+    @apply bg-white border-green-700 dp-switch-dot-base group-hover/switch:border-green-800 group-active/switch:border-green-800 dark:border-green-700 dark:group-hover/switch:border-green-600 dark:group-active/switch:border-green-600;
+}
+
+@utility dp-switch-dot-off {
+    @apply bg-white dp-switch-dot-base border-neutral-200 group-hover/switch:border-neutral-300 group-active/switch:border-white;
+}
+
+@utility dp-switch-dot-disabled {
+    @apply bg-white dp-switch-dot-base dark:bg-neutral-600 border-neutral-100 dark:border-neutral-700;
+}
+
+@utility dp-checkbox-base {
+    @apply flex items-center justify-start space-x-4 font-semibold select-none dp-transitions;
+}
+
+@utility dp-checkbox {
+    @apply cursor-pointer dp-checkbox-base hover:scale-105 active:scale-95 dp-text-color;
+}
+
+@utility dp-checkbox-disabled {
+    @apply cursor-not-allowed dp-checkbox-base dp-text-color-disabled;
+}
+
+@utility dp-checkbox-square-base {
+    @apply flex items-center justify-center w-8 h-8 border rounded-lg shadow-sm stroke-2 dp-transitions sm:rounded-md sm:w-6 sm:h-6 shrink-0;
+}
+
+@utility dp-checkbox-square-on {
+    @apply bg-blue-600 border-blue-700 dp-checkbox-square-base group-hover/checkbox:bg-blue-700 group-active/checkbox:bg-blue-800 dark:group-hover/checkbox:bg-blue-500 dark:group-active/checkbox:bg-blue-400 group-hover/checkbox:border-blue-800 group-active/checkbox:border-blue-800 dark:border-blue-500 dark:group-hover/checkbox:border-blue-400 dark:group-active/checkbox:border-blue-400 group-hover/checkbox:scale-105 group-active/checkbox:scale-95 fill-neutral-100 stroke-white;
+}
+
+@utility dp-checkbox-square-on-disabled {
+    @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-checkbox-square-off {
+    @apply dp-checkbox-square-base bg-neutral-200 group-hover/checkbox:bg-neutral-300 group-active/checkbox:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover/checkbox:fill-neutral-400 dark:group-hover/checkbox:stroke-neutral-400 dark:group-active/checkbox:fill-neutral-300 dark:group-active/checkbox:stroke-neutral-300 dark:group-hover/checkbox:bg-neutral-600 dark:group-active/checkbox:bg-neutral-500 border-neutral-300 group-hover/checkbox:border-neutral-400 group-active/checkbox:border-neutral-400 dark:border-neutral-600 dark:group-hover/checkbox:border-neutral-500 dark:group-active/checkbox:border-neutral-500 group-hover/checkbox:scale-105 group-active/checkbox:scale-95 stroke-neutral-200 fill-neutral-200 group-hover/checkbox:stroke-neutral-500 group-hover/checkbox:fill-neutral-500 group-active/checkbox:stroke-neutral-600 group-active/checkbox:fill-neutral-600;
+}
+
+@utility dp-checkbox-square-off-disabled {
+    @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-radio-base {
+    @apply flex items-center justify-start space-x-4 font-semibold select-none dp-transitions;
+}
+
+@utility dp-radio {
+    @apply cursor-pointer dp-radio-base hover:scale-105 active:scale-95 dp-text-color;
+}
+
+@utility dp-radio-disabled {
+    @apply cursor-not-allowed dp-radio-base dp-text-color-disabled;
+}
+
+@utility dp-radio-circle-base {
+    @apply flex items-center justify-center w-8 h-8 border rounded-full shadow-sm stroke-2 dp-transitions sm:w-6 sm:h-6 shrink-0;
+}
+
+@utility dp-radio-circle-on {
+    @apply bg-blue-600 border-blue-700 dp-radio-circle-base group-hover/radio:bg-blue-700 group-active/radio:bg-blue-800 dark:group-hover/radio:bg-blue-500 dark:group-active/radio:bg-blue-400 group-hover/radio:border-blue-800 group-active/radio:border-blue-800 dark:border-blue-500 dark:group-hover/radio:border-blue-400 dark:group-active/radio:border-blue-400 group-hover/radio:scale-105 group-active/radio:scale-95 fill-neutral-100 stroke-white;
+}
+
+@utility dp-radio-circle-on-disabled {
+    @apply dp-radio-circle-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-radio-circle-off {
+    @apply dp-radio-circle-base bg-neutral-200 group-hover/radio:bg-neutral-300 group-active/radio:bg-neutral-400 dark:bg-neutral-700 dark:fill-neutral-700 dark:stroke-neutral-700 dark:group-hover/radio:fill-neutral-400 dark:group-hover/radio:stroke-neutral-400 dark:group-active/radio:fill-neutral-300 dark:group-active/radio:stroke-neutral-300 dark:group-hover/radio:bg-neutral-600 dark:group-active/radio:bg-neutral-500 border-neutral-300 group-hover/radio:border-neutral-400 group-active/radio:border-neutral-400 dark:border-neutral-600 dark:group-hover/radio:border-neutral-500 dark:group-active/radio:border-neutral-500 group-hover/radio:scale-105 group-active/radio:scale-95 stroke-neutral-200 fill-neutral-200 group-hover/radio:stroke-neutral-500 group-hover/radio:fill-neutral-500 group-active/radio:stroke-neutral-600 group-active/radio:fill-neutral-600;
+}
+
+@utility dp-radio-circle-off-disabled {
+    @apply dp-radio-circle-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-radio-dot-base {
+    @apply border rounded-full dp-transitions;
+}
+
+@utility dp-radio-dot-on {
+    @apply w-5 h-5 bg-white shadow-sm border-blue-700 sm:w-3.5 sm:h-3.5 dp-radio-dot-base group-hover/radio:border-blue-800 group-active/radio:border-blue-800 dark:border-blue-700 dark:group-hover/radio:border-blue-600 dark:group-active/radio:border-blue-600;
+}
+
+@utility dp-radio-dot-on-disabled {
+    @apply w-4 h-4 shadow-sm sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-300 dp-switch-dot-base dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+}
+
+@utility dp-radio-dot-off {
+    @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base border-neutral-200 dark:border-neutral-700 group-hover/radio:bg-neutral-500 group-active/radio:bg-neutral-600 group-hover/radio:border-neutral-500 dark:group-hover/radio:bg-neutral-400 dark:group-hover/radio:border-neutral-400 group-active/radio:border-neutral-400 group-hover/radio:shadow-sm dark:group-active/radio:bg-neutral-300 dark:group-active/radio:border-neutral-300;
+}
+
+@utility dp-radio-dot-off-disabled {
+    @apply w-4 h-4 sm:w-3 sm:h-3 dp-radio-dot-base bg-neutral-100 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
+}
+
+@utility dp-dropdown-base {
+    @apply flex items-center justify-between px-3 py-2 space-x-3 font-semibold text-center border shadow-sm select-none rounded-xl dp-transitions dp-button-base;
+}
+
+@utility dp-dropdown {
+    @apply text-neutral-800 dp-dropdown-base border-neutral-200 fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600 hover:scale-105 active:scale-95 bg-neutral-100 hover:bg-neutral-200 active:bg-neutral-300 active:border-neutral-300;
+}
+
+@utility dp-dropdown-open {
+    @apply scale-95 text-neutral-800 dp-dropdown-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100 bg-neutral-300 dark:bg-neutral-600 border-neutral-300 dark:border-neutral-600;
+}
+
+@utility dp-dropdown-loading {
+    @apply cursor-wait animate-pulse dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
+}
+
+@utility dp-dropdown-disabled {
+    @apply cursor-not-allowed dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
+}
+
+@utility dp-menu-base {
+    @apply absolute z-10 p-1 space-y-1 border shadow select-none rounded-xl dp-transitions backdrop-blur-xl dark:border-neutral-700 border-neutral-200;
+}
+
+@utility dp-menu {
+    @apply scale-100 opacity-100 dp-menu-base blur-none;
+}
+
+@utility dp-menu-hidden {
+    @apply scale-0 opacity-0 pointer-events-none dp-menu-base blur-xl;
+}
+
+@utility dp-menu-item-base {
+    @apply flex w-full px-3 py-2 font-semibold rounded-lg select-none dp-transitions sm:py-1;
+}
+
+@utility dp-menu-item {
+    @apply text-neutral-800 hover:shadow-sm dp-menu-item-base hover:bg-neutral-200 active:bg-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-600 hover:backdrop-blur-2xl active:scale-95 fill-neutral-800 dark:text-neutral-100 dark:fill-neutral-100;
+}
+
+@utility dp-menu-item-selected {
+    @apply bg-blue-600 text-neutral-100 dp-menu-item-base hover:bg-blue-700 active:bg-blue-800 hover:backdrop-blur-2xl active:scale-95 fill-neutral-100;
+}
+
+@utility dp-menu-item-selected-disabled {
+    @apply cursor-not-allowed text-neutral-800 dark:text-neutral-100 bg-neutral-400 dark:bg-neutral-500 dp-menu-item-base fill-neutral-800 dark:fill-neutral-100;
+}
+
+@utility dp-menu-item-disabled {
+    @apply cursor-not-allowed dp-menu-item-base text-neutral-400 dark:text-neutral-500 fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-calendar-base {
+    @apply absolute z-10 p-3 space-y-3 border shadow rounded-xl dp-transitions backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-calendar {
+    @apply translate-y-2 opacity-100 dp-calendar-base;
+}
+
+@utility dp-calendar-hidden {
+    @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-calendar-base blur-xl;
+}
+
+@utility dp-calendar-grid {
+    @apply grid grid-cols-7 grid-rows-3 font-semibold text-center sm:text-xs;
+}
+
+@utility dp-calendar-arrow-base {
+    @apply dp-transitions;
+}
+
+@utility dp-calendar-arrow {
+    @apply dp-calendar-arrow-base fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
+}
+
+@utility dp-calendar-arrow-disabled {
+    @apply cursor-not-allowed dp-calendar-arrow-base fill-neutral-400 dark:fill-neutral-600;
+}
+
+@utility dp-calendar-weekday {
+    @apply cursor-default text-neutral-600 dark:text-neutral-400;
+}
+
+@utility dp-calendar-day-base {
+    @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-lg sm:rounded-sm;
+    aspect-ratio: 1;
+}
+
+@utility dp-calendar-day {
+    @apply cursor-pointer text-neutral-800 dark:text-neutral-100 dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-neutral-100 hover:text-neutral-100 hover:scale-105 active:scale-95;
+}
+
+@utility dp-calendar-day-disabled {
+    @apply cursor-not-allowed dp-calendar-day-base text-neutral-400 dark:text-neutral-500;
+}
+
+@utility dp-calendar-day-selected {
+    @apply bg-blue-600 cursor-pointer text-neutral-100 dp-calendar-day-base hover:bg-blue-700 active:bg-blue-800 hover:scale-105 active:scale-95;
+}
+
+@utility dp-calendar-day-selected-disabled {
+    @apply bg-blue-600 cursor-not-allowed text-neutral-100 dp-calendar-day-base;
+}
+
+@utility dp-calendar-day-now {
+    @apply text-blue-600 cursor-pointer dp-calendar-day-base hover:bg-neutral-800 dark:hover:bg-neutral-100 dark:hover:text-neutral-800 dark:active:bg-white active:bg-black dark:active:text-neutral-800 active:text-neutral-100 hover:text-neutral-100 dark:text-blue-500 hover:scale-105 active:scale-95;
+}
+
+@utility dp-calendar-day-now-disabled {
+    @apply text-blue-600 cursor-not-allowed dark:active:text-neutral-800 dark:text-blue-500 dp-calendar-day-base;
+}
+
+@utility dp-clock-base {
+    @apply absolute z-10 shadow flex justify-center px-4 py-2.5 space-y-3 dp-transitions border rounded-xl backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-clock {
+    @apply translate-y-2 opacity-100 dp-clock-base;
+}
+
+@utility dp-clock-hidden {
+    @apply scale-0 -translate-y-24 opacity-0 pointer-events-none dp-clock-base blur-xl;
+}
+
+@utility dp-clock-arrow {
+    @apply flex justify-center dp-transitions fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 active:fill-blue-700 dark:hover:fill-blue-500 dark:active:fill-blue-400 hover:scale-125 active:scale-75;
+}
+
+@utility dp-clock-grid-base {
+    @apply grid text-center;
+}
+
+@utility dp-clock-grid {
+    @apply w-24 grid-cols-3 dp-clock-grid-base;
+}
+
+@utility dp-clock-grid-seconds {
+    @apply w-40 grid-cols-5 dp-clock-grid-base;
+}
+
+@utility dp-clock-number {
+    @apply absolute top-0 left-0 text-2xl font-bold text-center transition-all duration-500 ease-out bg-transparent text-neutral-800 dark:text-neutral-100;
+}
+
+@utility dp-stepper-base {
+    @apply flex justify-between space-x-4 font-semibold border shadow-sm rounded-xl;
+}
+
+@utility dp-stepper {
+    @apply dp-stepper-base bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+}
+
+@utility dp-stepper-loading {
+    @apply cursor-wait select-none dp-stepper-base bg-neutral-50 text-neutral-400 fill-neutral-400 border-neutral-100 animate-pulse dark:bg-neutral-800 dark:border-neutral-800;
+}
+
+@utility dp-stepper-disabled {
+    @apply cursor-not-allowed select-none dp-stepper-base bg-neutral-50 border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
+}
+
+@utility dp-stepper-number {
+    @apply font-bold transition-all duration-500 ease-out bg-transparent;
+}
+
+@utility dp-stepper-number-loading {
+    @apply cursor-wait select-none dp-stepper-number;
+}
+
+@utility dp-stepper-number-disabled {
+    @apply cursor-not-allowed select-none dp-stepper-number;
+}
+
+@utility dp-stepper-button-hitbox-base {
+    @apply flex items-center h-full;
+}
+
+@utility dp-stepper-button-hitbox {
+    @apply cursor-pointer dp-stepper-button-hitbox-base;
+}
+
+@utility dp-stepper-button-hitbox-loading {
+    @apply cursor-wait dp-stepper-button-hitbox-base;
+}
+
+@utility dp-stepper-button-hitbox-disabled {
+    @apply cursor-not-allowed dp-stepper-button-hitbox-base;
+}
+
+@utility dp-stepper-button-base {
+    @apply p-1 rounded-full dp-transitions h-fit;
+}
+
+@utility dp-stepper-button {
+    @apply dp-stepper-button-base fill-neutral-800 dark:fill-neutral-100 group-hover:fill-blue-600 group-active:fill-blue-700 group-hover:scale-125 group-active:scale-75 group-hover:bg-neutral-200 group-active:bg-neutral-300 dark:group-hover:bg-neutral-700 dark:group-active:bg-neutral-600 dark:group-hover:fill-blue-500 dark:group-active:fill-blue-400;
+}
+
+@utility dp-stepper-button-loading {
+    @apply opacity-0 cursor-wait dp-stepper-button-base;
+}
+
+@utility dp-stepper-button-disabled {
+    @apply cursor-not-allowed dp-stepper-button-base fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-stepper-loading-indicator {
+    @apply absolute right-0 flex items-center pr-3 cursor-wait w-fit;
+}
+
+@utility dp-spoiler-base {
+    @apply flex flex-col w-full border shadow-sm rounded-xl dp-transitions;
+}
+
+@utility dp-spoiler {
+    @apply dp-spoiler-base border-neutral-200 active:border-2 hover:border-blue-600 active:border-blue-700 dark:hover:border-blue-500 dark:active:border-blue-400 hover:border-2 hover:scale-105 sm:hover:scale-[1.01] dark:border-neutral-700;
+}
+
+@utility dp-spoiler-open {
+    @apply border-2 border-blue-500 dark:border-blue-600 dp-spoiler-base hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 sm:hover:scale-[1.01];
+}
+
+@utility dp-spoiler-loading {
+    @apply cursor-wait dp-spoiler-base border-neutral-100 animate-pulse dark:border-neutral-700;
+}
+
+@utility dp-spoiler-disabled {
+    @apply cursor-not-allowed dp-spoiler-base border-neutral-100 dark:border-neutral-700;
+}
+
+@utility dp-spoiler-label-base {
+    @apply flex items-center justify-between w-full px-3 py-2 font-semibold cursor-pointer select-none dp-transitions;
+}
+
+@utility dp-spoiler-label {
+    @apply text-neutral-800 group-hover/spoiler:text-blue-600 group-active/spoiler:text-blue-700 dark:group-hover/spoiler:text-blue-500 dark:group-active/spoiler:text-blue-400 dp-spoiler-label-base dark:text-neutral-100;
+}
+
+@utility dp-spoiler-label-open {
+    @apply text-blue-500 group-hover/spoiler:text-blue-600 group-active/spoiler:text-blue-700 dp-spoiler-label-base dark:text-blue-600 dark:group-hover/spoiler:text-blue-500 dark:group-active/spoiler:text-blue-400;
+}
+
+@utility dp-spoiler-label-loading {
+    @apply cursor-wait text-neutral-300 dp-spoiler-label-base dark:text-neutral-600;
+}
+
+@utility dp-spoiler-label-disabled {
+    @apply cursor-not-allowed text-neutral-300 dp-spoiler-label-base dark:text-neutral-600;
+}
+
+@utility dp-spoiler-button-base {
+    @apply relative flex dp-transitions;
+}
+
+@utility dp-spoiler-button {
+    @apply fill-neutral-800 dp-spoiler-button-base group-hover/spoiler:fill-blue-600 dark:group-hover/spoiler:fill-blue-500 dark:group-active/spoiler:fill-blue-400 group-active/spoiler:fill-blue-700 dark:fill-neutral-100;
+}
+
+@utility dp-spoiler-button-open {
+    @apply -rotate-180 dp-spoiler-button-base group-hover/spoiler:fill-blue-600 fill-blue-500 dark:fill-blue-600 dark:group-hover/spoiler:fill-blue-500 dark:group-active/spoiler:fill-blue-400 group-active/spoiler:fill-blue-700;
+}
+
+@utility dp-spoiler-button-loading {
+    @apply cursor-wait dp-spoiler-button-base;
+}
+
+@utility dp-spoiler-button-disabled {
+    @apply cursor-not-allowed dp-spoiler-button-base fill-neutral-300 dark:fill-neutral-600;
+}
+
+@utility dp-spoiler-content {
+    @apply px-3 space-y-4 text-left;
+}
+
+@utility dp-navigation-link-base {
+    @apply relative flex px-3 py-2 justify-start text-left rounded-xl shadow-sm bg-white dark:bg-neutral-900 border dp-transitions;
+}
+
+@utility dp-navigation-link {
+    @apply dp-navigation-link-base text-neutral-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-500 active:text-blue-700 dark:active:text-blue-400 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-600 dark:hover:fill-blue-500 active:fill-blue-700 dark:active:fill-blue-400 hover:border-2 active:border-2 border-neutral-200 dark:border-neutral-700 hover:border-blue-600 dark:hover:border-blue-500 active:border-blue-700 dark:active:border-blue-400 hover:scale-105 active:scale-95;
+}
+
+@utility dp-navigation-link-disabled {
+    @apply dp-navigation-link-base text-neutral-300 dark:text-neutral-600 fill-neutral-300 dark:fill-neutral-600 border-neutral-100 dark:border-neutral-800 cursor-not-allowed;
+}
+
+@utility dp-number-animation {
+    @apply scale-50 opacity-0 blur-sm;
+}
+
+@utility dp-progressbar {
+    @apply bg-neutral-200 rounded-full h-2.5 dark:bg-neutral-700 overflow-hidden;
+}
+
+@utility dp-progressbar-fill-base {
+    @apply h-2.5 rounded-full dp-transitions;
+}
+
+@utility dp-progressbar-fill {
+    @apply bg-blue-600 dp-progressbar-fill-base dark:bg-blue-500;
+}
+
+@utility dp-progressbar-fill-disabled {
+    @apply dp-progressbar-fill-base bg-neutral-400 dark:bg-neutral-500;
+}
+
+@utility dp-card-base {
+    @apply relative px-3 border shadow-sm rounded-xl;
+}
+
+@utility dp-card {
+    @apply dp-transitions dp-card-base border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-card-loading {
+    @apply cursor-wait select-none dp-card-base animate-pulse border-neutral-100 dark:border-neutral-700 backdrop-blur-xl;
+}
+
+@utility dp-card-disabled {
+    @apply dp-card-base border-neutral-100 dark:border-neutral-700;
+}
+
+@utility dp-card-loading-indicator-base {
+    @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full dp-transitions;
+}
+
+@utility dp-card-loading-indicator {
+    @apply rounded-xl dp-card-loading-indicator-base;
+}
+
+@utility dp-card-loading-indicator-hidden {
+    @apply scale-0 opacity-0 pointer-events-none dp-card-loading-indicator-base;
+}
+
+@utility dp-card-loading-indicator-background-base {
+    @apply absolute bottom-0 left-0 right-0 flex items-center justify-center w-full h-full rounded-xl dp-transitions;
+}
+
+@utility dp-card-loading-indicator-background {
+    @apply dp-card-loading-indicator-background-base backdrop-blur-xl;
+}
+
+@utility dp-card-loading-indicator-background-hidden {
+    @apply opacity-0 pointer-events-none dp-card-loading-indicator-background-base;
+}
+
+@utility dp-card-label-base {
+    @apply font-semibold dp-transitions;
+}
+
+@utility dp-card-label {
+    @apply text-neutral-800 dp-card-label-base dark:text-neutral-100;
+}
+
+@utility dp-card-label-disabled {
+    @apply text-neutral-400 dark:text-neutral-500 dp-card-label-base;
+}
+
+@utility dp-card-content-base {
+    @apply space-y-4 dp-transitions;
+}
+
+@utility dp-card-content {
+    @apply relative text-neutral-800 dp-card-content-base fill-neutral-800 dark:fill-neutral-100 dark:text-neutral-100;
+}
+
+@utility dp-card-content-disabled {
+    @apply text-neutral-400 dark:text-neutral-500 dp-card-content-base fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-three-dots-base {
+    @apply relative p-1 text-xl rounded-full dp-transitions;
+}
+
+@utility dp-three-dots {
+    @apply dp-three-dots-base hover:scale-125 active:scale-75 fill-neutral-800 dark:fill-neutral-100 hover:fill-blue-500 active:fill-blue-600 dark:active:fill-blue-400 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+}
+
+@utility dp-three-dots-disabled {
+    @apply cursor-not-allowed dp-three-dots-base fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-segmented-control-base {
+    @apply flex p-1 border shadow-sm select-none rounded-xl dp-transitions;
+}
+
+@utility dp-segmented-control {
+    @apply dp-segmented-control-base bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+}
+
+@utility dp-segmented-control-disabled {
+    @apply dp-segmented-control-base bg-neutral-50 border-neutral-100 dark:bg-neutral-800 dark:border-neutral-800;
+}
+
+@utility dp-segment-base {
+    @apply px-2 py-1 font-semibold border rounded-lg select-none dp-transitions;
+}
+
+@utility dp-segment {
+    @apply border-transparent text-neutral-800 dp-segment-base dark:text-neutral-100 fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-200 hover:shadow-sm active:shadow-sm hover:scale-105 active:scale-95 hover:border-neutral-200 active:bg-neutral-300 active:border-neutral-300 dark:hover:bg-neutral-700 dark:hover:border-neutral-700 dark:active:bg-neutral-600 dark:active:border-neutral-600;
+}
+
+@utility dp-segment-selected {
+    @apply bg-blue-600 border-blue-700 shadow-sm text-neutral-100 dark:border-blue-500 dp-segment-base fill-neutral-100;
+}
+
+@utility dp-segment-selected-disabled {
+    @apply bg-white shadow-sm cursor-not-allowed dp-segment-base border-neutral-100 text-neutral-400 dark:text-neutral-500 dark:bg-neutral-700 dark:border-neutral-700 fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-segment-disabled {
+    @apply border-transparent cursor-not-allowed dp-segment-base text-neutral-400 dark:text-neutral-500 fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-color-picker-row {
+    @apply flex justify-between space-x-4  not-sm:hidden;
+}
+
+@utility dp-color-picker-row-compact {
+    @apply flex justify-between space-x-4 sm:hidden;
+}
+
+@utility dp-color-picker-color-base {
+    @apply w-10 h-10 border-4 rounded-full shadow-sm dp-transitions sm:w-8 sm:h-8;
+}
+
+@utility dp-color-picker-color {
+    @apply dp-color-picker-color-base border-neutral-100 hover:border-neutral-200 active:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600 dark:active:border-neutral-500 hover:scale-125 active:scale-75;
+}
+
+@utility dp-color-picker-color-selected {
+    @apply dp-color-picker-color-base border-neutral-100 outline dark:border-neutral-700;
+}
+
+@utility dp-color-picker-color-selected-disabled {
+    @apply dp-color-picker-color-base border-neutral-50 outline dark:border-neutral-800;
+}
+
+@utility dp-color-picker-color-disabled {
+    @apply cursor-not-allowed dp-color-picker-color-base border-neutral-50 dark:border-neutral-800;
+}
+
+@utility dp-overaly-base {
+    @apply fixed bottom-0 left-0 right-0 z-40 flex items-center justify-center w-full h-full dp-transitions;
+}
+
+@utility dp-overlay {
+    @apply cursor-default dp-overaly-base backdrop-blur-md;
+}
+
+@utility dp-overlay-hidden {
+    @apply opacity-0 pointer-events-none dp-overaly-base;
+}
+
+@utility dp-overlay-content-base {
+    @apply dp-transitions;
+}
+
+@utility dp-overlay-content {
+    @apply dp-overlay-content-base;
+}
+
+@utility dp-overlay-content-hidden {
+    @apply scale-0 opacity-0 pointer-events-none dp-overlay-content-base;
+}
+
+@utility dp-dialog {
+    @apply relative z-50 p-6 space-y-6 bg-white border shadow rounded-xl border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+}
+
+@utility dp-table {
+    @apply rounded-xl border-spacing-3;
+}
+
+@utility dp-table-container {
+    @apply relative border shadow-sm bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700 rounded-xl;
+}
+
+@utility dp-table-item-base {
+    @apply px-2 py-1 text-center text-neutral-800 dark:text-neutral-100;
+}
+
+@utility dp-table-item {
+    @apply border-t dp-table-item-base border-neutral-200 dark:border-neutral-700;
+}
+
+@utility dp-table-fist-item {
+    @apply dp-table-item-base;
+}
+
+@utility dp-slider-base {
+    @apply select-none h-2 rounded-lg appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:shadow-sm [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full dp-transitions [&::-webkit-slider-thumb]:scale-[1.01];
+}
+
+@utility dp-slider {
+    @apply dp-slider-base bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-600 hover:[&::-webkit-slider-thumb]:bg-blue-700 dark:hover:[&::-webkit-slider-thumb]:bg-blue-500 active:[&::-webkit-slider-thumb]:bg-blue-800 dark:active:[&::-webkit-slider-thumb]:bg-blue-400 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:duration-300 hover:[&::-webkit-slider-thumb]:scale-125 active:[&::-webkit-slider-thumb]:scale-75 [&::-webkit-slider-thumb]:cursor-pointer;
+}
+
+@utility dp-slider-disabled {
+    @apply cursor-not-allowed dp-slider-base bg-neutral-100 dark:bg-neutral-800 [&::-webkit-slider-thumb]:bg-neutral-400 dark:[&::-webkit-slider-thumb]:bg-neutral-500;
+}
+
+@utility dp-slider-fill-base {
+    @apply flex h-full transition-all duration-100 ease-out rounded-full pointer-events-none;
+}
+
+@utility dp-slider-fill {
+    @apply bg-blue-600 dp-slider-fill-base;
+}
+
+@utility dp-slider-fill-disabled {
+    @apply dp-slider-fill-base bg-neutral-400 dark:bg-neutral-500;
+}
+
+@utility dp-save-prompt-base {
+    @apply z-30 flex items-center justify-between w-full px-2 py-2 border shadow cursor-default select-none dp-transitions sm:pl-4 sm:space-x-4  not-sm:flex-col bg-neutral-200 dark:bg-neutral-700 border-neutral-300 dark:border-neutral-600 rounded-xl;
+}
+
+@utility dp-save-prompt {
+    @apply pointer-events-auto dp-save-prompt-base;
+}
+
+@utility dp-save-prompt-hidden {
+    @apply dp-save-prompt-base translate-y-8 pointer-events-none blur-xl;
+}
+
+@utility dp-save-prompt-container {
+    @apply fixed left-0 right-0 z-30 flex items-center px-8 pointer-events-none select-none bottom-8 justify-stretch dp-transitions;
+}
+
+@utility dp-save-prompt-container-hidden {
+    @apply dp-save-prompt-container opacity-0;
+}
+
+@utility dp-navigation-menu-link-base {
+    @apply flex items-center w-full px-3 py-2 space-x-3 font-semibold cursor-pointer select-none dp-transitions rounded-xl;
+}
+
+@utility dp-navigation-menu-link {
+    @apply text-neutral-800 fill-neutral-800 dark:fill-neutral-200 dp-navigation-menu-link-base dark:text-neutral-200 hover:text-blue-600 dark:hover:text-blue-500 hover:fill-blue-600 dark:hover:fill-blue-500 active:text-blue-700 dark:active:text-blue-400 active:fill-blue-700 dark:active:fill-blue-400 hover:scale-105 active:scale-95 hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-neutral-800 dark:active:bg-neutral-700 hover:shadow-sm active:shadow-sm;
+}
+
+@utility dp-navigation-menu-link-selected {
+    @apply text-blue-600 bg-blue-100 dp-navigation-menu-link-base dark:bg-blue-900 dark:text-blue-300 fill-blue-600 dark:fill-blue-300 hover:scale-105 active:scale-95 hover:shadow-sm active:shadow-sm;
+}
+
+@utility dp-navigation-menu-link-selected-disabled {
+    @apply cursor-not-allowed dark:bg-neutral-800 text-neutral-500 bg-neutral-100 fill-neutral-500 dark:text-neutral-400 dark:fill-neutral-400 dp-navigation-menu-link-base;
+}
+
+@utility dp-navigation-menu-link-disabled {
+    @apply cursor-not-allowed text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 dp-navigation-menu-link-base;
+}
+
+@utility dp-navigation-view {
+    @apply fixed flex w-screen h-screen  not-lg:flex-col;
+}
+
+@utility dp-navigation-menu {
+    @apply hidden border-r min-w-fit border-neutral-100 dark:border-neutral-800 lg:flex flex-col justify-between;
+}
+
+@utility dp-navigation-menu-logo {
+    @apply relative p-6 border-b border-neutral-100 dark:border-neutral-800;
+}
+
+@utility dp-navigation-menu-links {
+    @apply relative p-4 space-y-2 dp-transitions;
+}
+
+@utility dp-mobile-navigation-menu-base {
+    @apply absolute z-30 flex flex-col w-full select-none lg:hidden dp-transitions rounded-b-xl;
+}
+
+@utility dp-mobile-navigation-menu {
+    @apply pointer-events-none dp-mobile-navigation-menu-base
+}
+
+@utility dp-mobile-navigation-menu-open {
+    @apply shadow backdrop-blur-2xl dp-mobile-navigation-menu-base;
+}
+
+@utility dp-mobile-navigation-menu-bar {
+    @apply z-30 flex items-center justify-between w-full px-3 py-2 cursor-default pointer-events-auto select-none dp-transitions;
+}
+
+@utility dp-mobile-navigation-menu-bar-hidden {
+    @apply shadow backdrop-blur-xl dp-mobile-navigation-menu-bar;
+}
+
+@utility dp-mobile-navigation-menu-logo {
+    @apply pt-3 pl-2 dp-transitions;
+}
+
+@utility dp-mobile-navigation-menu-logo-hidden {
+    @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-logo;
+}
+
+@utility dp-mobile-navigation-menu-title-base {
+    @apply absolute flex space-x-3 items-center text-2xl font-bold transition-all duration-300 ease-in-out;
+}
+
+@utility dp-mobile-navigation-menu-title {
+    @apply dp-mobile-navigation-menu-title-base text-neutral-800 dark:text-neutral-100;
+}
+
+@utility dp-mobile-navigation-menu-title-disabled {
+    @apply cursor-not-allowed dp-mobile-navigation-menu-title-base text-neutral-400 dark:text-neutral-500;
+}
+
+@utility dp-mobile-navigation-menu-title-hidden {
+    @apply scale-0 opacity-0 pointer-events-none blur-xl dp-mobile-navigation-menu-title-base;
+}
+
+@utility dp-mobile-navigation-menu-button-base {
+    @apply relative flex items-center justify-center p-1 rounded-full dp-transitions;
+}
+
+@utility dp-mobile-navigation-menu-button {
+    @apply dp-mobile-navigation-menu-button-base fill-neutral-800 dark:fill-neutral-100 hover:bg-neutral-100 active:bg-neutral-200 hover:scale-125 active:scale-75 dark:hover:bg-neutral-800 dark:active:bg-neutral-700;
+}
+
+@utility dp-mobile-navigation-menu-button-disabled {
+    @apply cursor-not-allowed dp-mobile-navigation-menu-button-base fill-neutral-400 dark:fill-neutral-500;
+}
+
+@utility dp-mobile-navigation-menu-button-hidden {
+    @apply relative flex items-center justify-center p-1 ml-3 scale-0 rounded-full opacity-0 pointer-events-none dp-transitions;
+}
+
+@utility dp-mobile-navigation-menu-button-open-icon {
+    @apply dp-transitions;
+}
+
+@utility dp-mobile-navigation-menu-button-open-icon-hidden {
+    @apply scale-0 opacity-0 pointer-events-none dp-mobile-navigation-menu-button-open-icon;
+}
+
+@utility dp-mobile-navigation-menu-button-close-icon {
+    @apply absolute dp-transitions;
+}
+
+@utility dp-mobile-navigation-menu-button-close-icon-hidden {
+    @apply scale-0 opacity-0 pointer-events-none dp-mobile-navigation-menu-button-close-icon;
+}
+
+@utility dp-mobile-navigation-menu-links {
+    @apply z-30 flex flex-col w-full p-3 transition-all duration-300 ease-in-out;
+}
+
+@utility dp-mobile-navigation-menu-links-hidden {
+    @apply -translate-y-12 opacity-0 pointer-events-none dp-mobile-navigation-menu-links;
+}
+
+@utility dp-page {
+    @apply relative w-full p-6 space-y-4 overflow-auto  not-lg:pt-24;
+}
+
+@utility dp-caption {
+    @apply text-xs text-neutral-600 dark:text-neutral-300 dp-transitions;
+}
+
+@utility dp-caption-disabled {
+    @apply text-xs dp-text-color-disabled dp-transitions;
 }

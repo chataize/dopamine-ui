@@ -2,10 +2,10 @@
 
 <div class="@ContainerClass">
     <div class="@PromptClass">
-        <div class="-sm:hidden">
+        <div class="not-sm:hidden">
             <DPParagraph><b>Warning</b> — You have unsaved changes!</DPParagraph>
         </div>
-        <div class="flex items-center space-x-4 -sm:justify-between -sm:w-full">
+        <div class="flex items-center space-x-4 not-sm:justify-between not-sm:w-full">
             <DPButton Style="@ButtonStyle.Borderless" IsDisabled="@IsSavePending" Clicked="OnDiscardClicked">Discard</DPButton>
             <DPButton Style="@ButtonStyle.Accent" IsLoading="@IsSavePending" Clicked="OnSaveClicked">Save Changes</DPButton>
         </div>

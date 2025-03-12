@@ -71,7 +71,7 @@
                 return string.Empty;
             }
 
-            return Context.IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
+            return Context.IsDisabled ? "not-sm:dp-border-disabled" : "not-sm:dp-border";
         }
     }
 
@@ -118,7 +118,7 @@
                 return captionClass;
             }
 
-            return captionClass + " -sm:px-3";
+            return captionClass + " not-sm:px-3";
         }
     }
 

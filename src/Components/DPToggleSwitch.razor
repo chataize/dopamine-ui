@@ -9,7 +9,7 @@
         }
         <div class="@PillClass">
             <div class="@DotClass sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
-            <div class="@DotClass -sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
+            <div class="@DotClass not-sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
         </div>
     </label>
     @if (!string.IsNullOrWhiteSpace(Caption))
@@ -78,7 +78,7 @@
                 return string.Empty;
             }
 
-            return Context.IsDisabled ? "-sm:dp-border-disabled" : "-sm:dp-border";
+            return Context.IsDisabled ? "not-sm:dp-border-disabled" : "not-sm:dp-border";
         }
     }
 
@@ -124,7 +124,7 @@
                 return captionClass;
             }
 
-            return captionClass + " -sm:px-3";
+            return captionClass + " not-sm:px-3";
         }
     }
 

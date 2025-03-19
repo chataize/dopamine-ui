@@ -5,7 +5,7 @@
 }
 
 @utility dp-text-color {
-    @apply text-neutral-800 dark:text-neutral-100;
+    @apply not-dark:text-neutral-800 dark:text-neutral-100;
 }
 
 @utility dp-text-color-disabled {
@@ -57,7 +57,7 @@
 }
 
 @utility dp-border-disabled {
-    @apply dp-border-base border-neutral-100 dark:border-neutral-800;
+    @apply dp-border-base not-dark:border-neutral-100 dark:border-neutral-800;
 }
 
 @utility dp-button-base {
@@ -189,7 +189,7 @@
 }
 
 @utility dp-switch-pill-disabled {
-    @apply dp-switch-pill-base bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+    @apply dp-switch-pill-base bg-neutral-100 dark:bg-neutral-800 not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-switch-dot-base {
@@ -205,7 +205,7 @@
 }
 
 @utility dp-switch-dot-disabled {
-    @apply bg-white dp-switch-dot-base dark:bg-neutral-600 border-neutral-100 dark:border-neutral-700;
+    @apply bg-white dp-switch-dot-base dark:bg-neutral-600 not-dark:border-neutral-100 dark:border-neutral-700;
 }
 
 @utility dp-checkbox-base {
@@ -229,7 +229,7 @@
 }
 
 @utility dp-checkbox-square-on-disabled {
-    @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
+    @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-checkbox-square-off {
@@ -237,7 +237,7 @@
 }
 
 @utility dp-checkbox-square-off-disabled {
-    @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+    @apply dp-checkbox-square-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-radio-base {
@@ -261,7 +261,7 @@
 }
 
 @utility dp-radio-circle-on-disabled {
-    @apply dp-radio-circle-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 border-neutral-200 dark:border-neutral-700;
+    @apply dp-radio-circle-base bg-neutral-100 fill-neutral-300 stroke-neutral-300 dark:bg-neutral-800 dark:fill-neutral-600 dark:stroke-neutral-600 not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-radio-circle-off {
@@ -269,7 +269,7 @@
 }
 
 @utility dp-radio-circle-off-disabled {
-    @apply dp-radio-circle-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700;
+    @apply dp-radio-circle-base bg-neutral-100 fill-neutral-100 stroke-neutral-100 dark:fill-neutral-800 dark:stroke-neutral-800 dark:bg-neutral-800 not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-radio-dot-base {
@@ -305,15 +305,15 @@
 }
 
 @utility dp-dropdown-loading {
-    @apply cursor-wait animate-pulse dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
+    @apply cursor-wait animate-pulse dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 not-dark:border-neutral-100;
 }
 
 @utility dp-dropdown-disabled {
-    @apply cursor-not-allowed dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 border-neutral-100;
+    @apply cursor-not-allowed dp-dropdown-base bg-neutral-50 dark:bg-neutral-800 dark:border-neutral-800 text-neutral-400 fill-neutral-400 dark:text-neutral-500 dark:fill-neutral-500 not-dark:border-neutral-100;
 }
 
 @utility dp-menu-base {
-    @apply absolute z-10 p-1 space-y-1 border shadow select-none rounded-xl dp-transitions backdrop-blur-xl dark:border-neutral-700 border-neutral-200;
+    @apply absolute z-10 p-1 space-y-1 border shadow select-none rounded-xl dp-transitions backdrop-blur-xl not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-menu {
@@ -345,7 +345,7 @@
 }
 
 @utility dp-calendar-base {
-    @apply absolute z-10 p-3 space-y-3 border shadow rounded-xl dp-transitions backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+    @apply absolute z-10 p-3 space-y-3 border shadow rounded-xl dp-transitions backdrop-blur-xl not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-calendar {
@@ -406,7 +406,7 @@
 }
 
 @utility dp-clock-base {
-    @apply absolute z-10 shadow flex justify-center px-4 py-2.5 space-y-3 dp-transitions border rounded-xl backdrop-blur-xl border-neutral-200 dark:border-neutral-700;
+    @apply absolute z-10 shadow flex justify-center px-4 py-2.5 space-y-3 dp-transitions border rounded-xl backdrop-blur-xl not-dark:border-neutral-200 dark:border-neutral-700;
 }
 
 @utility dp-clock {
@@ -442,15 +442,15 @@
 }
 
 @utility dp-stepper {
-    @apply dp-stepper-base bg-neutral-100 border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+    @apply dp-stepper-base bg-neutral-100 not-dark:border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
 }
 
 @utility dp-stepper-loading {
-    @apply cursor-wait select-none dp-stepper-base bg-neutral-50 text-neutral-400 fill-neutral-400 border-neutral-100 animate-pulse dark:bg-neutral-800 dark:border-neutral-800;
+    @apply cursor-wait select-none dp-stepper-base bg-neutral-50 text-neutral-400 fill-neutral-400 not-dark:border-neutral-100 animate-pulse dark:bg-neutral-800 dark:border-neutral-800;
 }
 
 @utility dp-stepper-disabled {
-    @apply cursor-not-allowed select-none dp-stepper-base bg-neutral-50 border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
+    @apply cursor-not-allowed select-none dp-stepper-base bg-neutral-50 not-dark:border-neutral-100 text-neutral-400 fill-neutral-400 dark:bg-neutral-800 dark:border-neutral-800;
 }
 
 @utility dp-stepper-number {
@@ -574,7 +574,7 @@
 }
 
 @utility dp-navigation-link-disabled {
-    @apply dp-navigation-link-base text-neutral-300 dark:text-neutral-600 fill-neutral-300 dark:fill-neutral-600 border-neutral-100 dark:border-neutral-800 cursor-not-allowed;
+    @apply dp-navigation-link-base text-neutral-300 dark:text-neutral-600 fill-neutral-300 dark:fill-neutral-600 not-dark:border-neutral-100 dark:border-neutral-800 cursor-not-allowed;
 }
 
 @utility dp-number-animation {
@@ -722,15 +722,15 @@
 }
 
 @utility dp-color-picker-color-selected {
-    @apply dp-color-picker-color-base border-neutral-100 outline dark:border-neutral-700 cursor-pointer;
+    @apply dp-color-picker-color-base not-dark:border-neutral-100 outline dark:border-neutral-700 cursor-pointer;
 }
 
 @utility dp-color-picker-color-selected-disabled {
-    @apply dp-color-picker-color-base border-neutral-50 outline dark:border-neutral-800;
+    @apply dp-color-picker-color-base not-dark:border-neutral-50 outline dark:border-neutral-800;
 }
 
 @utility dp-color-picker-color-disabled {
-    @apply cursor-not-allowed dp-color-picker-color-base border-neutral-50 dark:border-neutral-800;
+    @apply cursor-not-allowed dp-color-picker-color-base not-dark:border-neutral-50 dark:border-neutral-800;
 }
 
 @utility dp-overaly-base {
@@ -758,7 +758,7 @@
 }
 
 @utility dp-dialog {
-    @apply relative z-50 p-6 space-y-6 bg-white border shadow rounded-xl border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
+    @apply relative z-50 p-6 space-y-6 bg-white border shadow rounded-xl not-dark:border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700;
 }
 
 @utility dp-table {
@@ -786,11 +786,11 @@
 }
 
 @utility dp-slider {
-    @apply dp-slider-base bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-600 hover:[&::-webkit-slider-thumb]:bg-blue-700 dark:hover:[&::-webkit-slider-thumb]:bg-blue-500 active:[&::-webkit-slider-thumb]:bg-blue-800 dark:active:[&::-webkit-slider-thumb]:bg-blue-400 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:duration-300 hover:[&::-webkit-slider-thumb]:scale-125 active:[&::-webkit-slider-thumb]:scale-75 [&::-webkit-slider-thumb]:cursor-pointer;
+    @apply dp-slider-base not-dark:bg-neutral-200 dark:bg-neutral-700 [&::-webkit-slider-thumb]:bg-blue-600 hover:[&::-webkit-slider-thumb]:bg-blue-700 dark:hover:[&::-webkit-slider-thumb]:bg-blue-500 active:[&::-webkit-slider-thumb]:bg-blue-800 dark:active:[&::-webkit-slider-thumb]:bg-blue-400 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:duration-300 hover:[&::-webkit-slider-thumb]:scale-125 active:[&::-webkit-slider-thumb]:scale-75 [&::-webkit-slider-thumb]:cursor-pointer;
 }
 
 @utility dp-slider-disabled {
-    @apply cursor-not-allowed dp-slider-base bg-neutral-100 dark:bg-neutral-800 [&::-webkit-slider-thumb]:bg-neutral-400 dark:[&::-webkit-slider-thumb]:bg-neutral-500;
+    @apply cursor-not-allowed dp-slider-base not-dark:bg-neutral-100 dark:bg-neutral-800 [&::-webkit-slider-thumb]:bg-neutral-400 dark:[&::-webkit-slider-thumb]:bg-neutral-500;
 }
 
 @utility dp-slider-fill-base {

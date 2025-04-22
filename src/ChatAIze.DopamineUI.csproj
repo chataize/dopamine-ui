@@ -42,7 +42,7 @@
     <None Include="../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
     <PackageReference Include="ChatAIze.Abstractions" Version="0.12.10" />
   </ItemGroup>
 </Project>

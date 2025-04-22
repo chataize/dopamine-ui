@@ -17,6 +17,7 @@
         <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/chataize/dopamine-ui</RepositoryUrl>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -24,6 +25,9 @@
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <SuppressSymbolPackageFormatValidation>true</SuppressSymbolPackageFormatValidation>
         <Description>
             Blazor web app project templates with Dopamine UI pre-installed.
         </Description>

@@ -1,15 +1,15 @@
 @implements ITaggable
 
 <div class="space-y-3 @WidthClass">
-    <label for="@_id" class="group/switch @LabelClass @BorderClass @WidthClass">
+    <label for="@_id" class="group/switch @LabelClass @BorderClass @WidthClass" ontouchstart="">
         <input id="@_id" type="checkbox" disabled="@Context.IsDisabled" hidden @bind="InternalValue" @bind:after="InvokeValueChangedAsync" />
         @if (!string.IsNullOrWhiteSpace(Label))
         {
             <span>@Label</span>
         }
-        <div class="@PillClass">
-            <div class="@DotClass sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" />
-            <div class="@DotClass not-sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" />
+        <div class="@PillClass" ontouchstart="">
+            <div class="@DotClass sm:hidden" style="transform: translateX(@(Value ? "110%" : "15%"));" ontouchstart="" />
+            <div class="@DotClass not-sm:hidden" style="transform: translateX(@(Value ? "140%" : "25%"));" ontouchstart="" />
         </div>
     </label>
     @if (!string.IsNullOrWhiteSpace(Caption))

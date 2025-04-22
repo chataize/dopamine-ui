@@ -9,7 +9,7 @@
                 <span class="@EditIndicatorClass">●</span>
             </label>
         }
-        <button id="@_id" class="@DropdownClass @WidthClass" @onclick="ToggleIsOpen" disabled="@Context.IsDisabled">
+        <button id="@_id" class="@DropdownClass @WidthClass" ontouchstart="" @onclick="ToggleIsOpen" disabled="@Context.IsDisabled">
             <span>@Value.ToString(IsShowingSeconds ? "HH:mm:ss" : "HH:mm")</span>
             @if (IsLoading)
             {
@@ -29,7 +29,7 @@
         </button>
         <div class="@ClockClass @WidthClass">
             <div class="@(IsShowingSeconds ? "dp-clock-grid-seconds" : "dp-clock-grid")">
-                <button class="dp-clock-arrow" @onclick="AddHourAsync" disabled="@(!ActualIsOpen)">
+                <button class="dp-clock-arrow" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="AddHourAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -39,7 +39,7 @@
                     </svg>
                 </button>
                 <span />
-                <button class="dp-clock-arrow" @onclick="AddMinuteAsync" disabled="@(!ActualIsOpen)">
+                <button class="dp-clock-arrow" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="AddMinuteAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -51,7 +51,7 @@
                 @if (IsShowingSeconds)
                 {
                     <span />
-                    <button class="dp-clock-arrow" @onclick="AddSecondAsync" disabled="@(!ActualIsOpen)">
+                    <button class="dp-clock-arrow" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="AddSecondAsync">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                             <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                 <g transform="scale(3.55556,3.55556)">
@@ -78,7 +78,7 @@
                         <input class="dp-clock-number @(!_isSecondAlternated ? "dp-number-animation" : "")" type="text" size="2" maxlength="2" disabled="@(!ActualIsOpen)" @bind="Second" @bind:after="InvokeValueChangedAsync" />
                     </div>
                 }
-                <button class="dp-clock-arrow" @onclick="SubtractHourAsync" disabled="@(!ActualIsOpen)">
+                <button class="dp-clock-arrow" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="SubtractHourAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -88,7 +88,7 @@
                     </svg>
                 </button>
                 <span />
-                <button class="dp-clock-arrow" @onclick="SubtractMinuteAsync" disabled="@(!ActualIsOpen)">
+                <button class="dp-clock-arrow" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="SubtractMinuteAsync">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -100,7 +100,7 @@
                 @if (IsShowingSeconds)
                 {
                     <span />
-                    <button class="dp-clock-arrow" @onclick="SubtractSecondAsync" disabled="@(!ActualIsOpen)">
+                    <button class="dp-clock-arrow" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="SubtractSecondAsync">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                             <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                 <g transform="scale(3.55556,3.55556)">

@@ -10,7 +10,7 @@
             </label>
         }
         <div class="relative flex @WidthClass">
-            <textarea id="@_id" class="@InputClass @WidthClass" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@Context.IsDisabled" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
+            <textarea id="@_id" class="@InputClass @WidthClass" placeholder="@Placeholder" cols="@Size" rows="@Lines" maxlength="@MaxLength" readonly="@IsReadOnly" disabled="@Context.IsDisabled" ontouchstart="" @bind-value="InternalValue" @bind-value:event="oninput" @onchange="OnChangeAsync" />
             @if (IsLoading)
             {
                 <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" width="26" height="26" class="absolute p-1 rounded-lg right-2 top-2 backdrop-blur dark:hidden" />

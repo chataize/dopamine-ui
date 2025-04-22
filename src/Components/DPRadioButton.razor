@@ -2,10 +2,10 @@
 @implements ITaggable
 
 <div class="space-y-3 @WidthClass">
-    <label for="@_id" class="group/radio @LabelClass @BorderClass @WidthClass">
+    <label for="@_id" class="group/radio @LabelClass @BorderClass @WidthClass" ontouchstart="">
         <input id="@_id" type="checkbox" value="@IsSelected" disabled="@Context.IsDisabled" hidden @onchange="OnChangeAsync" />
-        <div class="@CircleClass">
-            <div class="@DotClass" />
+        <div class="@CircleClass" ontouchstart="">
+            <div class="@DotClass" ontouchstart="" />
         </div>
         @if (!string.IsNullOrWhiteSpace(Label))
         {
@@ -20,7 +20,6 @@
 
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
-
 
     [Parameter]
     public string? Label { get; set; }

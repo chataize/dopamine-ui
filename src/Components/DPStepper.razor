@@ -11,12 +11,12 @@
         }
         <div id="@_id" class="@BorderClass @WidthClass">
             <div class="relative flex items-center py-2 pl-3 w-fit">
-                <input class="@NumberClass @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
-                <input class="absolute @NumberClass @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
+                <input class="@NumberClass @(_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" ontouchstart="" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
+                <input class="absolute @NumberClass @(!_isValueAlternated ? "dp-number-animation" : "")" type="text" size="@ActualInputSize" maxlength="@MaxValueLength" disabled="@Context.IsDisabled" ontouchstart="" @bind="ActualValue" @bind:after="InvokeValueChangedAsync" />
             </div>
             <div class="relative flex items-center cursor-default">
-                <div class="pl-2 pr-1 group @DecrementButtonHitboxClass" @onclick="DecrementAsync">
-                    <button class="@DecrementButtonClass" disabled="@Context.IsDisabled">
+                <div class="pl-2 pr-1 group @DecrementButtonHitboxClass" ontouchstart="" @onclick="DecrementAsync">
+                    <button class="@DecrementButtonClass" disabled="@Context.IsDisabled" ontouchstart="">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                             <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                 <g transform="scale(3.55556,3.55556)">
@@ -26,8 +26,8 @@
                         </svg>
                     </button>
                 </div>
-                <div class="pl-1 pr-2 group @IncrementButtonHitboxClass" @onclick="IncrementAsync">
-                    <button class="@IncrementButtonClass" disabled="@Context.IsDisabled">
+                <div class="pl-1 pr-2 group @IncrementButtonHitboxClass" ontouchstart="" @onclick="IncrementAsync">
+                    <button class="@IncrementButtonClass" disabled="@Context.IsDisabled" ontouchstart="">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                             <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                 <g transform="scale(3.55556,3.55556)">

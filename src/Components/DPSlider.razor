@@ -44,7 +44,7 @@
         <div class="absolute bottom-0 flex h-2 mb-1.5 rounded-full overflow-hidden @WidthClass">
             <div class="@FillClass @WidthClass" style="width: @Math.Round(Math.Clamp(Percentage, 0.0, 100.0))%" />
         </div>
-        <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" @bind="InternalValue" @bind:event="oninput" @bind:after="InvokeValueChangedAsync" />
+        <input id="@_id" type="range" class="@SliderClass @WidthClass" min="@MinValue" max="@MaxValue" step="@Step" disabled="@Context.IsDisabled" ontouchstart="" @bind="InternalValue" @bind:event="oninput" @bind:after="InvokeValueChangedAsync" />
     </div>
     @if (!string.IsNullOrWhiteSpace(Caption))
     {

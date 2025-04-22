@@ -11,7 +11,7 @@
             </label>
         }
         <div class="relative flex">
-            <button id="@_id" class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToogleIsOpen">
+            <button id="@_id" class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" ontouchstart="" @onclick="ToogleIsOpen">
                 <span>@ValueLabel</span>
                 @if (IsLoading)
                 {

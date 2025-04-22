@@ -1,7 +1,7 @@
 @implements ITaggable
 
 <div class="space-y-3 @WidthClass">
-    <button class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">
+    <button class="@ButtonClass @WidthClass" disabled="@Context.IsDisabled" ontouchstart="" @onclick="OnClickAsync">
         @if (IsLoading)
         {
             <span class="opacity-0">

@@ -1,7 +1,7 @@
 @typeparam T
 @implements ITaggable
 
-<button class="@ItemClass" disabled="@Context.IsDisabled" @onclick="OnClickAsync">
+<button class="@ItemClass" disabled="@Context.IsDisabled" ontouchstart="" @onclick="OnClickAsync">
     <CascadingValue Value="Context">@ChildContent</CascadingValue>
 </button>
 

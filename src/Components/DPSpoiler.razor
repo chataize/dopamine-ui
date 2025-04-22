@@ -1,9 +1,9 @@
 @implements ITaggable
 
-<div class="group/spoiler @SpoilerClass @ActiveScaleTransitionClass">
-    <label for="@_id" class="@LabelClass" @onmouseenter="SetLabelHovered" @onmouseleave="SetLabelNotHovered">
+<div class="group/spoiler @SpoilerClass @ActiveScaleTransitionClass" ontouchstart="">
+    <label for="@_id" class="@LabelClass" ontouchstart="" @onmouseenter="SetLabelHovered" @onmouseleave="SetLabelNotHovered">
         <span>@Label</span>
-        <button id="@_id" class="@ButtonClass" disabled="@Context.IsDisabled" @onclick="ToggleIsOpen">
+        <button id="@_id" class="@ButtonClass" disabled="@Context.IsDisabled" ontouchstart="" @onclick="ToggleIsOpen">
             @if (IsLoading)
             {
                 <img src="/_content/ChatAIze.DopamineUI/img/loading.gif" height="20" width="20" class="dark:hidden" />

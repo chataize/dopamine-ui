@@ -9,7 +9,7 @@
                 <span class="@EditIndicatorClass">●</span>
             </label>
         }
-        <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@Context.IsDisabled" @onclick="ToggleIsOpen">
+        <button id="@_id" class="@DropdownButtonClass @WidthClass" disabled="@Context.IsDisabled" ontouchstart="" @onclick="ToggleIsOpen">
             <span>@FormattedValue</span>
             @if (IsLoading)
             {
@@ -29,7 +29,7 @@
         </button>
         <div class="@CalendarClass @WidthClass">
             <div class="flex items-center justify-between space-x-4 font-semibold">
-                <button class="@PreviousMonthButtonClass" @onclick="ShowPreviousMonth" disabled="@(!ActualIsOpen)">
+                <button class="@PreviousMonthButtonClass" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="ShowPreviousMonth">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -40,7 +40,7 @@
                 </button>
                 <span class="w-6 cursor-default text-neutral-800 dark:text-neutral-100">@FormattedMonth</span>
                 <span class="cursor-default text-neutral-800 dark:text-neutral-100">@FormattedYear</span>
-                <button class="@NextMonthButtonClass" @onclick="ShowNextMonth" disabled="@(!ActualIsOpen)">
+                <button class="@NextMonthButtonClass" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="ShowNextMonth">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0,0,256,256">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <g transform="scale(3.55556,3.55556)">
@@ -65,7 +65,7 @@
                 @for (int i = 1; i <= DaysInMonth; i++)
                 {
                     int day = i;
-                    <button class="@GetDayClass(day)" disabled="@(!ActualIsOpen)" @onclick="() => SelectDayAsync(day)">@i</button>
+                    <button class="@GetDayClass(day)" disabled="@(!ActualIsOpen)" ontouchstart="" @onclick="() => SelectDayAsync(day)">@i</button>
                 }
             </div>
         </div>

@@ -1,7 +1,7 @@
 @implements ITaggable
 @inject NavigationManager NavigationManager
 
-<button class="@LinkClass" @onclick="NavigateToPath">
+<button class="@LinkClass" ontouchstart="" @onclick="NavigateToPath">
     <CascadingValue Value="Context">
         @ChildContent
     </CascadingValue>

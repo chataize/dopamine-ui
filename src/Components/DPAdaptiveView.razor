@@ -9,7 +9,7 @@
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public ScreenSize RequiredSize { get; set; }
+    public ScreenSize RequiredSize { get; set; } = ScreenSize.Large;
 
     [Parameter]
     public bool IsDisabled { get; set; }

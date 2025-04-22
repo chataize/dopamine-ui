@@ -5,7 +5,7 @@
     <Version>0.9.10</Version>
     <Company>ChatAIze</Company>
     <Authors>Marcel Kwiatkowski</Authors>
-    <Copyright>© ChatAIze 2024</Copyright>
+    <Copyright>© ChatAIze 2025</Copyright>
     <AssemblyName>ChatAIze.DopamineUI</AssemblyName>
     <RootNamespace>ChatAIze.DopamineUI</RootNamespace>
     <PackageId>ChatAIze.DopamineUI</PackageId>
@@ -16,10 +16,13 @@
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/chataize/dopamine-ui</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <SuppressSymbolPackageFormatValidation>true</SuppressSymbolPackageFormatValidation>
     <Description>
       Aesthetic C# .NET Blazor component library that makes the UI seamless and entertaining to use.
     </Description>
@@ -42,7 +45,7 @@
     <None Include="../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.3" />
-    <PackageReference Include="ChatAIze.Abstractions" Version="0.12.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
+    <PackageReference Include="ChatAIze.Abstractions" Version="0.12.17" />
   </ItemGroup>
 </Project>

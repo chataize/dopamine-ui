@@ -24,9 +24,6 @@
         <IncludeContentInPack>true</IncludeContentInPack>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <ContentTargetFolders>content</ContentTargetFolders>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <SuppressSymbolPackageFormatValidation>true</SuppressSymbolPackageFormatValidation>
         <Description>
             Blazor web app project templates with Dopamine UI pre-installed.
         </Description>

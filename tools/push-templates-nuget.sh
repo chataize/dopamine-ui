@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd ../src
+cd ../templates
 dotnet pack
 
 nupkg=$(ls ./bin/Release/ChatAIze.DopamineUI.Templates.*.nupkg | grep -v '\.snupkg$' | sort -V | tail -n1)

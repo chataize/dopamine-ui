@@ -377,7 +377,7 @@
 }
 
 @utility dp-calendar-day-base {
-    @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-lg sm:rounded-sm;
+    @apply px-0.5 py-2 sm:py-0.5 transition-all duration-300 ease-out rounded-lg sm:rounded-xs;
     aspect-ratio: 1;
 }
 
@@ -578,7 +578,7 @@
 }
 
 @utility dp-number-animation {
-    @apply scale-50 opacity-0 blur-sm;
+    @apply scale-50 opacity-0 blur-xs;
 }
 
 @utility dp-progressbar {

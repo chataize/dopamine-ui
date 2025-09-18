@@ -46,6 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.9" />
-    <PackageReference Include="ChatAIze.Abstractions" Version="0.12.17" />
+    <PackageReference Include="ChatAIze.Abstractions" Version="0.12.18" />
   </ItemGroup>
 </Project>

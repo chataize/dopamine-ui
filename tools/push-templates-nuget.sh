@@ -2,6 +2,7 @@
 set -euo pipefail
 
 cd ../templates
+dotnet publish
 dotnet pack
 
 nupkg=$(ls ./bin/Release/ChatAIze.DopamineUI.Templates.*.nupkg | grep -v '\.snupkg$' | sort -V | tail -n1)

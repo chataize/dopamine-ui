@@ -1,5 +1,5 @@
 ﻿<Solution>
   <Project Path="ChatAIze.DopamineUI/ChatAIze.DopamineUI.csproj" />
   <Project Path="ChatAIze.DopamineUI.Preview/ChatAIze.DopamineUI.Preview.csproj" />
-  <Project Path="templates/ChatAIze.DopamineUI.Templates.csproj" />
+  <Project Path="ChatAIze.DopamineUI.Templates/ChatAIze.DopamineUI.Templates.csproj" />
 </Solution>

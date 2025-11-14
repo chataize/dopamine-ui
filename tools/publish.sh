@@ -8,6 +8,6 @@ cd ../ChatAIze.DopamineUI.Preview
 dotnet build
 dotnet publish
 
-cd ../templates
+cd ../ChatAIze.DopamineUI.Templates
 dotnet build
 dotnet publish

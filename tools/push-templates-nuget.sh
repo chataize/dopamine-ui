@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd ../templates
+cd ../ChatAIze.DopamineUI.Templates
 dotnet publish
 dotnet pack
 

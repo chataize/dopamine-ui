@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ../preview
+cd ../ChatAIze.DopamineUI.Preview
 dotnet watch

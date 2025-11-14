@@ -4,7 +4,7 @@ cd ../ChatAIze.DopamineUI
 dotnet build
 dotnet publish
 
-cd ../preview
+cd ../ChatAIze.DopamineUI.Preview
 dotnet build
 dotnet publish
 

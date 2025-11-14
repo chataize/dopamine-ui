@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../src
+cd ../ChatAIze.DopamineUI
 dotnet build
 dotnet publish
 

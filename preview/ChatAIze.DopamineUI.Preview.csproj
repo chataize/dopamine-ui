@@ -38,6 +38,6 @@
     </PackageTags>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../src/ChatAIze.DopamineUI.csproj" />
+    <ProjectReference Include="../ChatAIze.DopamineUI/ChatAIze.DopamineUI.csproj" />
   </ItemGroup>
 </Project>

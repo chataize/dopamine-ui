@@ -107,30 +107,57 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Gets or sets the header label for the first column.
+    /// </summary>
     [Parameter]
     public string? Column1 { get; set; }
 
+    /// <summary>
+    /// Gets or sets the header label for the second column.
+    /// </summary>
     [Parameter]
     public string? Column2 { get; set; }
 
+    /// <summary>
+    /// Gets or sets the header label for the third column.
+    /// </summary>
     [Parameter]
     public string? Column3 { get; set; }
 
+    /// <summary>
+    /// Gets or sets the header label for the fourth column.
+    /// </summary>
     [Parameter]
     public string? Column4 { get; set; }
 
+    /// <summary>
+    /// Gets or sets the header label for the fifth column.
+    /// </summary>
     [Parameter]
     public string? Column5 { get; set; }
 
+    /// <summary>
+    /// Gets or sets the data items rendered as table rows.
+    /// </summary>
     [Parameter]
     public IEnumerable<T>? Data { get; set; }
 
+    /// <summary>
+    /// Gets or sets whether the table should stretch to full width.
+    /// </summary>
     [Parameter]
     public bool? IsFullWidth { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the table is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

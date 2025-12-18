@@ -46,39 +46,75 @@ else
 
     private List<string>? _previousItems;
 
+    /// <summary>
+    /// Gets or sets the list of items to edit.
+    /// </summary>
     [Parameter]
     public List<string>? Items { get; set; } = [];
 
+    /// <summary>
+    /// Gets or sets the callback invoked when the items list changes.
+    /// </summary>
     [Parameter]
     public EventCallback<List<string>> ItemsChanged { get; set; }
 
+    /// <summary>
+    /// Gets or sets the placeholder text for new items.
+    /// </summary>
     [Parameter]
     public string? ItemPlaceholder { get; set; }
 
+    /// <summary>
+    /// Gets or sets the text field type for item inputs.
+    /// </summary>
     [Parameter]
     public TextFieldType TextFieldType { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether item entries have card borders.
+    /// </summary>
     [Parameter]
     public bool ShowItemBorders { get; set; } = true;
 
+    /// <summary>
+    /// Gets or sets the maximum number of items allowed.
+    /// </summary>
     [Parameter]
     public int MaxItems { get; set; } = int.MaxValue;
 
+    /// <summary>
+    /// Gets or sets the maximum length of each item.
+    /// </summary>
     [Parameter]
     public int MaxItemLength { get; set; } = 100;
 
+    /// <summary>
+    /// Gets or sets a value indicating whether duplicate items are allowed.
+    /// </summary>
     [Parameter]
     public bool AllowDuplicates { get; set; }
 
+    /// <summary>
+    /// Gets or sets the text displayed on the add button.
+    /// </summary>
     [Parameter]
     public string AddButtonText { get; set; } = "Add";
 
+    /// <summary>
+    /// Gets or sets a value indicating whether items are forced to lowercase.
+    /// </summary>
     [Parameter]
     public bool IsLowercase { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the editor is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

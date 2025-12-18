@@ -1,15 +1,27 @@
 @implements ITaggable
 
 @code {
+    /// <summary>
+    /// Gets or sets the label displayed in the tab selector.
+    /// </summary>
     [Parameter]
     public string? Label { get; set; }
 
+    /// <summary>
+    /// Gets or sets the tab content rendered when selected.
+    /// </summary>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the tab is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

@@ -58,39 +58,75 @@
 
     private bool _isValueAlternated;
 
+    /// <summary>
+    /// Gets or sets the label displayed above the stepper.
+    /// </summary>
     [Parameter]
     public string? Label { get; set; }
 
+    /// <summary>
+    /// Gets or sets helper text displayed under the stepper.
+    /// </summary>
     [Parameter]
     public string? Caption { get; set; }
 
+    /// <summary>
+    /// Gets or sets the current value.
+    /// </summary>
     [Parameter]
     public int Value { get; set; }
 
+    /// <summary>
+    /// Gets or sets the callback invoked when the value changes.
+    /// </summary>
     [Parameter]
     public EventCallback<int> ValueChanged { get; set; }
 
+    /// <summary>
+    /// Gets or sets the minimum allowed value.
+    /// </summary>
     [Parameter]
     public int MinValue { get; set; }
 
+    /// <summary>
+    /// Gets or sets the maximum allowed value.
+    /// </summary>
     [Parameter]
     public int MaxValue { get; set; } = 1000000000;
 
+    /// <summary>
+    /// Gets or sets the increment between allowed values.
+    /// </summary>
     [Parameter]
     public int Step { get; set; } = 1;
 
+    /// <summary>
+    /// Gets or sets whether the stepper should stretch to full width.
+    /// </summary>
     [Parameter]
     public bool? IsFullWidth { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the control shows an edited indicator.
+    /// </summary>
     [Parameter]
     public bool IsEdited { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the stepper is in a loading state.
+    /// </summary>
     [Parameter]
     public bool IsLoading { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the stepper is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

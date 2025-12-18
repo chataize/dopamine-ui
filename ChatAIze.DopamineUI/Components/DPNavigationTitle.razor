@@ -1,12 +1,21 @@
 @implements ITaggable
 
 @code {
+    /// <summary>
+    /// Gets or sets the title content to display in a navigation view.
+    /// </summary>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Gets or sets the back navigation path for mobile layouts.
+    /// </summary>
     [Parameter]
     public string? BackUrl { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

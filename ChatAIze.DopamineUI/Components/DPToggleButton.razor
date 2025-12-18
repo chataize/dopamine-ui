@@ -22,27 +22,51 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Gets or sets the current toggle value.
+    /// </summary>
     [Parameter]
     public bool Value { get; set; }
 
+    /// <summary>
+    /// Gets or sets the callback invoked when the value changes.
+    /// </summary>
     [Parameter]
     public EventCallback<bool> ValueChanged { get; set; }
 
+    /// <summary>
+    /// Gets or sets the content displayed inside the button.
+    /// </summary>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Gets or sets helper text displayed under the button.
+    /// </summary>
     [Parameter]
     public string? Caption { get; set; }
 
+    /// <summary>
+    /// Gets or sets whether the button should stretch to full width.
+    /// </summary>
     [Parameter]
     public bool? IsFullWidth { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the button is in a loading state.
+    /// </summary>
     [Parameter]
     public bool IsLoading { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the button is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

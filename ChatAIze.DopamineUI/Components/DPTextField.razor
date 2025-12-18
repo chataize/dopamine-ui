@@ -27,51 +27,99 @@
 @code {
     private readonly string _id = Random.Shared.Next().ToString();
 
+    /// <summary>
+    /// Gets or sets the input type used for the text field.
+    /// </summary>
     [Parameter]
     public TextFieldType Type { get; set; }
 
+    /// <summary>
+    /// Gets or sets the label displayed above the text field.
+    /// </summary>
     [Parameter]
     public string? Label { get; set; }
 
+    /// <summary>
+    /// Gets or sets helper text displayed under the text field.
+    /// </summary>
     [Parameter]
     public string? Caption { get; set; }
 
+    /// <summary>
+    /// Gets or sets the placeholder text displayed when the value is empty.
+    /// </summary>
     [Parameter]
     public string? Placeholder { get; set; }
 
+    /// <summary>
+    /// Gets or sets the current text value.
+    /// </summary>
     [Parameter]
     public string? Value { get; set; }
 
+    /// <summary>
+    /// Gets or sets the callback invoked when the value changes.
+    /// </summary>
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
 
+    /// <summary>
+    /// Gets or sets the input size attribute.
+    /// </summary>
     [Parameter]
     public int Size { get; set; } = 25;
 
+    /// <summary>
+    /// Gets or sets the maximum length allowed.
+    /// </summary>
     [Parameter]
     public int MaxLength { get; set; } = 100;
 
+    /// <summary>
+    /// Gets or sets whether the text field should stretch to full width.
+    /// </summary>
     [Parameter]
     public bool? IsFullWidth { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the input is forced to lowercase.
+    /// </summary>
     [Parameter]
     public bool IsLowercase { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the input is read-only.
+    /// </summary>
     [Parameter]
     public bool IsReadOnly { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the control shows an edited indicator.
+    /// </summary>
     [Parameter]
     public bool IsEdited { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the text field is in a loading state.
+    /// </summary>
     [Parameter]
     public bool IsLoading { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the text field is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 
+    /// <summary>
+    /// Gets or sets the callback invoked when Enter is pressed.
+    /// </summary>
     [Parameter]
     public EventCallback EnterPressed { get; set; }
 

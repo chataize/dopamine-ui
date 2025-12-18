@@ -24,33 +24,63 @@
 
 
 @code {
+    /// <summary>
+    /// Gets or sets the label displayed above the radio group.
+    /// </summary>
     [Parameter]
     public string? Label { get; set; }
 
+    /// <summary>
+    /// Gets or sets helper text displayed under the radio group.
+    /// </summary>
     [Parameter]
     public string? Caption { get; set; }
 
+    /// <summary>
+    /// Gets or sets the currently selected value.
+    /// </summary>
     [Parameter]
     public T? Value { get; set; }
 
+    /// <summary>
+    /// Gets or sets the callback invoked when the selected value changes.
+    /// </summary>
     [Parameter]
     public EventCallback<T> ValueChanged { get; set; }
 
+    /// <summary>
+    /// Gets or sets the radio button content.
+    /// </summary>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Gets or sets whether the radio buttons render without borders.
+    /// </summary>
     [Parameter]
     public bool? IsBorderless { get; set; }
 
+    /// <summary>
+    /// Gets or sets whether the radio group should stretch to full width.
+    /// </summary>
     [Parameter]
     public bool? IsFullWidth { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the control shows an edited indicator.
+    /// </summary>
     [Parameter]
     public bool IsEdited { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the radio group is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

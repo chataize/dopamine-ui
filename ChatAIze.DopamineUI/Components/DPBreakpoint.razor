@@ -7,18 +7,33 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Gets or sets the minimum screen size at which the content becomes visible.
+    /// </summary>
     [Parameter]
     public ScreenSize? FromSize { get; set; }
 
+    /// <summary>
+    /// Gets or sets the screen size at which the content becomes hidden again.
+    /// </summary>
     [Parameter]
     public ScreenSize? ToSize { get; set; }
 
+    /// <summary>
+    /// Gets or sets the content rendered within the breakpoint container.
+    /// </summary>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the content is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

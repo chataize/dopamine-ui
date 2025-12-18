@@ -20,12 +20,21 @@
 @code {
     private bool _isOpen;
 
+    /// <summary>
+    /// Gets or sets the menu content rendered inside the three-dots menu.
+    /// </summary>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value indicating whether the menu trigger is disabled.
+    /// </summary>
     [Parameter]
     public bool IsDisabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets user data associated with the component.
+    /// </summary>
     [Parameter]
     public object? Tag { get; set; }
 

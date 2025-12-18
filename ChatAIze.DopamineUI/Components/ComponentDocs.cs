@@ -1,10 +1,3 @@
-/// <summary>
-/// Provides the public Dopamine UI components used to compose Blazor applications.
-/// </summary>
-/// <remarks>
-/// <para>Tip: Include <c>/_content/ChatAIze.DopamineUI/css/dopamine.css</c> and <c>/_content/ChatAIze.DopamineUI/css/tailwind.css</c> in your app.</para>
-/// <para>Warning: Components that show loading indicators rely on static assets under <c>/_content/ChatAIze.DopamineUI/img</c>.</para>
-/// </remarks>
 namespace ChatAIze.DopamineUI.Components;
 
 /// <summary>

@@ -65,6 +65,7 @@
     {
         if (DropDown != null)
         {
+            // Register with the parent so it can render the selected label and manage items.
             DropDown.Items.Add(this);
 
             if (Value != null && Value.Equals(DropDown.Value))

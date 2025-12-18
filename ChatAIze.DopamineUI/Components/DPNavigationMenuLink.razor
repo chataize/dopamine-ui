@@ -41,6 +41,7 @@
     {
         get
         {
+            // Root must match exactly, other paths use prefix match for nested routes.
             if (Path == "/")
             {
                 return ActivePath == "/";

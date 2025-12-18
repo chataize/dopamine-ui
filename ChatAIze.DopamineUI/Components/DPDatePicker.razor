@@ -162,6 +162,7 @@
 
     private string FormattedYear => new DateTime(_browsedYear, _browsedMonth, 1).ToString("yyyy");
 
+    // Shift DayOfWeek so Monday is index 0 for the calendar grid.
     private int DayOffset => ((int)new DateTime(_browsedYear, _browsedMonth, 1).DayOfWeek + 6) % 7;
 
     private int DaysInMonth => DateTime.DaysInMonth(_browsedYear, _browsedMonth);
@@ -369,6 +370,7 @@
             return;
         }
 
+        // Use a fixed offset so range checks are consistent regardless of local time zone.
         var valueAtSelection = new DateTimeOffset(_browsedYear, _browsedMonth, day, Value.Hour, Value.Minute, Value.Second, TimeSpan.Zero);
         if (valueAtSelection < From || valueAtSelection > To)
         {

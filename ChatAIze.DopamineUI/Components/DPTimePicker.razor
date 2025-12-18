@@ -421,6 +421,7 @@
 
     private async Task InvokeValueChangedAsync()
     {
+        // Only raise changes while the picker is open to avoid background edits.
         if (ActualIsOpen && ValueChanged.HasDelegate)
         {
             await ValueChanged.InvokeAsync(Value);

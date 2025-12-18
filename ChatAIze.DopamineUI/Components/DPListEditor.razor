@@ -148,6 +148,7 @@ else
 
     private void ApplyChanges()
     {
+        // Normalize edits by dropping blanks and optionally removing duplicates.
         var newItems = _items.Select(i => i.Value).Where(i => !string.IsNullOrWhiteSpace(i));
 
         if (!AllowDuplicates)

@@ -50,7 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.1" />
-    <PackageReference Include="ChatAIze.Abstractions" Version="0.13.0" Condition="'$(UseLocalChataizeProjects)' != 'true'" />
+    <PackageReference Include="ChatAIze.Abstractions" Version="0.14.0" Condition="'$(UseLocalChataizeProjects)' != 'true'" />
   </ItemGroup>
   <ItemGroup Condition="'$(UseLocalChataizeProjects)' == 'true'">
     <ProjectReference Include="..\..\abstractions\ChatAIze.Abstractions\ChatAIze.Abstractions.csproj" />

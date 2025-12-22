@@ -1032,5 +1032,10 @@ Example:
 <DPListEditor Items="tags" ItemsChanged="OnTagsChanged" ItemPlaceholder="Add tag" MaxItems="5" />
 ```
 
+## Links
+- GitHub: https://github.com/chataize/dopamine-ui
+- Chataize organization: https://github.com/chataize
+- Website: https://www.chataize.com
+
 ## License
 GPL-3.0-or-later
